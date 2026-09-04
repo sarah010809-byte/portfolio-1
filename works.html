@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Works — My Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="subpage">
+
+<header class="site-header scrolled">
+  <div class="header-inner">
+    <a href="index.html" class="logo" data-ko="홍길동" data-en="GILDONG HONG">홍길동</a>
+    <nav class="nav" id="nav">
+      <a href="works.html" class="current" data-ko="작품" data-en="Works">작품</a>
+      <a href="exhibitions.html" data-ko="전시" data-en="Exhibitions">전시</a>
+      <a href="about.html" data-ko="소개" data-en="About">소개</a>
+      <a href="contact.html" data-ko="연락처" data-en="Contact">연락처</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-toggle">
+        <button id="btn-ko" class="active">Kr</button>
+        <span>/</span>
+        <button id="btn-en">En</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="page-layout">
+
+  <!-- 좌측 사이드바: 시리즈 목록 -->
+  <aside class="sidebar">
+    <h1 data-ko="작품" data-en="Works">작품</h1>
+    <ul class="series-nav">
+      <li><a href="#series-a" data-ko="시리즈 A" data-en="Series A">시리즈 A</a></li>
+      <li><a href="#series-b" data-ko="시리즈 B" data-en="Series B">시리즈 B</a></li>
+      <li><a href="#series-c" data-ko="시리즈 C" data-en="Series C">시리즈 C</a></li>
+    </ul>
+  </aside>
+
+  <!-- 우측: 시리즈별 그리드 -->
+  <div class="page-content">
+
+    <section id="series-a" class="series">
+      <div class="series-head">
+        <h2 data-ko="시리즈 A" data-en="Series A">시리즈 A</h2>
+        <span class="series-meta" data-ko="2025–2026, 혼합 매체" data-en="2025–2026, Mixed media">2025–2026, 혼합 매체</span>
+      </div>
+      <div class="grid">
+        <figure class="card">
+          <div class="thumb placeholder"><span>A-1</span></div>
+          <figcaption>
+            <strong data-ko="작품 제목 1" data-en="Work Title 1">작품 제목 1</strong>
+            <span data-ko="2026, 혼합 매체" data-en="2026, Mixed media">2026, 혼합 매체</span>
+          </figcaption>
+        </figure>
+        <figure class="card">
+          <div class="thumb placeholder"><span>A-2</span></div>
+          <figcaption>
+            <strong data-ko="작품 제목 2" data-en="Work Title 2">작품 제목 2</strong>
+            <span data-ko="2026, 혼합 매체" data-en="2026, Mixed media">2026, 혼합 매체</span>
+          </figcaption>
+        </figure>
+        <figure class="card">
+          <div class="thumb placeholder"><span>A-3</span></div>
+          <figcaption>
+            <strong data-ko="작품 제목 3" data-en="Work Title 3">작품 제목 3</strong>
+            <span data-ko="2025, 혼합 매체" data-en="2025, Mixed media">2025, 혼합 매체</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="series-b" class="series">
+      <div class="series-head">
+        <h2 data-ko="시리즈 B" data-en="Series B">시리즈 B</h2>
+        <span class="series-meta" data-ko="2024–2025, 사진" data-en="2024–2025, Photography">2024–2025, 사진</span>
+      </div>
+      <div class="grid">
+        <figure class="card">
+          <div class="thumb placeholder"><span>B-1</span></div>
+          <figcaption>
+            <strong data-ko="작품 제목 4" data-en="Work Title 4">작품 제목 4</strong>
+            <span data-ko="2025, 사진" data-en="2025, Photography">2025, 사진</span>
+          </figcaption>
+        </figure>
+        <figure class="card">
+          <div class="thumb placeholder"><span>B-2</span></div>
+          <figcaption>
+            <strong data-ko="작품 제목 5" data-en="Work Title 5">작품 제목 5</strong>
+            <span data-ko="2024, 사진" data-en="2024, Photography">2024, 사진</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="series-c" class="series">
+      <div class="series-head">
+        <h2 data-ko="시리즈 C" data-en="Series C">시리즈 C</h2>
+        <span class="series-meta" data-ko="2023–2024, 조각" data-en="2023–2024, Sculpture">2023–2024, 조각</span>
+      </div>
+      <div class="grid">
+        <figure class="card">
+          <div class="thumb placeholder"><span>C-1</span></div>
+          <figcaption>
+            <strong data-ko="작품 제목 6" data-en="Work Title 6">작품 제목 6</strong>
+            <span data-ko="2024, 조각" data-en="2024, Sculpture">2024, 조각</span>
+          </figcaption>
+        </figure>
+        <figure class="card">
+          <div class="thumb placeholder"><span>C-2</span></div>
+          <figcaption>
+            <strong data-ko="작품 제목 7" data-en="Work Title 7">작품 제목 7</strong>
+            <span data-ko="2023, 조각" data-en="2023, Sculpture">2023, 조각</span>
+          </figcaption>
+        </figure>
+        <figure class="card">
+          <div class="thumb placeholder"><span>C-3</span></div>
+          <figcaption>
+            <strong data-ko="작품 제목 8" data-en="Work Title 8">작품 제목 8</strong>
+            <span data-ko="2023, 조각" data-en="2023, Sculpture">2023, 조각</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p data-ko="© 2026 홍길동. 모든 권리 보유." data-en="© 2026 Gildong Hong. All rights reserved.">© 2026 홍길동. 모든 권리 보유.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

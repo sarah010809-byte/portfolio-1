@@ -1,0 +1,289 @@
+/* ===== 기본 ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color: #111;
+  background: #fff;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ===== 헤더 ===== */
+/* 처음엔 투명 배경 + 흰 텍스트, 스크롤하면 .scrolled 클래스로 흰 바 + 검은 텍스트 */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  color: #fff;
+  z-index: 10;
+  transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(255,255,255,0.97);
+  color: #111;
+  box-shadow: 0 1px 0 #eee;
+}
+
+.site-header .lang-toggle,
+.site-header .lang-toggle button { color: rgba(255,255,255,0.7); }
+.site-header .lang-toggle button.active { color: #fff; }
+.site-header .menu-btn { color: #fff; }
+
+.site-header.scrolled .lang-toggle,
+.site-header.scrolled .lang-toggle button { color: #999; }
+.site-header.scrolled .lang-toggle button.active { color: #111; }
+.site-header.scrolled .menu-btn { color: #111; }
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  font-family: "Gotham", "Montserrat", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+}
+
+.nav { display: flex; gap: 24px; font-size: 0.95rem; }
+.nav a:hover { opacity: 0.5; }
+
+.header-right { display: flex; align-items: center; gap: 12px; }
+
+.lang-toggle { font-size: 0.9rem; }
+.lang-toggle button {
+  background: none; border: none; cursor: pointer;
+  font: inherit; padding: 2px 4px;
+  transition: color 0.4s ease;
+}
+.lang-toggle button.active { font-weight: 700; }
+
+.menu-btn {
+  display: none;
+  background: none; border: none; font-size: 1.4rem; cursor: pointer;
+  transition: color 0.4s ease;
+}
+
+/* ===== 풀스크린 히어로 ===== */
+/* 배경 사진을 넣으려면 아래 background 줄을 다음처럼 교체:
+   background: url("images/hero.jpg") center / cover no-repeat; */
+.hero {
+  height: 100vh;
+  background: linear-gradient(160deg, #3a3f4b 0%, #6b7280 55%, #9aa2ad 100%);
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+/* 하단 텍스트 가독성용 어두운 그라데이션 */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 45%;
+  background: linear-gradient(to top, rgba(0,0,0,0.45), transparent);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px 56px;
+}
+
+.hero-name {
+  font-family: "Gotham", "Montserrat", "Helvetica Neue", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.hero-text p { color: rgba(255,255,255,0.85); max-width: 600px; }
+
+/* ===== 섹션 공통 ===== */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  border-top: 1px solid #eee;
+}
+
+.section h2 {
+  font-size: 1.2rem;
+  letter-spacing: 0.03em;
+}
+
+/* 섹션 제목 + View all 링크 */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.view-all {
+  font-size: 0.9rem;
+  color: #888;
+  transition: color 0.2s;
+}
+.view-all:hover { color: #111; }
+
+/* 현재 페이지 메뉴 표시 */
+.nav a.current { font-weight: 700; }
+
+/* ===== 서브페이지 레이아웃 (좌측 사이드바 + 우측 콘텐츠) ===== */
+.page-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 20px 40px;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  min-height: 70vh;
+}
+
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 100px;
+}
+
+.sidebar h1 {
+  font-size: 1.4rem;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+}
+
+.series-nav { list-style: none; }
+.series-nav li { margin-bottom: 8px; }
+.series-nav a {
+  font-size: 0.95rem;
+  color: #888;
+  transition: color 0.2s;
+}
+.series-nav a:hover { color: #111; }
+
+.page-content { flex: 1; min-width: 0; }
+
+.series { margin-bottom: 56px; }
+.series:last-child { margin-bottom: 0; }
+
+.series-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.series-head h2 { font-size: 1.1rem; letter-spacing: 0.02em; }
+.series-meta { font-size: 0.85rem; color: #999; }
+
+/* 사이드바 앵커 이동 시 헤더에 가리지 않게 */
+.series { scroll-margin-top: 90px; }
+
+/* ===== 작품 그리드 ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card .thumb { aspect-ratio: 4 / 3; margin-bottom: 8px; }
+.card figcaption { font-size: 0.85rem; display: flex; flex-direction: column; }
+.card figcaption span { color: #888; }
+.card a:hover .thumb { opacity: 0.85; }
+.card .thumb { transition: opacity 0.2s; }
+
+/* ===== 플레이스홀더 (실제 이미지로 교체) ===== */
+.placeholder {
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 0.85rem;
+}
+
+/* ===== 전시 목록 ===== */
+.exhibition-list { list-style: none; }
+.exhibition-list li {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 0.95rem;
+}
+.exhibition-list .year { color: #999; min-width: 44px; }
+
+/* ===== 소개 ===== */
+.about-wrap { display: flex; gap: 32px; align-items: flex-start; }
+.profile { width: 220px; aspect-ratio: 3 / 4; flex-shrink: 0; }
+.about-text p { margin-bottom: 12px; max-width: 640px; color: #333; }
+
+/* ===== 연락처 / 푸터 ===== */
+.contact-line { margin-bottom: 6px; }
+.contact-line a { border-bottom: 1px solid #ccc; }
+
+.site-footer {
+  border-top: 1px solid #eee;
+  margin-top: 40px;
+  padding: 24px 20px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* ===== 모바일 (768px 이하) ===== */
+@media (max-width: 768px) {
+  .menu-btn { display: block; }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav.open { display: flex; }
+  .nav a { padding: 14px 20px; border-top: 1px solid #f5f5f5; color: #111; }
+
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+  .about-wrap { flex-direction: column; }
+  .profile { width: 60%; }
+
+  /* 서브페이지: 사이드바를 위로 */
+  .page-layout {
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 90px;
+  }
+  .sidebar { position: static; width: auto; }
+  .series-nav { display: flex; flex-wrap: wrap; gap: 14px; }
+  .series-nav li { margin-bottom: 0; }
+}
+
+/* 아주 작은 화면 */
+@media (max-width: 420px) {
+  .grid { grid-template-columns: 1fr; }
+}

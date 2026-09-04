@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exhibitions — My Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="subpage">
+
+<header class="site-header scrolled">
+  <div class="header-inner">
+    <a href="index.html" class="logo" data-ko="홍길동" data-en="GILDONG HONG">홍길동</a>
+    <nav class="nav" id="nav">
+      <a href="works.html" data-ko="작품" data-en="Works">작품</a>
+      <a href="exhibitions.html" class="current" data-ko="전시" data-en="Exhibitions">전시</a>
+      <a href="about.html" data-ko="소개" data-en="About">소개</a>
+      <a href="contact.html" data-ko="연락처" data-en="Contact">연락처</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-toggle">
+        <button id="btn-ko" class="active">Kr</button>
+        <span>/</span>
+        <button id="btn-en">En</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main class="page-layout">
+
+  <aside class="sidebar">
+    <h1 data-ko="전시" data-en="Exhibitions">전시</h1>
+    <ul class="series-nav">
+      <li><a href="#solo" data-ko="개인전" data-en="Solo">개인전</a></li>
+      <li><a href="#group" data-ko="단체전" data-en="Group">단체전</a></li>
+    </ul>
+  </aside>
+
+  <div class="page-content">
+
+    <section id="solo" class="series">
+      <div class="series-head">
+        <h2 data-ko="개인전" data-en="Solo Exhibitions">개인전</h2>
+      </div>
+      <ul class="exhibition-list">
+        <li>
+          <span class="year">2026</span>
+          <span data-ko="《전시 제목》, 갤러리 이름, 서울" data-en="“Exhibition Title”, Gallery Name, Seoul">《전시 제목》, 갤러리 이름, 서울</span>
+        </li>
+        <li>
+          <span class="year">2025</span>
+          <span data-ko="《전시 제목》, 갤러리 이름, 서울" data-en="“Exhibition Title”, Gallery Name, Seoul">《전시 제목》, 갤러리 이름, 서울</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="group" class="series">
+      <div class="series-head">
+        <h2 data-ko="단체전" data-en="Group Exhibitions">단체전</h2>
+      </div>
+      <ul class="exhibition-list">
+        <li>
+          <span class="year">2025</span>
+          <span data-ko="《단체전 제목》, 미술관 이름, 부산" data-en="“Group Show Title”, Museum Name, Busan">《단체전 제목》, 미술관 이름, 부산</span>
+        </li>
+        <li>
+          <span class="year">2024</span>
+          <span data-ko="《졸업 전시》, 학교 이름, 서울" data-en="“Graduation Show”, School Name, Seoul">《졸업 전시》, 학교 이름, 서울</span>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p data-ko="© 2026 홍길동. 모든 권리 보유." data-en="© 2026 Gildong Hong. All rights reserved.">© 2026 홍길동. 모든 권리 보유.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
