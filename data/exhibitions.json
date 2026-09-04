@@ -1,0 +1,10 @@
+{
+  "solo": [
+    { "year": "2026", "text_ko": "《전시 제목》, 갤러리 이름, 서울", "text_en": "“Exhibition Title”, Gallery Name, Seoul" },
+    { "year": "2025", "text_ko": "《전시 제목》, 갤러리 이름, 서울", "text_en": "“Exhibition Title”, Gallery Name, Seoul" }
+  ],
+  "group": [
+    { "year": "2025", "text_ko": "《단체전 제목》, 미술관 이름, 부산", "text_en": "“Group Show Title”, Museum Name, Busan" },
+    { "year": "2024", "text_ko": "《졸업 전시》, 학교 이름, 서울", "text_en": "“Graduation Show”, School Name, Seoul" }
+  ]
+}

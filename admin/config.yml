@@ -1,0 +1,59 @@
+backend:
+  name: github
+  repo: sarah010809-byte/portfolio-1
+  branch: main
+
+# 업로드한 이미지가 저장되는 위치
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+locale: ko
+
+collections:
+  - name: "content"
+    label: "사이트 콘텐츠"
+    files:
+      - label: "작품 (Works)"
+        name: "works"
+        file: "data/works.json"
+        fields:
+          - label: "시리즈 목록"
+            name: "series"
+            widget: "list"
+            summary: "{{fields.title_ko}}"
+            fields:
+              - { label: "고유 ID (영문 소문자, 예: series-a)", name: "id", widget: "string" }
+              - { label: "시리즈 제목 (한글)", name: "title_ko", widget: "string" }
+              - { label: "시리즈 제목 (영문)", name: "title_en", widget: "string" }
+              - { label: "부가 정보 (한글, 예: 2025–2026, 혼합 매체)", name: "meta_ko", widget: "string", required: false }
+              - { label: "부가 정보 (영문)", name: "meta_en", widget: "string", required: false }
+              - label: "작품 목록"
+                name: "works"
+                widget: "list"
+                summary: "{{fields.title_ko}}"
+                fields:
+                  - { label: "작품 제목 (한글)", name: "title_ko", widget: "string" }
+                  - { label: "작품 제목 (영문)", name: "title_en", widget: "string" }
+                  - { label: "설명 (한글, 예: 2026, 혼합 매체)", name: "caption_ko", widget: "string", required: false }
+                  - { label: "설명 (영문)", name: "caption_en", widget: "string", required: false }
+                  - { label: "이미지", name: "image", widget: "image", required: false }
+      - label: "전시 (Exhibitions)"
+        name: "exhibitions"
+        file: "data/exhibitions.json"
+        fields:
+          - label: "개인전"
+            name: "solo"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.text_ko}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
+              - { label: "내용 (영문)", name: "text_en", widget: "string" }
+          - label: "단체전"
+            name: "group"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.text_ko}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
+              - { label: "내용 (영문)", name: "text_en", widget: "string" }

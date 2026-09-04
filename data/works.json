@@ -1,0 +1,39 @@
+{
+  "series": [
+    {
+      "id": "series-a",
+      "title_ko": "시리즈 A",
+      "title_en": "Series A",
+      "meta_ko": "2025–2026, 혼합 매체",
+      "meta_en": "2025–2026, Mixed media",
+      "works": [
+        { "title_ko": "작품 제목 1", "title_en": "Work Title 1", "caption_ko": "2026, 혼합 매체", "caption_en": "2026, Mixed media", "image": "" },
+        { "title_ko": "작품 제목 2", "title_en": "Work Title 2", "caption_ko": "2026, 혼합 매체", "caption_en": "2026, Mixed media", "image": "" },
+        { "title_ko": "작품 제목 3", "title_en": "Work Title 3", "caption_ko": "2025, 혼합 매체", "caption_en": "2025, Mixed media", "image": "" }
+      ]
+    },
+    {
+      "id": "series-b",
+      "title_ko": "시리즈 B",
+      "title_en": "Series B",
+      "meta_ko": "2024–2025, 사진",
+      "meta_en": "2024–2025, Photography",
+      "works": [
+        { "title_ko": "작품 제목 4", "title_en": "Work Title 4", "caption_ko": "2025, 사진", "caption_en": "2025, Photography", "image": "" },
+        { "title_ko": "작품 제목 5", "title_en": "Work Title 5", "caption_ko": "2024, 사진", "caption_en": "2024, Photography", "image": "" }
+      ]
+    },
+    {
+      "id": "series-c",
+      "title_ko": "시리즈 C",
+      "title_en": "Series C",
+      "meta_ko": "2023–2024, 조각",
+      "meta_en": "2023–2024, Sculpture",
+      "works": [
+        { "title_ko": "작품 제목 6", "title_en": "Work Title 6", "caption_ko": "2024, 조각", "caption_en": "2024, Sculpture", "image": "" },
+        { "title_ko": "작품 제목 7", "title_en": "Work Title 7", "caption_ko": "2023, 조각", "caption_en": "2023, Sculpture", "image": "" },
+        { "title_ko": "작품 제목 8", "title_en": "Work Title 8", "caption_ko": "2023, 조각", "caption_en": "2023, Sculpture", "image": "" }
+      ]
+    }
+  ]
+}
