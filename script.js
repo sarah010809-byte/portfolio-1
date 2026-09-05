@@ -53,11 +53,13 @@ function thumbHTML(work, label) {
 }
 
 function cardHTML(work, label, linkTo) {
+  const cap = work.caption_ko
+    ? `<span data-ko=", ${esc(work.caption_ko)}" data-en=", ${esc(work.caption_en)}">, ${esc(work.caption_ko)}</span>`
+    : "";
   const inner = `
     ${thumbHTML(work, label)}
     <figcaption>
-      <strong data-ko="${esc(work.title_ko)}" data-en="${esc(work.title_en)}">${esc(work.title_ko)}</strong>
-      <span data-ko="${esc(work.caption_ko)}" data-en="${esc(work.caption_en)}">${esc(work.caption_ko)}</span>
+      <strong data-ko="${esc(work.title_ko)}" data-en="${esc(work.title_en)}">${esc(work.title_ko)}</strong>${cap}
     </figcaption>`;
   return `<figure class="card">${linkTo ? `<a href="${linkTo}">${inner}</a>` : inner}</figure>`;
 }
