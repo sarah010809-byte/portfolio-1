@@ -119,8 +119,47 @@ async function renderDynamic() {
             <h2 data-ko="${esc(s.title_ko)}" data-en="${esc(s.title_en)}">${esc(s.title_ko)}</h2>
             <span class="series-meta" data-ko="${esc(s.meta_ko)}" data-en="${esc(s.meta_en)}">${esc(s.meta_ko)}</span>
           </div>
-          <div class="grid">${s.works.map((w, i) => cardHTML(w, `${s.title_en} ${i + 1}`)).join("")}</div>
+          <div class="grid">${s.works.map((w, i) =>
+            cardHTML(w, `${s.title_en} ${i + 1}`, `work.html?series=${encodeURIComponent(s.id)}&i=${i}`)
+          ).join("")}</div>
         </section>`).join("");
+    }
+  }
+
+  // 작품 상세 페이지
+  const workDetail = document.getElementById("work-detail");
+  if (workDetail) {
+    const data = await loadJSON("data/works.json");
+    if (data) {
+      const params = new URLSearchParams(location.search);
+      const sIdx = Math.max(0, data.series.findIndex((s) => s.id === params.get("series")));
+      const series = data.series[sIdx];
+      const i = Math.min(Math.max(0, parseInt(params.get("i") || "0", 10) || 0), series.works.length - 1);
+      const w = series.works[i];
+
+      const titleEl = document.getElementById("detail-series-title");
+      titleEl.dataset.ko = series.title_ko;
+      titleEl.dataset.en = series.title_en;
+
+      const link = (idx) => `work.html?series=${encodeURIComponent(series.id)}&i=${idx}`;
+      const prev = i > 0
+        ? `<a href="${link(i - 1)}" data-ko="← 이전" data-en="← Prev">← 이전</a>` : `<span></span>`;
+      const next = i < series.works.length - 1
+        ? `<a href="${link(i + 1)}" data-ko="다음 →" data-en="Next →">다음 →</a>` : `<span></span>`;
+
+      workDetail.innerHTML = `
+        <div class="work-image">${
+          w.image
+            ? `<img src="${esc(w.image)}" alt="${esc(w.title_ko)}">`
+            : `<div class="placeholder detail-placeholder"><span>${esc(w.title_en)}</span></div>`
+        }</div>
+        <div class="work-info">
+          <h2 data-ko="${esc(w.title_ko)}" data-en="${esc(w.title_en)}">${esc(w.title_ko)}</h2>
+          <p class="work-caption" data-ko="${esc(w.caption_ko)}" data-en="${esc(w.caption_en)}">${esc(w.caption_ko)}</p>
+        </div>
+        <div class="work-nav">${prev}<span class="work-count">${i + 1} / ${series.works.length}</span>${next}</div>`;
+
+      document.title = `${w.title_ko} — My Portfolio`;
     }
   }
 
