@@ -37,6 +37,40 @@ collections:
                   - { label: "설명 (한글, 예: 2026, 혼합 매체)", name: "caption_ko", widget: "string", required: false }
                   - { label: "설명 (영문)", name: "caption_en", widget: "string", required: false }
                   - { label: "이미지", name: "image", widget: "image", required: false }
+      - label: "작가 (Artist)"
+        name: "artist"
+        file: "data/artist.json"
+        fields:
+          - { label: "프로필 사진", name: "profile_image", widget: "image", required: false }
+          - { label: "이메일 주소", name: "email", widget: "string" }
+          - { label: "인스타그램 주소 (https://...)", name: "instagram", widget: "string" }
+          - { label: "인스타그램 아이디 표시용 (예: @gildong)", name: "instagram_handle", widget: "string" }
+          - { label: "작가 노트 (한글)", name: "statement_ko", widget: "text" }
+          - { label: "작가 노트 (영문)", name: "statement_en", widget: "text" }
+          - label: "학력"
+            name: "education"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.text_ko}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
+              - { label: "내용 (영문)", name: "text_en", widget: "string" }
+          - label: "개인전 (C.V.)"
+            name: "solo"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.text_ko}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
+              - { label: "내용 (영문)", name: "text_en", widget: "string" }
+          - label: "단체전 (C.V.)"
+            name: "group"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.text_ko}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
+              - { label: "내용 (영문)", name: "text_en", widget: "string" }
       - label: "전시 (Exhibitions)"
         name: "exhibitions"
         file: "data/exhibitions.json"

@@ -1,0 +1,17 @@
+{
+  "profile_image": "",
+  "email": "hello@example.com",
+  "instagram": "https://www.instagram.com/your_instagram",
+  "instagram_handle": "@your_instagram",
+  "statement_ko": "여기에 작가 노트를 적어주세요. 어떤 작업을 하는지, 어떤 주제에 관심이 있는지 자유롭게 쓰면 됩니다.",
+  "statement_en": "Write the artist statement here. Describe the practice and the themes of interest.",
+  "education": [
+    { "year": "2026", "text_ko": "OO대학교 미술대학 졸업", "text_en": "B.F.A., OO University" }
+  ],
+  "solo": [
+    { "year": "2026", "text_ko": "《전시 제목》, 갤러리 이름, 서울", "text_en": "“Exhibition Title”, Gallery Name, Seoul" }
+  ],
+  "group": [
+    { "year": "2025", "text_ko": "《단체전 제목》, 미술관 이름, 부산", "text_en": "“Group Show Title”, Museum Name, Busan" }
+  ]
+}

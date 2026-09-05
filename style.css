@@ -2,7 +2,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   color: #111;
   background: #fff;
   line-height: 1.6;
@@ -51,8 +51,7 @@ img { max-width: 100%; display: block; }
 }
 
 .logo {
-  font-family: "Gotham", "Montserrat", "Helvetica Neue", sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.1rem;
   letter-spacing: 0.02em;
 }
@@ -107,8 +106,7 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-name {
-  font-family: "Gotham", "Montserrat", "Helvetica Neue", sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: clamp(2rem, 5vw, 3.5rem);
   letter-spacing: 0.04em;
   margin-bottom: 8px;

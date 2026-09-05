@@ -163,6 +163,56 @@ async function renderDynamic() {
     }
   }
 
+  // Artist 페이지
+  const artistContent = document.getElementById("artist-content");
+  if (artistContent) {
+    const a = await loadJSON("data/artist.json");
+    if (a) {
+      const cvList = (items) => `<ul class="cv-list">${(items || []).map((it) =>
+        `<li><span class="year">${esc(it.year)}</span><span data-ko="${esc(it.text_ko)}" data-en="${esc(it.text_en)}">${esc(it.text_ko)}</span></li>`
+      ).join("")}</ul>`;
+
+      artistContent.innerHTML = `
+        ${a.profile_image
+          ? `<img class="profile" src="${esc(a.profile_image)}" alt="Profile">`
+          : `<div class="profile placeholder"><span data-ko="프로필 사진" data-en="Profile Photo">프로필 사진</span></div>`}
+        <div class="artist-icons">
+          <a href="contact.html" class="icon-circle" aria-label="Contact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>
+            </svg>
+          </a>
+          <a href="${esc(a.instagram)}" target="_blank" rel="noopener" class="icon-circle" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/>
+              <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </div>
+        <section class="artist-section">
+          <h2 data-ko="작가 노트" data-en="Artist Statement">작가 노트</h2>
+          <p data-ko="${esc(a.statement_ko)}" data-en="${esc(a.statement_en)}">${esc(a.statement_ko)}</p>
+        </section>
+        <section class="artist-section">
+          <h2>C.V.</h2>
+          <h3 data-ko="학력" data-en="Education">학력</h3>${cvList(a.education)}
+          <h3 data-ko="개인전" data-en="Solo Exhibitions">개인전</h3>${cvList(a.solo)}
+          <h3 data-ko="단체전" data-en="Group Exhibitions">단체전</h3>${cvList(a.group)}
+        </section>`;
+    }
+  }
+
+  // Contact 페이지 (이메일/인스타는 artist.json 공용)
+  const contactContent = document.getElementById("contact-content");
+  if (contactContent) {
+    const a = await loadJSON("data/artist.json");
+    if (a) {
+      contactContent.innerHTML = `
+        <p class="contact-line">Email — <a href="mailto:${esc(a.email)}">${esc(a.email)}</a></p>
+        <p class="contact-line">Instagram — <a href="${esc(a.instagram)}" target="_blank" rel="noopener">${esc(a.instagram_handle)}</a></p>`;
+    }
+  }
+
   // Exhibitions 페이지
   const soloList = document.getElementById("solo-list");
   const groupList = document.getElementById("group-list");
