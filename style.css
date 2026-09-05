@@ -272,14 +272,72 @@ img { max-width: 100%; display: block; }
 .contact-line { margin-bottom: 6px; }
 .contact-line a { border-bottom: 1px solid #ccc; }
 
+/* ===== 푸터 (블랙 배경 + 화이트 글씨) ===== */
 .site-footer {
-  border-top: 1px solid #eee;
+  background: #111;
+  color: #fff;
   margin-top: 40px;
-  padding: 24px 20px;
+  padding: 36px 20px;
   text-align: center;
   font-size: 0.8rem;
-  color: #999;
 }
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+.footer-nav a { color: #999; transition: color 0.2s; }
+.footer-nav a:hover { color: #fff; }
+
+.site-footer p { color: #777; }
+
+/* ===== Artist 페이지 ===== */
+.artist-icons {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0 40px;
+}
+
+.icon-circle {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.icon-circle svg { width: 20px; height: 20px; }
+.icon-circle:hover { background: #111; color: #fff; border-color: #111; }
+
+.artist-section { margin-bottom: 48px; }
+.artist-section h2 {
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+.artist-section h3 {
+  font-size: 0.95rem;
+  margin: 24px 0 10px;
+  color: #555;
+}
+.artist-section p { max-width: 640px; color: #333; margin-bottom: 12px; }
+
+.cv-list { list-style: none; }
+.cv-list li {
+  display: flex;
+  gap: 20px;
+  padding: 6px 0;
+  font-size: 0.95rem;
+}
+.cv-list .year { color: #999; min-width: 44px; }
+
+img.profile { object-fit: cover; }
 
 /* ===== 모바일 (768px 이하) ===== */
 @media (max-width: 768px) {
