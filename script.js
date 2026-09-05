@@ -120,7 +120,8 @@ async function renderDynamic() {
             <span class="series-meta" data-ko="${esc(s.meta_ko)}" data-en="${esc(s.meta_en)}">${esc(s.meta_ko)}</span>
           </div>
           <div class="grid">${s.works.map((w, i) =>
-            cardHTML(w, `${s.title_en} ${i + 1}`, `work.html?series=${encodeURIComponent(s.id)}&i=${i}`)
+            cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
+              `${s.title_en} ${i + 1}`, `work.html?series=${encodeURIComponent(s.id)}&i=${i}`)
           ).join("")}</div>
         </section>`).join("");
     }
@@ -155,7 +156,9 @@ async function renderDynamic() {
         }</div>
         <div class="work-info">
           <h2 data-ko="${esc(w.title_ko)}" data-en="${esc(w.title_en)}">${esc(w.title_ko)}</h2>
-          <p class="work-caption" data-ko="${esc(w.caption_ko)}" data-en="${esc(w.caption_en)}">${esc(w.caption_ko)}</p>
+          <p class="work-caption"
+             data-ko="${esc(w.year)}${w.medium_ko ? `, ${esc(w.medium_ko)}` : ""}"
+             data-en="${esc(w.year)}${w.medium_en ? `, ${esc(w.medium_en)}` : ""}">${esc(w.year)}</p>
         </div>
         <div class="work-nav">${prev}<span class="work-count">${i + 1} / ${series.works.length}</span>${next}</div>`;
 

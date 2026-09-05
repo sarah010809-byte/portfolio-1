@@ -200,11 +200,13 @@ img { max-width: 100%; display: block; }
 .back-link a { font-size: 0.9rem; color: #888; }
 .back-link a:hover { color: #111; }
 
+/* 이미지 실제 비율 그대로 표시 (좌우 여백 없음) */
 .work-image img {
-  width: 100%;
+  display: block;
+  max-width: 100%;
   max-height: 75vh;
-  object-fit: contain;
-  background: #fafafa;
+  width: auto;
+  height: auto;
 }
 
 .detail-placeholder { aspect-ratio: 4 / 3; }

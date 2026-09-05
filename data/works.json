@@ -7,27 +7,9 @@
       "meta_ko": "",
       "meta_en": "",
       "works": [
-        {
-          "title_ko": "작품 제목 1",
-          "title_en": "Work Title 1",
-          "caption_ko": "2026, 혼합 매체",
-          "caption_en": "2026, Mixed media",
-          "image": "images/uploads/peter-alexander.jpg"
-        },
-        {
-          "title_ko": "작품 제목 2",
-          "title_en": "Work Title 2",
-          "caption_ko": "2026, 혼합 매체",
-          "caption_en": "2026, Mixed media",
-          "image": ""
-        },
-        {
-          "title_ko": "작품 제목 3",
-          "title_en": "Work Title 3",
-          "caption_ko": "2025, 혼합 매체",
-          "caption_en": "2025, Mixed media",
-          "image": ""
-        }
+        { "title_ko": "작품 제목 1", "title_en": "Work Title 1", "year": "2026", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "image": "images/uploads/peter-alexander.jpg" },
+        { "title_ko": "작품 제목 2", "title_en": "Work Title 2", "year": "2026", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "image": "" },
+        { "title_ko": "작품 제목 3", "title_en": "Work Title 3", "year": "2025", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "image": "" }
       ]
     },
     {
@@ -37,20 +19,8 @@
       "meta_ko": "",
       "meta_en": "",
       "works": [
-        {
-          "title_ko": "작품 제목 4",
-          "title_en": "Work Title 4",
-          "caption_ko": "2025, 사진",
-          "caption_en": "2025, Photography",
-          "image": ""
-        },
-        {
-          "title_ko": "작품 제목 5",
-          "title_en": "Work Title 5",
-          "caption_ko": "2024, 사진",
-          "caption_en": "2024, Photography",
-          "image": ""
-        }
+        { "title_ko": "작품 제목 4", "title_en": "Work Title 4", "year": "2025", "medium_ko": "사진", "medium_en": "Photography", "image": "" },
+        { "title_ko": "작품 제목 5", "title_en": "Work Title 5", "year": "2024", "medium_ko": "사진", "medium_en": "Photography", "image": "" }
       ]
     },
     {
@@ -60,27 +30,9 @@
       "meta_ko": "",
       "meta_en": "",
       "works": [
-        {
-          "title_ko": "작품 제목 6",
-          "title_en": "Work Title 6",
-          "caption_ko": "2024, 조각",
-          "caption_en": "2024, Sculpture",
-          "image": ""
-        },
-        {
-          "title_ko": "작품 제목 7",
-          "title_en": "Work Title 7",
-          "caption_ko": "2023, 조각",
-          "caption_en": "2023, Sculpture",
-          "image": ""
-        },
-        {
-          "title_ko": "작품 제목 8",
-          "title_en": "Work Title 8",
-          "caption_ko": "2023, 조각",
-          "caption_en": "2023, Sculpture",
-          "image": ""
-        }
+        { "title_ko": "작품 제목 6", "title_en": "Work Title 6", "year": "2024", "medium_ko": "조각", "medium_en": "Sculpture", "image": "" },
+        { "title_ko": "작품 제목 7", "title_en": "Work Title 7", "year": "2023", "medium_ko": "조각", "medium_en": "Sculpture", "image": "" },
+        { "title_ko": "작품 제목 8", "title_en": "Work Title 8", "year": "2023", "medium_ko": "조각", "medium_en": "Sculpture", "image": "" }
       ]
     }
   ]

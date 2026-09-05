@@ -34,8 +34,9 @@ collections:
                 fields:
                   - { label: "작품 제목 (한글)", name: "title_ko", widget: "string" }
                   - { label: "작품 제목 (영문)", name: "title_en", widget: "string" }
-                  - { label: "설명 (한글, 예: 2026, 혼합 매체)", name: "caption_ko", widget: "string", required: false }
-                  - { label: "설명 (영문)", name: "caption_en", widget: "string", required: false }
+                  - { label: "연도 (예: 2026)", name: "year", widget: "string" }
+                  - { label: "형식 (한글, 예: 혼합 매체 — 상세페이지에만 표시)", name: "medium_ko", widget: "string", required: false }
+                  - { label: "형식 (영문, 예: Mixed media)", name: "medium_en", widget: "string", required: false }
                   - { label: "이미지", name: "image", widget: "image", required: false }
       - label: "작가 (Artist)"
         name: "artist"
