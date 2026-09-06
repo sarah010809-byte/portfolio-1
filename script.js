@@ -129,7 +129,7 @@ async function renderDynamic() {
         <section id="y-${esc(y)}" class="series">
           <div class="series-head"><h2>${esc(y)}</h2></div>
           <div class="grid">${list.filter((w) => w.year === y).map((w) =>
-            cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
+            cardHTML({ ...w, caption_ko: "", caption_en: "" },
               w.title_en, `work.html?i=${w.idx}`)
           ).join("")}</div>
         </section>`).join("");
