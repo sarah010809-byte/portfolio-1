@@ -107,13 +107,12 @@ async function renderDynamic() {
     if (data) {
       const list = sortedWorks(data);
       const years = [...new Set(list.map((w) => w.year))];
-      homeWorks.innerHTML = years.map((y) => `
-        <div class="home-year">
-          <div class="grid">${list.filter((w) => w.year === y).slice(0, 3).map((w) =>
-            cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
-              w.title_en, `work.html?i=${w.idx}`)
-          ).join("")}</div>
-        </div>`).join("");
+      // 연도별 3개씩을 하나의 그리드로 (PC: 3열 = 연도당 한 줄, 모바일: 2열 연속)
+      const picks = years.flatMap((y) => list.filter((w) => w.year === y).slice(0, 3));
+      homeWorks.innerHTML = `<div class="grid">${picks.map((w) =>
+        cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
+          w.title_en, `work.html?i=${w.idx}`)
+      ).join("")}</div>`;
     }
   }
 
