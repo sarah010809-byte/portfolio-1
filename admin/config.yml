@@ -11,62 +11,50 @@ public_folder: "images/uploads"
 
 locale: ko
 
+# 우측 미리보기 패널 숨김 (실제 확인은 사이트에서)
+editor:
+  preview: false
+
 collections:
-  - name: "content"
-    label: "사이트 콘텐츠"
+  - name: "works"
+    label: "🎨 작품"
+    description: "작품을 추가·수정합니다. 연도를 입력하면 사이트에서 자동으로 연도별로 정리됩니다."
     files:
-      - label: "작품 (Works)"
+      - label: "작품 목록"
         name: "works"
         file: "data/works.json"
         fields:
-          - label: "작품 목록 (연도별로 자동 정리됩니다)"
+          - label: "작품"
+            label_singular: "작품"
             name: "works"
             widget: "list"
+            collapsed: true
             summary: "{{fields.year}} — {{fields.title_ko}}"
             fields:
               - { label: "작품 제목 (한글)", name: "title_ko", widget: "string" }
               - { label: "작품 제목 (영문)", name: "title_en", widget: "string" }
               - { label: "제작 연도 (예: 2026)", name: "year", widget: "string" }
-              - { label: "형식 (한글, 예: 혼합 매체 — 상세페이지에만 표시)", name: "medium_ko", widget: "string", required: false }
+              - { label: "형식 (한글, 예: 혼합 매체)", name: "medium_ko", widget: "string", required: false, hint: "작품 상세페이지에만 표시됩니다" }
               - { label: "형식 (영문, 예: Mixed media)", name: "medium_en", widget: "string", required: false }
-              - { label: "관련 전시 (한글, 예: 《전시명》, 갤러리, 2026 — 상세페이지에 표시)", name: "related_ko", widget: "string", required: false }
+              - { label: "관련 전시 (한글)", name: "related_ko", widget: "string", required: false, hint: "예: 《전시명》, 갤러리, 2026" }
               - { label: "관련 전시 (영문)", name: "related_en", widget: "string", required: false }
-              - { label: "작품 설명 (한글 — 상세페이지에 표시)", name: "desc_ko", widget: "text", required: false }
+              - { label: "작품 설명 (한글)", name: "desc_ko", widget: "text", required: false }
               - { label: "작품 설명 (영문)", name: "desc_en", widget: "text", required: false }
               - { label: "이미지", name: "image", widget: "image", required: false }
-      - label: "작가 (Artist)"
-        name: "artist"
-        file: "data/artist.json"
-        fields:
-          - { label: "프로필 사진", name: "profile_image", widget: "image", required: false }
-          - { label: "이메일 주소", name: "email", widget: "string" }
-          - { label: "인스타그램 주소 (https://...)", name: "instagram", widget: "string" }
-          - { label: "인스타그램 아이디 표시용 (예: @gildong)", name: "instagram_handle", widget: "string" }
-          - { label: "작가 노트 (한글)", name: "statement_ko", widget: "text" }
-          - { label: "작가 노트 (영문)", name: "statement_en", widget: "text" }
-          - label: "개인전 (C.V.)"
-            name: "solo"
-            widget: "list"
-            summary: "{{fields.year}} — {{fields.text_ko}}"
-            fields:
-              - { label: "연도", name: "year", widget: "string" }
-              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
-              - { label: "내용 (영문)", name: "text_en", widget: "string" }
-          - label: "단체전 (C.V.)"
-            name: "group"
-            widget: "list"
-            summary: "{{fields.year}} — {{fields.text_ko}}"
-            fields:
-              - { label: "연도", name: "year", widget: "string" }
-              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
-              - { label: "내용 (영문)", name: "text_en", widget: "string" }
-      - label: "전시 (Exhibitions)"
+
+  - name: "exhibitions"
+    label: "🖼️ 전시"
+    description: "전시를 추가·수정합니다. 목록에서 위에 있을수록 사이트에 먼저 표시됩니다 (최신 전시를 맨 위에)."
+    files:
+      - label: "전시 목록"
         name: "exhibitions"
         file: "data/exhibitions.json"
         fields:
-          - label: "전시 목록 (위에 있을수록 먼저 표시)"
+          - label: "전시"
+            label_singular: "전시"
             name: "exhibitions"
             widget: "list"
+            collapsed: true
             summary: "{{fields.date}} — {{fields.title_ko}}"
             fields:
               - { label: "전시명 (한글)", name: "title_ko", widget: "string" }
@@ -77,3 +65,38 @@ collections:
               - { label: "전시 설명 (한글)", name: "desc_ko", widget: "text", required: false }
               - { label: "전시 설명 (영문)", name: "desc_en", widget: "text", required: false }
               - { label: "대표 이미지", name: "image", widget: "image", required: false }
+
+  - name: "artist"
+    label: "👤 작가"
+    description: "프로필 사진, 작가 노트, 연락처, C.V.를 수정합니다."
+    files:
+      - label: "작가 정보"
+        name: "artist"
+        file: "data/artist.json"
+        fields:
+          - { label: "프로필 사진", name: "profile_image", widget: "image", required: false }
+          - { label: "이메일 주소", name: "email", widget: "string" }
+          - { label: "인스타그램 주소 (https://...)", name: "instagram", widget: "string", hint: "Artist 페이지·연락처·푸터 아이콘에 모두 반영됩니다" }
+          - { label: "인스타그램 아이디 표시용 (예: @gildong)", name: "instagram_handle", widget: "string" }
+          - { label: "작가 노트 (한글)", name: "statement_ko", widget: "text" }
+          - { label: "작가 노트 (영문)", name: "statement_en", widget: "text" }
+          - label: "개인전 (C.V.)"
+            label_singular: "개인전"
+            name: "solo"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text_ko}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
+              - { label: "내용 (영문)", name: "text_en", widget: "string" }
+          - label: "단체전 (C.V.)"
+            label_singular: "단체전"
+            name: "group"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text_ko}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
+              - { label: "내용 (영문)", name: "text_en", widget: "string" }
