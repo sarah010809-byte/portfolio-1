@@ -375,6 +375,23 @@ img { max-width: 100%; display: block; }
 
 .site-footer p { color: #777; }
 
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.site-footer .icon-circle {
+  border-color: #3a3a3a;
+  color: #aaa;
+}
+.site-footer .icon-circle:hover {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+}
+.footer-copy { letter-spacing: 0.04em; font-size: 0.78rem; }
+
 /* ===== Artist 페이지 ===== */
 .artist-top {
   display: flex;

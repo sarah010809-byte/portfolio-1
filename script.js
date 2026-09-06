@@ -299,6 +299,16 @@ async function renderDynamic() {
   }
 }
 
+// 푸터 인스타그램 링크 (artist.json 의 주소를 모든 페이지에 반영)
+async function initFooter() {
+  const insta = document.getElementById("footer-insta");
+  if (insta) {
+    const a = await loadJSON("data/artist.json");
+    if (a && a.instagram) insta.href = a.instagram;
+  }
+}
+initFooter();
+
 renderDynamic().then(() => {
   setLang(currentLang());
   // 데이터 렌더 후 앵커(#series-a 등)로 이동 보정
