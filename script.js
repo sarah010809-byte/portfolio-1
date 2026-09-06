@@ -6,18 +6,29 @@ function currentLang() {
   return localStorage.getItem("lang") || "ko";
 }
 
-function setLang(lang) {
-  document.documentElement.lang = lang;
-  document.querySelectorAll("[data-ko]").forEach((el) => {
-    el.textContent = el.dataset[lang];
-  });
-  btnKo.classList.toggle("active", lang === "ko");
-  btnEn.classList.toggle("active", lang === "en");
-  localStorage.setItem("lang", lang);
+function setLang(lang, animate) {
+  const apply = () => {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-ko]").forEach((el) => {
+      el.textContent = el.dataset[lang];
+    });
+    btnKo.classList.toggle("active", lang === "ko");
+    btnEn.classList.toggle("active", lang === "en");
+    localStorage.setItem("lang", lang);
+  };
+  const m = document.querySelector("main");
+  if (animate && m) {
+    // 언어 전환 시 짧은 페이드
+    m.style.transition = "opacity 0.18s ease";
+    m.style.opacity = "0";
+    setTimeout(() => { apply(); m.style.opacity = "1"; }, 180);
+  } else {
+    apply();
+  }
 }
 
-btnKo.addEventListener("click", () => setLang("ko"));
-btnEn.addEventListener("click", () => setLang("en"));
+btnKo.addEventListener("click", () => setLang("ko", true));
+btnEn.addEventListener("click", () => setLang("en", true));
 
 // ===== 스크롤 시 헤더 전환 (투명 → 흰 바) — 메인 페이지에만 적용 =====
 const header = document.querySelector(".site-header");
@@ -233,31 +244,39 @@ async function renderDynamic() {
       ).join("")}</ul>`;
 
       artistContent.innerHTML = `
-        ${a.profile_image
-          ? `<img class="profile" src="${esc(a.profile_image)}" alt="Profile">`
-          : `<div class="profile placeholder"><span data-ko="프로필 사진" data-en="Profile Photo">프로필 사진</span></div>`}
-        <div class="artist-icons">
-          <a href="contact.html" class="icon-circle" aria-label="Contact">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>
-            </svg>
-          </a>
-          <a href="${esc(a.instagram)}" target="_blank" rel="noopener" class="icon-circle" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/>
-              <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/>
-            </svg>
-          </a>
+        <div class="artist-top">
+          ${a.profile_image
+            ? `<img class="profile" src="${esc(a.profile_image)}" alt="Profile">`
+            : `<div class="profile placeholder"><span data-ko="프로필 사진" data-en="Profile Photo">프로필 사진</span></div>`}
+          <div class="artist-main">
+            <h2 data-ko="작가 노트" data-en="Artist Statement">작가 노트</h2>
+            <p class="statement" data-ko="${esc(a.statement_ko)}" data-en="${esc(a.statement_en)}">${esc(a.statement_ko)}</p>
+            <div class="artist-icons">
+              <a href="contact.html" class="icon-circle" aria-label="Contact">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>
+                </svg>
+              </a>
+              <a href="${esc(a.instagram)}" target="_blank" rel="noopener" class="icon-circle" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
-        <section class="artist-section">
-          <h2 data-ko="작가 노트" data-en="Artist Statement">작가 노트</h2>
-          <p data-ko="${esc(a.statement_ko)}" data-en="${esc(a.statement_en)}">${esc(a.statement_ko)}</p>
-        </section>
-        <section class="artist-section">
+        <section class="artist-section artist-cv">
           <h2>C.V.</h2>
-          <h3 data-ko="학력" data-en="Education">학력</h3>${cvList(a.education)}
-          <h3 data-ko="개인전" data-en="Solo Exhibitions">개인전</h3>${cvList(a.solo)}
-          <h3 data-ko="단체전" data-en="Group Exhibitions">단체전</h3>${cvList(a.group)}
+          <div class="cv-cols">
+            <div>
+              <h3 data-ko="학력" data-en="Education">학력</h3>${cvList(a.education)}
+              <h3 data-ko="개인전" data-en="Solo Exhibitions">개인전</h3>${cvList(a.solo)}
+            </div>
+            <div>
+              <h3 data-ko="단체전" data-en="Group Exhibitions">단체전</h3>${cvList(a.group)}
+            </div>
+          </div>
         </section>`;
     }
   }
