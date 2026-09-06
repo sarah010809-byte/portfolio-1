@@ -279,6 +279,39 @@ img { max-width: 100%; display: block; }
   font-size: 0.85rem;
 }
 
+/* ===== 전시 페이지 (가운데 제목 + 이미지/정보 리스트) ===== */
+.exh-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 20px 40px;
+  min-height: 70vh;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 56px;
+  font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
+}
+
+.exh-item {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 64px;
+}
+
+.exh-image { width: 46%; flex-shrink: 0; }
+.exh-image img { width: 100%; display: block; }
+.exh-placeholder { aspect-ratio: 4 / 3; }
+
+.exh-info { flex: 1; min-width: 0; }
+.exh-info h2 { font-size: 1.2rem; margin-bottom: 6px; }
+.exh-date { color: #888; font-size: 0.9rem; }
+.exh-venue { color: #555; font-size: 0.9rem; margin-top: 2px; }
+.exh-desc { margin-top: 16px; font-size: 0.95rem; color: #333; max-width: 480px; white-space: pre-line; }
+
 /* ===== 전시 목록 ===== */
 .exhibition-list { list-style: none; }
 .exhibition-list li {
@@ -402,6 +435,11 @@ img.profile { object-fit: cover; }
   /* 작품 상세: 모바일에선 이미지 아래에 정보 */
   .work-top { flex-direction: column; gap: 20px; }
   .work-side { width: auto; }
+
+  /* 전시: 모바일에선 이미지 아래에 정보 */
+  .exh-item { flex-direction: column; gap: 16px; }
+  .exh-image { width: 100%; }
+  .exh-layout { padding-top: 90px; }
 }
 
 /* 아주 작은 화면 */

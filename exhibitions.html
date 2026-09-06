@@ -14,12 +14,12 @@
 
 <header class="site-header scrolled">
   <div class="header-inner">
-    <a href="index.html" class="logo" data-ko="안세은" data-en="AN SE EUN">안세은</a>
+    <a href="index.html" class="logo">AN SE EUN</a>
     <nav class="nav" id="nav">
-      <a href="works.html" data-ko="작품" data-en="Works">작품</a>
-      <a href="exhibitions.html" class="current" data-ko="전시" data-en="Exhibitions">전시</a>
-      <a href="artist.html" data-ko="작가" data-en="Artist">작가</a>
-      <a href="contact.html" data-ko="연락처" data-en="Contact">연락처</a>
+      <a href="works.html">Works</a>
+      <a href="exhibitions.html" class="current">Exhibitions</a>
+      <a href="artist.html">Artist</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div class="header-right">
       <div class="lang-toggle">
@@ -32,41 +32,18 @@
   </div>
 </header>
 
-<main class="page-layout">
-
-  <aside class="sidebar">
-    <h1 data-ko="전시" data-en="Exhibitions">전시</h1>
-    <ul class="series-nav">
-      <li><a href="#solo" data-ko="개인전" data-en="Solo">개인전</a></li>
-      <li><a href="#group" data-ko="단체전" data-en="Group">단체전</a></li>
-    </ul>
-  </aside>
-
-  <div class="page-content">
-
-    <section id="solo" class="series">
-      <div class="series-head">
-        <h2 data-ko="개인전" data-en="Solo Exhibitions">개인전</h2>
-      </div>
-      <ul class="exhibition-list" id="solo-list"></ul>
-    </section>
-
-    <section id="group" class="series">
-      <div class="series-head">
-        <h2 data-ko="단체전" data-en="Group Exhibitions">단체전</h2>
-      </div>
-      <ul class="exhibition-list" id="group-list"></ul>
-    </section>
-
-  </div>
+<main class="exh-layout">
+  <h1 class="page-title">Exhibition</h1>
+  <!-- 전시 목록은 data/exhibitions.json 에서 자동 생성 -->
+  <div id="exh-list"></div>
 </main>
 
 <footer class="site-footer">
   <nav class="footer-nav">
-    <a href="works.html" data-ko="작품" data-en="Works">작품</a>
-    <a href="exhibitions.html" data-ko="전시" data-en="Exhibitions">전시</a>
-    <a href="artist.html" data-ko="작가" data-en="Artist">작가</a>
-    <a href="contact.html" data-ko="연락처" data-en="Contact">연락처</a>
+    <a href="works.html">Works</a>
+    <a href="exhibitions.html">Exhibitions</a>
+    <a href="artist.html">Artist</a>
+    <a href="contact.html">Contact</a>
   </nav>
   <p data-ko="© 2026 안세은. 모든 권리 보유." data-en="© 2026 An Se Eun. All rights reserved.">© 2026 안세은. 모든 권리 보유.</p>
 </footer>

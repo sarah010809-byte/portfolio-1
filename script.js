@@ -101,14 +101,37 @@ async function renderDynamic() {
     }
   }
 
-  // 메인 페이지: 전시 미리보기 (최근 2개)
+  // 메인 페이지: 전시 미리보기 (최근 3개)
   const homeExh = document.getElementById("home-exh");
   if (homeExh) {
     const data = await loadJSON("data/exhibitions.json");
     if (data) {
-      const all = [...(data.solo || []), ...(data.group || [])]
-        .sort((a, b) => b.year.localeCompare(a.year)).slice(0, 3);
-      homeExh.innerHTML = all.map(exhItemHTML).join("");
+      homeExh.innerHTML = (data.exhibitions || []).slice(0, 3).map((e) => `<li>
+        <span class="year">${esc(e.date)}</span>
+        <span data-ko="${esc(e.title_ko)}, ${esc(e.venue_ko)}" data-en="${esc(e.title_en)}, ${esc(e.venue_en)}">${esc(e.title_ko)}</span>
+      </li>`).join("");
+    }
+  }
+
+  // Exhibitions 페이지: 대표이미지 + 우측 정보
+  const exhList = document.getElementById("exh-list");
+  if (exhList) {
+    const data = await loadJSON("data/exhibitions.json");
+    if (data) {
+      exhList.innerHTML = (data.exhibitions || []).map((e) => `
+        <article class="exh-item">
+          <div class="exh-image">${
+            e.image
+              ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}" loading="lazy">`
+              : `<div class="placeholder exh-placeholder"><span>${esc(e.title_en)}</span></div>`
+          }</div>
+          <div class="exh-info">
+            <h2 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h2>
+            <p class="exh-date">${esc(e.date)}</p>
+            <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
+            <p class="exh-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>
+          </div>
+        </article>`).join("");
     }
   }
 

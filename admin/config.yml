@@ -70,19 +70,16 @@ collections:
         name: "exhibitions"
         file: "data/exhibitions.json"
         fields:
-          - label: "개인전"
-            name: "solo"
+          - label: "전시 목록 (위에 있을수록 먼저 표시)"
+            name: "exhibitions"
             widget: "list"
-            summary: "{{fields.year}} — {{fields.text_ko}}"
+            summary: "{{fields.date}} — {{fields.title_ko}}"
             fields:
-              - { label: "연도", name: "year", widget: "string" }
-              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
-              - { label: "내용 (영문)", name: "text_en", widget: "string" }
-          - label: "단체전"
-            name: "group"
-            widget: "list"
-            summary: "{{fields.year}} — {{fields.text_ko}}"
-            fields:
-              - { label: "연도", name: "year", widget: "string" }
-              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
-              - { label: "내용 (영문)", name: "text_en", widget: "string" }
+              - { label: "전시명 (한글)", name: "title_ko", widget: "string" }
+              - { label: "전시명 (영문)", name: "title_en", widget: "string" }
+              - { label: "날짜 (예: 2026. 3. 1 – 3. 30)", name: "date", widget: "string" }
+              - { label: "장소 (한글, 예: 갤러리 이름, 서울)", name: "venue_ko", widget: "string", required: false }
+              - { label: "장소 (영문)", name: "venue_en", widget: "string", required: false }
+              - { label: "전시 설명 (한글)", name: "desc_ko", widget: "text", required: false }
+              - { label: "전시 설명 (영문)", name: "desc_en", widget: "text", required: false }
+              - { label: "대표 이미지", name: "image", widget: "image", required: false }
