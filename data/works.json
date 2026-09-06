@@ -1,12 +1,26 @@
 {
   "works": [
-    { "title_ko": "작품 제목 1", "title_en": "Work Title 1", "year": "2026", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "desc_ko": "", "desc_en": "", "image": "images/uploads/peter-alexander.jpg" },
-    { "title_ko": "작품 제목 2", "title_en": "Work Title 2", "year": "2026", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "desc_ko": "", "desc_en": "", "image": "" },
-    { "title_ko": "작품 제목 3", "title_en": "Work Title 3", "year": "2025", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "desc_ko": "", "desc_en": "", "image": "" },
-    { "title_ko": "작품 제목 4", "title_en": "Work Title 4", "year": "2025", "medium_ko": "사진", "medium_en": "Photography", "desc_ko": "", "desc_en": "", "image": "" },
-    { "title_ko": "작품 제목 5", "title_en": "Work Title 5", "year": "2024", "medium_ko": "사진", "medium_en": "Photography", "desc_ko": "", "desc_en": "", "image": "" },
-    { "title_ko": "작품 제목 6", "title_en": "Work Title 6", "year": "2024", "medium_ko": "조각", "medium_en": "Sculpture", "desc_ko": "", "desc_en": "", "image": "" },
-    { "title_ko": "작품 제목 7", "title_en": "Work Title 7", "year": "2023", "medium_ko": "조각", "medium_en": "Sculpture", "desc_ko": "", "desc_en": "", "image": "" },
-    { "title_ko": "작품 제목 8", "title_en": "Work Title 8", "year": "2023", "medium_ko": "조각", "medium_en": "Sculpture", "desc_ko": "", "desc_en": "", "image": "" }
+    { "title_ko": "작품 제목 1", "title_en": "Work Title 1", "year": "2026", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "images/uploads/peter-alexander.jpg" },
+    { "title_ko": "작품 제목 2", "title_en": "Work Title 2", "year": "2026", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 3", "title_en": "Work Title 3", "year": "2026", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 4", "title_en": "Work Title 4", "year": "2026", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 5", "title_en": "Work Title 5", "year": "2026", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 6", "title_en": "Work Title 6", "year": "2026", "medium_ko": "혼합 매체", "medium_en": "Mixed media", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 7", "title_en": "Work Title 7", "year": "2025", "medium_ko": "사진", "medium_en": "Photography", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 8", "title_en": "Work Title 8", "year": "2025", "medium_ko": "사진", "medium_en": "Photography", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 9", "title_en": "Work Title 9", "year": "2025", "medium_ko": "사진", "medium_en": "Photography", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 10", "title_en": "Work Title 10", "year": "2025", "medium_ko": "사진", "medium_en": "Photography", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 11", "title_en": "Work Title 11", "year": "2025", "medium_ko": "사진", "medium_en": "Photography", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 12", "title_en": "Work Title 12", "year": "2024", "medium_ko": "조각", "medium_en": "Sculpture", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 13", "title_en": "Work Title 13", "year": "2024", "medium_ko": "조각", "medium_en": "Sculpture", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 14", "title_en": "Work Title 14", "year": "2024", "medium_ko": "조각", "medium_en": "Sculpture", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 15", "title_en": "Work Title 15", "year": "2024", "medium_ko": "조각", "medium_en": "Sculpture", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 16", "title_en": "Work Title 16", "year": "2024", "medium_ko": "조각", "medium_en": "Sculpture", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 17", "title_en": "Work Title 17", "year": "2024", "medium_ko": "조각", "medium_en": "Sculpture", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 18", "title_en": "Work Title 18", "year": "2023", "medium_ko": "설치", "medium_en": "Installation", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 19", "title_en": "Work Title 19", "year": "2023", "medium_ko": "설치", "medium_en": "Installation", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 20", "title_en": "Work Title 20", "year": "2023", "medium_ko": "설치", "medium_en": "Installation", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 21", "title_en": "Work Title 21", "year": "2023", "medium_ko": "설치", "medium_en": "Installation", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" },
+    { "title_ko": "작품 제목 22", "title_en": "Work Title 22", "year": "2023", "medium_ko": "설치", "medium_en": "Installation", "desc_ko": "", "desc_en": "", "related_ko": "", "related_en": "", "image": "" }
   ]
 }

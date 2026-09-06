@@ -211,9 +211,16 @@ img { max-width: 100%; display: block; }
 
 .detail-placeholder { aspect-ratio: 4 / 3; }
 
-.work-info { margin-top: 20px; }
-.work-info h2 { font-size: 1.15rem; margin-bottom: 4px; }
-.work-caption { color: #888; font-size: 0.9rem; }
+/* 상세 페이지 좌측 정보 패널 */
+#detail-side h1 { font-size: 1.25rem; margin-bottom: 6px; }
+.side-caption { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
+#detail-side h3 { font-size: 0.85rem; color: #555; margin: 20px 0 6px; }
+.side-related { font-size: 0.9rem; color: #333; }
+#detail-side .back-link { margin-top: 28px; }
+#detail-side .work-desc { margin-top: 16px; font-size: 0.9rem; }
+
+.other-works { margin-top: 56px; padding-top: 24px; border-top: 1px solid #eee; }
+.other-works h2 { font-size: 1rem; margin-bottom: 20px; }
 .work-desc { margin-top: 14px; max-width: 640px; color: #333; font-size: 0.95rem; white-space: pre-line; }
 
 .work-nav {

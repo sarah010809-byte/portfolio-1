@@ -33,12 +33,10 @@
 
 <main class="page-layout">
 
-  <aside class="sidebar">
-    <h1 id="detail-series-title"></h1>
-    <p class="back-link"><a href="works.html" data-ko="← 작품 목록" data-en="← All Works">← 작품 목록</a></p>
-  </aside>
+  <!-- 좌측: 작품 정보 (data/works.json 에서 자동 생성) -->
+  <aside class="sidebar" id="detail-side"></aside>
 
-  <!-- 작품 상세 (data/works.json 에서 자동 생성) -->
+  <!-- 우측: 작품 이미지 + 같은 연도 다른 작품 -->
   <div class="page-content" id="work-detail"></div>
 
 </main>
