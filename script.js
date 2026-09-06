@@ -245,10 +245,6 @@ async function renderDynamic() {
 
       artistContent.innerHTML = `
         <div class="artist-top">
-          <div class="artist-main">
-            <h2 data-ko="작가 노트" data-en="Artist Statement">작가 노트</h2>
-            <p class="statement" data-ko="${esc(a.statement_ko)}" data-en="${esc(a.statement_en)}">${esc(a.statement_ko)}</p>
-          </div>
           <div class="artist-photo">
             ${a.profile_image
               ? `<img class="profile" src="${esc(a.profile_image)}" alt="Profile">`
@@ -266,6 +262,10 @@ async function renderDynamic() {
                 </svg>
               </a>
             </div>
+          </div>
+          <div class="artist-main">
+            <h2 data-ko="작가 노트" data-en="Artist Statement">작가 노트</h2>
+            <p class="statement" data-ko="${esc(a.statement_ko)}" data-en="${esc(a.statement_en)}">${esc(a.statement_ko)}</p>
           </div>
         </div>
         <section class="artist-section artist-cv">
