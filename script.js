@@ -152,12 +152,10 @@ async function renderDynamic() {
         <h3 data-ko="관련 전시" data-en="Related Exhibition">관련 전시</h3>
         <p class="side-related" data-ko="${esc(w.related_ko)}" data-en="${esc(w.related_en)}">${esc(w.related_ko)}</p>` : "";
 
-      // 하단 상세 설명 영역
-      const desc = (w.desc_ko || w.desc_en) ? `
-        <div class="work-detail-info">
-          <h3 data-ko="작품 설명" data-en="About this work">작품 설명</h3>
-          <p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>
-        </div>` : "";
+      // 상세 설명 (우측 패널의 작품명 아래에 표시)
+      const desc = (w.desc_ko || w.desc_en)
+        ? `<p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>`
+        : "";
 
       const link = (p) => `work.html?i=${list[p].idx}`;
       const prev = pos > 0
@@ -176,6 +174,7 @@ async function renderDynamic() {
         </section>` : "";
 
       workDetail.innerHTML = `
+        <p class="back-link detail-back"><a href="works.html" data-ko="← 작품 목록" data-en="← All Works">← 작품 목록</a></p>
         <div class="work-top">
           <div class="work-image">${
             w.image
@@ -188,10 +187,9 @@ async function renderDynamic() {
                data-ko="${esc(w.year)}${w.medium_ko ? `, ${esc(w.medium_ko)}` : ""}"
                data-en="${esc(w.year)}${w.medium_en ? `, ${esc(w.medium_en)}` : ""}">${esc(w.year)}</p>
             ${related}
-            <p class="back-link"><a href="works.html" data-ko="← 작품 목록" data-en="← All Works">← 작품 목록</a></p>
+            ${desc}
           </aside>
         </div>
-        ${desc}
         <div class="work-nav">${prev}<span class="work-count">${pos + 1} / ${list.length}</span>${next}</div>
         ${others}`;
 

@@ -12,7 +12,7 @@ a { color: inherit; text-decoration: none; }
 
 /* 제목 계열: Jost (Futura 스타일) — 한글은 프리텐다드로 자동 대체 */
 .logo, .hero-name, .section h2, .sidebar h1, .series-head h2,
-.work-side h1, .other-works h2 {
+.work-side h1, .other-works h2, .card figcaption {
   font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
 }
 img { max-width: 100%; display: block; }
@@ -232,9 +232,9 @@ img { max-width: 100%; display: block; }
 .side-related { font-size: 0.9rem; color: #333; }
 .work-side .back-link { margin-top: 28px; }
 
-/* 하단 상세 설명 */
-.work-detail-info { margin-top: 40px; padding-top: 24px; border-top: 1px solid #eee; }
-.work-detail-info h3 { font-size: 0.9rem; color: #555; margin-bottom: 10px; }
+/* 우측 패널의 상세 설명 */
+.work-side .work-desc { margin-top: 20px; font-size: 0.9rem; color: #333; }
+.detail-back { margin-bottom: 20px; }
 
 .other-works { margin-top: 56px; padding-top: 24px; border-top: 1px solid #eee; }
 .other-works h2 { font-size: 1rem; margin-bottom: 20px; }
