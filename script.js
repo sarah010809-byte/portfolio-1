@@ -196,7 +196,7 @@ async function renderDynamic() {
         <div class="work-nav">${prev}<span class="work-count">${yPos + 1} / ${yearList.length}</span>${next}</div>
         ${others}`;
 
-      document.title = `${w.title_ko} — My Portfolio`;
+      document.title = `${w.title_ko} — An Se Eun`;
     }
   }
 
