@@ -100,15 +100,21 @@ function sortedWorks(data) {
 }
 
 async function renderDynamic() {
-  // 메인 페이지: 최신 작품 미리보기
+  // 메인 페이지: 연도별로 3개씩 미리보기 (최신 연도부터)
   const homeWorks = document.getElementById("home-works");
   if (homeWorks) {
     const data = await loadJSON("data/works.json");
     if (data) {
-      homeWorks.innerHTML = sortedWorks(data).slice(0, 3).map((w) =>
-        cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
-          w.title_en, `work.html?i=${w.idx}`)
-      ).join("");
+      const list = sortedWorks(data);
+      const years = [...new Set(list.map((w) => w.year))];
+      homeWorks.innerHTML = years.map((y) => `
+        <div class="home-year">
+          <h3 class="home-year-label"><a href="works.html?year=${esc(y)}">${esc(y)}</a></h3>
+          <div class="grid">${list.filter((w) => w.year === y).slice(0, 3).map((w) =>
+            cardHTML({ ...w, caption_ko: "", caption_en: "" },
+              w.title_en, `work.html?i=${w.idx}`)
+          ).join("")}</div>
+        </div>`).join("");
     }
   }
 
