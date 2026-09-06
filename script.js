@@ -148,22 +148,16 @@ async function renderDynamic() {
       if (pos < 0) pos = 0;
       const w = list[pos];
 
-      // 좌측 정보 패널: 작품명, 연도·형식, 관련 전시, 설명
-      const side = document.getElementById("detail-side");
       const related = (w.related_ko || w.related_en) ? `
         <h3 data-ko="관련 전시" data-en="Related Exhibition">관련 전시</h3>
         <p class="side-related" data-ko="${esc(w.related_ko)}" data-en="${esc(w.related_en)}">${esc(w.related_ko)}</p>` : "";
-      const desc = (w.desc_ko || w.desc_en)
-        ? `<p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>`
-        : "";
-      side.innerHTML = `
-        <h1 data-ko="${esc(w.title_ko)}" data-en="${esc(w.title_en)}">${esc(w.title_ko)}</h1>
-        <p class="side-caption"
-           data-ko="${esc(w.year)}${w.medium_ko ? `, ${esc(w.medium_ko)}` : ""}"
-           data-en="${esc(w.year)}${w.medium_en ? `, ${esc(w.medium_en)}` : ""}">${esc(w.year)}</p>
-        ${related}
-        ${desc}
-        <p class="back-link"><a href="works.html" data-ko="← 작품 목록" data-en="← All Works">← 작품 목록</a></p>`;
+
+      // 하단 상세 설명 영역
+      const desc = (w.desc_ko || w.desc_en) ? `
+        <div class="work-detail-info">
+          <h3 data-ko="작품 설명" data-en="About this work">작품 설명</h3>
+          <p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>
+        </div>` : "";
 
       const link = (p) => `work.html?i=${list[p].idx}`;
       const prev = pos > 0
@@ -171,22 +165,33 @@ async function renderDynamic() {
       const next = pos < list.length - 1
         ? `<a href="${link(pos + 1)}" data-ko="다음 →" data-en="Next →">다음 →</a>` : `<span></span>`;
 
-      // 같은 연도의 다른 작품
+      // 같은 연도의 다른 작품 (연도 표기는 생략)
       const sameYear = list.filter((o) => o.year === w.year && o.idx !== w.idx);
       const others = sameYear.length ? `
         <section class="other-works">
           <h2 data-ko="${esc(w.year)}년의 다른 작품" data-en="More works from ${esc(w.year)}">${esc(w.year)}년의 다른 작품</h2>
           <div class="grid">${sameYear.map((o) =>
-            cardHTML({ ...o, caption_ko: o.year, caption_en: o.year }, o.title_en, `work.html?i=${o.idx}`)
+            cardHTML({ ...o, caption_ko: "", caption_en: "" }, o.title_en, `work.html?i=${o.idx}`)
           ).join("")}</div>
         </section>` : "";
 
       workDetail.innerHTML = `
-        <div class="work-image">${
-          w.image
-            ? `<img src="${esc(w.image)}" alt="${esc(w.title_ko)}">`
-            : `<div class="placeholder detail-placeholder"><span>${esc(w.title_en)}</span></div>`
-        }</div>
+        <div class="work-top">
+          <div class="work-image">${
+            w.image
+              ? `<img src="${esc(w.image)}" alt="${esc(w.title_ko)}">`
+              : `<div class="placeholder detail-placeholder"><span>${esc(w.title_en)}</span></div>`
+          }</div>
+          <aside class="work-side">
+            <h1 data-ko="${esc(w.title_ko)}" data-en="${esc(w.title_en)}">${esc(w.title_ko)}</h1>
+            <p class="side-caption"
+               data-ko="${esc(w.year)}${w.medium_ko ? `, ${esc(w.medium_ko)}` : ""}"
+               data-en="${esc(w.year)}${w.medium_en ? `, ${esc(w.medium_en)}` : ""}">${esc(w.year)}</p>
+            ${related}
+            <p class="back-link"><a href="works.html" data-ko="← 작품 목록" data-en="← All Works">← 작품 목록</a></p>
+          </aside>
+        </div>
+        ${desc}
         <div class="work-nav">${prev}<span class="work-count">${pos + 1} / ${list.length}</span>${next}</div>
         ${others}`;
 

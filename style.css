@@ -9,6 +9,12 @@ body {
 }
 
 a { color: inherit; text-decoration: none; }
+
+/* 제목 계열: Jost (Futura 스타일) — 한글은 프리텐다드로 자동 대체 */
+.logo, .hero-name, .section h2, .sidebar h1, .series-head h2,
+.work-side h1, .other-works h2 {
+  font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
+}
 img { max-width: 100%; display: block; }
 
 /* ===== 헤더 ===== */
@@ -211,13 +217,24 @@ img { max-width: 100%; display: block; }
 
 .detail-placeholder { aspect-ratio: 4 / 3; }
 
-/* 상세 페이지 좌측 정보 패널 */
-#detail-side h1 { font-size: 1.25rem; margin-bottom: 6px; }
+/* 상세 페이지: 이미지 좌측 + 정보 우측 */
+.work-top {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.work-top .work-image { flex: 1; min-width: 0; }
+
+.work-side { width: 240px; flex-shrink: 0; }
+.work-side h1 { font-size: 1.25rem; margin-bottom: 6px; }
 .side-caption { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
-#detail-side h3 { font-size: 0.85rem; color: #555; margin: 20px 0 6px; }
+.work-side h3 { font-size: 0.85rem; color: #555; margin: 20px 0 6px; }
 .side-related { font-size: 0.9rem; color: #333; }
-#detail-side .back-link { margin-top: 28px; }
-#detail-side .work-desc { margin-top: 16px; font-size: 0.9rem; }
+.work-side .back-link { margin-top: 28px; }
+
+/* 하단 상세 설명 */
+.work-detail-info { margin-top: 40px; padding-top: 24px; border-top: 1px solid #eee; }
+.work-detail-info h3 { font-size: 0.9rem; color: #555; margin-bottom: 10px; }
 
 .other-works { margin-top: 56px; padding-top: 24px; border-top: 1px solid #eee; }
 .other-works h2 { font-size: 1rem; margin-bottom: 20px; }
@@ -380,6 +397,10 @@ img.profile { object-fit: cover; }
   .sidebar { position: static; width: auto; }
   .series-nav { display: flex; flex-wrap: wrap; gap: 14px; }
   .series-nav li { margin-bottom: 0; }
+
+  /* 작품 상세: 모바일에선 이미지 아래에 정보 */
+  .work-top { flex-direction: column; gap: 20px; }
+  .work-side { width: auto; }
 }
 
 /* 아주 작은 화면 */
