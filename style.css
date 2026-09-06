@@ -214,6 +214,7 @@ img { max-width: 100%; display: block; }
 .work-info { margin-top: 20px; }
 .work-info h2 { font-size: 1.15rem; margin-bottom: 4px; }
 .work-caption { color: #888; font-size: 0.9rem; }
+.work-desc { margin-top: 14px; max-width: 640px; color: #333; font-size: 0.95rem; white-space: pre-line; }
 
 .work-nav {
   display: flex;

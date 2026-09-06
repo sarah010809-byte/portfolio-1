@@ -17,27 +17,19 @@ collections:
         name: "works"
         file: "data/works.json"
         fields:
-          - label: "시리즈 목록"
-            name: "series"
+          - label: "작품 목록 (연도별로 자동 정리됩니다)"
+            name: "works"
             widget: "list"
-            summary: "{{fields.title_ko}}"
+            summary: "{{fields.year}} — {{fields.title_ko}}"
             fields:
-              - { label: "고유 ID (영문 소문자, 예: series-a)", name: "id", widget: "string" }
-              - { label: "시리즈 제목 (한글)", name: "title_ko", widget: "string" }
-              - { label: "시리즈 제목 (영문)", name: "title_en", widget: "string" }
-              - { label: "부가 정보 (한글, 예: 2025–2026, 혼합 매체)", name: "meta_ko", widget: "string", required: false }
-              - { label: "부가 정보 (영문)", name: "meta_en", widget: "string", required: false }
-              - label: "작품 목록"
-                name: "works"
-                widget: "list"
-                summary: "{{fields.title_ko}}"
-                fields:
-                  - { label: "작품 제목 (한글)", name: "title_ko", widget: "string" }
-                  - { label: "작품 제목 (영문)", name: "title_en", widget: "string" }
-                  - { label: "연도 (예: 2026)", name: "year", widget: "string" }
-                  - { label: "형식 (한글, 예: 혼합 매체 — 상세페이지에만 표시)", name: "medium_ko", widget: "string", required: false }
-                  - { label: "형식 (영문, 예: Mixed media)", name: "medium_en", widget: "string", required: false }
-                  - { label: "이미지", name: "image", widget: "image", required: false }
+              - { label: "작품 제목 (한글)", name: "title_ko", widget: "string" }
+              - { label: "작품 제목 (영문)", name: "title_en", widget: "string" }
+              - { label: "제작 연도 (예: 2026)", name: "year", widget: "string" }
+              - { label: "형식 (한글, 예: 혼합 매체 — 상세페이지에만 표시)", name: "medium_ko", widget: "string", required: false }
+              - { label: "형식 (영문, 예: Mixed media)", name: "medium_en", widget: "string", required: false }
+              - { label: "작품 설명 (한글 — 상세페이지에 표시)", name: "desc_ko", widget: "text", required: false }
+              - { label: "작품 설명 (영문)", name: "desc_en", widget: "text", required: false }
+              - { label: "이미지", name: "image", widget: "image", required: false }
       - label: "작가 (Artist)"
         name: "artist"
         file: "data/artist.json"

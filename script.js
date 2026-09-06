@@ -81,17 +81,23 @@ async function loadJSON(path) {
   }
 }
 
+// 작품 목록을 연도 내림차순으로 정렬 (원본 인덱스 유지)
+function sortedWorks(data) {
+  return (data.works || [])
+    .map((w, idx) => ({ ...w, idx }))
+    .sort((a, b) => String(b.year).localeCompare(String(a.year)));
+}
+
 async function renderDynamic() {
-  // 메인 페이지: 시리즈 대표작 미리보기
+  // 메인 페이지: 최신 작품 미리보기
   const homeWorks = document.getElementById("home-works");
   if (homeWorks) {
     const data = await loadJSON("data/works.json");
     if (data) {
-      homeWorks.innerHTML = data.series.slice(0, 3).map((s) => {
-        const first = s.works[0] || {};
-        const rep = { ...first, title_ko: s.title_ko, title_en: s.title_en, caption_ko: s.meta_ko, caption_en: s.meta_en };
-        return cardHTML(rep, s.title_ko, `works.html#${s.id}`);
-      }).join("");
+      homeWorks.innerHTML = sortedWorks(data).slice(0, 3).map((w) =>
+        cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
+          w.title_en, `work.html?i=${w.idx}`)
+      ).join("");
     }
   }
 
@@ -106,24 +112,25 @@ async function renderDynamic() {
     }
   }
 
-  // Works 페이지: 사이드바 + 시리즈별 그리드
+  // Works 페이지: 사이드바(연도) + 연도별 그리드
   const worksContent = document.getElementById("works-content");
   const seriesNav = document.getElementById("series-nav");
   if (worksContent && seriesNav) {
     const data = await loadJSON("data/works.json");
     if (data) {
-      seriesNav.innerHTML = data.series.map((s) =>
-        `<li><a href="#${esc(s.id)}" data-ko="${esc(s.title_ko)}" data-en="${esc(s.title_en)}">${esc(s.title_ko)}</a></li>`
+      const list = sortedWorks(data);
+      const years = [...new Set(list.map((w) => w.year))];
+
+      seriesNav.innerHTML = years.map((y) =>
+        `<li><a href="#y-${esc(y)}">${esc(y)}</a></li>`
       ).join("");
-      worksContent.innerHTML = data.series.map((s) => `
-        <section id="${esc(s.id)}" class="series">
-          <div class="series-head">
-            <h2 data-ko="${esc(s.title_ko)}" data-en="${esc(s.title_en)}">${esc(s.title_ko)}</h2>
-            <span class="series-meta" data-ko="${esc(s.meta_ko)}" data-en="${esc(s.meta_en)}">${esc(s.meta_ko)}</span>
-          </div>
-          <div class="grid">${s.works.map((w, i) =>
+
+      worksContent.innerHTML = years.map((y) => `
+        <section id="y-${esc(y)}" class="series">
+          <div class="series-head"><h2>${esc(y)}</h2></div>
+          <div class="grid">${list.filter((w) => w.year === y).map((w) =>
             cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
-              `${s.title_en} ${i + 1}`, `work.html?series=${encodeURIComponent(s.id)}&i=${i}`)
+              w.title_en, `work.html?i=${w.idx}`)
           ).join("")}</div>
         </section>`).join("");
     }
@@ -134,21 +141,27 @@ async function renderDynamic() {
   if (workDetail) {
     const data = await loadJSON("data/works.json");
     if (data) {
+      const list = sortedWorks(data);
       const params = new URLSearchParams(location.search);
-      const sIdx = Math.max(0, data.series.findIndex((s) => s.id === params.get("series")));
-      const series = data.series[sIdx];
-      const i = Math.min(Math.max(0, parseInt(params.get("i") || "0", 10) || 0), series.works.length - 1);
-      const w = series.works[i];
+      const reqIdx = parseInt(params.get("i") || "0", 10) || 0;
+      let pos = list.findIndex((w) => w.idx === reqIdx);
+      if (pos < 0) pos = 0;
+      const w = list[pos];
 
       const titleEl = document.getElementById("detail-series-title");
-      titleEl.dataset.ko = series.title_ko;
-      titleEl.dataset.en = series.title_en;
+      titleEl.textContent = w.year;
+      titleEl.dataset.ko = w.year;
+      titleEl.dataset.en = w.year;
 
-      const link = (idx) => `work.html?series=${encodeURIComponent(series.id)}&i=${idx}`;
-      const prev = i > 0
-        ? `<a href="${link(i - 1)}" data-ko="← 이전" data-en="← Prev">← 이전</a>` : `<span></span>`;
-      const next = i < series.works.length - 1
-        ? `<a href="${link(i + 1)}" data-ko="다음 →" data-en="Next →">다음 →</a>` : `<span></span>`;
+      const link = (p) => `work.html?i=${list[p].idx}`;
+      const prev = pos > 0
+        ? `<a href="${link(pos - 1)}" data-ko="← 이전" data-en="← Prev">← 이전</a>` : `<span></span>`;
+      const next = pos < list.length - 1
+        ? `<a href="${link(pos + 1)}" data-ko="다음 →" data-en="Next →">다음 →</a>` : `<span></span>`;
+
+      const desc = (w.desc_ko || w.desc_en)
+        ? `<p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>`
+        : "";
 
       workDetail.innerHTML = `
         <div class="work-image">${
@@ -161,8 +174,9 @@ async function renderDynamic() {
           <p class="work-caption"
              data-ko="${esc(w.year)}${w.medium_ko ? `, ${esc(w.medium_ko)}` : ""}"
              data-en="${esc(w.year)}${w.medium_en ? `, ${esc(w.medium_en)}` : ""}">${esc(w.year)}</p>
+          ${desc}
         </div>
-        <div class="work-nav">${prev}<span class="work-count">${i + 1} / ${series.works.length}</span>${next}</div>`;
+        <div class="work-nav">${prev}<span class="work-count">${pos + 1} / ${list.length}</span>${next}</div>`;
 
       document.title = `${w.title_ko} — My Portfolio`;
     }
