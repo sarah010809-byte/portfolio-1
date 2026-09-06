@@ -191,6 +191,7 @@ img { max-width: 100%; display: block; }
   transition: color 0.2s;
 }
 .series-nav a:hover { color: #111; }
+.series-nav a.current-year { color: #111; font-weight: 600; }
 
 .page-content { flex: 1; min-width: 0; }
 
@@ -523,6 +524,11 @@ img.profile { object-fit: cover; }
   .section { padding: 56px 20px; }
   .series { margin-bottom: 64px; }
   .exh-item { margin-bottom: 64px; }
+
+  /* 작품 상세 하단 카드: 정사각형 2개씩, 이름 없이 */
+  .other-works .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .other-works .card .thumb { aspect-ratio: 1 / 1; margin-bottom: 0; }
+  .other-works .card figcaption { display: none; }
 }
 
 /* 아주 작은 화면 */

@@ -155,11 +155,16 @@ async function renderDynamic() {
       const list = sortedWorks(data);
       const years = [...new Set(list.map((w) => w.year))];
 
+      // 연도를 누르면 해당 연도만 모아 보는 페이지로 이동 (works.html?year=2026)
+      const yearParam = new URLSearchParams(location.search).get("year");
+      const selected = years.includes(yearParam) ? yearParam : null;
+
       seriesNav.innerHTML = years.map((y) =>
-        `<li><a href="#y-${esc(y)}">${esc(y)}</a></li>`
+        `<li><a href="works.html?year=${esc(y)}"${y === selected ? ' class="current-year"' : ""}>${esc(y)}</a></li>`
       ).join("");
 
-      worksContent.innerHTML = years.map((y) => `
+      const shownYears = selected ? [selected] : years;
+      worksContent.innerHTML = shownYears.map((y) => `
         <section id="y-${esc(y)}" class="series">
           <div class="series-head"><h2>${esc(y)}</h2></div>
           <div class="grid">${list.filter((w) => w.year === y).map((w) =>
