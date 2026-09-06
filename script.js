@@ -159,9 +159,11 @@ async function renderDynamic() {
       const yearParam = new URLSearchParams(location.search).get("year");
       const selected = years.includes(yearParam) ? yearParam : null;
 
-      seriesNav.innerHTML = years.map((y) =>
-        `<li><a href="works.html?year=${esc(y)}"${y === selected ? ' class="current-year"' : ""}>${esc(y)}</a></li>`
-      ).join("");
+      seriesNav.innerHTML =
+        `<li><a href="works.html"${selected ? "" : ' class="current-year"'}>All</a></li>` +
+        years.map((y) =>
+          `<li><a href="works.html?year=${esc(y)}"${y === selected ? ' class="current-year"' : ""}>${esc(y)}</a></li>`
+        ).join("");
 
       const shownYears = selected ? [selected] : years;
       worksContent.innerHTML = shownYears.map((y) => `
