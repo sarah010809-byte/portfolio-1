@@ -156,6 +156,9 @@ img { max-width: 100%; display: block; }
 }
 .view-all:hover { color: #111; }
 
+/* 메인 페이지: 작품명 중앙 정렬 */
+#home-works .card figcaption { text-align: center; }
+
 /* 메인 페이지: 연도별 미리보기 */
 .home-year { margin-bottom: 56px; }
 .home-year:last-child { margin-bottom: 0; }
