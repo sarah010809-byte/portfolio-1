@@ -383,7 +383,8 @@ img { max-width: 100%; display: block; }
   margin-bottom: 90px;
 }
 
-.artist-top .profile { width: 300px; flex-shrink: 0; }
+.artist-photo { width: 300px; flex-shrink: 0; }
+.artist-photo .profile { width: 100%; }
 
 .artist-main { flex: 1; min-width: 0; }
 .artist-main h2 {
@@ -404,21 +405,15 @@ img { max-width: 100%; display: block; }
   margin-bottom: 28px;
 }
 
-.cv-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 56px;
-}
-
 .artist-icons {
   display: flex;
-  gap: 12px;
-  margin-top: 32px;
+  gap: 10px;
+  margin-top: 16px;
 }
 
 .icon-circle {
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
   border: 1px solid #ddd;
   border-radius: 50%;
   display: flex;
@@ -427,7 +422,7 @@ img { max-width: 100%; display: block; }
   color: #555;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
-.icon-circle svg { width: 20px; height: 20px; }
+.icon-circle svg { width: 16px; height: 16px; }
 .icon-circle:hover { background: #111; color: #fff; border-color: #111; }
 
 .artist-section { margin-bottom: 48px; }
@@ -496,10 +491,9 @@ img.profile { object-fit: cover; }
   .exh-image { width: 100%; }
   .exh-layout { padding-top: 90px; }
 
-  /* Artist: 모바일에선 세로 배치 + C.V. 1단 */
-  .artist-top { flex-direction: column; gap: 28px; margin-bottom: 56px; }
-  .artist-top .profile { width: 70%; }
-  .cv-cols { grid-template-columns: 1fr; }
+  /* Artist: 모바일에선 사진이 먼저, 설명이 아래 */
+  .artist-top { flex-direction: column-reverse; gap: 28px; margin-bottom: 56px; }
+  .artist-photo { width: 70%; }
 
   .section { padding: 56px 20px; }
   .series { margin-bottom: 64px; }

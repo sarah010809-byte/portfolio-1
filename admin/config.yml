@@ -42,14 +42,6 @@ collections:
           - { label: "인스타그램 아이디 표시용 (예: @gildong)", name: "instagram_handle", widget: "string" }
           - { label: "작가 노트 (한글)", name: "statement_ko", widget: "text" }
           - { label: "작가 노트 (영문)", name: "statement_en", widget: "text" }
-          - label: "학력"
-            name: "education"
-            widget: "list"
-            summary: "{{fields.year}} — {{fields.text_ko}}"
-            fields:
-              - { label: "연도", name: "year", widget: "string" }
-              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
-              - { label: "내용 (영문)", name: "text_en", widget: "string" }
           - label: "개인전 (C.V.)"
             name: "solo"
             widget: "list"

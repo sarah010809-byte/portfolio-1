@@ -245,12 +245,14 @@ async function renderDynamic() {
 
       artistContent.innerHTML = `
         <div class="artist-top">
-          ${a.profile_image
-            ? `<img class="profile" src="${esc(a.profile_image)}" alt="Profile">`
-            : `<div class="profile placeholder"><span data-ko="프로필 사진" data-en="Profile Photo">프로필 사진</span></div>`}
           <div class="artist-main">
             <h2 data-ko="작가 노트" data-en="Artist Statement">작가 노트</h2>
             <p class="statement" data-ko="${esc(a.statement_ko)}" data-en="${esc(a.statement_en)}">${esc(a.statement_ko)}</p>
+          </div>
+          <div class="artist-photo">
+            ${a.profile_image
+              ? `<img class="profile" src="${esc(a.profile_image)}" alt="Profile">`
+              : `<div class="profile placeholder"><span data-ko="프로필 사진" data-en="Profile Photo">프로필 사진</span></div>`}
             <div class="artist-icons">
               <a href="contact.html" class="icon-circle" aria-label="Contact">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -268,15 +270,8 @@ async function renderDynamic() {
         </div>
         <section class="artist-section artist-cv">
           <h2>C.V.</h2>
-          <div class="cv-cols">
-            <div>
-              <h3 data-ko="학력" data-en="Education">학력</h3>${cvList(a.education)}
-              <h3 data-ko="개인전" data-en="Solo Exhibitions">개인전</h3>${cvList(a.solo)}
-            </div>
-            <div>
-              <h3 data-ko="단체전" data-en="Group Exhibitions">단체전</h3>${cvList(a.group)}
-            </div>
-          </div>
+          <h3 data-ko="개인전" data-en="Solo Exhibitions">개인전</h3>${cvList(a.solo)}
+          <h3 data-ko="단체전" data-en="Group Exhibitions">단체전</h3>${cvList(a.group)}
         </section>`;
     }
   }
