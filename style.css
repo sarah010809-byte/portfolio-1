@@ -170,6 +170,32 @@ img { max-width: 100%; display: block; }
 }
 .home-year-label a:hover { opacity: 0.6; }
 
+/* 메인 페이지: 전시 미리보기 (최근 전시 크게 + 이전 2개 좌우) */
+.home-exh-feature { margin-bottom: 40px; }
+
+.home-exh-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.home-exh-card { display: block; }
+.home-exh-card .exh-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f7f7f7;
+  margin-bottom: 14px;
+}
+.home-exh-card .exh-thumb.big { aspect-ratio: 16 / 8; }
+.home-exh-card .exh-thumb img,
+.home-exh-card .exh-thumb .placeholder {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.home-exh-card:hover .exh-thumb img { transform: scale(1.04); }
+.home-exh-card h3 { font-size: 1rem; }
+.home-exh-card .exh-venue { font-size: 0.85rem; }
+
 /* 현재 페이지 메뉴 표시 */
 .nav a.current { font-weight: 700; }
 
@@ -552,6 +578,11 @@ img.profile { object-fit: cover; }
   #home-works .card:nth-child(n+7) { display: none; }
   #home-works .card .thumb { aspect-ratio: 1 / 1; margin-bottom: 10px; }
   #home-works .card figcaption { font-size: 0.8rem; line-height: 1.4; }
+
+  /* 메인 전시 미리보기: 모바일에서도 아래 2개 좌우 유지 */
+  .home-exh-pair { gap: 12px; }
+  .home-exh-card h3 { font-size: 0.9rem; }
+  .home-exh-card .exh-date, .home-exh-card .exh-venue { font-size: 0.75rem; }
 
   /* 전시 페이지: 최근 전시 크게, 이전 전시 2개 작게 */
   #exh-list {

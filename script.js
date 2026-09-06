@@ -116,15 +116,28 @@ async function renderDynamic() {
     }
   }
 
-  // 메인 페이지: 전시 미리보기 (최근 3개)
+  // 메인 페이지: 전시 미리보기 (최근 전시 크게 + 이전 2개 좌우)
   const homeExh = document.getElementById("home-exh");
   if (homeExh) {
     const data = await loadJSON("data/exhibitions.json");
     if (data) {
-      homeExh.innerHTML = (data.exhibitions || []).slice(0, 3).map((e) => `<li>
-        <span class="year">${esc(e.date)}</span>
-        <span data-ko="${esc(e.title_ko)}, ${esc(e.venue_ko)}" data-en="${esc(e.title_en)}, ${esc(e.venue_en)}">${esc(e.title_ko)}</span>
-      </li>`).join("");
+      const ex = data.exhibitions || [];
+      const exhCard = (e, big) => `
+        <a class="home-exh-card" href="exhibitions.html">
+          <div class="exh-thumb${big ? " big" : ""}">${
+            e.image
+              ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}" loading="lazy">`
+              : `<div class="placeholder"><span>${esc(e.title_en)}</span></div>`
+          }</div>
+          <h3 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h3>
+          <p class="exh-date">${esc(e.date)}</p>
+          <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
+        </a>`;
+      const first = ex[0] ? `<div class="home-exh-feature">${exhCard(ex[0], true)}</div>` : "";
+      const pair = ex.length > 1
+        ? `<div class="home-exh-pair">${ex.slice(1, 3).map((e) => exhCard(e, false)).join("")}</div>`
+        : "";
+      homeExh.innerHTML = first + pair;
     }
   }
 
