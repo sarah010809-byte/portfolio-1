@@ -157,14 +157,17 @@ async function renderDynamic() {
         ? `<p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>`
         : "";
 
-      const link = (p) => `work.html?i=${list[p].idx}`;
-      const prev = pos > 0
-        ? `<a href="${link(pos - 1)}" data-ko="← 이전" data-en="← Prev">← 이전</a>` : `<span></span>`;
-      const next = pos < list.length - 1
-        ? `<a href="${link(pos + 1)}" data-ko="다음 →" data-en="Next →">다음 →</a>` : `<span></span>`;
+      // 이전/다음과 순번은 같은 연도 안에서만
+      const yearList = list.filter((o) => o.year === w.year);
+      const yPos = yearList.findIndex((o) => o.idx === w.idx);
+      const link = (p) => `work.html?i=${yearList[p].idx}`;
+      const prev = yPos > 0
+        ? `<a href="${link(yPos - 1)}" data-ko="← 이전" data-en="← Prev">← 이전</a>` : `<span></span>`;
+      const next = yPos < yearList.length - 1
+        ? `<a href="${link(yPos + 1)}" data-ko="다음 →" data-en="Next →">다음 →</a>` : `<span></span>`;
 
       // 같은 연도의 다른 작품 (연도 표기는 생략)
-      const sameYear = list.filter((o) => o.year === w.year && o.idx !== w.idx);
+      const sameYear = yearList.filter((o) => o.idx !== w.idx);
       const others = sameYear.length ? `
         <section class="other-works">
           <h2 data-ko="${esc(w.year)}년의 다른 작품" data-en="More works from ${esc(w.year)}">${esc(w.year)}년의 다른 작품</h2>
@@ -190,7 +193,7 @@ async function renderDynamic() {
             ${desc}
           </aside>
         </div>
-        <div class="work-nav">${prev}<span class="work-count">${pos + 1} / ${list.length}</span>${next}</div>
+        <div class="work-nav">${prev}<span class="work-count">${yPos + 1} / ${yearList.length}</span>${next}</div>
         ${others}`;
 
       document.title = `${w.title_ko} — My Portfolio`;
