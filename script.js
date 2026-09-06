@@ -40,13 +40,25 @@ if (hasHero) {
   onScroll();
 }
 
-// ===== 모바일 메뉴 =====
+// ===== 모바일 메뉴 (우측 슬라이드 + 햄버거 ↔ X) =====
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
 
-menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
+const navDim = document.createElement("div");
+navDim.className = "nav-dim";
+document.body.appendChild(navDim);
+
+function setMenu(open) {
+  nav.classList.toggle("open", open);
+  menuBtn.classList.toggle("open", open);
+  navDim.classList.toggle("show", open);
+  document.body.style.overflow = open ? "hidden" : "";
+}
+
+menuBtn.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+navDim.addEventListener("click", () => setMenu(false));
 nav.querySelectorAll("a").forEach((a) =>
-  a.addEventListener("click", () => nav.classList.remove("open"))
+  a.addEventListener("click", () => setMenu(false))
 );
 
 // ===== 데이터 파일에서 작품/전시 불러오기 =====
