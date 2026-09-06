@@ -109,9 +109,8 @@ async function renderDynamic() {
       const years = [...new Set(list.map((w) => w.year))];
       homeWorks.innerHTML = years.map((y) => `
         <div class="home-year">
-          <h3 class="home-year-label"><a href="works.html?year=${esc(y)}">${esc(y)}</a></h3>
           <div class="grid">${list.filter((w) => w.year === y).slice(0, 3).map((w) =>
-            cardHTML({ ...w, caption_ko: "", caption_en: "" },
+            cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
               w.title_en, `work.html?i=${w.idx}`)
           ).join("")}</div>
         </div>`).join("");
