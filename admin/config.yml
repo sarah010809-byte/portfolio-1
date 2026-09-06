@@ -2,6 +2,8 @@ backend:
   name: github
   repo: sarah010809-byte/portfolio-1
   branch: main
+  base_url: https://api.netlify.com
+  site_domain: an-se-eun.netlify.app
 
 # 업로드한 이미지가 저장되는 위치
 media_folder: "images/uploads"
