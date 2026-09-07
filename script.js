@@ -259,8 +259,8 @@ async function renderDynamic() {
             <p class="side-caption"
                data-ko="${esc(w.year)}${w.medium_ko ? `, ${esc(w.medium_ko)}` : ""}"
                data-en="${esc(w.year)}${w.medium_en ? `, ${esc(w.medium_en)}` : ""}">${esc(w.year)}</p>
-            ${related}
             ${desc}
+            ${related}
           </aside>
         </div>
         <div class="work-nav">${prev}<span class="work-count">${yPos + 1} / ${yearList.length}</span>${next}</div>
