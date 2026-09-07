@@ -583,7 +583,7 @@ img.profile { object-fit: cover; }
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.35s ease;
-    z-index: 15;
+    z-index: 9; /* 헤더(10)와 메뉴보다 아래 — 메뉴 클릭을 가로채지 않게 */
   }
   .nav-dim.show { opacity: 1; pointer-events: auto; }
 
