@@ -400,6 +400,18 @@ img { max-width: 100%; display: block; }
 .exh-venue { color: #555; font-size: 0.9rem; margin-top: 4px; }
 .exh-desc { margin-top: 20px; font-size: 0.95rem; color: #444; max-width: 480px; white-space: pre-line; }
 
+/* ===== 전시 상세 페이지 ===== */
+.exh-detail-image { margin-bottom: 28px; }
+.exh-detail-image img { width: 100%; display: block; }
+.exh-detail h1 { font-size: 1.4rem; margin-bottom: 6px; }
+.exh-detail-desc {
+  margin-top: 24px;
+  max-width: 640px;
+  color: #444;
+  font-size: 0.95rem;
+  white-space: pre-line;
+}
+
 /* ===== 전시 목록 ===== */
 .exhibition-list { list-style: none; }
 .exhibition-list li {
