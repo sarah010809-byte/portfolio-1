@@ -54,10 +54,9 @@ img { max-width: 100%; display: block; }
 .site-header.scrolled .lang-toggle button.active { color: #111; }
 .site-header.scrolled .menu-btn { color: #111; }
 
+/* 화면 크기와 무관하게 외곽 여백 고정 (중앙 정렬 안 함) */
 .header-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 22px 20px;
+  padding: 22px 44px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,7 +69,8 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.02em;
 }
 
-.nav { display: flex; gap: 24px; font-size: 0.95rem; }
+/* 메뉴를 우측으로 (Kr/En 왼쪽에 붙게) */
+.nav { display: flex; gap: 24px; font-size: 0.95rem; margin-left: auto; margin-right: 28px; }
 .nav a:hover { opacity: 0.5; }
 
 .header-right { display: flex; align-items: center; gap: 12px; }
@@ -132,10 +132,8 @@ img { max-width: 100%; display: block; }
   position: relative;
   z-index: 1;
   color: #fff;
-  max-width: 1100px;
-  margin: 0 auto;
   width: 100%;
-  padding: 0 20px 56px;
+  padding: 0 44px 56px; /* 헤더와 같은 외곽 여백 */
 }
 
 .hero-name {
@@ -549,6 +547,9 @@ img.profile { object-fit: cover; }
 /* ===== 모바일 (768px 이하) ===== */
 @media (max-width: 768px) {
   .menu-btn { display: block; }
+
+  .header-inner { padding: 22px 20px; }
+  .hero-text { padding: 0 20px 48px; }
 
   /* 우측에서 슬라이드되는 메뉴 */
   .nav {
