@@ -1014,6 +1014,19 @@ img.profile { object-fit: cover; }
   .slider-controls { margin-top: 12px; gap: 10px; justify-content: center; }
   .slider-thumbs { justify-content: center; }
   .slider-thumb { width: 36px; height: 36px; }
+  /* 모바일: 이전/다음 줄 — 1/6 카운터를 정중앙에, 위 구분선은 제거 (아래 섹션 구분선 하나만) */
+  .work-nav {
+    position: relative;
+    border-top: none;
+    padding-top: 0;
+    margin-top: 24px;
+  }
+  .work-count {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   /* 모바일: 뒤로가기 링크 없이 헤더 아래 바로 이미지 (헤더 메뉴·하단 다른 작품으로 이동 가능) */
   .work-page.page-layout { padding-top: 84px; padding-left: 20px; padding-right: 20px; }
   .work-page .detail-back { display: none; }
