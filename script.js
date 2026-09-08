@@ -218,6 +218,78 @@ async function renderDynamic() {
     }
   }
 
+  // ===== 메인 페이지: 최근 작품 6점 미리보기 =====
+  const homeWorks = document.getElementById("home-works");
+  if (homeWorks) {
+    const data = await loadJSON("data/works.json");
+    if (data) {
+      const picks = sortedWorks(data).slice(0, 6);
+      homeWorks.innerHTML = `<div class="grid">${picks.map((w) =>
+        cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
+          w.title_en, `work.html?i=${w.idx}`)
+      ).join("")}</div>`;
+    }
+  }
+
+  // ===== 메인 페이지: 전시 미리보기 (최근 전시 크게 + 이전 2개 좌우) =====
+  const homeExh = document.getElementById("home-exh");
+  if (homeExh) {
+    const data = await loadJSON("data/exhibitions.json");
+    if (data) {
+      const ex = data.exhibitions || [];
+      const exhCard = (e, big, idx) => `
+        <a class="home-exh-card" href="exhibition.html?i=${idx}">
+          <div class="exh-thumb${big ? " big" : ""}">${
+            e.image
+              ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}" loading="lazy">`
+              : `<div class="placeholder"><span>${esc(e.title_en)}</span></div>`
+          }</div>
+          <h3 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h3>
+          <p class="exh-date">${esc(e.date)}</p>
+          <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
+        </a>`;
+      const first = ex[0] ? `<div class="home-exh-feature">${exhCard(ex[0], true, 0)}</div>` : "";
+      const pair = ex.length > 1
+        ? `<div class="home-exh-pair">${ex.slice(1, 3).map((e, i) => exhCard(e, false, i + 1)).join("")}</div>`
+        : "";
+      homeExh.innerHTML = first + pair;
+    }
+  }
+
+  // ===== 메인 페이지: 프로젝트 미리보기 (최근 3개) =====
+  const homeProjects = document.getElementById("home-projects");
+  if (homeProjects) {
+    const data = await loadJSON("data/projects.json");
+    if (data) {
+      const picks = (data.projects || []).map((p, idx) => ({ ...p, idx })).slice(0, 3);
+      homeProjects.innerHTML = `<div class="grid">${picks.map((p) => `
+        <figure class="card"><a href="project.html?i=${p.idx}">
+          ${thumbHTML(p, p.title_en)}
+          <figcaption>
+            <strong data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</strong><span>, ${esc(p.year)}</span>
+          </figcaption>
+        </a></figure>`).join("")}</div>`;
+    }
+  }
+
+  // ===== 메인 페이지: 최근 글 미리보기 (4개) =====
+  const homeWritings = document.getElementById("home-writings");
+  if (homeWritings) {
+    const data = await loadJSON("data/writings.json");
+    if (data) {
+      const picks = (data.writings || []).map((t, idx) => ({ ...t, idx }))
+        .sort((a, b) => String(b.year).localeCompare(String(a.year)))
+        .slice(0, 4);
+      homeWritings.innerHTML = `<ul class="writing-list">${picks.map((t) => `
+        <li><a href="writing.html?i=${t.idx}">
+          <span class="year">${esc(t.year)}</span>
+          <span class="writing-title" data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</span>
+          ${t.author_ko || t.author_en
+            ? `<span class="writing-author" data-ko="${esc(t.author_ko)}" data-en="${esc(t.author_en)}">${esc(t.author_ko)}</span>` : ""}
+        </a></li>`).join("")}</ul>`;
+    }
+  }
+
   // ===== Works 페이지: By Years / By Series 전환 + 그룹별 그리드 =====
   const worksContent = document.getElementById("works-content");
   const seriesNav = document.getElementById("series-nav");
