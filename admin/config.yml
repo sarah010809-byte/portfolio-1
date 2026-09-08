@@ -69,6 +69,13 @@ collections:
             collapsed: true
             summary: "{{fields.date}} — {{fields.title_ko}}"
             fields:
+              - label: "구분"
+                name: "type"
+                widget: "select"
+                default: "solo"
+                options:
+                  - { label: "개인전 (Solo)", value: "solo" }
+                  - { label: "그룹전 (Group)", value: "group" }
               - { label: "전시명 (한글)", name: "title_ko", widget: "string" }
               - { label: "전시명 (영문)", name: "title_en", widget: "string" }
               - { label: "날짜 (예: 2026. 3. 1 – 3. 30)", name: "date", widget: "string" }

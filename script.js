@@ -449,8 +449,22 @@ async function renderDynamic() {
   if (exhList) {
     const data = await loadJSON("data/exhibitions.json");
     if (data) {
-      exhList.innerHTML = (data.exhibitions || []).map((e, i) => `
-        <a class="exh-item" href="exhibition.html?i=${i}">
+      const all = (data.exhibitions || []).map((e, idx) => ({ ...e, idx }));
+
+      // 전체 / 개인전 / 그룹전 토글 (기본: 전체, 목록 순서 = 최신순)
+      const typeParam = new URLSearchParams(location.search).get("type");
+      const selType = ["solo", "group"].includes(typeParam) ? typeParam : null;
+      const toggle = document.getElementById("exh-view-toggle");
+      if (toggle) {
+        toggle.innerHTML = `
+          <a href="exhibitions.html"${selType ? "" : ' class="on"'} data-ko="전체" data-en="All">전체</a>
+          <a href="exhibitions.html?type=solo"${selType === "solo" ? ' class="on"' : ""} data-ko="개인전" data-en="Solo">개인전</a>
+          <a href="exhibitions.html?type=group"${selType === "group" ? ' class="on"' : ""} data-ko="그룹전" data-en="Group">그룹전</a>`;
+      }
+
+      const shown = selType ? all.filter((e) => e.type === selType) : all;
+      exhList.innerHTML = shown.map((e) => `
+        <a class="exh-item" href="exhibition.html?i=${e.idx}">
           <div class="exh-image">${
             e.image
               ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}" loading="lazy">`

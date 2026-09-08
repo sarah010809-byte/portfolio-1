@@ -470,6 +470,12 @@ img { max-width: 100%; display: block; }
 .view-toggle a:hover { color: #111; }
 .view-toggle a.on { color: #111; font-weight: 600; border-bottom: 1px solid #111; }
 
+/* Exhibitions 페이지: 가운데 정렬 토글 (전체 / 개인전 / 그룹전) */
+.exh-toggle {
+  justify-content: center;
+  margin: -32px 0 48px;
+}
+
 /* 작품 상세: 시리즈 표기 */
 .side-series { font-size: 0.85rem; color: #777; margin: -16px 0 20px; }
 
