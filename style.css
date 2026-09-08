@@ -1028,7 +1028,8 @@ img.profile { object-fit: cover; }
   }
 
   /* 모바일: 뒤로가기 링크 없이 헤더 아래 바로 이미지 (헤더 메뉴·하단 다른 작품으로 이동 가능) */
-  .work-page.page-layout { padding-top: 84px; padding-left: 20px; padding-right: 20px; }
+  /* 이미지 위 여백 = 아래 썸네일 스트립 영역과 비슷하게 (헤더 75px + 약 48px) */
+  .work-page.page-layout { padding-top: 124px; padding-left: 20px; padding-right: 20px; }
   .work-page .detail-back { display: none; }
   .work-top { flex-direction: column; gap: 20px; }
   .work-side { width: auto; padding-top: 0; }
