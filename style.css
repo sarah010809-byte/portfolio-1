@@ -286,11 +286,15 @@ body:not(.subpage) .exh-sticky {
   overflow: hidden;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* 다른 섹션과 동일하게 구분선 아래 90px에서 제목 시작 */
+  padding: 90px 20px 40px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
+
+/* 트랙은 제목 아래 남은 공간에서 세로 중앙 */
+.exh-track { margin-top: auto; margin-bottom: auto; }
 
 .exh-track {
   display: flex;
