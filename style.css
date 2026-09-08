@@ -270,17 +270,18 @@ main > .section:last-child { padding-bottom: 140px; }
 }
 .view-all:hover { color: #111; }
 
-/* 메인 페이지 섹션: 기존(1100px)보다 한 단계 넓게 */
+/* 메인 페이지 섹션: 리움처럼 화면 가장자리 여백(44px)까지 넓게 */
 body:not(.subpage) .section {
-  max-width: 1280px;
-  padding-left: 32px;
-  padding-right: 32px;
+  max-width: none;
+  padding-left: 44px;
+  padding-right: 44px;
 }
 body:not(.subpage) .exh-sticky {
-  max-width: 1280px;
-  padding-left: 32px;
-  padding-right: 32px;
+  max-width: none;
+  padding-left: 44px;
+  padding-right: 44px;
 }
+main > .exh-scroll::before { max-width: none; margin: 0 44px; }
 
 /* 메인 페이지: 작품 이미지·작품명·연도 중앙 정렬 */
 #home-works .card { text-align: center; }
@@ -1161,19 +1162,25 @@ img.profile { object-fit: cover; }
   .home-writing-card { border-top: none; padding-top: 0; }
   #home-writings .home-card-row { gap: 36px; }
 
-  /* 모바일: 타이틀 왼쪽 + View all 오른쪽 (한 줄) */
-  .section, .exh-sticky { position: relative; }
-  .section-head { justify-content: flex-start; margin-bottom: 20px; }
+  /* 모바일 (리움 스타일): 타이틀 중앙 + 바로 아래 작은 MORE */
+  .section, .exh-sticky { display: flex; flex-direction: column; }
+  .section-head { order: 0; justify-content: center; margin-bottom: 4px; }
+  .section > *:not(.section-head):not(.view-all),
+  .exh-sticky > *:not(.section-head):not(.view-all) { order: 2; }
   .section .view-all,
   .exh-sticky .view-all {
-    position: absolute;
-    top: 45px;
-    right: 20px;
-    margin-top: 0;
-    font-size: 0.85rem;
+    order: 1;
+    text-align: center;
+    margin: 0 0 24px;
+    font-size: 0; /* 기존 "View all →" 텍스트 숨김 */
   }
-  .hero + .section .view-all { top: 105px; }
-  .exh-sticky .view-all { top: 61px; }
+  .section .view-all::after,
+  .exh-sticky .view-all::after {
+    content: "MORE";
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: #999;
+  }
   .series { margin-bottom: 64px; }
   .exh-item { margin-bottom: 64px; }
 
