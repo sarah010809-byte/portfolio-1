@@ -940,11 +940,14 @@ img.profile { object-fit: cover; }
   /* 모바일: Works 옆 ▾ 화살표, 탭하면 하위 메뉴 펼침 */
   .nav-caret {
     display: inline-block;
-    margin-left: 8px;
-    color: #999;
-    font-size: 0.8em;
+    margin-left: 10px;
+    color: #555;
+    font-size: 1.05em;
     transition: transform 0.25s ease;
   }
+  /* 하위 메뉴가 열려도 Works 는 검정 유지 (탭 시 흐려지는 효과 제거) */
+  .nav a:hover { opacity: 1; }
+  .nav-item.has-sub.open > a { color: #111; opacity: 1; }
   .nav-item.has-sub.open .nav-caret { transform: rotate(180deg); }
 
   .nav .sub-nav {
@@ -997,8 +1000,12 @@ img.profile { object-fit: cover; }
   .series-nav { display: flex; flex-wrap: wrap; gap: 14px; }
   .series-nav li { margin-bottom: 0; }
 
-  /* 작품 상세: 모바일에선 이미지 아래에 정보 */
-  .slider.multi .slides { height: 44vh; }
+  /* 작품 상세: 모바일에선 이미지 아래에 정보, 이미지는 화면 좌우 꽉 차게 */
+  .work-top .work-image { margin: 0 -20px; }
+  .slider .slide img { max-height: none; }
+  .slider:not(.multi) .slide img { width: 100%; }
+  .slider.multi .slides { height: 44vh; } /* JS 가 대표 이미지 비율로 재계산 */
+  .slider-controls { padding: 0 20px; }
   .work-top { flex-direction: column; gap: 20px; }
   .work-side { width: auto; padding-top: 0; }
 

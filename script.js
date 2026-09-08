@@ -180,7 +180,24 @@ function sliderHTML(id, images, alt) {
   </div>`;
 }
 
+// 모바일: 스테이지 높이를 대표(첫) 이미지 비율에 맞춰 고정 — 디테일컷 비율이 달라도 안 흔들림
+function sizeStageForMobile(root) {
+  if (!window.matchMedia("(max-width: 768px)").matches) return;
+  const stage = root.querySelector(".slides");
+  const first = root.querySelector(".slide img");
+  if (!stage || !first) return;
+  const apply = () => {
+    if (first.naturalWidth) {
+      stage.style.height = `${stage.clientWidth * first.naturalHeight / first.naturalWidth}px`;
+    }
+  };
+  if (first.complete) apply();
+  else first.addEventListener("load", apply);
+  window.addEventListener("resize", apply);
+}
+
 function initSlider(root) {
+  sizeStageForMobile(root);
   const slides = [...root.querySelectorAll(".slide")];
   const prevBtn = root.querySelector(".slider-prev");
   const nextBtn = root.querySelector(".slider-next");
