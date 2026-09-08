@@ -561,7 +561,11 @@ async function renderDynamic() {
         projectDetail.innerHTML = `
           <p class="back-link detail-back"><a href="projects.html" data-ko="← 프로젝트 목록" data-en="← All Projects">← 프로젝트 목록</a></p>
           <article class="exh-detail">
-            ${p.image ? `<div class="exh-detail-image"><img src="${esc(p.image)}" alt="${esc(p.title_ko)}"></div>` : ""}
+            <div class="exh-detail-image">${
+              p.image
+                ? `<img src="${esc(p.image)}" alt="${esc(p.title_ko)}">`
+                : `<div class="placeholder exh-placeholder"><span>${esc(p.title_en)}</span></div>`
+            }</div>
             <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
             <p class="exh-date">${esc(p.year)}${p.category === "curatorial" ? " · Curatorial Project" : " · Collaboration"}</p>
             <p class="exh-venue" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>
