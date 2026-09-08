@@ -252,6 +252,36 @@ img { max-width: 100%; display: block; }
 }
 .home-year-label a:hover { opacity: 0.6; }
 
+/* ===== 메인 전시: 스크롤 고정 + 가로 이동 ===== */
+.exh-scroll {
+  position: relative;
+  border-top: 1px solid #f0f0f0;
+}
+
+.exh-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.exh-track {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  will-change: transform;
+}
+
+.exh-track .home-exh-card { flex: 0 0 auto; width: 320px; }
+.exh-track .home-exh-card.feature { width: 600px; }
+.exh-track .home-exh-card.feature .exh-thumb { aspect-ratio: 16 / 10; }
+
 /* 메인 페이지: 전시 미리보기 (최근 전시 크게 + 이전 3개 아래로) */
 .home-exh-feature { margin-bottom: 48px; }
 
@@ -1077,3 +1107,26 @@ img.profile { object-fit: cover; }
   #exh-list .exh-item { margin-bottom: 0; }
 }
 
+
+/* 메인 전시 가로 인터랙션: 모바일에선 비활성화하고 세로 배치 */
+@media (max-width: 768px) {
+  .exh-scroll { height: auto !important; }
+  .exh-sticky {
+    position: static;
+    height: auto;
+    overflow: visible;
+    padding: 56px 20px;
+    display: block;
+  }
+  .exh-track {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 12px;
+    transform: none !important;
+  }
+  .exh-track .home-exh-card { width: auto; }
+  .exh-track .home-exh-card.feature { grid-column: 1 / -1; }
+  .exh-track .home-exh-card.feature .exh-thumb { aspect-ratio: 4 / 3; }
+  /* 모바일: 최근 1개 + 과거 2개만 */
+  .exh-track .home-exh-card:nth-child(n+4) { display: none; }
+}

@@ -150,6 +150,43 @@ async function loadJSON(path) {
   }
 }
 
+// ===== 메인 전시 섹션: 스크롤 고정 + 가로 이동 인터랙션 =====
+function setupExhScroll() {
+  const section = document.getElementById("exh-scroll");
+  const track = document.getElementById("home-exh");
+  if (!section || !track) return;
+  const sticky = section.querySelector(".exh-sticky");
+  let overflow = 0;
+
+  function measure() {
+    if (window.innerWidth <= 768) {
+      section.style.height = "";
+      track.style.transform = "";
+      overflow = 0;
+      return;
+    }
+    const cs = getComputedStyle(sticky);
+    const visible = sticky.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    overflow = Math.max(0, track.scrollWidth - visible);
+    // 가로로 이동해야 할 거리만큼 세로 스크롤 구간을 늘림 (1px 스크롤 = 1px 이동)
+    section.style.height = (window.innerHeight + overflow) + "px";
+  }
+
+  function onScroll() {
+    if (overflow <= 0) return;
+    const rect = section.getBoundingClientRect();
+    const px = Math.min(Math.max(-rect.top, 0), overflow);
+    track.style.transform = `translateX(${-px}px)`;
+  }
+
+  measure();
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", () => { measure(); onScroll(); });
+  // 이미지 로드 후 폭이 달라질 수 있어 재측정
+  window.addEventListener("load", () => { measure(); onScroll(); });
+}
+
 // 작품 목록을 연도 내림차순으로 정렬 (원본 인덱스 유지)
 function sortedWorks(data) {
   return (data.works || [])
@@ -295,11 +332,12 @@ async function renderDynamic() {
             ? `<p class="home-excerpt" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
           <p class="exh-date">${esc(e.date)}</p>
         </a>`;
-      const first = ex[0] ? `<div class="home-exh-feature">${exhCard(ex[0], true, 0)}</div>` : "";
-      const rest = ex.length > 1
-        ? `<div class="home-exh-row">${ex.slice(1, 4).map((e, i) => exhCard(e, false, i + 1)).join("")}</div>`
-        : "";
-      homeExh.innerHTML = first + rest;
+      // 첫(최신) 전시는 크게, 과거 전시들은 트랙 오른쪽으로 이어붙임
+      homeExh.innerHTML = ex.map((e, i) => {
+        const card = exhCard(e, i === 0, i);
+        return i === 0 ? card.replace('class="home-exh-card"', 'class="home-exh-card feature"') : card;
+      }).join("");
+      setupExhScroll();
     }
   }
 
