@@ -222,12 +222,16 @@ img { max-width: 100%; display: block; }
 /* 메인 이미지(히어로) 다음 첫 섹션은 여유 있게 시작 */
 .hero + .section { padding-top: 96px; }
 
-/* 구분선 대신 큰 타이틀로 섹션 시작을 표시 */
+/* 구분선 대신 큰 타이틀로 섹션 시작을 표시.
+   섹션 사이 간격 = 48+48 = 96px (히어로→Works 간격과 동일) */
 .section {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 52px 20px;
+  padding: 48px 20px;
 }
+
+/* 마지막 섹션 아래는 여유 있게 */
+main > .section:last-child { padding-bottom: 140px; }
 
 .section h2,
 .exh-sticky h2 {
@@ -243,9 +247,10 @@ img { max-width: 100%; display: block; }
   margin-bottom: 32px;
 }
 
-/* View all: 콘텐츠 아래 왼쪽 */
+/* View all: 콘텐츠 아래 오른쪽 */
 .view-all {
-  display: inline-block;
+  display: block;
+  text-align: right;
   margin-top: 28px;
   font-size: 0.9rem;
   color: #888;
@@ -292,11 +297,12 @@ body:not(.subpage) .exh-sticky {
   overflow: hidden;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 52px 20px;
+  /* 다른 섹션과 같은 리듬: 섹션 시작 48px 아래에서 제목 */
+  padding: 48px 20px;
+  background: #fff; /* 고정 중 아래 섹션이 비쳐 보이지 않게 */
   display: flex;
   flex-direction: column;
-  /* 제목+카드를 한 덩어리로 화면 세로 중앙에 — 제목과 이미지 간격은 다른 섹션과 동일 */
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .exh-track {

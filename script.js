@@ -184,6 +184,7 @@ function setupExhScroll() {
   function measure() {
     if (window.innerWidth <= 768) {
       section.style.height = "";
+      section.style.marginBottom = "";
       track.style.transform = "";
       overflow = 0;
       return;
@@ -193,6 +194,10 @@ function setupExhScroll() {
     overflow = Math.max(0, track.scrollWidth - visible);
     // 가로로 이동해야 할 거리만큼 세로 스크롤 구간을 늘림 (1px 스크롤 = 1px 이동)
     section.style.height = (window.innerHeight + overflow) + "px";
+    // 고정 화면 하단의 빈 공간만큼 다음 섹션을 끌어올려, 고정 해제 시 간격이 96px이 되게 함
+    const contentBottom = sticky.lastElementChild.getBoundingClientRect().bottom - sticky.getBoundingClientRect().top;
+    const slack = window.innerHeight - contentBottom - 48;
+    section.style.marginBottom = slack > 0 ? `-${Math.round(slack)}px` : "";
   }
 
   function onScroll() {
