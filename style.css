@@ -964,6 +964,10 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 
 /* Projects 페이지: 카드 2열 크게 + 콘텐츠 영역이 화면을 채우게 */
 #projects-content .grid { grid-template-columns: repeat(2, 1fr); gap: 48px 40px; }
+.proj-caption { display: flex; flex-direction: column; gap: 2px; }
+.proj-caption .home-cat { margin-bottom: 2px; }
+.proj-venue { color: #777; font-size: 0.82rem; }
+.proj-caption .exh-date { margin-top: 2px; }
 body.subpage .exh-layout { min-height: 100vh; }
 
 @media (max-width: 768px) {

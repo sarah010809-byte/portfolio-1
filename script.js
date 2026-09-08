@@ -690,8 +690,12 @@ async function renderDynamic() {
       projectsContent.innerHTML = `<div class="grid">${view.map((p) => `
         <figure class="card"><a href="project.html?i=${p.idx}">
           ${thumbHTML(p, p.title_en)}
-          <figcaption>
-            <strong data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</strong><span>, ${esc(p.year)}</span>
+          <figcaption class="proj-caption">
+            <span class="home-cat">${p.category === "curatorial" ? "Curatorial Project" : "Collaboration"}</span>
+            <strong data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</strong>
+            ${p.venue_ko || p.venue_en
+              ? `<span class="proj-venue" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</span>` : ""}
+            <span class="exh-date">${esc(p.year)}</span>
           </figcaption>
         </a></figure>`).join("")}</div>` + pagerHTML(href, page, total);
     }
