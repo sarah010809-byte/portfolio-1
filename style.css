@@ -970,6 +970,16 @@ body.subpage .exh-layout { min-height: 100vh; }
   .writing-row { grid-template-columns: 38% 1fr; gap: 14px; }
   .writing-row-info h3 { font-size: 0.9rem; }
   .writing-row-info .home-excerpt { -webkit-line-clamp: 2; font-size: 0.78rem; }
+  /* 모바일 분류 탭: 항목별 줄바꿈 없이(nowrap) 일정한 간격으로 */
+  .view-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 20px;
+    font-size: 0.85rem;
+  }
+  .view-toggle a { white-space: nowrap; }
+
   /* 모바일 프로젝트: writings처럼 정사각 이미지 좌측 + 텍스트 우측 */
   #projects-content .grid { grid-template-columns: 1fr; gap: 28px; }
   #projects-content .card a {
