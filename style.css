@@ -407,8 +407,6 @@ img { max-width: 100%; display: block; }
   justify-content: space-between;
   align-items: center;
   margin-top: 32px;
-  padding-top: 16px;
-  border-top: 1px solid #eee;
   font-size: 0.9rem;
 }
 .work-nav a { color: #888; border-bottom: 1px solid #ddd; padding-bottom: 1px; }
