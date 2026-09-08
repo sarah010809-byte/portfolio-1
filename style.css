@@ -237,16 +237,16 @@ img { max-width: 100%; display: block; }
 }
 .view-all:hover { color: #111; }
 
-/* 메인 페이지 섹션: 중앙 제한 없이 화면 가장자리 여백(44px)까지 넓게 */
+/* 메인 페이지 섹션: 기존(1100px)보다 한 단계 넓게 */
 body:not(.subpage) .section {
-  max-width: none;
-  padding-left: 44px;
-  padding-right: 44px;
+  max-width: 1280px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 body:not(.subpage) .exh-sticky {
-  max-width: none;
-  padding-left: 44px;
-  padding-right: 44px;
+  max-width: 1280px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 /* 메인 페이지: 작품 이미지·작품명·연도 중앙 정렬 */
@@ -291,7 +291,7 @@ body:not(.subpage) .exh-sticky {
 }
 
 /* 카드 크기 통일 (전부 크게) */
-.exh-track .home-exh-card { flex: 0 0 auto; width: min(680px, 48vw); }
+.exh-track .home-exh-card { flex: 0 0 auto; width: 620px; }
 .exh-track .home-exh-card .exh-thumb { aspect-ratio: 16 / 10; }
 
 /* 메인 페이지: 전시 미리보기 (최근 전시 크게 + 이전 3개 아래로) */
