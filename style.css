@@ -872,6 +872,16 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 
 .site-footer p { color: #777; }
 
+/* 푸터 상단 이름 */
+.footer-name {
+  color: #fff;
+  font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+
 .footer-icons {
   display: flex;
   justify-content: center;
@@ -889,8 +899,6 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 }
 .footer-copy { letter-spacing: 0.04em; font-size: 0.78rem; }
 
-/* 확대 가능 안내는 커서 모양(돋보기)으로만 */
-.slider .slide img { cursor: zoom-in; }
 
 /* TOP 버튼 (검정 푸터 위 흰 영역, 우측 정렬) */
 .to-top-wrap {
