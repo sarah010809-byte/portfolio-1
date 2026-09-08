@@ -717,12 +717,28 @@ async function initFooter() {
 initFooter();
 
 // ===== 이미지 확대 뷰어 (라이트박스) =====
-// 상세페이지 이미지를 클릭하면 크게 보고, 이미지 밖을 클릭하거나 Esc 로 닫음
+// 이미지 클릭 → 확대. 좌우 화살표로 넘기기, 아무 곳이나 클릭하거나 Esc 로 닫기
 const lightbox = document.createElement("div");
 lightbox.className = "lightbox";
-lightbox.innerHTML = `<img alt="">`;
+lightbox.innerHTML = `
+  <button class="lb-arrow lb-prev" aria-label="previous image">←</button>
+  <img alt="">
+  <button class="lb-arrow lb-next" aria-label="next image">→</button>`;
 document.body.appendChild(lightbox);
 const lightboxImg = lightbox.querySelector("img");
+const lbPrev = lightbox.querySelector(".lb-prev");
+const lbNext = lightbox.querySelector(".lb-next");
+
+// 현재 열려 있는 이미지 목록/위치 + 원래 슬라이더 (닫았을 때 같은 이미지가 보이도록 동기화)
+const lbState = { imgs: [], i: 0, slider: null };
+
+function lbShow(n) {
+  lbState.i = (n + lbState.imgs.length) % lbState.imgs.length;
+  lightboxImg.src = lbState.imgs[lbState.i];
+  // 아래 뷰어의 썸네일도 같은 이미지로 맞춤
+  const thumbs = lbState.slider?.querySelectorAll(".slider-thumb");
+  if (thumbs && thumbs[lbState.i]) thumbs[lbState.i].click();
+}
 
 function closeLightbox() {
   lightbox.classList.remove("show");
@@ -732,16 +748,26 @@ function closeLightbox() {
 document.addEventListener("click", (e) => {
   const img = e.target.closest(".slider .slide img");
   if (img) {
-    lightboxImg.src = img.src;
+    const slider = img.closest(".slider");
+    lbState.slider = slider;
+    lbState.imgs = [...slider.querySelectorAll(".slide img")].map((el) => el.src);
+    lbState.i = lbState.imgs.indexOf(img.src);
+    if (lbState.i < 0) lbState.i = 0;
+    lightboxImg.src = lbState.imgs[lbState.i];
+    lightbox.classList.toggle("has-arrows", lbState.imgs.length > 1);
     lightbox.classList.add("show");
     document.body.style.overflow = "hidden";
   }
 });
-lightbox.addEventListener("click", (e) => {
-  if (e.target !== lightboxImg) closeLightbox();
-});
+lbPrev.addEventListener("click", (e) => { e.stopPropagation(); lbShow(lbState.i - 1); });
+lbNext.addEventListener("click", (e) => { e.stopPropagation(); lbShow(lbState.i + 1); });
+// 화살표 외에는 어디를 눌러도 닫힘 (이미지 포함 — 커서가 축소 아이콘이므로)
+lightbox.addEventListener("click", () => closeLightbox());
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && lightbox.classList.contains("show")) closeLightbox();
+  if (!lightbox.classList.contains("show")) return;
+  if (e.key === "Escape") closeLightbox();
+  if (e.key === "ArrowLeft" && lbState.imgs.length > 1) lbShow(lbState.i - 1);
+  if (e.key === "ArrowRight" && lbState.imgs.length > 1) lbShow(lbState.i + 1);
 });
 
 renderDynamic().then(() => {

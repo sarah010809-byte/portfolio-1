@@ -458,8 +458,11 @@ img { max-width: 100%; display: block; }
   transition: color 0.2s;
 }
 .slider-prev:hover, .slider-next:hover { color: #111; }
-/* 메인 이미지: 확대 커서 + 클릭하면 라이트박스 */
-.slider .slide img { cursor: zoom-in; }
+/* 메인 이미지: 확대(펼침 화살표) 커서 — 이미지 위에서만 */
+.slider .slide { cursor: default; }
+.slider .slide img {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Ccircle cx='18' cy='18' r='17' fill='white' fill-opacity='0.95'/%3E%3Cg stroke='black' stroke-width='2' fill='none' stroke-linecap='round'%3E%3Cpath d='M20.5 15.5L27 9M27 9h-5.5M27 9v5.5'/%3E%3Cpath d='M15.5 20.5L9 27M9 27h5.5M9 27v-5.5'/%3E%3C/g%3E%3C/svg%3E") 18 18, zoom-in;
+}
 
 /* 라이트박스 (전체 화면 확대 뷰어) */
 .lightbox {
@@ -473,7 +476,8 @@ img { max-width: 100%; display: block; }
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
-  cursor: zoom-out;
+  /* 확대 상태: 모음(축소) 화살표 커서 */
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Ccircle cx='18' cy='18' r='17' fill='white' fill-opacity='0.95'/%3E%3Cg stroke='black' stroke-width='2' fill='none' stroke-linecap='round'%3E%3Cpath d='M27 9l-6.5 6.5M20.5 15.5H26M20.5 15.5V10'/%3E%3Cpath d='M9 27l6.5-6.5M15.5 20.5H10M15.5 20.5V26'/%3E%3C/g%3E%3C/svg%3E") 18 18, zoom-out;
 }
 .lightbox.show { opacity: 1; visibility: visible; }
 .lightbox img {
@@ -481,9 +485,30 @@ img { max-width: 100%; display: block; }
   max-height: 92vh;
   width: auto;
   height: auto;
-  cursor: default;
   box-shadow: 0 10px 60px rgba(0,0,0,0.5);
 }
+
+/* 라이트박스 좌우 화살표 (이미지가 여러 장일 때만) */
+.lightbox .lb-arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(0,0,0,0.2);
+  color: #fff;
+  font-size: 1.05rem;
+  cursor: pointer;
+  z-index: 1;
+  transition: background 0.2s, border-color 0.2s;
+}
+.lightbox.has-arrows .lb-arrow { display: block; }
+.lightbox .lb-arrow:hover { background: rgba(255,255,255,0.18); border-color: #fff; }
+.lightbox .lb-prev { left: 28px; }
+.lightbox .lb-next { right: 28px; }
 
 /* 썸네일 스트립: 클릭하면 해당 이미지가 메인으로 */
 .slider-thumbs {
