@@ -461,7 +461,7 @@ img { max-width: 100%; display: block; }
 /* 메인 이미지: 확대(펼침 화살표) 커서 — 이미지 위에서만 */
 .slider .slide { cursor: default; }
 .slider .slide img {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Ccircle cx='18' cy='18' r='17' fill='white' fill-opacity='0.95'/%3E%3Cg stroke='black' stroke-width='2' fill='none' stroke-linecap='round'%3E%3Cpath d='M20.5 15.5L27 9M27 9h-5.5M27 9v5.5'/%3E%3Cpath d='M15.5 20.5L9 27M9 27h5.5M9 27v-5.5'/%3E%3C/g%3E%3C/svg%3E") 18 18, zoom-in;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Ccircle cx='18' cy='18' r='17' fill='white' fill-opacity='0.95'/%3E%3Cg stroke='black' stroke-width='2' fill='none' stroke-linecap='round'%3E%3Cpath d='M27 9l-6.5 6.5M20.5 15.5H26M20.5 15.5V10'/%3E%3Cpath d='M9 27l6.5-6.5M15.5 20.5H10M15.5 20.5V26'/%3E%3C/g%3E%3C/svg%3E") 18 18, zoom-in;
 }
 
 /* 라이트박스 (전체 화면 확대 뷰어) */
@@ -477,7 +477,7 @@ img { max-width: 100%; display: block; }
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   /* 확대 상태: 모음(축소) 화살표 커서 */
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Ccircle cx='18' cy='18' r='17' fill='white' fill-opacity='0.95'/%3E%3Cg stroke='black' stroke-width='2' fill='none' stroke-linecap='round'%3E%3Cpath d='M27 9l-6.5 6.5M20.5 15.5H26M20.5 15.5V10'/%3E%3Cpath d='M9 27l6.5-6.5M15.5 20.5H10M15.5 20.5V26'/%3E%3C/g%3E%3C/svg%3E") 18 18, zoom-out;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Ccircle cx='18' cy='18' r='17' fill='white' fill-opacity='0.95'/%3E%3Cg stroke='black' stroke-width='2' fill='none' stroke-linecap='round'%3E%3Cpath d='M20.5 15.5L27 9M27 9h-5.5M27 9v5.5'/%3E%3Cpath d='M15.5 20.5L9 27M9 27h5.5M9 27v-5.5'/%3E%3C/g%3E%3C/svg%3E") 18 18, zoom-out;
 }
 .lightbox.show { opacity: 1; visibility: visible; }
 .lightbox img {
