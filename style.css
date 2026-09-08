@@ -263,9 +263,10 @@ img { max-width: 100%; display: block; }
 
 /* 카드 공통: 카테고리 라벨 / 요약문 (참고: 카드형 아카이브 레이아웃) */
 .home-cat {
-  font-size: 0.75rem;
-  color: #999;
-  letter-spacing: 0.08em;
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: #aaa;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
@@ -298,8 +299,8 @@ img { max-width: 100%; display: block; }
   transition: transform 0.5s ease;
 }
 .home-exh-card:hover .exh-thumb img { transform: scale(1.04); }
-.home-exh-card h3 { font-size: 1rem; }
-.home-exh-card .exh-venue { font-size: 0.85rem; }
+.home-exh-card h3 { font-size: 1rem; line-height: 1.35; }
+.home-exh-card .exh-venue { font-size: 0.85rem; margin-top: 0; line-height: 1.4; }
 
 /* 현재 페이지 메뉴 표시 */
 .nav a.current { font-weight: 700; }
