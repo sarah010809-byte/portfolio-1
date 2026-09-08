@@ -1220,11 +1220,8 @@ img.profile { object-fit: cover; }
   .lightbox .lb-arrow { display: none !important; }
 
   /* 메인 미리보기 카드: 모바일에선 세로로 한 줄씩 */
-  /* 프로젝트: 최근 것 크게 + 아래 2개 나란히 */
-  .home-exh-row, .home-card-row { grid-template-columns: 1fr 1fr; gap: 32px 12px; }
-  #home-projects .home-card-row > :first-child { grid-column: 1 / -1; }
-  #home-projects .home-card-row > :not(:first-child) h3 { font-size: 0.9rem; }
-  #home-projects .home-card-row > :not(:first-child) .home-excerpt { display: none; }
+  /* 프로젝트: 모든 카드 같은 크기(전체 폭)로 세로 나열 */
+  .home-exh-row, .home-card-row { grid-template-columns: 1fr; gap: 40px; }
 
   /* Writings: 정사각형 이미지 좌측 + 글 정보 우측 (텍스트가 이미지 높이 안에 들어오게) */
   #home-writings .home-card-row { grid-template-columns: 1fr; gap: 28px; }
