@@ -446,10 +446,11 @@ async function renderDynamic() {
       const yearList = list.filter((o) => o.year === w.year);
       const yPos = yearList.findIndex((o) => o.idx === w.idx);
       const link = (p) => `work.html?i=${yearList[p].idx}`;
+      // 화살표는 이미지 슬라이드 전용 — 작품 이동은 텍스트 링크로 구분
       const prev = yPos > 0
-        ? `<a href="${link(yPos - 1)}" data-ko="← 이전 작품" data-en="← Prev Work">← 이전 작품</a>` : `<span></span>`;
+        ? `<a href="${link(yPos - 1)}" data-ko="이전 작품" data-en="Prev Work">이전 작품</a>` : `<span></span>`;
       const next = yPos < yearList.length - 1
-        ? `<a href="${link(yPos + 1)}" data-ko="다음 작품 →" data-en="Next Work →">다음 작품 →</a>` : `<span></span>`;
+        ? `<a href="${link(yPos + 1)}" data-ko="다음 작품" data-en="Next Work">다음 작품</a>` : `<span></span>`;
 
       const sameYear = yearList.filter((o) => o.idx !== w.idx);
       const others = sameYear.length ? `
