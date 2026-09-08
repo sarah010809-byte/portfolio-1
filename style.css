@@ -347,10 +347,7 @@ body:not(.subpage) .exh-sticky {
   overflow: hidden;
 }
 .home-exh-card .exh-date { margin-top: 10px; }
-.home-writing-card {
-  border-top: 1px solid #eee;
-  padding-top: 18px;
-}
+.home-writing-card .home-cat { margin-top: 2px; }
 
 .home-exh-card { display: block; }
 .home-exh-card .exh-thumb {
@@ -891,6 +888,15 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   border-color: #fff;
 }
 .footer-copy { letter-spacing: 0.04em; font-size: 0.78rem; }
+
+/* 루페 기능 안내 문구 */
+.loupe-hint {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: #b5b5b5;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
 
 /* TOP 버튼 (검정 푸터 위 흰 영역, 우측 정렬) */
 .to-top-wrap {

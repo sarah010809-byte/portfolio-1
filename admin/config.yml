@@ -165,6 +165,7 @@ collections:
               - { label: "본문 (한글)", name: "body_ko", widget: "text", required: false }
               - { label: "본문 (영문)", name: "body_en", widget: "text", required: false }
               - { label: "원문 링크 (https://...)", name: "link", widget: "string", required: false, hint: "외부 기사·인터뷰라면 링크만 넣어도 됩니다" }
+              - { label: "대표 이미지", name: "image", widget: "image", required: false, hint: "메인 페이지 카드와 글 상세에 표시됩니다" }
 
   - name: "artist"
     label: "👤 About (작가 정보)"

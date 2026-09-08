@@ -411,6 +411,11 @@ async function renderDynamic() {
         const cat = CAT_LABELS[t.category] || CAT_LABELS.etc;
         return `
         <a class="home-exh-card home-writing-card" href="writing.html?i=${t.idx}">
+          <div class="exh-thumb">${
+            t.image
+              ? `<img src="${esc(t.image)}" alt="${esc(t.title_ko)}" loading="lazy">`
+              : `<div class="placeholder"><span>${esc(t.title_en)}</span></div>`
+          }</div>
           <p class="home-cat" data-ko="${esc(cat[0])}" data-en="${esc(cat[1])}">${esc(cat[0])}</p>
           <h3 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h3>
           ${(t.body_ko || t.body_en)
@@ -749,6 +754,7 @@ async function renderDynamic() {
           <p class="back-link detail-back"><a href="writings.html" data-ko="← 글 목록" data-en="← All Writings">← 글 목록</a></p>
           <article class="writing-detail">
             ${cat ? `<p class="exh-date" data-ko="${esc(cat.ko)}" data-en="${esc(cat.en)}">${esc(cat.ko)}</p>` : ""}
+            ${t.image ? `<div class="exh-detail-image"><img src="${esc(t.image)}" alt="${esc(t.title_ko)}"></div>` : ""}
             <h1 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h1>
             <p class="writing-meta">
               ${t.author_ko || t.author_en ? `<span data-ko="${esc(t.author_ko)}" data-en="${esc(t.author_en)}">${esc(t.author_ko)}</span> · ` : ""}${esc(t.year)}${t.source_ko || t.source_en ? ` · <span data-ko="${esc(t.source_ko)}" data-en="${esc(t.source_en)}">${esc(t.source_ko)}</span>` : ""}
@@ -1044,5 +1050,15 @@ renderDynamic().then(() => {
   setLang(currentLang());
   if (location.hash) {
     document.querySelector(location.hash)?.scrollIntoView();
+  }
+
+  // 루페 기능 안내 (마우스 환경 + 슬라이더가 있는 페이지에만)
+  const slider = document.querySelector(".slider");
+  if (slider && window.matchMedia("(hover: hover)").matches) {
+    const hint = document.createElement("p");
+    hint.className = "loupe-hint";
+    hint.innerHTML = '<span data-ko="🔍 이미지를 꾹 누르면 부분 확대 · 클릭하면 크게 보기" data-en="🔍 Press and hold to magnify · Click to view large">🔍 이미지를 꾹 누르면 부분 확대 · 클릭하면 크게 보기</span>';
+    slider.insertAdjacentElement("afterend", hint);
+    setLang(currentLang());
   }
 });
