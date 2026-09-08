@@ -687,6 +687,8 @@ img { max-width: 100%; display: block; }
 
 /* ===== 전시 상세 페이지 ===== */
 .exh-detail-image { margin-bottom: 28px; }
+/* 프로젝트 상세: 정보 텍스트 아래에 이미지 */
+.project-image-below { margin: 32px 0 0; }
 .exh-detail-image > img { width: 100%; display: block; }
 /* 슬라이더가 들어간 경우: 원본 비율 유지 */
 .exh-detail-image .slide img { width: auto; max-width: 100%; }
