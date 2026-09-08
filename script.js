@@ -188,7 +188,9 @@ function sizeStageForMobile(root) {
   if (!stage || !first) return;
   const apply = () => {
     if (first.naturalWidth) {
-      stage.style.height = `${stage.clientWidth * first.naturalHeight / first.naturalWidth}px`;
+      // 대표 이미지 비율을 따르되, 작품명이 첫 화면에 함께 보이도록 화면 높이의 52%를 넘지 않게
+      const h = stage.clientWidth * first.naturalHeight / first.naturalWidth;
+      stage.style.height = `${Math.min(h, window.innerHeight * 0.52)}px`;
     }
   };
   if (first.complete) apply();
