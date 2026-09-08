@@ -609,8 +609,8 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   flex-wrap: wrap;
 }
 .slider-thumb {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   padding: 0;
   border: 1px solid transparent;
   background: #f4f4f4;
@@ -1013,7 +1013,7 @@ img.profile { object-fit: cover; }
   .slider-prev, .slider-next { display: none; }
   .slider-controls { margin-top: 12px; gap: 10px; justify-content: center; }
   .slider-thumbs { justify-content: center; }
-  .slider-thumb { width: 44px; height: 44px; }
+  .slider-thumb { width: 36px; height: 36px; }
   /* 모바일: 뒤로가기 링크 없이 헤더 아래 바로 이미지 (헤더 메뉴·하단 다른 작품으로 이동 가능) */
   .work-page.page-layout { padding-top: 84px; padding-left: 20px; padding-right: 20px; }
   .work-page .detail-back { display: none; }
