@@ -785,6 +785,7 @@ document.addEventListener("mousedown", (e) => {
     loupe.style.backgroundImage = `url("${img.src}")`;
     loupeUpdate(e);
     loupe.classList.add("show");
+    document.body.classList.add("loupe-on"); // 루페 사용 중엔 커서 숨김
   }, LOUPE_DELAY);
 });
 document.addEventListener("mousemove", (e) => {
@@ -795,6 +796,7 @@ document.addEventListener("mouseup", () => {
   if (loupeActive) {
     loupeActive = false;
     loupe.classList.remove("show");
+    document.body.classList.remove("loupe-on");
     loupeSuppressClick = true; // 루페를 쓴 길게 누름은 클릭(확대 뷰어 열기)으로 치지 않음
   }
 });

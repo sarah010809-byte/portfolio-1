@@ -478,6 +478,8 @@ img { max-width: 100%; display: block; }
   display: none;
 }
 .loupe.show { display: block; }
+/* 루페 사용 중엔 커서 숨김 */
+body.loupe-on, body.loupe-on * { cursor: none !important; }
 
 /* 라이트박스 (전체 화면 확대 뷰어) */
 .lightbox {
