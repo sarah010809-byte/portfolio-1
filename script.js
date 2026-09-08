@@ -723,11 +723,13 @@ lightbox.className = "lightbox";
 lightbox.innerHTML = `
   <button class="lb-arrow lb-prev" aria-label="previous image">←</button>
   <img alt="">
-  <button class="lb-arrow lb-next" aria-label="next image">→</button>`;
+  <button class="lb-arrow lb-next" aria-label="next image">→</button>
+  <div class="lb-thumbs"></div>`;
 document.body.appendChild(lightbox);
 const lightboxImg = lightbox.querySelector("img");
 const lbPrev = lightbox.querySelector(".lb-prev");
 const lbNext = lightbox.querySelector(".lb-next");
+const lbThumbs = lightbox.querySelector(".lb-thumbs");
 
 // 현재 열려 있는 이미지 목록/위치 + 원래 슬라이더 (닫았을 때 같은 이미지가 보이도록 동기화)
 const lbState = { imgs: [], i: 0, slider: null };
@@ -735,6 +737,7 @@ const lbState = { imgs: [], i: 0, slider: null };
 function lbShow(n) {
   lbState.i = (n + lbState.imgs.length) % lbState.imgs.length;
   lightboxImg.src = lbState.imgs[lbState.i];
+  [...lbThumbs.children].forEach((t, k) => t.classList.toggle("active", k === lbState.i));
   // 아래 뷰어의 썸네일도 같은 이미지로 맞춤
   const thumbs = lbState.slider?.querySelectorAll(".slider-thumb");
   if (thumbs && thumbs[lbState.i]) thumbs[lbState.i].click();
@@ -755,6 +758,12 @@ document.addEventListener("click", (e) => {
     if (lbState.i < 0) lbState.i = 0;
     lightboxImg.src = lbState.imgs[lbState.i];
     lightbox.classList.toggle("has-arrows", lbState.imgs.length > 1);
+    lbThumbs.innerHTML = lbState.imgs.length > 1
+      ? lbState.imgs.map((src, k) =>
+          `<button class="lb-thumb${k === lbState.i ? " active" : ""}" aria-label="image ${k + 1}"><img src="${src}" alt=""></button>`).join("")
+      : "";
+    [...lbThumbs.children].forEach((t, k) =>
+      t.addEventListener("click", (ev) => { ev.stopPropagation(); lbShow(k); }));
     lightbox.classList.add("show");
     document.body.style.overflow = "hidden";
   }
