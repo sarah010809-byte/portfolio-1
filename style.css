@@ -278,9 +278,9 @@ img { max-width: 100%; display: block; }
   will-change: transform;
 }
 
-.exh-track .home-exh-card { flex: 0 0 auto; width: 320px; }
-.exh-track .home-exh-card.feature { width: 600px; }
-.exh-track .home-exh-card.feature .exh-thumb { aspect-ratio: 16 / 10; }
+/* 카드 크기 통일 (전부 크게) */
+.exh-track .home-exh-card { flex: 0 0 auto; width: 600px; }
+.exh-track .home-exh-card .exh-thumb { aspect-ratio: 16 / 10; }
 
 /* 메인 페이지: 전시 미리보기 (최근 전시 크게 + 이전 3개 아래로) */
 .home-exh-feature { margin-bottom: 48px; }
