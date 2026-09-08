@@ -37,19 +37,17 @@ function buildNav() {
 }
 buildNav();
 
-// Works 메뉴: 마우스를 올리기만 해도 드롭다운이 열리게 (JS 보조)
-// 터치 기기에서는 첫 탭에 드롭다운만 열고, 열린 상태에서 다시 탭하면 이동
+// Works 메뉴: 클릭하면 드롭다운이 열리고, 드롭다운 안의 항목을 눌러야 이동
+// (마우스를 올려도 열림 — hover는 보조)
 document.querySelectorAll(".nav-item.has-sub").forEach((item) => {
   const link = item.querySelector("a");
   item.addEventListener("mouseenter", () => item.classList.add("open"));
   item.addEventListener("mouseleave", () => item.classList.remove("open"));
   link.addEventListener("click", (e) => {
-    const touchOnly = window.matchMedia("(hover: none)").matches;
     const mobileMenu = window.matchMedia("(max-width: 768px)").matches;
-    if (touchOnly && !mobileMenu && !item.classList.contains("open")) {
-      e.preventDefault();
-      item.classList.add("open");
-    }
+    if (mobileMenu) return; // 모바일 메뉴에선 하위 항목이 항상 보이므로 그대로 이동
+    e.preventDefault();
+    item.classList.toggle("open");
   });
 });
 document.addEventListener("click", (e) => {
