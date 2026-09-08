@@ -357,13 +357,6 @@ img { max-width: 100%; display: block; }
 /* 사이드바 앵커 이동 시 헤더에 가리지 않게 */
 .series { scroll-margin-top: 90px; }
 
-/* 작품 상세: 헤더(작가명 좌측·햄버거 우측)와 같은 44px 외곽 여백에 맞춤 */
-.work-page.page-layout {
-  max-width: none;
-  padding-left: 44px;
-  padding-right: 44px;
-}
-
 /* ===== 작품 상세 페이지 ===== */
 .back-link { margin-top: 4px; }
 .back-link a { font-size: 0.9rem; color: #888; }
