@@ -534,9 +534,9 @@ async function renderDynamic() {
         const extraHTML = extra.map((src) =>
           `<div class="exh-detail-image"><img src="${esc(src)}" alt="${esc(e.title_ko)}" loading="lazy"></div>`).join("");
         const prev = i > 0
-          ? `<a href="exhibition.html?i=${i - 1}" data-ko="← 이전 전시" data-en="← Prev">← 이전 전시</a>` : `<span></span>`;
+          ? `<a href="exhibition.html?i=${i - 1}" data-ko="이전 전시" data-en="Prev Exhibition">이전 전시</a>` : `<span></span>`;
         const next = i < ex.length - 1
-          ? `<a href="exhibition.html?i=${i + 1}" data-ko="다음 전시 →" data-en="Next →">다음 전시 →</a>` : `<span></span>`;
+          ? `<a href="exhibition.html?i=${i + 1}" data-ko="다음 전시" data-en="Next Exhibition">다음 전시</a>` : `<span></span>`;
         exhDetail.innerHTML = `
           <p class="back-link detail-back"><a href="exhibitions.html" data-ko="← 전시 목록" data-en="← All Exhibitions">← 전시 목록</a></p>
           <article class="exh-detail">
@@ -551,7 +551,7 @@ async function renderDynamic() {
             <p class="exh-detail-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>
             ${extraHTML}
           </article>
-          <div class="work-nav">${prev}<span class="work-count">${i + 1} / ${ex.length}</span>${next}</div>`;
+          <div class="work-nav">${prev}${next}</div>`;
         document.title = `${e.title_ko} — An Se Eun`;
       }
     }
