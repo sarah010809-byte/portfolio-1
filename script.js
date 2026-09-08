@@ -721,6 +721,7 @@ initFooter();
 const lightbox = document.createElement("div");
 lightbox.className = "lightbox";
 lightbox.innerHTML = `
+  <button class="lb-close" aria-label="close">×</button>
   <button class="lb-arrow lb-prev" aria-label="previous image">←</button>
   <img alt="">
   <button class="lb-arrow lb-next" aria-label="next image">→</button>
@@ -737,15 +738,30 @@ const lbState = { imgs: [], i: 0, slider: null };
 function lbShow(n) {
   lbState.i = (n + lbState.imgs.length) % lbState.imgs.length;
   lightboxImg.src = lbState.imgs[lbState.i];
+  lbResetZoom();
   [...lbThumbs.children].forEach((t, k) => t.classList.toggle("active", k === lbState.i));
   // 아래 뷰어의 썸네일도 같은 이미지로 맞춤
   const thumbs = lbState.slider?.querySelectorAll(".slider-thumb");
   if (thumbs && thumbs[lbState.i]) thumbs[lbState.i].click();
 }
 
+// 휠 확대·드래그 이동 상태
+const lbZoom = { z: 1, tx: 0, ty: 0, dragging: false, moved: false, sx: 0, sy: 0 };
+
+function lbApplyZoom() {
+  lightboxImg.style.transform = `translate(${lbZoom.tx}px, ${lbZoom.ty}px) scale(${lbZoom.z})`;
+  lightboxImg.style.cursor = lbZoom.z > 1 ? "grab" : "";
+}
+
+function lbResetZoom() {
+  lbZoom.z = 1; lbZoom.tx = 0; lbZoom.ty = 0;
+  lbApplyZoom();
+}
+
 function closeLightbox() {
   lightbox.classList.remove("show");
   document.body.style.overflow = "";
+  lbResetZoom();
 }
 
 document.addEventListener("click", (e) => {
@@ -770,8 +786,56 @@ document.addEventListener("click", (e) => {
 });
 lbPrev.addEventListener("click", (e) => { e.stopPropagation(); lbShow(lbState.i - 1); });
 lbNext.addEventListener("click", (e) => { e.stopPropagation(); lbShow(lbState.i + 1); });
-// 화살표 외에는 어디를 눌러도 닫힘 (이미지 포함 — 커서가 축소 아이콘이므로)
-lightbox.addEventListener("click", () => closeLightbox());
+lightbox.querySelector(".lb-close").addEventListener("click", (e) => { e.stopPropagation(); closeLightbox(); });
+
+// 마우스 휠로 확대/축소 (1배 ~ 4배)
+lightbox.addEventListener("wheel", (e) => {
+  if (!lightbox.classList.contains("show")) return;
+  e.preventDefault();
+  const prev = lbZoom.z;
+  lbZoom.z = Math.min(4, Math.max(1, lbZoom.z * (e.deltaY < 0 ? 1.12 : 0.89)));
+  if (lbZoom.z === 1) { lbZoom.tx = 0; lbZoom.ty = 0; }
+  else {
+    // 커서 위치를 중심으로 확대되는 느낌이 나도록 이동값 보정
+    const r = lightboxImg.getBoundingClientRect();
+    const cx = e.clientX - (r.left + r.width / 2);
+    const cy = e.clientY - (r.top + r.height / 2);
+    const k = lbZoom.z / prev - 1;
+    lbZoom.tx -= cx * k;
+    lbZoom.ty -= cy * k;
+  }
+  lbApplyZoom();
+}, { passive: false });
+
+// 확대 상태에서 이미지 드래그로 이동
+lightboxImg.addEventListener("mousedown", (e) => {
+  if (lbZoom.z <= 1) return;
+  e.preventDefault();
+  lbZoom.dragging = true; lbZoom.moved = false;
+  lbZoom.sx = e.clientX - lbZoom.tx; lbZoom.sy = e.clientY - lbZoom.ty;
+  lightboxImg.style.cursor = "grabbing";
+  lightboxImg.style.transition = "none"; // 드래그 중엔 즉시 따라오게
+});
+document.addEventListener("mousemove", (e) => {
+  if (!lbZoom.dragging) return;
+  lbZoom.moved = true;
+  lbZoom.tx = e.clientX - lbZoom.sx;
+  lbZoom.ty = e.clientY - lbZoom.sy;
+  lightboxImg.style.transform = `translate(${lbZoom.tx}px, ${lbZoom.ty}px) scale(${lbZoom.z})`;
+});
+document.addEventListener("mouseup", () => {
+  if (!lbZoom.dragging) return;
+  lbZoom.dragging = false;
+  lightboxImg.style.cursor = "grab";
+  lightboxImg.style.transition = "";
+});
+
+// 화살표·X 외에는 어디를 눌러도 닫힘 (드래그 직후나 확대 상태의 이미지 클릭은 예외)
+lightbox.addEventListener("click", (e) => {
+  if (lbZoom.moved) { lbZoom.moved = false; return; }
+  if (e.target === lightboxImg && lbZoom.z > 1) return;
+  closeLightbox();
+});
 document.addEventListener("keydown", (e) => {
   if (!lightbox.classList.contains("show")) return;
   if (e.key === "Escape") closeLightbox();

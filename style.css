@@ -489,6 +489,28 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 10px 60px rgba(0,0,0,0.5);
 }
 
+/* 라이트박스 닫기 버튼 (우측 상단 X) */
+.lightbox .lb-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(0,0,0,0.2);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s, border-color 0.2s;
+}
+.lightbox .lb-close:hover { background: rgba(255,255,255,0.18); border-color: #fff; }
+
+/* 라이트박스 이미지: 휠 확대 / 드래그 이동 */
+.lightbox img { transition: transform 0.15s ease-out; will-change: transform; }
+
 /* 라이트박스 좌우 화살표 (이미지가 여러 장일 때만) */
 .lightbox .lb-arrow {
   display: none;
