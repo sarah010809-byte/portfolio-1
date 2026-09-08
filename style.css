@@ -409,8 +409,8 @@ img { max-width: 100%; display: block; }
   margin-top: 32px;
   font-size: 0.9rem;
 }
-.work-nav a { color: #888; border-bottom: 1px solid #ddd; padding-bottom: 1px; }
-.work-nav a:hover { color: #111; border-color: #111; }
+.work-nav a { color: #888; }
+.work-nav a:hover { color: #111; }
 .work-count { color: #bbb; font-size: 0.85rem; }
 
 /* ===== 작품 상세 슬라이드쇼 ===== */
