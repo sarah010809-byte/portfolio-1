@@ -13,7 +13,14 @@
       "image": "images/uploads/peter-alexander.jpg",
       "series_ko": "시리즈 A",
       "series_en": "Series A",
-      "images": [],
+      "images": [
+        {
+          "image": "images/uploads/temp-detail-1.svg"
+        },
+        {
+          "image": "images/uploads/temp-detail-2.svg"
+        }
+      ],
       "featured": true
     },
     {
