@@ -65,12 +65,12 @@ img { max-width: 100%; display: block; }
 
 .logo {
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   letter-spacing: 0.02em;
 }
 
 /* 메뉴를 우측으로 (Kr/En 왼쪽에 붙게) */
-.nav { display: flex; gap: 24px; font-size: 0.95rem; margin-left: auto; margin-right: 28px; }
+.nav { display: flex; gap: 26px; font-size: 1.05rem; margin-left: auto; margin-right: 28px; }
 .nav a:hover { opacity: 0.5; }
 
 /* ===== Works 드롭다운 (By Years / By Series) ===== */
@@ -116,7 +116,7 @@ img { max-width: 100%; display: block; }
 
 .header-right { display: flex; align-items: center; gap: 12px; }
 
-.lang-toggle { font-size: 0.9rem; }
+.lang-toggle { font-size: 1rem; }
 .lang-toggle button {
   background: none; border: none; cursor: pointer;
   font: inherit; padding: 2px 4px;
@@ -188,7 +188,7 @@ img { max-width: 100%; display: block; }
 
 .hero-name {
   font-weight: 800;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
   letter-spacing: 0.04em;
   margin-bottom: 8px;
 }
@@ -209,11 +209,11 @@ img { max-width: 100%; display: block; }
 .hero-caption:hover { opacity: 0.8; }
 .hero-work-title {
   font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   letter-spacing: 0.03em;
 }
 .hero-work-year {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.08em;
 }
