@@ -357,6 +357,13 @@ img { max-width: 100%; display: block; }
 /* 사이드바 앵커 이동 시 헤더에 가리지 않게 */
 .series { scroll-margin-top: 90px; }
 
+/* 작품 상세: 헤더(작가명 좌측·햄버거 우측)와 같은 44px 외곽 여백에 맞춤 */
+.work-page.page-layout {
+  max-width: none;
+  padding-left: 44px;
+  padding-right: 44px;
+}
+
 /* ===== 작품 상세 페이지 ===== */
 .back-link { margin-top: 4px; }
 .back-link a { font-size: 0.9rem; color: #888; }
@@ -1015,7 +1022,7 @@ img.profile { object-fit: cover; }
   .slider-thumbs { justify-content: center; }
   .slider-thumb { width: 44px; height: 44px; }
   /* 뒤로가기: 작게, 헤더 바로 아래 */
-  .work-page.page-layout { padding-top: 76px; }
+  .work-page.page-layout { padding-top: 76px; padding-left: 20px; padding-right: 20px; }
   .detail-back { margin: 0 0 10px; }
   .detail-back a { font-size: 0.78rem; }
   .work-top { flex-direction: column; gap: 20px; }
