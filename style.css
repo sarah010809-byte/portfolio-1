@@ -514,7 +514,7 @@ img { max-width: 100%; display: block; }
 /* 라이트박스 하단 썸네일 */
 .lightbox .lb-thumbs {
   position: absolute;
-  bottom: 22px;
+  bottom: 46px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
