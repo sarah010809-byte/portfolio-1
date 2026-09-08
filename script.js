@@ -193,11 +193,6 @@ async function renderDynamic() {
       const feat = list.find((w) => w.featured && w.image) || list.find((w) => w.image);
       if (feat) {
         hero.style.background = `url("${feat.image}") center / cover no-repeat`;
-        const cap = document.getElementById("hero-caption");
-        cap.href = `work.html?i=${feat.idx}`;
-        cap.innerHTML = `
-          <span class="hero-work-title" data-ko="${esc(feat.title_ko)}" data-en="${esc(feat.title_en)}">${esc(feat.title_ko)}</span>
-          <span class="hero-work-year">${esc(feat.year)}</span>`;
       }
     }
   }
