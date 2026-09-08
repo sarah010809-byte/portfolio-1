@@ -398,8 +398,10 @@ async function renderDynamic() {
         ? `<p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>`
         : "";
 
+      // 시리즈 이름을 누르면 해당 시리즈만 모아 보는 페이지로 이동
       const seriesLine = (w.series_ko || w.series_en)
-        ? `<p class="side-series" data-ko="${esc(w.series_ko || w.series_en)}" data-en="${esc(w.series_en || w.series_ko)}">${esc(w.series_ko || w.series_en)}</p>`
+        ? `<p class="side-series"><a href="works.html?view=series&g=${encodeURIComponent(seriesKey(w))}"
+             data-ko="${esc(w.series_ko || w.series_en)}" data-en="${esc(w.series_en || w.series_ko)}">${esc(w.series_ko || w.series_en)}</a></p>`
         : "";
 
       // 이전/다음과 순번은 같은 연도 안에서만

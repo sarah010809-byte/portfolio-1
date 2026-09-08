@@ -645,7 +645,9 @@ img { max-width: 100%; display: block; }
 }
 
 /* 작품 상세: 시리즈 표기 */
-.side-series { font-size: 0.85rem; color: #777; margin: -16px 0 20px; }
+.side-series { font-size: 0.85rem; margin: -16px 0 20px; }
+.side-series a { color: #777; border-bottom: 1px solid #ddd; transition: color 0.2s, border-color 0.2s; }
+.side-series a:hover { color: #111; border-color: #111; }
 
 /* ===== Writings ===== */
 .writing-list { list-style: none; }
