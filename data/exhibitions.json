@@ -35,6 +35,18 @@
       "image": "",
       "images": [],
       "type": "group"
+    },
+    {
+      "title_ko": "전시 제목 4",
+      "title_en": "Exhibition Title 4",
+      "date": "2023. 6. 10 – 7. 2",
+      "venue_ko": "갤러리 이름, 서울",
+      "venue_en": "Gallery Name, Seoul",
+      "desc_ko": "네 번째 전시 설명입니다.",
+      "desc_en": "Description for the fourth exhibition.",
+      "image": "",
+      "images": [],
+      "type": "solo"
     }
   ]
 }
