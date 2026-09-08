@@ -821,7 +821,6 @@ lightbox.addEventListener("wheel", (e) => {
 
 // 확대 상태에서 이미지 드래그로 이동
 lightboxImg.addEventListener("mousedown", (e) => {
-  if (lbZoom.z <= 1) return;
   e.preventDefault();
   lbZoom.dragging = true; lbZoom.moved = false;
   lbZoom.sx = e.clientX - lbZoom.tx; lbZoom.sy = e.clientY - lbZoom.ty;
