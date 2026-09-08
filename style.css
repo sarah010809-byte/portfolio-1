@@ -1179,24 +1179,13 @@ img.profile { object-fit: cover; }
   /* 라인 기준 위아래 여백 동일 (모든 섹션 44px) */
   .hero + .section { padding-top: 44px; }
 
-  /* 모바일 (리움 스타일): 타이틀 중앙 + 바로 아래 작은 MORE */
-  .section, .exh-sticky { display: flex; flex-direction: column; }
-  .section-head { order: 0; justify-content: center; margin-bottom: 4px; }
-  .section > *:not(.section-head):not(.view-all),
-  .exh-sticky > *:not(.section-head):not(.view-all) { order: 2; }
+  /* 모바일: 타이틀 중앙, View all 은 콘텐츠 아래 중앙 */
+  .section-head { justify-content: center; margin-bottom: 24px; }
   .section .view-all,
   .exh-sticky .view-all {
-    order: 1;
     text-align: center;
-    margin: 0 0 24px;
-    font-size: 0; /* 기존 "View all →" 텍스트 숨김 */
-  }
-  .section .view-all::after,
-  .exh-sticky .view-all::after {
-    content: "MORE";
-    font-size: 0.72rem;
-    letter-spacing: 0.28em;
-    color: #999;
+    margin-top: 28px;
+    font-size: 0.85rem;
   }
   .series { margin-bottom: 64px; }
   .exh-item { margin-bottom: 64px; }
