@@ -841,6 +841,23 @@ document.addEventListener("mouseup", () => {
   lightboxImg.style.transition = "";
 });
 
+// 모바일: 좌우 스와이프로 이전/다음 이미지
+let lbTouchX = null, lbTouchY = null;
+lightbox.addEventListener("touchstart", (e) => {
+  if (e.touches.length !== 1) { lbTouchX = null; return; }
+  lbTouchX = e.touches[0].clientX;
+  lbTouchY = e.touches[0].clientY;
+}, { passive: true });
+lightbox.addEventListener("touchend", (e) => {
+  if (lbTouchX === null || lbState.imgs.length < 2) return;
+  const dx = e.changedTouches[0].clientX - lbTouchX;
+  const dy = e.changedTouches[0].clientY - lbTouchY;
+  lbTouchX = null;
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+    lbShow(lbState.i + (dx < 0 ? 1 : -1));
+  }
+}, { passive: true });
+
 // 화살표·X 외에는 어디를 눌러도 닫힘 (드래그 직후나 확대 상태의 이미지 클릭은 예외)
 lightbox.addEventListener("click", (e) => {
   if (lbZoom.moved) { lbZoom.moved = false; return; }
