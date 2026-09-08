@@ -877,16 +877,20 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 }
 .footer-copy { letter-spacing: 0.04em; font-size: 0.78rem; }
 
-/* TOP 버튼 */
+/* TOP 버튼 (검정 푸터 위 흰 영역, 우측 정렬) */
+.to-top-wrap {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 44px 28px;
+}
 .to-top {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 28px;
   background: none;
-  border: 1px solid #3a3a3a;
+  border: 1px solid #ddd;
   border-radius: 999px;
-  color: #aaa;
+  color: #888;
   font: inherit;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
@@ -895,7 +899,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   transition: color 0.2s, border-color 0.2s, background 0.2s;
   font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
 }
-.to-top:hover { background: #fff; color: #111; border-color: #fff; }
+.to-top:hover { background: #111; color: #fff; border-color: #111; }
 .to-top-arrow { font-size: 0.9rem; }
 
 /* ===== Artist 페이지 ===== */

@@ -103,15 +103,18 @@ if (hasHero) {
   onScroll();
 }
 
-// ===== TOP 버튼 (푸터 하단, 클릭 시 맨 위로) =====
+// ===== TOP 버튼 (검정 푸터 바로 위 흰 영역, 클릭 시 맨 위로) =====
 (function () {
   const footer = document.querySelector(".site-footer");
   if (!footer) return;
+  const wrap = document.createElement("div");
+  wrap.className = "to-top-wrap";
   const btn = document.createElement("button");
   btn.className = "to-top";
   btn.innerHTML = 'TOP <span class="to-top-arrow">↑</span>';
   btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  footer.appendChild(btn);
+  wrap.appendChild(btn);
+  footer.parentNode.insertBefore(wrap, footer);
 })();
 
 // ===== 모바일 메뉴 (우측 슬라이드 + 햄버거 ↔ X) =====
