@@ -1129,7 +1129,21 @@ img.profile { object-fit: cover; }
   .artist-photo { width: 70%; }
 
   .section { padding: 36px 20px; }
-  .section h2 { font-size: 1.5rem; }
+  .section h2, .exh-sticky h2 { font-size: 1.5rem; }
+
+  /* 모바일: 타이틀 왼쪽 + View all 오른쪽 (한 줄) */
+  .section, .exh-sticky { position: relative; }
+  .section-head { justify-content: flex-start; margin-bottom: 20px; }
+  .section .view-all,
+  .exh-sticky .view-all {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+    margin-top: 0;
+    font-size: 0.85rem;
+  }
+  .hero + .section .view-all { top: 105px; }
+  .exh-sticky .view-all { top: 61px; }
   .series { margin-bottom: 64px; }
   .exh-item { margin-bottom: 64px; }
 
