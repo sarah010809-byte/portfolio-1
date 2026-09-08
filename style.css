@@ -889,14 +889,25 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 }
 .footer-copy { letter-spacing: 0.04em; font-size: 0.78rem; }
 
-/* 루페 기능 안내 문구 */
-.loupe-hint {
-  margin-top: 10px;
-  font-size: 0.75rem;
-  color: #b5b5b5;
-  letter-spacing: 0.03em;
-  text-align: center;
+/* 확대 가능 안내: 커서 돋보기 + 호버 시 모서리 아이콘 */
+.slider .slide img { cursor: zoom-in; }
+
+.slider .slide { position: relative; }
+.slider .slide::after {
+  content: "";
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="2"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 L21 21"/><path d="M8 10.5h5M10.5 8v5"/></svg>') center / 15px no-repeat;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
 }
+.slider .slide:hover::after { opacity: 1; }
+@media (hover: none) { .slider .slide::after { display: none; } }
 
 /* TOP 버튼 (검정 푸터 위 흰 영역, 우측 정렬) */
 .to-top-wrap {

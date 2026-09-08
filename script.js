@@ -1052,13 +1052,4 @@ renderDynamic().then(() => {
     document.querySelector(location.hash)?.scrollIntoView();
   }
 
-  // 루페 기능 안내 (마우스 환경 + 슬라이더가 있는 페이지에만)
-  const slider = document.querySelector(".slider");
-  if (slider && window.matchMedia("(hover: hover)").matches) {
-    const hint = document.createElement("p");
-    hint.className = "loupe-hint";
-    hint.innerHTML = '<span data-ko="🔍 이미지를 꾹 누르면 부분 확대 · 클릭하면 크게 보기" data-en="🔍 Press and hold to magnify · Click to view large">🔍 이미지를 꾹 누르면 부분 확대 · 클릭하면 크게 보기</span>';
-    slider.insertAdjacentElement("afterend", hint);
-    setLang(currentLang());
-  }
 });
