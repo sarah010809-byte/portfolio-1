@@ -964,10 +964,21 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 
 /* Projects 페이지: 카드 2열 크게 + 콘텐츠 영역이 화면을 채우게 */
 #projects-content .grid { grid-template-columns: repeat(2, 1fr); gap: 48px 40px; }
+/* 다른 페이지와 같은 텍스트 위계: 회색 분류 → 굵은 제목 → 회색 장소·연도 */
 .proj-caption { display: flex; flex-direction: column; gap: 2px; }
-.proj-caption .home-cat { margin-bottom: 2px; }
-.proj-venue { color: #777; font-size: 0.82rem; }
-.proj-caption .exh-date { margin-top: 2px; }
+.card .proj-caption .home-cat { margin-bottom: 2px; color: #aaa; }
+.card .proj-caption strong {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #111;
+  line-height: 1.4;
+}
+.card .proj-caption .proj-venue { color: #777; font-size: 0.82rem; }
+.card .proj-caption .exh-date { margin-top: 2px; color: #999; font-size: 0.8rem; }
+
+@media (max-width: 768px) {
+  .card .proj-caption strong { font-size: 0.9rem; }
+}
 body.subpage .exh-layout { min-height: 100vh; }
 
 @media (max-width: 768px) {
