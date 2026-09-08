@@ -231,15 +231,23 @@ img { max-width: 100%; display: block; }
   z-index: 1; /* 전시 고정 레이어(흰 배경)에 가려지지 않게 */
 }
 
-/* 섹션 사이 아주 연한 헤어라인 (리움 스타일) — 첫 섹션 제외 */
-main > .section { border-top: 1px solid #efefef; }
-.hero + .section { border-top: none; }
-main > .exh-scroll::before {
+/* 섹션 사이 아주 연한 헤어라인 (리움 스타일) — 콘텐츠 좌우 폭과 동일, 첫 섹션 제외 */
+main > .section::before {
   content: "";
-  display: block;
-  max-width: 1280px;
-  margin: 0 auto;
-  border-top: 1px solid #efefef;
+  position: absolute;
+  top: 0;
+  left: var(--hpad, 20px);
+  right: var(--hpad, 20px);
+  border-top: 1px solid #ececec;
+}
+.hero + .section::before { display: none; }
+.exh-sticky::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--hpad, 20px);
+  right: var(--hpad, 20px);
+  border-top: 1px solid #ececec;
 }
 
 /* 마지막 섹션 아래는 여유 있게 */
@@ -270,18 +278,18 @@ main > .section:last-child { padding-bottom: 140px; }
 }
 .view-all:hover { color: #111; }
 
-/* 메인 페이지 섹션: 리움처럼 화면 가장자리 여백(44px)까지 넓게 */
+/* 메인 페이지 섹션: 리움처럼 넉넉한 좌우 여백 (화면의 약 10%) */
+body:not(.subpage) { --hpad: clamp(44px, 10vw, 220px); }
 body:not(.subpage) .section {
   max-width: none;
-  padding-left: 44px;
-  padding-right: 44px;
+  padding-left: var(--hpad);
+  padding-right: var(--hpad);
 }
 body:not(.subpage) .exh-sticky {
   max-width: none;
-  padding-left: 44px;
-  padding-right: 44px;
+  padding-left: var(--hpad);
+  padding-right: var(--hpad);
 }
-main > .exh-scroll::before { max-width: none; margin: 0 44px; }
 
 /* 메인 페이지: 작품 이미지·작품명·연도 중앙 정렬 */
 #home-works .card { text-align: center; }
@@ -1161,6 +1169,9 @@ img.profile { object-fit: cover; }
   /* 모바일: Writings 라인 제거, 간격으로 글 구분 */
   .home-writing-card { border-top: none; padding-top: 0; }
   #home-writings .home-card-row { gap: 36px; }
+
+  /* 모바일: 헤어라인 여백을 콘텐츠 여백(20px)에 맞춤 */
+  main > .section::before, .exh-sticky::before { left: 20px; right: 20px; }
 
   /* 모바일 (리움 스타일): 타이틀 중앙 + 바로 아래 작은 MORE */
   .section, .exh-sticky { display: flex; flex-direction: column; }
