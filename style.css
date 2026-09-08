@@ -458,6 +458,33 @@ img { max-width: 100%; display: block; }
   transition: color 0.2s;
 }
 .slider-prev:hover, .slider-next:hover { color: #111; }
+/* 메인 이미지: 확대 커서 + 클릭하면 라이트박스 */
+.slider .slide img { cursor: zoom-in; }
+
+/* 라이트박스 (전체 화면 확대 뷰어) */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  cursor: zoom-out;
+}
+.lightbox.show { opacity: 1; visibility: visible; }
+.lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  cursor: default;
+  box-shadow: 0 10px 60px rgba(0,0,0,0.5);
+}
+
 /* 썸네일 스트립: 클릭하면 해당 이미지가 메인으로 */
 .slider-thumbs {
   display: flex;

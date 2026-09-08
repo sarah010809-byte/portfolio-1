@@ -716,6 +716,34 @@ async function initFooter() {
 }
 initFooter();
 
+// ===== 이미지 확대 뷰어 (라이트박스) =====
+// 상세페이지 이미지를 클릭하면 크게 보고, 이미지 밖을 클릭하거나 Esc 로 닫음
+const lightbox = document.createElement("div");
+lightbox.className = "lightbox";
+lightbox.innerHTML = `<img alt="">`;
+document.body.appendChild(lightbox);
+const lightboxImg = lightbox.querySelector("img");
+
+function closeLightbox() {
+  lightbox.classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+document.addEventListener("click", (e) => {
+  const img = e.target.closest(".slider .slide img");
+  if (img) {
+    lightboxImg.src = img.src;
+    lightbox.classList.add("show");
+    document.body.style.overflow = "hidden";
+  }
+});
+lightbox.addEventListener("click", (e) => {
+  if (e.target !== lightboxImg) closeLightbox();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && lightbox.classList.contains("show")) closeLightbox();
+});
+
 renderDynamic().then(() => {
   setLang(currentLang());
   if (location.hash) {
