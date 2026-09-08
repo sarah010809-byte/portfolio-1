@@ -919,6 +919,35 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .footer-copy { letter-spacing: 0.04em; font-size: 0.78rem; }
 
 
+/* ===== 페이지네이션 (1 2 3 ›) ===== */
+.pager {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 56px;
+  font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
+}
+.pager .pg {
+  min-width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  color: #999;
+  transition: color 0.2s, background 0.2s;
+}
+.pager a.pg:hover { color: #111; }
+.pager .pg.on { background: #111; color: #fff; }
+.pager .pg-next { font-size: 1.1rem; }
+
+/* Writings 페이지: 정사각 이미지 카드 */
+.writing-grid .thumb.sq { aspect-ratio: 1 / 1; }
+.writing-grid .thumb.sq .placeholder { width: 100%; height: 100%; }
+.writing-grid figcaption { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.writing-grid .home-cat { margin-bottom: 0; }
+
 /* TOP 버튼 (검정 푸터 위 흰 영역, 우측 정렬) */
 .to-top-wrap {
   display: flex;

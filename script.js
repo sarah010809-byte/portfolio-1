@@ -107,7 +107,8 @@ if (hasHero) {
 // ===== TOP 버튼 (검정 푸터 바로 위 흰 영역, 클릭 시 맨 위로) =====
 (function () {
   const footer = document.querySelector(".site-footer");
-  if (!footer) return;
+  // 카테고리(서브) 페이지에는 TOP 버튼 없음 — 페이지네이션이 대신함
+  if (!footer || document.body.classList.contains("subpage")) return;
   const wrap = document.createElement("div");
   wrap.className = "to-top-wrap";
   const btn = document.createElement("button");
@@ -318,6 +319,29 @@ function initSlider(root) {
   root.addEventListener("mouseleave", restart);
   show(0);
   restart();
+}
+
+// ===== 페이지네이션 (카드 6개 초과 시 1 2 3 > ) =====
+const PER_PAGE = 6;
+function currentPageNum() {
+  return Math.max(1, parseInt(new URLSearchParams(location.search).get("p") || "1", 10) || 1);
+}
+function pagerHTML(makeHref, page, total) {
+  if (total <= 1) return "";
+  let out = '<nav class="pager">';
+  for (let n = 1; n <= total; n++) {
+    out += n === page
+      ? `<span class="pg on">${n}</span>`
+      : `<a class="pg" href="${makeHref(n)}">${n}</a>`;
+  }
+  if (page < total) out += `<a class="pg pg-next" href="${makeHref(page + 1)}">›</a>`;
+  out += "</nav>";
+  return out;
+}
+function sliceForPage(items) {
+  const total = Math.max(1, Math.ceil(items.length / PER_PAGE));
+  const page = Math.min(currentPageNum(), total);
+  return { view: items.slice((page - 1) * PER_PAGE, page * PER_PAGE), page, total };
 }
 
 async function renderDynamic() {
@@ -581,7 +605,9 @@ async function renderDynamic() {
       }
 
       const shown = selType ? all.filter((e) => e.type === selType) : all;
-      exhList.innerHTML = shown.map((e) => `
+      const { view, page, total } = sliceForPage(shown);
+      const href = (n) => `exhibitions.html?${selType ? `type=${selType}&` : ""}p=${n}`;
+      exhList.innerHTML = view.map((e) => `
         <a class="exh-item" href="exhibition.html?i=${e.idx}">
           <div class="exh-image">${
             e.image
@@ -593,7 +619,7 @@ async function renderDynamic() {
             <p class="exh-date">${esc(e.date)}</p>
             <p class="exh-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>
           </div>
-        </a>`).join("");
+        </a>`).join("") + pagerHTML(href, page, total);
     }
   }
 
@@ -656,22 +682,18 @@ async function renderDynamic() {
           ).join("");
       }
 
-      const shownCats = selCat ? cats.filter((c) => c.key === selCat) : cats;
-      projectsContent.innerHTML = shownCats.map((c) => {
-        const items = all.filter((p) => p.category === c.key);
-        if (!items.length) return "";
-        return `
-          <section class="series">
-            <div class="series-head"><h2>${c.label}</h2></div>
-            <div class="grid">${items.map((p) => `
-              <figure class="card"><a href="project.html?i=${p.idx}">
-                ${thumbHTML(p, p.title_en)}
-                <figcaption>
-                  <strong data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</strong><span>, ${esc(p.year)}</span>
-                </figcaption>
-              </a></figure>`).join("")}</div>
-          </section>`;
-      }).join("");
+      // All 에서도 소제목 없이 최신순으로 쭉 (분류는 상단 탭이 담당) — 전시 페이지와 통일
+      const shown = (selCat ? all.filter((p) => p.category === selCat) : all)
+        .sort((a, b) => String(b.year).localeCompare(String(a.year)));
+      const { view, page, total } = sliceForPage(shown);
+      const href = (n) => `projects.html?${selCat ? `cat=${selCat}&` : ""}p=${n}`;
+      projectsContent.innerHTML = `<div class="grid">${view.map((p) => `
+        <figure class="card"><a href="project.html?i=${p.idx}">
+          ${thumbHTML(p, p.title_en)}
+          <figcaption>
+            <strong data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</strong><span>, ${esc(p.year)}</span>
+          </figcaption>
+        </a></figure>`).join("")}</div>` + pagerHTML(href, page, total);
     }
   }
 
@@ -735,21 +757,39 @@ async function renderDynamic() {
     const data = await loadJSON("data/writings.json");
     if (data) {
       const all = (data.writings || []).map((t, idx) => ({ ...t, idx }));
-      writingsContent.innerHTML = WRITING_CATS.map((c) => {
-        const items = all.filter((t) => t.category === c.key);
-        if (!items.length) return "";
+
+      // All / 분류 탭 (전시·프로젝트 페이지와 통일)
+      const catParam = new URLSearchParams(location.search).get("cat");
+      const selCat = WRITING_CATS.some((c) => c.key === catParam) ? catParam : null;
+      const wToggle = document.getElementById("writing-view-toggle");
+      if (wToggle) {
+        wToggle.innerHTML = `
+          <a href="writings.html"${selCat ? "" : ' class="on"'}>All</a>` +
+          WRITING_CATS.map((c) =>
+            `<a href="writings.html?cat=${c.key}"${selCat === c.key ? ' class="on"' : ""}>${esc(c.en)}</a>`
+          ).join("");
+      }
+
+      const shown = (selCat ? all.filter((t) => t.category === selCat) : all)
+        .sort((a, b) => String(b.year).localeCompare(String(a.year)));
+      const { view, page, total } = sliceForPage(shown);
+      const href = (n) => `writings.html?${selCat ? `cat=${selCat}&` : ""}p=${n}`;
+      writingsContent.innerHTML = `<div class="grid writing-grid">${view.map((t) => {
+        const cat = WRITING_CATS.find((c) => c.key === t.category);
         return `
-          <section class="series writing-section">
-            <div class="series-head"><h2 data-ko="${esc(c.ko)}" data-en="${esc(c.en)}">${esc(c.ko)}</h2></div>
-            <ul class="writing-list">${items.map((t) => `
-              <li><a href="writing.html?i=${t.idx}">
-                <span class="year">${esc(t.year)}</span>
-                <span class="writing-title" data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</span>
-                ${t.author_ko || t.author_en
-                  ? `<span class="writing-author" data-ko="${esc(t.author_ko)}" data-en="${esc(t.author_en)}">${esc(t.author_ko)}</span>` : ""}
-              </a></li>`).join("")}</ul>
-          </section>`;
-      }).join("");
+        <figure class="card"><a href="writing.html?i=${t.idx}">
+          <div class="thumb sq">${
+            t.image
+              ? `<img src="${esc(t.image)}" alt="${esc(t.title_ko)}" loading="lazy">`
+              : `<div class="placeholder"><span>${esc(t.title_en)}</span></div>`
+          }</div>
+          <figcaption>
+            <span class="home-cat">${cat ? esc(cat.en) : "Etc."}</span>
+            <strong data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</strong>
+            <span class="exh-date">${esc(t.year)}</span>
+          </figcaption>
+        </a></figure>`;
+      }).join("")}</div>` + pagerHTML(href, page, total);
     }
   }
 
