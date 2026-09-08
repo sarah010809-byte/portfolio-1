@@ -1014,10 +1014,9 @@ img.profile { object-fit: cover; }
   .slider-controls { margin-top: 12px; gap: 10px; justify-content: center; }
   .slider-thumbs { justify-content: center; }
   .slider-thumb { width: 44px; height: 44px; }
-  /* 뒤로가기: 작게, 헤더 바로 아래 */
-  .work-page.page-layout { padding-top: 76px; padding-left: 20px; padding-right: 20px; }
-  .detail-back { margin: 0 0 10px; }
-  .detail-back a { font-size: 0.78rem; }
+  /* 모바일: 뒤로가기 링크 없이 헤더 아래 바로 이미지 (헤더 메뉴·하단 다른 작품으로 이동 가능) */
+  .work-page.page-layout { padding-top: 84px; padding-left: 20px; padding-right: 20px; }
+  .work-page .detail-back { display: none; }
   .work-top { flex-direction: column; gap: 20px; }
   .work-side { width: auto; padding-top: 0; }
 
