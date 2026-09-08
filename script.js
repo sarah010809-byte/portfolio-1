@@ -203,6 +203,8 @@ function setupExhScroll() {
     const slackBottom = window.innerHeight - contentBottom - 48;
     section.style.marginTop = slackTop > 0 ? `-${Math.round(slackTop)}px` : "";
     section.style.marginBottom = slackBottom > 0 ? `-${Math.round(slackBottom)}px` : "";
+    // 구분선을 제목 48px 위(=시각적 섹션 경계)에 배치
+    sticky.style.setProperty("--exh-line-top", `${Math.max(0, Math.round(slackTop))}px`);
   }
 
   function onScroll() {
@@ -370,7 +372,7 @@ async function renderDynamic() {
           <p class="exh-date">${esc(e.date)}</p>
         </a>`;
       // 첫(최신) 전시는 크게, 과거 전시들은 트랙 오른쪽으로 이어붙임 (최대 4개)
-      homeExh.innerHTML = ex.slice(0, 4).map((e, i) => exhCard(e, false, i)).join("");
+      homeExh.innerHTML = ex.slice(0, 5).map((e, i) => exhCard(e, false, i)).join("");
       setupExhScroll();
     }
   }

@@ -47,6 +47,18 @@
       "image": "",
       "images": [],
       "type": "solo"
+    },
+    {
+      "title_ko": "전시 제목 5",
+      "title_en": "Exhibition Title 5",
+      "date": "2022. 4. 8 – 5. 1",
+      "venue_ko": "미술관 이름, 서울",
+      "venue_en": "Museum Name, Seoul",
+      "desc_ko": "다섯 번째 전시 설명입니다.",
+      "desc_en": "Description for the fifth exhibition.",
+      "image": "",
+      "images": [],
+      "type": "group"
     }
   ]
 }
