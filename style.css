@@ -535,7 +535,8 @@ img { max-width: 100%; display: block; }
 .lightbox .lb-thumb.active { border-color: #fff; }
 
 /* 썸네일 공간 확보 */
-.lightbox.has-arrows img { max-height: 82vh; }
+.lightbox.has-arrows { padding-bottom: 110px; }
+.lightbox.has-arrows img { max-height: 78vh; }
 
 /* 썸네일 스트립: 클릭하면 해당 이미지가 메인으로 */
 .slider-thumbs {
