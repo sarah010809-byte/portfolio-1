@@ -1000,12 +1000,11 @@ img.profile { object-fit: cover; }
   .series-nav { display: flex; flex-wrap: wrap; gap: 14px; }
   .series-nav li { margin-bottom: 0; }
 
-  /* 작품 상세: 모바일에선 이미지 아래에 정보, 이미지는 화면 좌우 꽉 차게 */
-  .work-top .work-image { margin: 0 -20px; }
-  .slider .slide img { max-height: none; }
+  /* 작품 상세: 모바일에선 이미지 아래에 정보, 이미지는 본문 폭에 맞춰 크고 중앙에 */
+  .work-top .work-image { width: 100%; }
+  .slider .slide img { max-height: none; margin: 0 auto; }
   .slider:not(.multi) .slide img { width: 100%; }
   .slider.multi .slides { height: 44vh; } /* JS 가 대표 이미지 비율로 재계산 */
-  .slider-controls { padding: 0 20px; }
   .work-top { flex-direction: column; gap: 20px; }
   .work-side { width: auto; padding-top: 0; }
 
