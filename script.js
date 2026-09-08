@@ -544,6 +544,22 @@ async function renderDynamic() {
         const extra = (p.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
         const extraHTML = extra.map((src) =>
           `<div class="exh-detail-image"><img src="${esc(src)}" alt="${esc(p.title_ko)}" loading="lazy"></div>`).join("");
+        // 다른 프로젝트 (현재 것 제외)
+        const otherProjects = all
+          .map((o, idx) => ({ ...o, idx }))
+          .filter((o) => o.idx !== i);
+        const othersHTML = otherProjects.length ? `
+          <section class="other-works">
+            <h2 data-ko="다른 프로젝트" data-en="More Projects">다른 프로젝트</h2>
+            <div class="grid">${otherProjects.map((o) => `
+              <figure class="card"><a href="project.html?i=${o.idx}">
+                ${thumbHTML(o, o.title_en)}
+                <figcaption>
+                  <strong data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</strong><span>, ${esc(o.year)}</span>
+                </figcaption>
+              </a></figure>`).join("")}</div>
+          </section>` : "";
+
         projectDetail.innerHTML = `
           <p class="back-link detail-back"><a href="projects.html" data-ko="← 프로젝트 목록" data-en="← All Projects">← 프로젝트 목록</a></p>
           <article class="exh-detail">
@@ -553,7 +569,8 @@ async function renderDynamic() {
             <p class="exh-venue" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>
             <p class="exh-detail-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>
             ${extraHTML}
-          </article>`;
+          </article>
+          ${othersHTML}`;
         document.title = `${p.title_ko} — An Se Eun`;
       }
     }
