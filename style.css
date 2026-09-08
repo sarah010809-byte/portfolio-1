@@ -237,6 +237,18 @@ img { max-width: 100%; display: block; }
 }
 .view-all:hover { color: #111; }
 
+/* 메인 페이지 섹션: 중앙 제한 없이 화면 가장자리 여백(44px)까지 넓게 */
+body:not(.subpage) .section {
+  max-width: none;
+  padding-left: 44px;
+  padding-right: 44px;
+}
+body:not(.subpage) .exh-sticky {
+  max-width: none;
+  padding-left: 44px;
+  padding-right: 44px;
+}
+
 /* 메인 페이지: 작품 이미지·작품명·연도 중앙 정렬 */
 #home-works .card { text-align: center; }
 #home-works .card figcaption { text-align: center; }
@@ -279,7 +291,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* 카드 크기 통일 (전부 크게) */
-.exh-track .home-exh-card { flex: 0 0 auto; width: 600px; }
+.exh-track .home-exh-card { flex: 0 0 auto; width: min(680px, 48vw); }
 .exh-track .home-exh-card .exh-thumb { aspect-ratio: 16 / 10; }
 
 /* 메인 페이지: 전시 미리보기 (최근 전시 크게 + 이전 3개 아래로) */
@@ -1110,6 +1122,7 @@ img.profile { object-fit: cover; }
 
 /* 메인 전시 가로 인터랙션: 모바일에선 비활성화하고 세로 배치 */
 @media (max-width: 768px) {
+  body:not(.subpage) .section { padding-left: 20px; padding-right: 20px; }
   .exh-scroll { height: auto !important; }
   .exh-sticky {
     position: static;
