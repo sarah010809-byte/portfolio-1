@@ -357,22 +357,22 @@ async function renderDynamic() {
     const data = await loadJSON("data/exhibitions.json");
     if (data) {
       const ex = data.exhibitions || [];
-      const exhCard = (e, big, idx) => `
+      // 카드: 제목 아래 장소 없이 제목·(첫 카드만 전시 정보)·날짜
+      const exhCard = (e, showInfo, idx) => `
         <a class="home-exh-card" href="exhibition.html?i=${idx}">
-          <div class="exh-thumb${big ? " big" : ""}">${
+          <div class="exh-thumb">${
             e.image
               ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}" loading="lazy">`
               : `<div class="placeholder"><span>${esc(e.title_en)}</span></div>`
           }</div>
           <p class="home-cat">Exhibitions</p>
           <h3 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h3>
-          <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
-          ${big && (e.desc_ko || e.desc_en)
+          ${showInfo && (e.desc_ko || e.desc_en)
             ? `<p class="home-excerpt" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
           <p class="exh-date">${esc(e.date)}</p>
         </a>`;
-      // 첫(최신) 전시는 크게, 과거 전시들은 트랙 오른쪽으로 이어붙임 (최대 4개)
-      homeExh.innerHTML = ex.slice(0, 5).map((e, i) => exhCard(e, false, i)).join("");
+      // 첫(최신) 전시 카드에만 전시 정보 표시, 최대 5개
+      homeExh.innerHTML = ex.slice(0, 5).map((e, i) => exhCard(e, i === 0, i)).join("");
       setupExhScroll();
     }
   }
@@ -418,10 +418,8 @@ async function renderDynamic() {
               ? `<img src="${esc(t.image)}" alt="${esc(t.title_ko)}" loading="lazy">`
               : `<div class="placeholder"><span>${esc(t.title_en)}</span></div>`
           }</div>
-          <p class="home-cat" data-ko="${esc(cat[0])}" data-en="${esc(cat[1])}">${esc(cat[0])}</p>
+          <p class="home-cat">${esc(cat[1])}</p>
           <h3 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h3>
-          ${(t.body_ko || t.body_en)
-            ? `<p class="home-excerpt" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</p>` : ""}
           <p class="exh-date">${esc(t.year)}</p>
         </a>`;
       }).join("")}</div>`;
@@ -593,7 +591,6 @@ async function renderDynamic() {
           <div class="exh-info">
             <h2 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h2>
             <p class="exh-date">${esc(e.date)}</p>
-            <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
             <p class="exh-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>
           </div>
         </a>`).join("");
@@ -646,7 +643,21 @@ async function renderDynamic() {
         { key: "collaboration", label: "Collaboration" },
         { key: "curatorial", label: "Curatorial Project" },
       ];
-      projectsContent.innerHTML = cats.map((c) => {
+
+      // 전체 / Collaboration / Curatorial Project 토글
+      const catParam = new URLSearchParams(location.search).get("cat");
+      const selCat = cats.some((c) => c.key === catParam) ? catParam : null;
+      const projToggle = document.getElementById("proj-view-toggle");
+      if (projToggle) {
+        projToggle.innerHTML = `
+          <a href="projects.html"${selCat ? "" : ' class="on"'}>All</a>` +
+          cats.map((c) =>
+            `<a href="projects.html?cat=${c.key}"${selCat === c.key ? ' class="on"' : ""}>${c.label}</a>`
+          ).join("");
+      }
+
+      const shownCats = selCat ? cats.filter((c) => c.key === selCat) : cats;
+      projectsContent.innerHTML = shownCats.map((c) => {
         const items = all.filter((p) => p.category === c.key);
         if (!items.length) return "";
         return `

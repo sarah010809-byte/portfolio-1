@@ -826,7 +826,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .exh-date {
   color: #999;
   font-size: 0.8rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 .exh-venue { color: #555; font-size: 0.9rem; margin-top: 4px; }
@@ -1212,21 +1212,20 @@ img.profile { object-fit: cover; }
   /* 프로젝트: 모든 카드 같은 크기(전체 폭)로 세로 나열 */
   .home-exh-row, .home-card-row { grid-template-columns: 1fr; gap: 40px; }
 
-  /* Writings: 정사각형 이미지 좌측 + 글 정보 우측 (텍스트가 이미지 높이 안에 들어오게) */
+  /* Writings: 정사각형 이미지 좌측 + 종류·제목·날짜 우측 (이미지 기준 상하 중앙) */
   #home-writings .home-card-row { grid-template-columns: 1fr; gap: 28px; }
   #home-writings .home-writing-card {
     display: grid;
     grid-template-columns: 38% 1fr;
-    grid-template-rows: auto auto auto auto;
     gap: 0 14px;
-    align-content: start;
+    align-items: center;
   }
   #home-writings .home-writing-card .exh-thumb {
     aspect-ratio: 1 / 1;
     margin-bottom: 0;
-    grid-row: 1 / span 4;
+    grid-row: 1 / span 3;
   }
-  #home-writings .home-writing-card .home-cat { margin: 0 0 2px; font-size: 0.6rem; }
+  #home-writings .home-writing-card .home-cat { margin: 0 0 4px; font-size: 0.6rem; align-self: end; }
   #home-writings .home-writing-card h3 {
     font-size: 0.9rem;
     line-height: 1.35;
@@ -1235,12 +1234,7 @@ img.profile { object-fit: cover; }
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  #home-writings .home-writing-card .home-excerpt {
-    -webkit-line-clamp: 2;
-    font-size: 0.78rem;
-    margin-top: 6px;
-  }
-  #home-writings .home-writing-card .exh-date { margin-top: 6px; font-size: 0.7rem; }
+  #home-writings .home-writing-card .exh-date { margin-top: 4px; font-size: 0.7rem; align-self: start; }
   .home-exh-card h3 { font-size: 0.9rem; }
   .home-exh-card .exh-date, .home-exh-card .exh-venue { font-size: 0.75rem; }
 
