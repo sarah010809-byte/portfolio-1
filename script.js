@@ -774,21 +774,24 @@ async function renderDynamic() {
         .sort((a, b) => String(b.year).localeCompare(String(a.year)));
       const { view, page, total } = sliceForPage(shown);
       const href = (n) => `writings.html?${selCat ? `cat=${selCat}&` : ""}p=${n}`;
-      writingsContent.innerHTML = `<div class="grid writing-grid">${view.map((t) => {
+      // 메인 페이지 Writings 섹션처럼: 정사각 이미지 좌측 + 종류·제목·내용·날짜 우측
+      writingsContent.innerHTML = `<div class="writing-rows">${view.map((t) => {
         const cat = WRITING_CATS.find((c) => c.key === t.category);
         return `
-        <figure class="card"><a href="writing.html?i=${t.idx}">
+        <a class="writing-row" href="writing.html?i=${t.idx}">
           <div class="thumb sq">${
             t.image
               ? `<img src="${esc(t.image)}" alt="${esc(t.title_ko)}" loading="lazy">`
               : `<div class="placeholder"><span>${esc(t.title_en)}</span></div>`
           }</div>
-          <figcaption>
-            <span class="home-cat">${cat ? esc(cat.en) : "Etc."}</span>
-            <strong data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</strong>
-            <span class="exh-date">${esc(t.year)}</span>
-          </figcaption>
-        </a></figure>`;
+          <div class="writing-row-info">
+            <p class="home-cat">${cat ? esc(cat.en) : "Etc."}</p>
+            <h3 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h3>
+            ${(t.body_ko || t.body_en)
+              ? `<p class="home-excerpt" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</p>` : ""}
+            <p class="exh-date">${esc(t.year)}</p>
+          </div>
+        </a>`;
       }).join("")}</div>` + pagerHTML(href, page, total);
     }
   }

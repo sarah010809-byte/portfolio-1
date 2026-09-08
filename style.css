@@ -942,11 +942,36 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .pager .pg.on { background: #111; color: #fff; }
 .pager .pg-next { font-size: 1.1rem; }
 
-/* Writings 페이지: 정사각 이미지 카드 */
-.writing-grid .thumb.sq { aspect-ratio: 1 / 1; }
-.writing-grid .thumb.sq .placeholder { width: 100%; height: 100%; }
-.writing-grid figcaption { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-.writing-grid .home-cat { margin-bottom: 0; }
+/* Writings 페이지: 정사각 이미지 좌측 + 글 정보 우측 (메인 섹션과 동일 형식) */
+.writing-rows { display: flex; flex-direction: column; gap: 48px; }
+.writing-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.writing-row .thumb.sq {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f7f7f7;
+}
+.writing-row .thumb.sq img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.writing-row:hover .thumb.sq img { transform: scale(1.04); }
+.writing-row .thumb.sq .placeholder { width: 100%; height: 100%; }
+.writing-row-info h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.writing-row-info .home-excerpt { max-width: 520px; }
+.writing-row-info .exh-date { margin-top: 8px; }
+
+/* Projects 페이지: 카드 2열 크게 + 콘텐츠 영역이 화면을 채우게 */
+#projects-content .grid { grid-template-columns: repeat(2, 1fr); gap: 48px 40px; }
+body.subpage .exh-layout { min-height: 100vh; }
+
+@media (max-width: 768px) {
+  .writing-row { grid-template-columns: 38% 1fr; gap: 14px; }
+  .writing-row-info h3 { font-size: 0.9rem; }
+  .writing-row-info .home-excerpt { -webkit-line-clamp: 2; font-size: 0.78rem; }
+  #projects-content .grid { grid-template-columns: 1fr; gap: 40px; }
+}
 
 /* TOP 버튼 (검정 푸터 위 흰 영역, 우측 정렬) */
 .to-top-wrap {
