@@ -359,10 +359,7 @@ async function renderDynamic() {
           <p class="exh-date">${esc(e.date)}</p>
         </a>`;
       // 첫(최신) 전시는 크게, 과거 전시들은 트랙 오른쪽으로 이어붙임 (최대 4개)
-      homeExh.innerHTML = ex.slice(0, 4).map((e, i) => {
-        const card = exhCard(e, i === 0, i);
-        return i === 0 ? card.replace('class="home-exh-card"', 'class="home-exh-card feature"') : card;
-      }).join("");
+      homeExh.innerHTML = ex.slice(0, 4).map((e, i) => exhCard(e, false, i)).join("");
       setupExhScroll();
     }
   }
