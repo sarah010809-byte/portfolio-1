@@ -1196,7 +1196,27 @@ img.profile { object-fit: cover; }
   .lightbox .lb-arrow { display: none !important; }
 
   /* 메인 미리보기 카드: 모바일에선 세로로 한 줄씩 */
-  .home-exh-row, .home-card-row { grid-template-columns: 1fr; gap: 32px; }
+  /* 프로젝트: 최근 것 크게 + 아래 2개 나란히 */
+  .home-exh-row, .home-card-row { grid-template-columns: 1fr 1fr; gap: 32px 12px; }
+  #home-projects .home-card-row > :first-child { grid-column: 1 / -1; }
+  #home-projects .home-card-row > :not(:first-child) h3 { font-size: 0.9rem; }
+  #home-projects .home-card-row > :not(:first-child) .home-excerpt { display: none; }
+
+  /* Writings: 정사각형 이미지 좌측 + 글 정보 우측 */
+  #home-writings .home-card-row { grid-template-columns: 1fr; gap: 28px; }
+  #home-writings .home-writing-card {
+    display: grid;
+    grid-template-columns: 38% 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  #home-writings .home-writing-card .exh-thumb {
+    aspect-ratio: 1 / 1;
+    margin-bottom: 0;
+    grid-row: 1 / span 4;
+  }
+  #home-writings .home-writing-card h3 { font-size: 0.95rem; }
+  #home-writings .home-writing-card .home-excerpt { -webkit-line-clamp: 2; }
   .home-exh-card h3 { font-size: 0.9rem; }
   .home-exh-card .exh-date, .home-exh-card .exh-venue { font-size: 0.75rem; }
 
@@ -1231,8 +1251,9 @@ img.profile { object-fit: cover; }
     transform: none !important;
   }
   .exh-track .home-exh-card { width: auto; }
-  .exh-track .home-exh-card.feature { grid-column: 1 / -1; }
-  .exh-track .home-exh-card.feature .exh-thumb { aspect-ratio: 4 / 3; }
+  /* 최근 전시 크게 + 아래 2개 */
+  .exh-track .home-exh-card:first-child { grid-column: 1 / -1; }
+  .exh-track .home-exh-card:first-child .exh-thumb { aspect-ratio: 4 / 3; }
   /* 모바일: 최근 1개 + 과거 2개만 */
   .exh-track .home-exh-card:nth-child(n+4) { display: none; }
 }
