@@ -712,6 +712,60 @@ async function initFooter() {
 }
 initFooter();
 
+// ===== 꾹 누르면 부분 확대 (루페) — 데스크탑 전용 =====
+const LOUPE_SIZE = 240;   // 루페 박스 크기 (px)
+const LOUPE_SCALE = 2.5;  // 확대 배율
+const LOUPE_DELAY = 250;  // 길게 누름 판정 시간 (ms)
+
+const loupe = document.createElement("div");
+loupe.className = "loupe";
+document.body.appendChild(loupe);
+
+let loupeTimer = null, loupeActive = false, loupeImg = null, loupeSuppressClick = false;
+
+function loupeUpdate(e) {
+  const r = loupeImg.getBoundingClientRect();
+  const x = Math.min(Math.max(e.clientX, r.left), r.right);
+  const y = Math.min(Math.max(e.clientY, r.top), r.bottom);
+  loupe.style.left = `${x - LOUPE_SIZE / 2}px`;
+  loupe.style.top = `${y - LOUPE_SIZE / 2}px`;
+  loupe.style.backgroundSize = `${r.width * LOUPE_SCALE}px ${r.height * LOUPE_SCALE}px`;
+  loupe.style.backgroundPosition =
+    `${-((x - r.left) * LOUPE_SCALE - LOUPE_SIZE / 2)}px ${-((y - r.top) * LOUPE_SCALE - LOUPE_SIZE / 2)}px`;
+}
+
+document.addEventListener("mousedown", (e) => {
+  if (e.button !== 0 || !window.matchMedia("(hover: hover)").matches) return;
+  const img = e.target.closest(".slider .slide img");
+  if (!img) return;
+  e.preventDefault(); // 이미지 기본 드래그 방지
+  loupeTimer = setTimeout(() => {
+    loupeActive = true;
+    loupeImg = img;
+    loupe.style.backgroundImage = `url("${img.src}")`;
+    loupeUpdate(e);
+    loupe.classList.add("show");
+  }, LOUPE_DELAY);
+});
+document.addEventListener("mousemove", (e) => {
+  if (loupeActive) loupeUpdate(e);
+});
+document.addEventListener("mouseup", () => {
+  clearTimeout(loupeTimer);
+  if (loupeActive) {
+    loupeActive = false;
+    loupe.classList.remove("show");
+    loupeSuppressClick = true; // 루페를 쓴 길게 누름은 클릭(확대 뷰어 열기)으로 치지 않음
+  }
+});
+document.addEventListener("click", (e) => {
+  if (loupeSuppressClick) {
+    loupeSuppressClick = false;
+    e.stopPropagation();
+    e.preventDefault();
+  }
+}, true);
+
 // ===== 이미지 확대 뷰어 (라이트박스) =====
 // 이미지 클릭 → 확대. 좌우 화살표로 넘기기, 아무 곳이나 클릭하거나 Esc 로 닫기
 const lightbox = document.createElement("div");
