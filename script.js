@@ -171,7 +171,8 @@ const SLIDE_INTERVAL = 7000; // 이미지당 유지 시간 (7초 — 여유있�
 
 // 메인 이미지 + 아래 화살표·썸네일 스트립 마크업 생성
 function sliderHTML(id, images, alt) {
-  return `<div class="slider" id="${id}">
+  // 이미지가 2장 이상이면 스테이지 높이를 고정해 전환 시 레이아웃이 흔들리지 않게 함
+  return `<div class="slider${images.length > 1 ? " multi" : ""}" id="${id}">
     <div class="slides">${images.map((src, k) =>
       `<div class="slide${k === 0 ? " active" : ""}"><img src="${esc(src)}" alt="${esc(alt)}"></div>`).join("")}</div>
     <div class="slider-controls">
