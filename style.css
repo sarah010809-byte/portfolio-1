@@ -112,6 +112,7 @@ img { max-width: 100%; display: block; }
   color: #555;
 }
 .sub-nav a:hover { color: #111; opacity: 1; background: #f6f6f6; }
+.nav-caret { display: none; }
 
 .header-right { display: flex; align-items: center; gap: 12px; }
 
@@ -917,8 +918,21 @@ img.profile { object-fit: cover; }
     letter-spacing: 0.04em;
   }
 
-  /* 모바일: 드롭다운 대신 하위 메뉴를 바로 아래에 표시 */
+  /* 모바일: 메뉴가 화면 우측에 딱 붙게 (데스크탑용 여백 제거) */
+  .nav { margin: 0; }
+
+  /* 모바일: Works 옆 ▾ 화살표, 탭하면 하위 메뉴 펼침 */
+  .nav-caret {
+    display: inline-block;
+    margin-left: 8px;
+    color: #999;
+    font-size: 0.8em;
+    transition: transform 0.25s ease;
+  }
+  .nav-item.has-sub.open .nav-caret { transform: rotate(180deg); }
+
   .nav .sub-nav {
+    display: none;
     position: static;
     transform: none;
     opacity: 1;
@@ -928,6 +942,7 @@ img.profile { object-fit: cover; }
     padding: 0 0 4px;
     text-align: left;
   }
+  .nav-item.has-sub.open .sub-nav { display: block; transform: none; }
   .nav-item.has-sub::after { display: none; }
   .sub-nav a {
     padding: 10px 0 10px 18px;
@@ -1006,14 +1021,9 @@ img.profile { object-fit: cover; }
   /* 전시 페이지: 최근 전시 크게, 이전 전시 2개 작게 */
   #exh-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px 12px;
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
   #exh-list .exh-item { margin-bottom: 0; }
-  #exh-list .exh-item:first-child { grid-column: 1 / -1; }
-  #exh-list .exh-item:not(:first-child) .exh-desc { display: none; }
-  #exh-list .exh-item:not(:first-child) h2 { font-size: 0.95rem; }
-  #exh-list .exh-item:not(:first-child) .exh-date,
-  #exh-list .exh-item:not(:first-child) .exh-venue { font-size: 0.75rem; }
 }
 

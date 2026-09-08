@@ -23,7 +23,7 @@ function buildNav() {
       const cur = it.match.includes(page) ? " current" : "";
       if (it.sub) {
         return `<div class="nav-item has-sub">
-          <a href="${it.href}" class="${cur.trim()}">${it.label}</a>
+          <a href="${it.href}" class="${cur.trim()}">${it.label}<span class="nav-caret">▾</span></a>
           <div class="sub-nav">${it.sub.map((s) => `<a href="${s.href}">${s.label}</a>`).join("")}</div>
         </div>`;
       }
@@ -44,8 +44,6 @@ document.querySelectorAll(".nav-item.has-sub").forEach((item) => {
   item.addEventListener("mouseenter", () => item.classList.add("open"));
   item.addEventListener("mouseleave", () => item.classList.remove("open"));
   link.addEventListener("click", (e) => {
-    const mobileMenu = window.matchMedia("(max-width: 768px)").matches;
-    if (mobileMenu) return; // 모바일 메뉴에선 하위 항목이 항상 보이므로 그대로 이동
     e.preventDefault();
     item.classList.toggle("open");
   });
@@ -114,9 +112,7 @@ function setMenu(open) {
 
 menuBtn.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
 navDim.addEventListener("click", () => setMenu(false));
-nav.querySelectorAll("a").forEach((a) =>
-  a.addEventListener("click", () => setMenu(false))
-);
+// (메뉴 링크를 누르면 페이지가 바로 이동하므로 닫힘 애니메이션은 생략)
 
 // ===== 데이터 파일에서 콘텐츠 불러오기 =====
 // (관리자 페이지 /admin 에서 data/*.json 을 수정하면 사이트에 자동 반영)
