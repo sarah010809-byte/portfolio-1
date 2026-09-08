@@ -244,15 +244,18 @@ async function renderDynamic() {
               ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}" loading="lazy">`
               : `<div class="placeholder"><span>${esc(e.title_en)}</span></div>`
           }</div>
+          <p class="home-cat">Exhibitions</p>
           <h3 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h3>
-          <p class="exh-date">${esc(e.date)}</p>
           <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
+          ${big && (e.desc_ko || e.desc_en)
+            ? `<p class="home-excerpt" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
+          <p class="exh-date">${esc(e.date)}</p>
         </a>`;
       const first = ex[0] ? `<div class="home-exh-feature">${exhCard(ex[0], true, 0)}</div>` : "";
-      const pair = ex.length > 1
-        ? `<div class="home-exh-pair">${ex.slice(1, 3).map((e, i) => exhCard(e, false, i + 1)).join("")}</div>`
+      const rest = ex.length > 1
+        ? `<div class="home-exh-row">${ex.slice(1, 4).map((e, i) => exhCard(e, false, i + 1)).join("")}</div>`
         : "";
-      homeExh.innerHTML = first + pair;
+      homeExh.innerHTML = first + rest;
     }
   }
 
@@ -262,13 +265,19 @@ async function renderDynamic() {
     const data = await loadJSON("data/projects.json");
     if (data) {
       const picks = (data.projects || []).map((p, idx) => ({ ...p, idx })).slice(0, 3);
-      homeProjects.innerHTML = `<div class="grid">${picks.map((p) => `
-        <figure class="card"><a href="project.html?i=${p.idx}">
-          ${thumbHTML(p, p.title_en)}
-          <figcaption>
-            <strong data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</strong><span>, ${esc(p.year)}</span>
-          </figcaption>
-        </a></figure>`).join("")}</div>`;
+      homeProjects.innerHTML = `<div class="home-card-row">${picks.map((p) => `
+        <a class="home-exh-card" href="project.html?i=${p.idx}">
+          <div class="exh-thumb">${
+            p.image
+              ? `<img src="${esc(p.image)}" alt="${esc(p.title_ko)}" loading="lazy">`
+              : `<div class="placeholder"><span>${esc(p.title_en)}</span></div>`
+          }</div>
+          <p class="home-cat">${p.category === "curatorial" ? "Curatorial Project" : "Collaboration"}</p>
+          <h3 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h3>
+          ${(p.desc_ko || p.desc_en)
+            ? `<p class="home-excerpt" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}
+          <p class="exh-date">${esc(p.year)}</p>
+        </a>`).join("")}</div>`;
     }
   }
 
@@ -277,16 +286,22 @@ async function renderDynamic() {
   if (homeWritings) {
     const data = await loadJSON("data/writings.json");
     if (data) {
+      const CAT_LABELS = { artist: ["작가의 글", "Artist's Writings"], criticism: ["비평", "Criticism"],
+        interview: ["인터뷰", "Interview"], article: ["기사", "Article"], etc: ["기타", "Etc."] };
       const picks = (data.writings || []).map((t, idx) => ({ ...t, idx }))
         .sort((a, b) => String(b.year).localeCompare(String(a.year)))
-        .slice(0, 4);
-      homeWritings.innerHTML = `<ul class="writing-list">${picks.map((t) => `
-        <li><a href="writing.html?i=${t.idx}">
-          <span class="year">${esc(t.year)}</span>
-          <span class="writing-title" data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</span>
-          ${t.author_ko || t.author_en
-            ? `<span class="writing-author" data-ko="${esc(t.author_ko)}" data-en="${esc(t.author_en)}">${esc(t.author_ko)}</span>` : ""}
-        </a></li>`).join("")}</ul>`;
+        .slice(0, 3);
+      homeWritings.innerHTML = `<div class="home-card-row">${picks.map((t) => {
+        const cat = CAT_LABELS[t.category] || CAT_LABELS.etc;
+        return `
+        <a class="home-exh-card home-writing-card" href="writing.html?i=${t.idx}">
+          <p class="home-cat" data-ko="${esc(cat[0])}" data-en="${esc(cat[1])}">${esc(cat[0])}</p>
+          <h3 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h3>
+          ${(t.body_ko || t.body_en)
+            ? `<p class="home-excerpt" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</p>` : ""}
+          <p class="exh-date">${esc(t.year)}</p>
+        </a>`;
+      }).join("")}</div>`;
     }
   }
 

@@ -236,7 +236,8 @@ img { max-width: 100%; display: block; }
 }
 .view-all:hover { color: #111; }
 
-/* 메인 페이지: 작품명 중앙 정렬 */
+/* 메인 페이지: 작품 이미지·작품명·연도 중앙 정렬 */
+#home-works .card { text-align: center; }
 #home-works .card figcaption { text-align: center; }
 
 /* 메인 페이지: 연도별 미리보기 */
@@ -250,13 +251,37 @@ img { max-width: 100%; display: block; }
 }
 .home-year-label a:hover { opacity: 0.6; }
 
-/* 메인 페이지: 전시 미리보기 (최근 전시 크게 + 이전 2개 좌우) */
-.home-exh-feature { margin-bottom: 40px; }
+/* 메인 페이지: 전시 미리보기 (최근 전시 크게 + 이전 3개 아래로) */
+.home-exh-feature { margin-bottom: 48px; }
 
-.home-exh-pair {
+.home-exh-row,
+.home-card-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
+}
+
+/* 카드 공통: 카테고리 라벨 / 요약문 (참고: 카드형 아카이브 레이아웃) */
+.home-cat {
+  font-size: 0.75rem;
+  color: #999;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.home-excerpt {
+  font-size: 0.88rem;
+  color: #555;
+  margin-top: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.home-exh-card .exh-date { margin-top: 10px; }
+.home-writing-card {
+  border-top: 1px solid #eee;
+  padding-top: 18px;
 }
 
 .home-exh-card { display: block; }
@@ -808,8 +833,8 @@ img.profile { object-fit: cover; }
   #home-works .card .thumb { aspect-ratio: 1 / 1; margin-bottom: 10px; }
   #home-works .card figcaption { font-size: 0.8rem; line-height: 1.4; }
 
-  /* 메인 전시 미리보기: 모바일에서도 아래 2개 좌우 유지 */
-  .home-exh-pair { gap: 12px; }
+  /* 메인 미리보기 카드: 모바일에선 세로로 한 줄씩 */
+  .home-exh-row, .home-card-row { grid-template-columns: 1fr; gap: 32px; }
   .home-exh-card h3 { font-size: 0.9rem; }
   .home-exh-card .exh-date, .home-exh-card .exh-venue { font-size: 0.75rem; }
 
