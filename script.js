@@ -721,6 +721,10 @@ initFooter();
 const lightbox = document.createElement("div");
 lightbox.className = "lightbox";
 lightbox.innerHTML = `
+  <div class="lb-zoom-btns">
+    <button class="lb-zoom-in" aria-label="zoom in">+</button>
+    <button class="lb-zoom-out" aria-label="zoom out">−</button>
+  </div>
   <button class="lb-close" aria-label="close">×</button>
   <button class="lb-arrow lb-prev" aria-label="previous image">←</button>
   <img alt="">
@@ -787,6 +791,18 @@ document.addEventListener("click", (e) => {
 lbPrev.addEventListener("click", (e) => { e.stopPropagation(); lbShow(lbState.i - 1); });
 lbNext.addEventListener("click", (e) => { e.stopPropagation(); lbShow(lbState.i + 1); });
 lightbox.querySelector(".lb-close").addEventListener("click", (e) => { e.stopPropagation(); closeLightbox(); });
+
+// + / − 버튼으로 단계 확대·축소 (화면 중앙 기준)
+function lbZoomStep(factor) {
+  const prev = lbZoom.z;
+  lbZoom.z = Math.min(4, Math.max(1, lbZoom.z * factor));
+  const k = lbZoom.z / prev;
+  lbZoom.tx *= k; lbZoom.ty *= k;
+  if (lbZoom.z === 1) { lbZoom.tx = 0; lbZoom.ty = 0; }
+  lbApplyZoom();
+}
+lightbox.querySelector(".lb-zoom-in").addEventListener("click", (e) => { e.stopPropagation(); lbZoomStep(1.4); });
+lightbox.querySelector(".lb-zoom-out").addEventListener("click", (e) => { e.stopPropagation(); lbZoomStep(1 / 1.4); });
 
 // 마우스 휠로 확대/축소 (1배 ~ 4배)
 lightbox.addEventListener("wheel", (e) => {

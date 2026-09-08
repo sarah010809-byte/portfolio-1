@@ -489,6 +489,30 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 10px 60px rgba(0,0,0,0.5);
 }
 
+/* 라이트박스 + / − 확대 버튼 (좌측 상단) */
+.lightbox .lb-zoom-btns {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+}
+.lightbox .lb-zoom-btns button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(0,0,0,0.2);
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.lightbox .lb-zoom-btns button:hover { background: rgba(255,255,255,0.18); border-color: #fff; }
+
 /* 라이트박스 닫기 버튼 (우측 상단 X) */
 .lightbox .lb-close {
   position: absolute;
