@@ -994,6 +994,8 @@ body.subpage .exh-layout { min-height: 100vh; }
     font-size: 0.85rem;
   }
   .view-toggle a { white-space: nowrap; }
+  /* Works 페이지(좌측 제목 구조)의 토글은 좌측 정렬 */
+  .page-layout .view-toggle, .sidebar .view-toggle { justify-content: flex-start; }
 
   /* 모바일 프로젝트: writings처럼 정사각 이미지 좌측 + 텍스트 우측 */
   #projects-content .grid { grid-template-columns: 1fr; gap: 28px; }
