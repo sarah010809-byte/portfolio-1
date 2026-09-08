@@ -37,6 +37,27 @@ function buildNav() {
 }
 buildNav();
 
+// Works 메뉴: 마우스를 올리기만 해도 드롭다운이 열리게 (JS 보조)
+// 터치 기기에서는 첫 탭에 드롭다운만 열고, 열린 상태에서 다시 탭하면 이동
+document.querySelectorAll(".nav-item.has-sub").forEach((item) => {
+  const link = item.querySelector("a");
+  item.addEventListener("mouseenter", () => item.classList.add("open"));
+  item.addEventListener("mouseleave", () => item.classList.remove("open"));
+  link.addEventListener("click", (e) => {
+    const touchOnly = window.matchMedia("(hover: none)").matches;
+    const mobileMenu = window.matchMedia("(max-width: 768px)").matches;
+    if (touchOnly && !mobileMenu && !item.classList.contains("open")) {
+      e.preventDefault();
+      item.classList.add("open");
+    }
+  });
+});
+document.addEventListener("click", (e) => {
+  document.querySelectorAll(".nav-item.has-sub.open").forEach((item) => {
+    if (!item.contains(e.target)) item.classList.remove("open");
+  });
+});
+
 // ===== 언어 전환 (Kr / En) =====
 const btnKo = document.getElementById("btn-ko");
 const btnEn = document.getElementById("btn-en");

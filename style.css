@@ -91,6 +91,7 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 .nav-item.has-sub:hover .sub-nav,
+.nav-item.has-sub.open .sub-nav,
 .nav-item.has-sub:focus-within .sub-nav {
   opacity: 1;
   visibility: visible;
