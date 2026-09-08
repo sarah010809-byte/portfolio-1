@@ -219,16 +219,16 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===== 섹션 공통 ===== */
+/* 구분선 대신 큰 타이틀로 섹션 시작을 표시 */
 .section {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 90px 20px;
-  border-top: 1px solid #f0f0f0;
+  padding: 52px 20px;
 }
 
 .section h2 {
-  font-size: 1.35rem;
-  letter-spacing: 0.06em;
+  font-size: 2.1rem;
+  letter-spacing: 0.05em;
 }
 
 /* 섹션 제목 + View all 링크 */
@@ -276,7 +276,6 @@ body:not(.subpage) .exh-sticky {
 /* ===== 메인 전시: 스크롤 고정 + 가로 이동 ===== */
 .exh-scroll {
   position: relative;
-  border-top: 1px solid #f0f0f0;
 }
 
 .exh-sticky {
@@ -286,8 +285,8 @@ body:not(.subpage) .exh-sticky {
   overflow: hidden;
   max-width: 1100px;
   margin: 0 auto;
-  /* 다른 섹션과 동일하게 구분선 아래 90px에서 제목 시작 */
-  padding: 90px 20px 40px;
+  /* 다른 섹션과 동일한 상단 여백에서 제목 시작 */
+  padding: 52px 20px 40px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1125,7 +1124,8 @@ img.profile { object-fit: cover; }
   .artist-top { flex-direction: column; gap: 28px; margin-bottom: 56px; }
   .artist-photo { width: 70%; }
 
-  .section { padding: 56px 20px; }
+  .section { padding: 36px 20px; }
+  .section h2 { font-size: 1.5rem; }
   .series { margin-bottom: 64px; }
   .exh-item { margin-bottom: 64px; }
 
