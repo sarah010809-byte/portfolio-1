@@ -599,9 +599,9 @@ async function renderDynamic() {
       const toggle = document.getElementById("exh-view-toggle");
       if (toggle) {
         toggle.innerHTML = `
-          <a href="exhibitions.html"${selType ? "" : ' class="on"'} data-ko="전체" data-en="All">전체</a>
-          <a href="exhibitions.html?type=solo"${selType === "solo" ? ' class="on"' : ""} data-ko="개인전" data-en="Solo">개인전</a>
-          <a href="exhibitions.html?type=group"${selType === "group" ? ' class="on"' : ""} data-ko="그룹전" data-en="Group">그룹전</a>`;
+          <a href="exhibitions.html"${selType ? "" : ' class="on"'}>All</a>
+          <a href="exhibitions.html?type=solo"${selType === "solo" ? ' class="on"' : ""}>Solo</a>
+          <a href="exhibitions.html?type=group"${selType === "group" ? ' class="on"' : ""}>Group</a>`;
       }
 
       const shown = selType ? all.filter((e) => e.type === selType) : all;
