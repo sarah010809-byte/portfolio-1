@@ -158,6 +158,15 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: flex-end;
   position: relative;
+  overflow: hidden;
+}
+
+/* 대표작 배경 레이어: 스크롤 시 살짝 확대 */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  transform-origin: center;
+  will-change: transform;
 }
 
 /* 하단 텍스트 가독성용 어두운 그라데이션 */
@@ -868,6 +877,27 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 }
 .footer-copy { letter-spacing: 0.04em; font-size: 0.78rem; }
 
+/* TOP 버튼 */
+.to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 28px;
+  background: none;
+  border: 1px solid #3a3a3a;
+  border-radius: 999px;
+  color: #aaa;
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
+}
+.to-top:hover { background: #fff; color: #111; border-color: #fff; }
+.to-top-arrow { font-size: 0.9rem; }
+
 /* ===== Artist 페이지 ===== */
 .artist-top {
   display: flex;
@@ -1123,6 +1153,9 @@ img.profile { object-fit: cover; }
 /* 메인 전시 가로 인터랙션: 모바일에선 비활성화하고 세로 배치 */
 @media (max-width: 768px) {
   body:not(.subpage) .section { padding-left: 20px; padding-right: 20px; }
+
+  /* 푸터 메뉴 5개가 잘리지 않게 간격·크기 축소 */
+  .footer-nav { gap: 14px; font-size: 0.78rem; flex-wrap: wrap; padding: 0 10px; }
   .exh-scroll { height: auto !important; }
   .exh-sticky {
     position: static;

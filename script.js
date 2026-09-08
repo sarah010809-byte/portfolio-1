@@ -90,10 +90,29 @@ const header = document.querySelector(".site-header");
 const hasHero = document.querySelector(".hero") !== null;
 
 if (hasHero) {
-  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 40);
-  window.addEventListener("scroll", onScroll);
+  const onScroll = () => {
+    header.classList.toggle("scrolled", window.scrollY > 40);
+    // 스크롤에 따라 대표작 배경이 살짝 확대
+    const bg = document.querySelector(".hero-bg");
+    if (bg) {
+      const p = Math.min(window.scrollY / window.innerHeight, 1);
+      bg.style.transform = `scale(${1 + p * 0.08})`;
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 }
+
+// ===== TOP 버튼 (푸터 하단, 클릭 시 맨 위로) =====
+(function () {
+  const footer = document.querySelector(".site-footer");
+  if (!footer) return;
+  const btn = document.createElement("button");
+  btn.className = "to-top";
+  btn.innerHTML = 'TOP <span class="to-top-arrow">↑</span>';
+  btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  footer.appendChild(btn);
+})();
 
 // ===== 모바일 메뉴 (우측 슬라이드 + 햄버거 ↔ X) =====
 const menuBtn = document.getElementById("menuBtn");
@@ -294,7 +313,11 @@ async function renderDynamic() {
       const list = sortedWorks(data);
       const feat = list.find((w) => w.featured && w.image) || list.find((w) => w.image);
       if (feat) {
-        hero.style.background = `url("${feat.image}") center / cover no-repeat`;
+        // 배경을 별도 레이어에 넣어 스크롤 시 살짝 확대되는 효과 적용
+        const bg = document.createElement("div");
+        bg.className = "hero-bg";
+        bg.style.background = `url("${feat.image}") center / cover no-repeat`;
+        hero.prepend(bg);
       }
     }
   }
@@ -332,8 +355,8 @@ async function renderDynamic() {
             ? `<p class="home-excerpt" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
           <p class="exh-date">${esc(e.date)}</p>
         </a>`;
-      // 첫(최신) 전시는 크게, 과거 전시들은 트랙 오른쪽으로 이어붙임
-      homeExh.innerHTML = ex.map((e, i) => {
+      // 첫(최신) 전시는 크게, 과거 전시들은 트랙 오른쪽으로 이어붙임 (최대 4개)
+      homeExh.innerHTML = ex.slice(0, 4).map((e, i) => {
         const card = exhCard(e, i === 0, i);
         return i === 0 ? card.replace('class="home-exh-card"', 'class="home-exh-card feature"') : card;
       }).join("");
