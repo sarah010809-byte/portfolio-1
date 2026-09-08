@@ -219,6 +219,9 @@ img { max-width: 100%; display: block; }
 }
 
 /* ===== 섹션 공통 ===== */
+/* 메인 이미지(히어로) 다음 첫 섹션은 여유 있게 시작 */
+.hero + .section { padding-top: 96px; }
+
 /* 구분선 대신 큰 타이틀로 섹션 시작을 표시 */
 .section {
   max-width: 1100px;
@@ -285,15 +288,12 @@ body:not(.subpage) .exh-sticky {
   overflow: hidden;
   max-width: 1100px;
   margin: 0 auto;
-  /* 다른 섹션과 동일한 상단 여백에서 제목 시작 */
-  padding: 52px 20px 40px;
+  padding: 52px 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* 제목+카드를 한 덩어리로 화면 세로 중앙에 — 제목과 이미지 간격은 다른 섹션과 동일 */
+  justify-content: center;
 }
-
-/* 트랙은 제목 아래 남은 공간에서 세로 중앙 */
-.exh-track { margin-top: auto; margin-bottom: auto; }
 
 .exh-track {
   display: flex;
