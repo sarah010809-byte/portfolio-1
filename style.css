@@ -230,19 +230,21 @@ img { max-width: 100%; display: block; }
 }
 
 .section h2 {
-  font-size: 2.1rem;
+  font-size: 2.6rem;
   letter-spacing: 0.05em;
 }
 
-/* 섹션 제목 + View all 링크 */
+/* 섹션 제목: 가운데 정렬 */
 .section-head {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 24px;
+  justify-content: center;
+  margin-bottom: 32px;
 }
 
+/* View all: 콘텐츠 아래 왼쪽 */
 .view-all {
+  display: inline-block;
+  margin-top: 28px;
   font-size: 0.9rem;
   color: #888;
   transition: color 0.2s;
