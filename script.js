@@ -1,3 +1,42 @@
+// ===== 상단/푸터 메뉴 (모든 페이지 공통 — 여기만 고치면 전체 반영) =====
+const NAV_ITEMS = [
+  { href: "works.html", label: "Works", match: ["works.html", "work.html"],
+    sub: [
+      { href: "works.html?view=years", label: "By Years" },
+      { href: "works.html?view=series", label: "By Series" },
+    ] },
+  { href: "exhibitions.html", label: "Exhibitions", match: ["exhibitions.html", "exhibition.html"] },
+  { href: "projects.html", label: "Projects", match: ["projects.html", "project.html"] },
+  { href: "writings.html", label: "Writings", match: ["writings.html", "writing.html"] },
+  { href: "about.html", label: "About", match: ["about.html"] },
+];
+
+function currentPage() {
+  return location.pathname.split("/").pop() || "index.html";
+}
+
+function buildNav() {
+  const page = currentPage();
+  const nav = document.getElementById("nav");
+  if (nav) {
+    nav.innerHTML = NAV_ITEMS.map((it) => {
+      const cur = it.match.includes(page) ? " current" : "";
+      if (it.sub) {
+        return `<div class="nav-item has-sub">
+          <a href="${it.href}" class="${cur.trim()}">${it.label}</a>
+          <div class="sub-nav">${it.sub.map((s) => `<a href="${s.href}">${s.label}</a>`).join("")}</div>
+        </div>`;
+      }
+      return `<div class="nav-item"><a href="${it.href}" class="${cur.trim()}">${it.label}</a></div>`;
+    }).join("");
+  }
+  const fnav = document.getElementById("footer-nav");
+  if (fnav) {
+    fnav.innerHTML = NAV_ITEMS.map((it) => `<a href="${it.href}">${it.label}</a>`).join("");
+  }
+}
+buildNav();
+
 // ===== 언어 전환 (Kr / En) =====
 const btnKo = document.getElementById("btn-ko");
 const btnEn = document.getElementById("btn-en");
@@ -18,7 +57,6 @@ function setLang(lang, animate) {
   };
   const m = document.querySelector("main");
   if (animate && m) {
-    // 언어 전환 시 짧은 페이드
     m.style.transition = "opacity 0.18s ease";
     m.style.opacity = "0";
     setTimeout(() => { apply(); m.style.opacity = "1"; }, 180);
@@ -61,7 +99,7 @@ nav.querySelectorAll("a").forEach((a) =>
   a.addEventListener("click", () => setMenu(false))
 );
 
-// ===== 데이터 파일에서 작품/전시 불러오기 =====
+// ===== 데이터 파일에서 콘텐츠 불러오기 =====
 // (관리자 페이지 /admin 에서 data/*.json 을 수정하면 사이트에 자동 반영)
 
 function esc(s) {
@@ -87,13 +125,6 @@ function cardHTML(work, label, linkTo) {
   return `<figure class="card">${linkTo ? `<a href="${linkTo}">${inner}</a>` : inner}</figure>`;
 }
 
-function exhItemHTML(item) {
-  return `<li>
-    <span class="year">${esc(item.year)}</span>
-    <span data-ko="${esc(item.text_ko)}" data-en="${esc(item.text_en)}">${esc(item.text_ko)}</span>
-  </li>`;
-}
-
 async function loadJSON(path) {
   try {
     const res = await fetch(path);
@@ -111,49 +142,208 @@ function sortedWorks(data) {
     .sort((a, b) => String(b.year).localeCompare(String(a.year)));
 }
 
+// 작품의 시리즈 이름 (없으면 '기타'로 묶음)
+function seriesKey(w) {
+  return w.series_en || w.series_ko || "Other";
+}
+
+// ===== 작품 상세 슬라이드쇼 (자동 재생 + 화살표) =====
+const SLIDE_INTERVAL = 7000; // 이미지당 유지 시간 (7초 — 여유있게)
+
+function initSlider(root) {
+  const slides = [...root.querySelectorAll(".slide")];
+  const prevBtn = root.querySelector(".slider-prev");
+  const nextBtn = root.querySelector(".slider-next");
+  const dotsWrap = root.querySelector(".slider-dots");
+  if (slides.length < 2) {
+    root.querySelector(".slider-controls")?.remove();
+    return;
+  }
+  dotsWrap.innerHTML = slides.map((_, i) =>
+    `<button class="slider-dot" aria-label="image ${i + 1}"></button>`).join("");
+  const dots = [...dotsWrap.children];
+  let i = 0, timer = null;
+
+  const show = (n) => {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, k) => s.classList.toggle("active", k === i));
+    dots.forEach((d, k) => d.classList.toggle("active", k === i));
+  };
+  const restart = () => {
+    clearInterval(timer);
+    timer = setInterval(() => show(i + 1), SLIDE_INTERVAL);
+  };
+  prevBtn.addEventListener("click", () => { show(i - 1); restart(); });
+  nextBtn.addEventListener("click", () => { show(i + 1); restart(); });
+  dots.forEach((d, k) => d.addEventListener("click", () => { show(k); restart(); }));
+  // 마우스를 올리면 잠시 멈춤
+  root.addEventListener("mouseenter", () => clearInterval(timer));
+  root.addEventListener("mouseleave", restart);
+  show(0);
+  restart();
+}
+
 async function renderDynamic() {
-  // 메인 페이지: 연도별로 3개씩 미리보기 (최신 연도부터)
-  const homeWorks = document.getElementById("home-works");
-  if (homeWorks) {
+  // ===== 메인 페이지: 풀스크린 대표작 1점 =====
+  const hero = document.getElementById("hero");
+  if (hero) {
     const data = await loadJSON("data/works.json");
     if (data) {
       const list = sortedWorks(data);
-      const years = [...new Set(list.map((w) => w.year))];
-      // 연도별 3개씩을 하나의 그리드로 (PC: 3열 = 연도당 한 줄, 모바일: 2열 연속)
-      const picks = years.flatMap((y) => list.filter((w) => w.year === y).slice(0, 3));
-      homeWorks.innerHTML = `<div class="grid">${picks.map((w) =>
-        cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
-          w.title_en, `work.html?i=${w.idx}`)
-      ).join("")}</div>`;
+      const feat = list.find((w) => w.featured && w.image) || list.find((w) => w.image);
+      if (feat) {
+        hero.style.background = `url("${feat.image}") center / cover no-repeat`;
+        const cap = document.getElementById("hero-caption");
+        cap.href = `work.html?i=${feat.idx}`;
+        cap.innerHTML = `
+          <span class="hero-work-title" data-ko="${esc(feat.title_ko)}" data-en="${esc(feat.title_en)}">${esc(feat.title_ko)}</span>
+          <span class="hero-work-year">${esc(feat.year)}</span>`;
+      }
     }
   }
 
-  // 메인 페이지: 전시 미리보기 (최근 전시 크게 + 이전 2개 좌우)
-  const homeExh = document.getElementById("home-exh");
-  if (homeExh) {
-    const data = await loadJSON("data/exhibitions.json");
+  // ===== Works 페이지: By Years / By Series 전환 + 그룹별 그리드 =====
+  const worksContent = document.getElementById("works-content");
+  const seriesNav = document.getElementById("series-nav");
+  if (worksContent && seriesNav) {
+    const data = await loadJSON("data/works.json");
     if (data) {
-      const ex = data.exhibitions || [];
-      const exhCard = (e, big, idx) => `
-        <a class="home-exh-card" href="exhibition.html?i=${idx}">
-          <div class="exh-thumb${big ? " big" : ""}">${
-            e.image
-              ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}" loading="lazy">`
-              : `<div class="placeholder"><span>${esc(e.title_en)}</span></div>`
-          }</div>
-          <h3 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h3>
-          <p class="exh-date">${esc(e.date)}</p>
-          <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
-        </a>`;
-      const first = ex[0] ? `<div class="home-exh-feature">${exhCard(ex[0], true, 0)}</div>` : "";
-      const pair = ex.length > 1
-        ? `<div class="home-exh-pair">${ex.slice(1, 3).map((e, i) => exhCard(e, false, i + 1)).join("")}</div>`
-        : "";
-      homeExh.innerHTML = first + pair;
+      const list = sortedWorks(data);
+      const params = new URLSearchParams(location.search);
+      const view = params.get("view") === "series" ? "series" : "years";
+
+      // 보기 방식 토글 (By Years / By Series)
+      const viewToggle = document.getElementById("view-toggle");
+      if (viewToggle) {
+        viewToggle.innerHTML = `
+          <a href="works.html?view=years"${view === "years" ? ' class="on"' : ""}>By Years</a>
+          <a href="works.html?view=series"${view === "series" ? ' class="on"' : ""}>By Series</a>`;
+      }
+
+      let groups; // [{ key, label_ko, label_en, items }]
+      if (view === "years") {
+        const years = [...new Set(list.map((w) => w.year))];
+        groups = years.map((y) => ({
+          key: y, label_ko: y, label_en: y,
+          items: list.filter((w) => w.year === y),
+        }));
+      } else {
+        const keys = [...new Set(list.map(seriesKey))];
+        groups = keys.map((k) => {
+          const items = list.filter((w) => seriesKey(w) === k);
+          return {
+            key: k,
+            label_ko: items[0].series_ko || items[0].series_en || "기타",
+            label_en: items[0].series_en || items[0].series_ko || "Other",
+            items,
+          };
+        });
+      }
+
+      // 사이드바: 그룹 필터
+      const selParam = params.get("g");
+      const selected = groups.some((g) => g.key === selParam) ? selParam : null;
+      const base = `works.html?view=${view}`;
+      seriesNav.innerHTML =
+        `<li><a href="${base}"${selected ? "" : ' class="current-year"'}>All</a></li>` +
+        groups.map((g) =>
+          `<li><a href="${base}&g=${encodeURIComponent(g.key)}"${g.key === selected ? ' class="current-year"' : ""}
+             data-ko="${esc(g.label_ko)}" data-en="${esc(g.label_en)}">${esc(g.label_ko)}</a></li>`
+        ).join("");
+
+      const shown = selected ? groups.filter((g) => g.key === selected) : groups;
+      worksContent.innerHTML = shown.map((g) => `
+        <section class="series">
+          <div class="series-head"><h2 data-ko="${esc(g.label_ko)}" data-en="${esc(g.label_en)}">${esc(g.label_ko)}</h2></div>
+          <div class="grid">${g.items.map((w) =>
+            cardHTML({ ...w, caption_ko: view === "series" ? w.year : "", caption_en: view === "series" ? w.year : "" },
+              w.title_en, `work.html?i=${w.idx}`)
+          ).join("")}</div>
+        </section>`).join("");
     }
   }
 
-  // Exhibitions 페이지: 대표이미지 + 우측 정보
+  // ===== 작품 상세 페이지 (이미지 여러 장 → 자동 슬라이드) =====
+  const workDetail = document.getElementById("work-detail");
+  if (workDetail) {
+    const data = await loadJSON("data/works.json");
+    if (data) {
+      const list = sortedWorks(data);
+      const params = new URLSearchParams(location.search);
+      const reqIdx = parseInt(params.get("i") || "0", 10) || 0;
+      let pos = list.findIndex((w) => w.idx === reqIdx);
+      if (pos < 0) pos = 0;
+      const w = list[pos];
+
+      // 대표 이미지 + 추가 이미지(디테일 컷)를 하나의 슬라이드쇼로
+      const images = [w.image, ...(w.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
+      const imageArea = images.length
+        ? `<div class="slider" id="work-slider">
+            <div class="slides">${images.map((src, k) =>
+              `<div class="slide${k === 0 ? " active" : ""}"><img src="${esc(src)}" alt="${esc(w.title_ko)}"></div>`).join("")}</div>
+            <div class="slider-controls">
+              <button class="slider-prev" aria-label="previous image">←</button>
+              <div class="slider-dots"></div>
+              <button class="slider-next" aria-label="next image">→</button>
+            </div>
+          </div>`
+        : `<div class="placeholder detail-placeholder"><span>${esc(w.title_en)}</span></div>`;
+
+      const related = (w.related_ko || w.related_en) ? `
+        <h3 data-ko="관련 전시" data-en="Related Exhibition">관련 전시</h3>
+        <p class="side-related" data-ko="${esc(w.related_ko)}" data-en="${esc(w.related_en)}">${esc(w.related_ko)}</p>` : "";
+
+      const desc = (w.desc_ko || w.desc_en)
+        ? `<p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>`
+        : "";
+
+      const seriesLine = (w.series_ko || w.series_en)
+        ? `<p class="side-series" data-ko="${esc(w.series_ko || w.series_en)}" data-en="${esc(w.series_en || w.series_ko)}">${esc(w.series_ko || w.series_en)}</p>`
+        : "";
+
+      // 이전/다음과 순번은 같은 연도 안에서만
+      const yearList = list.filter((o) => o.year === w.year);
+      const yPos = yearList.findIndex((o) => o.idx === w.idx);
+      const link = (p) => `work.html?i=${yearList[p].idx}`;
+      const prev = yPos > 0
+        ? `<a href="${link(yPos - 1)}" data-ko="← 이전" data-en="← Prev">← 이전</a>` : `<span></span>`;
+      const next = yPos < yearList.length - 1
+        ? `<a href="${link(yPos + 1)}" data-ko="다음 →" data-en="Next →">다음 →</a>` : `<span></span>`;
+
+      const sameYear = yearList.filter((o) => o.idx !== w.idx);
+      const others = sameYear.length ? `
+        <section class="other-works">
+          <h2 data-ko="${esc(w.year)}년의 다른 작품" data-en="More works from ${esc(w.year)}">${esc(w.year)}년의 다른 작품</h2>
+          <div class="grid">${sameYear.map((o) =>
+            cardHTML({ ...o, caption_ko: "", caption_en: "" }, o.title_en, `work.html?i=${o.idx}`)
+          ).join("")}</div>
+        </section>` : "";
+
+      workDetail.innerHTML = `
+        <p class="back-link detail-back"><a href="works.html" data-ko="← 작품 목록" data-en="← All Works">← 작품 목록</a></p>
+        <div class="work-top">
+          <div class="work-image">${imageArea}</div>
+          <aside class="work-side">
+            <h1 data-ko="${esc(w.title_ko)}" data-en="${esc(w.title_en)}">${esc(w.title_ko)}</h1>
+            <p class="side-caption"
+               data-ko="${esc(w.year)}${w.medium_ko ? `, ${esc(w.medium_ko)}` : ""}"
+               data-en="${esc(w.year)}${w.medium_en ? `, ${esc(w.medium_en)}` : ""}">${esc(w.year)}</p>
+            ${seriesLine}
+            ${desc}
+            ${related}
+          </aside>
+        </div>
+        <div class="work-nav">${prev}<span class="work-count">${yPos + 1} / ${yearList.length}</span>${next}</div>
+        ${others}`;
+
+      const slider = document.getElementById("work-slider");
+      if (slider) initSlider(slider);
+
+      document.title = `${w.title_ko} — An Se Eun`;
+    }
+  }
+
+  // ===== Exhibitions 페이지: 대표이미지 + 우측 정보 =====
   const exhList = document.getElementById("exh-list");
   if (exhList) {
     const data = await loadJSON("data/exhibitions.json");
@@ -175,102 +365,7 @@ async function renderDynamic() {
     }
   }
 
-  // Works 페이지: 사이드바(연도) + 연도별 그리드
-  const worksContent = document.getElementById("works-content");
-  const seriesNav = document.getElementById("series-nav");
-  if (worksContent && seriesNav) {
-    const data = await loadJSON("data/works.json");
-    if (data) {
-      const list = sortedWorks(data);
-      const years = [...new Set(list.map((w) => w.year))];
-
-      // 연도를 누르면 해당 연도만 모아 보는 페이지로 이동 (works.html?year=2026)
-      const yearParam = new URLSearchParams(location.search).get("year");
-      const selected = years.includes(yearParam) ? yearParam : null;
-
-      seriesNav.innerHTML =
-        `<li><a href="works.html"${selected ? "" : ' class="current-year"'}>All</a></li>` +
-        years.map((y) =>
-          `<li><a href="works.html?year=${esc(y)}"${y === selected ? ' class="current-year"' : ""}>${esc(y)}</a></li>`
-        ).join("");
-
-      const shownYears = selected ? [selected] : years;
-      worksContent.innerHTML = shownYears.map((y) => `
-        <section id="y-${esc(y)}" class="series">
-          <div class="series-head"><h2>${esc(y)}</h2></div>
-          <div class="grid">${list.filter((w) => w.year === y).map((w) =>
-            cardHTML({ ...w, caption_ko: "", caption_en: "" },
-              w.title_en, `work.html?i=${w.idx}`)
-          ).join("")}</div>
-        </section>`).join("");
-    }
-  }
-
-  // 작품 상세 페이지
-  const workDetail = document.getElementById("work-detail");
-  if (workDetail) {
-    const data = await loadJSON("data/works.json");
-    if (data) {
-      const list = sortedWorks(data);
-      const params = new URLSearchParams(location.search);
-      const reqIdx = parseInt(params.get("i") || "0", 10) || 0;
-      let pos = list.findIndex((w) => w.idx === reqIdx);
-      if (pos < 0) pos = 0;
-      const w = list[pos];
-
-      const related = (w.related_ko || w.related_en) ? `
-        <h3 data-ko="관련 전시" data-en="Related Exhibition">관련 전시</h3>
-        <p class="side-related" data-ko="${esc(w.related_ko)}" data-en="${esc(w.related_en)}">${esc(w.related_ko)}</p>` : "";
-
-      // 상세 설명 (우측 패널의 작품명 아래에 표시)
-      const desc = (w.desc_ko || w.desc_en)
-        ? `<p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>`
-        : "";
-
-      // 이전/다음과 순번은 같은 연도 안에서만
-      const yearList = list.filter((o) => o.year === w.year);
-      const yPos = yearList.findIndex((o) => o.idx === w.idx);
-      const link = (p) => `work.html?i=${yearList[p].idx}`;
-      const prev = yPos > 0
-        ? `<a href="${link(yPos - 1)}" data-ko="← 이전" data-en="← Prev">← 이전</a>` : `<span></span>`;
-      const next = yPos < yearList.length - 1
-        ? `<a href="${link(yPos + 1)}" data-ko="다음 →" data-en="Next →">다음 →</a>` : `<span></span>`;
-
-      // 같은 연도의 다른 작품 (연도 표기는 생략)
-      const sameYear = yearList.filter((o) => o.idx !== w.idx);
-      const others = sameYear.length ? `
-        <section class="other-works">
-          <h2 data-ko="${esc(w.year)}년의 다른 작품" data-en="More works from ${esc(w.year)}">${esc(w.year)}년의 다른 작품</h2>
-          <div class="grid">${sameYear.map((o) =>
-            cardHTML({ ...o, caption_ko: "", caption_en: "" }, o.title_en, `work.html?i=${o.idx}`)
-          ).join("")}</div>
-        </section>` : "";
-
-      workDetail.innerHTML = `
-        <p class="back-link detail-back"><a href="works.html" data-ko="← 작품 목록" data-en="← All Works">← 작품 목록</a></p>
-        <div class="work-top">
-          <div class="work-image">${
-            w.image
-              ? `<img src="${esc(w.image)}" alt="${esc(w.title_ko)}">`
-              : `<div class="placeholder detail-placeholder"><span>${esc(w.title_en)}</span></div>`
-          }</div>
-          <aside class="work-side">
-            <h1 data-ko="${esc(w.title_ko)}" data-en="${esc(w.title_en)}">${esc(w.title_ko)}</h1>
-            <p class="side-caption"
-               data-ko="${esc(w.year)}${w.medium_ko ? `, ${esc(w.medium_ko)}` : ""}"
-               data-en="${esc(w.year)}${w.medium_en ? `, ${esc(w.medium_en)}` : ""}">${esc(w.year)}</p>
-            ${desc}
-            ${related}
-          </aside>
-        </div>
-        <div class="work-nav">${prev}<span class="work-count">${yPos + 1} / ${yearList.length}</span>${next}</div>
-        ${others}`;
-
-      document.title = `${w.title_ko} — An Se Eun`;
-    }
-  }
-
-  // 전시 상세 페이지
+  // ===== 전시 상세 페이지 (설치 전경 등 추가 이미지도 표시) =====
   const exhDetail = document.getElementById("exh-detail");
   if (exhDetail) {
     const data = await loadJSON("data/exhibitions.json");
@@ -279,6 +374,9 @@ async function renderDynamic() {
       const i = Math.min(Math.max(0, parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0), ex.length - 1);
       const e = ex[i];
       if (e) {
+        const extra = (e.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
+        const extraHTML = extra.map((src) =>
+          `<div class="exh-detail-image"><img src="${esc(src)}" alt="${esc(e.title_ko)}" loading="lazy"></div>`).join("");
         const prev = i > 0
           ? `<a href="exhibition.html?i=${i - 1}" data-ko="← 이전 전시" data-en="← Prev">← 이전 전시</a>` : `<span></span>`;
         const next = i < ex.length - 1
@@ -295,6 +393,7 @@ async function renderDynamic() {
             <p class="exh-date">${esc(e.date)}</p>
             <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
             <p class="exh-detail-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>
+            ${extraHTML}
           </article>
           <div class="work-nav">${prev}<span class="work-count">${i + 1} / ${ex.length}</span>${next}</div>`;
         document.title = `${e.title_ko} — An Se Eun`;
@@ -302,23 +401,139 @@ async function renderDynamic() {
     }
   }
 
-  // Artist 페이지
-  const artistContent = document.getElementById("artist-content");
-  if (artistContent) {
+  // ===== Projects 페이지: Collaboration / Curatorial Project =====
+  const projectsContent = document.getElementById("projects-content");
+  if (projectsContent) {
+    const data = await loadJSON("data/projects.json");
+    if (data) {
+      const all = (data.projects || []).map((p, idx) => ({ ...p, idx }));
+      const cats = [
+        { key: "collaboration", label: "Collaboration" },
+        { key: "curatorial", label: "Curatorial Project" },
+      ];
+      projectsContent.innerHTML = cats.map((c) => {
+        const items = all.filter((p) => p.category === c.key);
+        if (!items.length) return "";
+        return `
+          <section class="series">
+            <div class="series-head"><h2>${c.label}</h2></div>
+            <div class="grid">${items.map((p) => `
+              <figure class="card"><a href="project.html?i=${p.idx}">
+                ${thumbHTML(p, p.title_en)}
+                <figcaption>
+                  <strong data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</strong><span>, ${esc(p.year)}</span>
+                </figcaption>
+              </a></figure>`).join("")}</div>
+          </section>`;
+      }).join("");
+    }
+  }
+
+  // ===== Project 상세 페이지 =====
+  const projectDetail = document.getElementById("project-detail");
+  if (projectDetail) {
+    const data = await loadJSON("data/projects.json");
+    if (data) {
+      const all = data.projects || [];
+      const i = Math.min(Math.max(0, parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0), all.length - 1);
+      const p = all[i];
+      if (p) {
+        const extra = (p.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
+        const extraHTML = extra.map((src) =>
+          `<div class="exh-detail-image"><img src="${esc(src)}" alt="${esc(p.title_ko)}" loading="lazy"></div>`).join("");
+        projectDetail.innerHTML = `
+          <p class="back-link detail-back"><a href="projects.html" data-ko="← 프로젝트 목록" data-en="← All Projects">← 프로젝트 목록</a></p>
+          <article class="exh-detail">
+            ${p.image ? `<div class="exh-detail-image"><img src="${esc(p.image)}" alt="${esc(p.title_ko)}"></div>` : ""}
+            <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
+            <p class="exh-date">${esc(p.year)}${p.category === "curatorial" ? " · Curatorial Project" : " · Collaboration"}</p>
+            <p class="exh-venue" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>
+            <p class="exh-detail-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>
+            ${extraHTML}
+          </article>`;
+        document.title = `${p.title_ko} — An Se Eun`;
+      }
+    }
+  }
+
+  // ===== Writings 페이지: 카테고리별 글 목록 =====
+  const WRITING_CATS = [
+    { key: "artist", ko: "작가의 글", en: "Artist's Writings" },
+    { key: "criticism", ko: "비평", en: "Criticism" },
+    { key: "interview", ko: "인터뷰", en: "Interview" },
+    { key: "article", ko: "기사", en: "Article" },
+    { key: "etc", ko: "기타", en: "Etc." },
+  ];
+  const writingsContent = document.getElementById("writings-content");
+  if (writingsContent) {
+    const data = await loadJSON("data/writings.json");
+    if (data) {
+      const all = (data.writings || []).map((t, idx) => ({ ...t, idx }));
+      writingsContent.innerHTML = WRITING_CATS.map((c) => {
+        const items = all.filter((t) => t.category === c.key);
+        if (!items.length) return "";
+        return `
+          <section class="series writing-section">
+            <div class="series-head"><h2 data-ko="${esc(c.ko)}" data-en="${esc(c.en)}">${esc(c.ko)}</h2></div>
+            <ul class="writing-list">${items.map((t) => `
+              <li><a href="writing.html?i=${t.idx}">
+                <span class="year">${esc(t.year)}</span>
+                <span class="writing-title" data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</span>
+                ${t.author_ko || t.author_en
+                  ? `<span class="writing-author" data-ko="${esc(t.author_ko)}" data-en="${esc(t.author_en)}">${esc(t.author_ko)}</span>` : ""}
+              </a></li>`).join("")}</ul>
+          </section>`;
+      }).join("");
+    }
+  }
+
+  // ===== Writing 상세 페이지 (본문 한/영) =====
+  const writingDetail = document.getElementById("writing-detail");
+  if (writingDetail) {
+    const data = await loadJSON("data/writings.json");
+    if (data) {
+      const all = data.writings || [];
+      const i = Math.min(Math.max(0, parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0), all.length - 1);
+      const t = all[i];
+      if (t) {
+        const cat = WRITING_CATS.find((c) => c.key === t.category);
+        writingDetail.innerHTML = `
+          <p class="back-link detail-back"><a href="writings.html" data-ko="← 글 목록" data-en="← All Writings">← 글 목록</a></p>
+          <article class="writing-detail">
+            ${cat ? `<p class="exh-date" data-ko="${esc(cat.ko)}" data-en="${esc(cat.en)}">${esc(cat.ko)}</p>` : ""}
+            <h1 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h1>
+            <p class="writing-meta">
+              ${t.author_ko || t.author_en ? `<span data-ko="${esc(t.author_ko)}" data-en="${esc(t.author_en)}">${esc(t.author_ko)}</span> · ` : ""}${esc(t.year)}${t.source_ko || t.source_en ? ` · <span data-ko="${esc(t.source_ko)}" data-en="${esc(t.source_en)}">${esc(t.source_ko)}</span>` : ""}
+            </p>
+            <div class="writing-body" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</div>
+            ${t.link ? `<p class="writing-link"><a href="${esc(t.link)}" target="_blank" rel="noopener" data-ko="원문 보기 →" data-en="Read original →">원문 보기 →</a></p>` : ""}
+          </article>`;
+        document.title = `${t.title_ko} — An Se Eun`;
+      }
+    }
+  }
+
+  // ===== About 페이지 (프로필 + 작가노트 + C.V. 한/영 + 연락처) =====
+  const aboutContent = document.getElementById("about-content");
+  if (aboutContent) {
     const a = await loadJSON("data/artist.json");
     if (a) {
       const cvList = (items) => `<ul class="cv-list">${(items || []).map((it) =>
         `<li><span class="year">${esc(it.year)}</span><span data-ko="${esc(it.text_ko)}" data-en="${esc(it.text_en)}">${esc(it.text_ko)}</span></li>`
       ).join("")}</ul>`;
 
-      artistContent.innerHTML = `
+      const cvSection = (label_ko, label_en, items) => (items || []).length
+        ? `<h3 data-ko="${esc(label_ko)}" data-en="${esc(label_en)}">${esc(label_ko)}</h3>${cvList(items)}`
+        : "";
+
+      aboutContent.innerHTML = `
         <div class="artist-top">
           <div class="artist-photo">
             ${a.profile_image
               ? `<img class="profile" src="${esc(a.profile_image)}" alt="Profile">`
               : `<div class="profile placeholder"><span data-ko="프로필 사진" data-en="Profile Photo">프로필 사진</span></div>`}
             <div class="artist-icons">
-              <a href="contact.html" class="icon-circle" aria-label="Contact">
+              <a href="mailto:${esc(a.email)}" class="icon-circle" aria-label="Email">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>
                 </svg>
@@ -338,31 +553,16 @@ async function renderDynamic() {
         </div>
         <section class="artist-section artist-cv">
           <h2>C.V.</h2>
-          <h3 data-ko="개인전" data-en="Solo Exhibitions">개인전</h3>${cvList(a.solo)}
-          <h3 data-ko="단체전" data-en="Group Exhibitions">단체전</h3>${cvList(a.group)}
+          ${cvSection("학력", "Education", a.education)}
+          ${cvSection("개인전", "Solo Exhibitions", a.solo)}
+          ${cvSection("단체전", "Group Exhibitions", a.group)}
+          ${cvSection("수상 및 레지던시", "Awards & Residencies", a.awards)}
+        </section>
+        <section class="artist-section">
+          <h2>Contact</h2>
+          <p class="contact-line">Email — <a href="mailto:${esc(a.email)}">${esc(a.email)}</a></p>
+          <p class="contact-line">Instagram — <a href="${esc(a.instagram)}" target="_blank" rel="noopener">${esc(a.instagram_handle)}</a></p>
         </section>`;
-    }
-  }
-
-  // Contact 페이지 (이메일/인스타는 artist.json 공용)
-  const contactContent = document.getElementById("contact-content");
-  if (contactContent) {
-    const a = await loadJSON("data/artist.json");
-    if (a) {
-      contactContent.innerHTML = `
-        <p class="contact-line">Email — <a href="mailto:${esc(a.email)}">${esc(a.email)}</a></p>
-        <p class="contact-line">Instagram — <a href="${esc(a.instagram)}" target="_blank" rel="noopener">${esc(a.instagram_handle)}</a></p>`;
-    }
-  }
-
-  // Exhibitions 페이지
-  const soloList = document.getElementById("solo-list");
-  const groupList = document.getElementById("group-list");
-  if (soloList && groupList) {
-    const data = await loadJSON("data/exhibitions.json");
-    if (data) {
-      soloList.innerHTML = (data.solo || []).map(exhItemHTML).join("");
-      groupList.innerHTML = (data.group || []).map(exhItemHTML).join("");
     }
   }
 }
@@ -379,7 +579,6 @@ initFooter();
 
 renderDynamic().then(() => {
   setLang(currentLang());
-  // 데이터 렌더 후 앵커(#series-a 등)로 이동 보정
   if (location.hash) {
     document.querySelector(location.hash)?.scrollIntoView();
   }

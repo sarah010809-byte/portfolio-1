@@ -18,7 +18,7 @@ editor:
 collections:
   - name: "works"
     label: "🎨 작품"
-    description: "작품을 추가·수정합니다. 연도를 입력하면 사이트에서 자동으로 연도별로 정리됩니다."
+    description: "작품을 추가·수정합니다. 연도와 시리즈를 입력하면 사이트에서 By Years / By Series 로 자동 정리됩니다. '대표 작품'에 체크한 작품이 홈 화면 전체에 표시됩니다."
     files:
       - label: "작품 목록"
         name: "works"
@@ -34,17 +34,29 @@ collections:
               - { label: "작품 제목 (한글)", name: "title_ko", widget: "string" }
               - { label: "작품 제목 (영문)", name: "title_en", widget: "string" }
               - { label: "제작 연도 (예: 2026)", name: "year", widget: "string" }
+              - { label: "시리즈 이름 (한글)", name: "series_ko", widget: "string", required: false, hint: "같은 시리즈끼리 묶어서 볼 수 있습니다. 비워두면 '기타'로 묶입니다" }
+              - { label: "시리즈 이름 (영문)", name: "series_en", widget: "string", required: false }
               - { label: "형식 (한글, 예: 혼합 매체)", name: "medium_ko", widget: "string", required: false, hint: "작품 상세페이지에만 표시됩니다" }
               - { label: "형식 (영문, 예: Mixed media)", name: "medium_en", widget: "string", required: false }
               - { label: "관련 전시 (한글)", name: "related_ko", widget: "string", required: false, hint: "예: 《전시명》, 갤러리, 2026" }
               - { label: "관련 전시 (영문)", name: "related_en", widget: "string", required: false }
               - { label: "작품 설명 (한글)", name: "desc_ko", widget: "text", required: false }
               - { label: "작품 설명 (영문)", name: "desc_en", widget: "text", required: false }
-              - { label: "이미지", name: "image", widget: "image", required: false }
+              - { label: "대표 이미지", name: "image", widget: "image", required: false }
+              - label: "추가 이미지 (디테일 컷)"
+                label_singular: "이미지"
+                name: "images"
+                widget: "list"
+                required: false
+                collapsed: true
+                hint: "디테일 컷이 있으면 추가하세요. 상세페이지에서 자동으로 슬라이드됩니다"
+                fields:
+                  - { label: "이미지", name: "image", widget: "image" }
+              - { label: "대표 작품 (홈 화면에 표시)", name: "featured", widget: "boolean", required: false, default: false }
 
   - name: "exhibitions"
     label: "🖼️ 전시"
-    description: "전시를 추가·수정합니다. 목록에서 위에 있을수록 사이트에 먼저 표시됩니다 (최신 전시를 맨 위에)."
+    description: "개인전·주요 그룹전을 추가·수정합니다. 목록에서 위에 있을수록 사이트에 먼저 표시됩니다 (최신 전시를 맨 위에)."
     files:
       - label: "전시 목록"
         name: "exhibitions"
@@ -64,11 +76,92 @@ collections:
               - { label: "장소 (영문)", name: "venue_en", widget: "string", required: false }
               - { label: "전시 설명 (한글)", name: "desc_ko", widget: "text", required: false }
               - { label: "전시 설명 (영문)", name: "desc_en", widget: "text", required: false }
+              - { label: "대표 이미지 (전시 전경)", name: "image", widget: "image", required: false }
+              - label: "추가 이미지 (전시 전경·설치 컷)"
+                label_singular: "이미지"
+                name: "images"
+                widget: "list"
+                required: false
+                collapsed: true
+                fields:
+                  - { label: "이미지", name: "image", widget: "image" }
+
+  - name: "projects"
+    label: "🤝 프로젝트"
+    description: "Collaboration / Curatorial Project 를 추가·수정합니다."
+    files:
+      - label: "프로젝트 목록"
+        name: "projects"
+        file: "data/projects.json"
+        fields:
+          - label: "프로젝트"
+            label_singular: "프로젝트"
+            name: "projects"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.title_ko}}"
+            fields:
+              - label: "종류"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Collaboration (협업)", value: "collaboration" }
+                  - { label: "Curatorial Project (기획)", value: "curatorial" }
+              - { label: "제목 (한글)", name: "title_ko", widget: "string" }
+              - { label: "제목 (영문)", name: "title_en", widget: "string" }
+              - { label: "연도 (예: 2026)", name: "year", widget: "string" }
+              - { label: "장소·기관 (한글)", name: "venue_ko", widget: "string", required: false }
+              - { label: "장소·기관 (영문)", name: "venue_en", widget: "string", required: false }
+              - { label: "설명 (한글)", name: "desc_ko", widget: "text", required: false }
+              - { label: "설명 (영문)", name: "desc_en", widget: "text", required: false }
               - { label: "대표 이미지", name: "image", widget: "image", required: false }
+              - label: "추가 이미지"
+                label_singular: "이미지"
+                name: "images"
+                widget: "list"
+                required: false
+                collapsed: true
+                fields:
+                  - { label: "이미지", name: "image", widget: "image" }
+
+  - name: "writings"
+    label: "✍️ 글"
+    description: "작가의 글, 비평, 인터뷰, 기사 등을 추가·수정합니다. 본문은 한글/영문을 함께 넣을 수 있습니다."
+    files:
+      - label: "글 목록"
+        name: "writings"
+        file: "data/writings.json"
+        fields:
+          - label: "글"
+            label_singular: "글"
+            name: "writings"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.title_ko}}"
+            fields:
+              - label: "분류"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "작가의 글 (Artist's Writings)", value: "artist" }
+                  - { label: "비평 (Criticism)", value: "criticism" }
+                  - { label: "인터뷰 (Interview)", value: "interview" }
+                  - { label: "기사 (Article)", value: "article" }
+                  - { label: "기타 (Etc.)", value: "etc" }
+              - { label: "제목 (한글)", name: "title_ko", widget: "string" }
+              - { label: "제목 (영문)", name: "title_en", widget: "string" }
+              - { label: "연도 (예: 2026)", name: "year", widget: "string" }
+              - { label: "글쓴이 (한글)", name: "author_ko", widget: "string", required: false }
+              - { label: "글쓴이 (영문)", name: "author_en", widget: "string", required: false }
+              - { label: "출처·발행처 (한글)", name: "source_ko", widget: "string", required: false }
+              - { label: "출처·발행처 (영문)", name: "source_en", widget: "string", required: false }
+              - { label: "본문 (한글)", name: "body_ko", widget: "text", required: false }
+              - { label: "본문 (영문)", name: "body_en", widget: "text", required: false }
+              - { label: "원문 링크 (https://...)", name: "link", widget: "string", required: false, hint: "외부 기사·인터뷰라면 링크만 넣어도 됩니다" }
 
   - name: "artist"
-    label: "👤 작가"
-    description: "프로필 사진, 작가 노트, 연락처, C.V.를 수정합니다."
+    label: "👤 About (작가 정보)"
+    description: "프로필 사진, 작가 노트, 연락처, C.V.(한/영)를 수정합니다."
     files:
       - label: "작가 정보"
         name: "artist"
@@ -76,10 +169,21 @@ collections:
         fields:
           - { label: "프로필 사진", name: "profile_image", widget: "image", required: false }
           - { label: "이메일 주소", name: "email", widget: "string" }
-          - { label: "인스타그램 주소 (https://...)", name: "instagram", widget: "string", hint: "Artist 페이지·연락처·푸터 아이콘에 모두 반영됩니다" }
+          - { label: "인스타그램 주소 (https://...)", name: "instagram", widget: "string", hint: "About 페이지·푸터 아이콘에 모두 반영됩니다" }
           - { label: "인스타그램 아이디 표시용 (예: @gildong)", name: "instagram_handle", widget: "string" }
           - { label: "작가 노트 (한글)", name: "statement_ko", widget: "text" }
           - { label: "작가 노트 (영문)", name: "statement_en", widget: "text" }
+          - label: "학력 (C.V.)"
+            label_singular: "학력"
+            name: "education"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text_ko}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
+              - { label: "내용 (영문)", name: "text_en", widget: "string" }
           - label: "개인전 (C.V.)"
             label_singular: "개인전"
             name: "solo"
@@ -94,6 +198,17 @@ collections:
             label_singular: "단체전"
             name: "group"
             widget: "list"
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text_ko}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
+              - { label: "내용 (영문)", name: "text_en", widget: "string" }
+          - label: "수상 및 레지던시 (C.V.)"
+            label_singular: "항목"
+            name: "awards"
+            widget: "list"
+            required: false
             collapsed: true
             summary: "{{fields.year}} — {{fields.text_ko}}"
             fields:
