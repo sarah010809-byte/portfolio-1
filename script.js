@@ -190,7 +190,7 @@ function sizeStageForMobile(root) {
     if (first.naturalWidth) {
       // 대표 이미지 비율을 따르되, 작품명이 첫 화면에 함께 보이도록 화면 높이의 52%를 넘지 않게
       const h = stage.clientWidth * first.naturalHeight / first.naturalWidth;
-      stage.style.height = `${Math.min(h, window.innerHeight * 0.52)}px`;
+      stage.style.height = `${Math.min(h, window.innerHeight * 0.62)}px`;
     }
   };
   if (first.complete) apply();
@@ -221,6 +221,25 @@ function initSlider(root) {
   };
   prevBtn.addEventListener("click", () => { show(i - 1); restart(); });
   nextBtn.addEventListener("click", () => { show(i + 1); restart(); });
+
+  // 모바일: 이미지 스와이프로 이전/다음
+  let touchX = null, touchY = null;
+  const stage = root.querySelector(".slides");
+  stage.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) { touchX = null; return; }
+    touchX = e.touches[0].clientX;
+    touchY = e.touches[0].clientY;
+  }, { passive: true });
+  stage.addEventListener("touchend", (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    touchX = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      show(i + (dx < 0 ? 1 : -1));
+      restart();
+    }
+  }, { passive: true });
   thumbs.forEach((t, k) => t.addEventListener("click", () => { show(k); restart(); }));
   // 마우스를 올리면 잠시 멈춤
   root.addEventListener("mouseenter", () => clearInterval(timer));

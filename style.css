@@ -1007,10 +1007,15 @@ img.profile { object-fit: cover; }
   .slider.multi .slides { height: 44vh; } /* JS 가 대표 이미지 비율로 재계산 */
   /* 이미지 높이 상한에 맞춰 개별 이미지도 넘치지 않게 */
   .slider.multi .slide img { max-height: 100%; }
-  /* 썸네일 스트립을 작고 촘촘하게 — 작품명이 첫 화면에 들어오도록 */
-  .slider-controls { margin-top: 10px; gap: 10px; }
-  .slider-thumb { width: 40px; height: 40px; }
-  .detail-back { margin-bottom: 12px; }
+  /* 화살표 없이 스와이프로 넘김 — 썸네일만 가운데에 작게 */
+  .slider-prev, .slider-next { display: none; }
+  .slider-controls { margin-top: 12px; gap: 10px; justify-content: center; }
+  .slider-thumbs { justify-content: center; }
+  .slider-thumb { width: 44px; height: 44px; }
+  /* 뒤로가기: 작게, 헤더 바로 아래 */
+  .work-page.page-layout { padding-top: 76px; }
+  .detail-back { margin: 0 0 10px; }
+  .detail-back a { font-size: 0.78rem; }
   .work-top { flex-direction: column; gap: 20px; }
   .work-side { width: auto; padding-top: 0; }
 
