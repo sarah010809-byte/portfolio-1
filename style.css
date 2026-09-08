@@ -880,7 +880,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 /* TOP 버튼 (검정 푸터 위 흰 영역, 우측 정렬) */
 .to-top-wrap {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 0 44px 28px;
 }
 .to-top {

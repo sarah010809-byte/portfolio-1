@@ -92,11 +92,12 @@ const hasHero = document.querySelector(".hero") !== null;
 if (hasHero) {
   const onScroll = () => {
     header.classList.toggle("scrolled", window.scrollY > 40);
-    // 스크롤에 따라 대표작 배경이 살짝 확대
+    // 스크롤할수록 대표작 이미지가 계속 확대되면서 서서히 어두워짐 (영역 크기는 그대로)
     const bg = document.querySelector(".hero-bg");
     if (bg) {
       const p = Math.min(window.scrollY / window.innerHeight, 1);
-      bg.style.transform = `scale(${1 + p * 0.08})`;
+      bg.style.transform = `scale(${1 + p * 0.18})`;
+      bg.style.filter = `brightness(${1 - p * 0.45})`;
     }
   };
   window.addEventListener("scroll", onScroll, { passive: true });
