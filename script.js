@@ -166,27 +166,38 @@ function seriesKey(w) {
   return w.series_en || w.series_ko || "Other";
 }
 
-// ===== 작품 상세 슬라이드쇼 (자동 재생 + 화살표) =====
+// ===== 상세 슬라이드쇼 (자동 재생 + 화살표 + 썸네일) =====
 const SLIDE_INTERVAL = 7000; // 이미지당 유지 시간 (7초 — 여유있게)
+
+// 메인 이미지 + 아래 화살표·썸네일 스트립 마크업 생성
+function sliderHTML(id, images, alt) {
+  return `<div class="slider" id="${id}">
+    <div class="slides">${images.map((src, k) =>
+      `<div class="slide${k === 0 ? " active" : ""}"><img src="${esc(src)}" alt="${esc(alt)}"></div>`).join("")}</div>
+    <div class="slider-controls">
+      <button class="slider-prev" aria-label="previous image">←</button>
+      <div class="slider-thumbs">${images.map((src, k) =>
+        `<button class="slider-thumb${k === 0 ? " active" : ""}" aria-label="image ${k + 1}"><img src="${esc(src)}" alt=""></button>`).join("")}</div>
+      <button class="slider-next" aria-label="next image">→</button>
+    </div>
+  </div>`;
+}
 
 function initSlider(root) {
   const slides = [...root.querySelectorAll(".slide")];
   const prevBtn = root.querySelector(".slider-prev");
   const nextBtn = root.querySelector(".slider-next");
-  const dotsWrap = root.querySelector(".slider-dots");
+  const thumbs = [...root.querySelectorAll(".slider-thumb")];
   if (slides.length < 2) {
     root.querySelector(".slider-controls")?.remove();
     return;
   }
-  dotsWrap.innerHTML = slides.map((_, i) =>
-    `<button class="slider-dot" aria-label="image ${i + 1}"></button>`).join("");
-  const dots = [...dotsWrap.children];
   let i = 0, timer = null;
 
   const show = (n) => {
     i = (n + slides.length) % slides.length;
     slides.forEach((s, k) => s.classList.toggle("active", k === i));
-    dots.forEach((d, k) => d.classList.toggle("active", k === i));
+    thumbs.forEach((t, k) => t.classList.toggle("active", k === i));
   };
   const restart = () => {
     clearInterval(timer);
@@ -194,7 +205,7 @@ function initSlider(root) {
   };
   prevBtn.addEventListener("click", () => { show(i - 1); restart(); });
   nextBtn.addEventListener("click", () => { show(i + 1); restart(); });
-  dots.forEach((d, k) => d.addEventListener("click", () => { show(k); restart(); }));
+  thumbs.forEach((t, k) => t.addEventListener("click", () => { show(k); restart(); }));
   // 마우스를 올리면 잠시 멈춤
   root.addEventListener("mouseenter", () => clearInterval(timer));
   root.addEventListener("mouseleave", restart);
@@ -379,15 +390,7 @@ async function renderDynamic() {
       // 대표 이미지 + 추가 이미지(디테일 컷)를 하나의 슬라이드쇼로
       const images = [w.image, ...(w.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
       const imageArea = images.length
-        ? `<div class="slider" id="work-slider">
-            <div class="slides">${images.map((src, k) =>
-              `<div class="slide${k === 0 ? " active" : ""}"><img src="${esc(src)}" alt="${esc(w.title_ko)}"></div>`).join("")}</div>
-            <div class="slider-controls">
-              <button class="slider-prev" aria-label="previous image">←</button>
-              <div class="slider-dots"></div>
-              <button class="slider-next" aria-label="next image">→</button>
-            </div>
-          </div>`
+        ? sliderHTML("work-slider", images, w.title_ko)
         : `<div class="placeholder detail-placeholder"><span>${esc(w.title_en)}</span></div>`;
 
       const related = (w.related_ko || w.related_en) ? `
@@ -553,9 +556,11 @@ async function renderDynamic() {
       const i = Math.min(Math.max(0, parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0), all.length - 1);
       const p = all[i];
       if (p) {
-        const extra = (p.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
-        const extraHTML = extra.map((src) =>
-          `<div class="exh-detail-image"><img src="${esc(src)}" alt="${esc(p.title_ko)}" loading="lazy"></div>`).join("");
+        // 대표 이미지 + 추가 이미지를 하나의 슬라이드쇼로 (썸네일 클릭 전환)
+        const pImages = [p.image, ...(p.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
+        const pImageArea = pImages.length
+          ? sliderHTML("project-slider", pImages, p.title_ko)
+          : `<div class="placeholder exh-placeholder"><span>${esc(p.title_en)}</span></div>`;
         // 다른 프로젝트 (현재 것 제외)
         const otherProjects = all
           .map((o, idx) => ({ ...o, idx }))
@@ -575,18 +580,15 @@ async function renderDynamic() {
         projectDetail.innerHTML = `
           <p class="back-link detail-back"><a href="projects.html" data-ko="← 프로젝트 목록" data-en="← All Projects">← 프로젝트 목록</a></p>
           <article class="exh-detail">
-            <div class="exh-detail-image">${
-              p.image
-                ? `<img src="${esc(p.image)}" alt="${esc(p.title_ko)}">`
-                : `<div class="placeholder exh-placeholder"><span>${esc(p.title_en)}</span></div>`
-            }</div>
+            <div class="exh-detail-image">${pImageArea}</div>
             <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
             <p class="exh-date">${esc(p.year)}${p.category === "curatorial" ? " · Curatorial Project" : " · Collaboration"}</p>
             <p class="exh-venue" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>
             <p class="exh-detail-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>
-            ${extraHTML}
           </article>
           ${othersHTML}`;
+        const pSlider = document.getElementById("project-slider");
+        if (pSlider) initSlider(pSlider);
         document.title = `${p.title_ko} — An Se Eun`;
       }
     }

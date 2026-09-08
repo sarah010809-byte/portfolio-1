@@ -446,18 +446,32 @@ img { max-width: 100%; display: block; }
   transition: color 0.2s;
 }
 .slider-prev:hover, .slider-next:hover { color: #111; }
-.slider-dots { display: flex; gap: 8px; }
-.slider-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  border: none;
-  background: #ddd;
-  cursor: pointer;
-  padding: 0;
-  transition: background 0.3s;
+/* 썸네일 스트립: 클릭하면 해당 이미지가 메인으로 */
+.slider-thumbs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
-.slider-dot.active { background: #111; }
+.slider-thumb {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 1px solid transparent;
+  background: #f4f4f4;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.25s, border-color 0.25s;
+  overflow: hidden;
+}
+.slider-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.slider-thumb.active,
+.slider-thumb:hover { opacity: 1; }
+.slider-thumb.active { border-color: #111; }
 
 /* Works 사이드바: By Years / By Series 토글 */
 .view-toggle {
@@ -582,7 +596,9 @@ img { max-width: 100%; display: block; }
 
 /* ===== 전시 상세 페이지 ===== */
 .exh-detail-image { margin-bottom: 28px; }
-.exh-detail-image img { width: 100%; display: block; }
+.exh-detail-image > img { width: 100%; display: block; }
+/* 슬라이더가 들어간 경우: 원본 비율 유지 */
+.exh-detail-image .slide img { width: auto; max-width: 100%; }
 .exh-detail h1 { font-size: 1.4rem; margin-bottom: 6px; }
 .exh-detail-desc {
   margin-top: 24px;
