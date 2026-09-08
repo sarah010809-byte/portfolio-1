@@ -1016,6 +1016,23 @@ body.subpage .exh-layout { min-height: 100vh; }
   }
 }
 
+/* ===== 호버 줌 패널 (쿠팡식) ===== */
+.hover-zoom {
+  position: fixed;
+  z-index: 40;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+.hover-zoom.show { opacity: 1; }
+@media (hover: hover) {
+  .slider .slide img { cursor: crosshair; }
+}
+
 /* TOP 버튼 (검정 푸터 위 흰 영역, 우측 정렬) */
 .to-top-wrap {
   display: flex;

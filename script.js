@@ -914,6 +914,7 @@ function loupeUpdate(e) {
 }
 
 document.addEventListener("mousedown", (e) => {
+  return; // 길게 누르기 루페 비활성 — 호버 줌으로 대체
   if (e.button !== 0 || !window.matchMedia("(hover: hover)").matches) return;
   const img = e.target.closest(".slider .slide img");
   if (!img) return;
@@ -946,6 +947,37 @@ document.addEventListener("click", (e) => {
     e.preventDefault();
   }
 }, true);
+
+// ===== 호버 줌 (쿠팡식): 마우스를 올리면 이미지 옆에 확대본 표시 =====
+const hoverZoom = document.createElement("div");
+hoverZoom.className = "hover-zoom";
+document.body.appendChild(hoverZoom);
+const HZ_SCALE = 2.2;
+
+document.addEventListener("mousemove", (e) => {
+  const img = e.target.closest && e.target.closest(".slider .slide img");
+  if (!img || !window.matchMedia("(hover: hover)").matches) {
+    hoverZoom.classList.remove("show");
+    return;
+  }
+  const r = img.getBoundingClientRect();
+  const spaceRight = window.innerWidth - r.right - 24;
+  const w = Math.min(480, Math.max(220, spaceRight));
+  const h = Math.min(r.height, 480);
+  // 오른쪽 공간이 부족하면 이미지 오른쪽 위에 겹쳐서 표시
+  const left = spaceRight >= 220 ? r.right + 16 : r.right - w - 8;
+  hoverZoom.style.width = `${w}px`;
+  hoverZoom.style.height = `${h}px`;
+  hoverZoom.style.left = `${left}px`;
+  hoverZoom.style.top = `${Math.max(8, Math.min(r.top, window.innerHeight - h - 8))}px`;
+  hoverZoom.style.backgroundImage = `url("${img.src}")`;
+  hoverZoom.style.backgroundSize = `${r.width * HZ_SCALE}px ${r.height * HZ_SCALE}px`;
+  const x = Math.min(Math.max(e.clientX - r.left, 0), r.width);
+  const y = Math.min(Math.max(e.clientY - r.top, 0), r.height);
+  hoverZoom.style.backgroundPosition =
+    `${-(x * HZ_SCALE - w / 2)}px ${-(y * HZ_SCALE - h / 2)}px`;
+  hoverZoom.classList.add("show");
+});
 
 // ===== 이미지 확대 뷰어 (라이트박스) =====
 // 이미지 클릭 → 확대. 좌우 화살표로 넘기기, 아무 곳이나 클릭하거나 Esc 로 닫기
@@ -1000,7 +1032,7 @@ function closeLightbox() {
 }
 
 document.addEventListener("click", (e) => {
-  const img = e.target.closest(".slider .slide img");
+  const img = null; // 클릭 확대(라이트박스) 일단 비활성 — 호버 줌으로 대체
   if (img) {
     const slider = img.closest(".slider");
     lbState.slider = slider;
