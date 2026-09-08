@@ -229,9 +229,11 @@ img { max-width: 100%; display: block; }
   padding: 52px 20px;
 }
 
-.section h2 {
+.section h2,
+.exh-sticky h2 {
   font-size: 2.6rem;
   letter-spacing: 0.05em;
+  font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
 }
 
 /* 섹션 제목: 가운데 정렬 */
