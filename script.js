@@ -447,9 +447,9 @@ async function renderDynamic() {
       const yPos = yearList.findIndex((o) => o.idx === w.idx);
       const link = (p) => `work.html?i=${yearList[p].idx}`;
       const prev = yPos > 0
-        ? `<a href="${link(yPos - 1)}" data-ko="← 이전" data-en="← Prev">← 이전</a>` : `<span></span>`;
+        ? `<a href="${link(yPos - 1)}" data-ko="← 이전 작품" data-en="← Prev Work">← 이전 작품</a>` : `<span></span>`;
       const next = yPos < yearList.length - 1
-        ? `<a href="${link(yPos + 1)}" data-ko="다음 →" data-en="Next →">다음 →</a>` : `<span></span>`;
+        ? `<a href="${link(yPos + 1)}" data-ko="다음 작품 →" data-en="Next Work →">다음 작품 →</a>` : `<span></span>`;
 
       const sameYear = yearList.filter((o) => o.idx !== w.idx);
       const others = sameYear.length ? `
@@ -474,7 +474,7 @@ async function renderDynamic() {
             ${related}
           </aside>
         </div>
-        <div class="work-nav">${prev}<span class="work-count">${yPos + 1} / ${yearList.length}</span>${next}</div>
+        <div class="work-nav">${prev}${next}</div>
         ${others}`;
 
       const slider = document.getElementById("work-slider");
