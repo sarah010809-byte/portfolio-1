@@ -181,6 +181,7 @@ function setupExhScroll() {
   if (!section || !track) return;
   const sticky = section.querySelector(".exh-sticky");
   let overflow = 0;
+  const LEAD = () => Math.round(window.innerHeight * 0.22); // 섹션이 화면에 닿기 전부터 가로 이동을 미리 시작
 
   // 진행 인디케이터: 현재 번호 · 진행 바 · 전체 개수 (국제갤러리식)
   const progress = document.createElement("div");
@@ -205,7 +206,7 @@ function setupExhScroll() {
     const visible = sticky.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
     overflow = Math.max(0, track.scrollWidth - visible);
     // 가로로 이동해야 할 거리만큼 세로 스크롤 구간을 늘림 (1px 스크롤 = 1px 이동)
-    section.style.height = (window.innerHeight + overflow) + "px";
+    section.style.height = (window.innerHeight + overflow - LEAD()) + "px";
     // 고정 화면 위·아래의 빈 공간만큼 이웃 섹션을 끌어당겨, 진입·해제 시 간격이 96px이 되게 함
     const stickyTop = sticky.getBoundingClientRect().top;
     const contentTop = sticky.firstElementChild.getBoundingClientRect().top - stickyTop;
@@ -221,7 +222,7 @@ function setupExhScroll() {
   function onScroll() {
     if (overflow <= 0) return;
     const rect = section.getBoundingClientRect();
-    const px = Math.min(Math.max(-rect.top, 0), overflow);
+    const px = Math.min(Math.max(-rect.top + LEAD(), 0), overflow);
     track.style.transform = `translateX(${-px}px)`;
     // 진행 바·현재 번호 갱신
     const total = track.children.length;
