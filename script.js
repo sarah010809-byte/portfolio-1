@@ -665,7 +665,7 @@ async function renderDynamic() {
                   ? `<div class="thumb"><img src="${esc(o.image)}" alt="${esc(o.title_ko)}" loading="lazy"></div>`
                   : `<div class="thumb placeholder"><span>${esc(o.title_en)}</span></div>`}
                 <figcaption class="stack-caption">
-                  <span class="card-cat" data-ko="${o.type === "group" ? "그룹전" : "개인전"}" data-en="${o.type === "group" ? "Group Exhibition" : "Solo Exhibition"}">${o.type === "group" ? "그룹전" : "개인전"}</span>
+                  <span class="card-cat">Exhibition</span>
                   <strong data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</strong>
                   <span class="card-date">${esc(o.date)}</span>
                 </figcaption>
