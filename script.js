@@ -635,9 +635,25 @@ async function renderDynamic() {
         const extraHTML = extra.map((src) =>
           `<div class="exh-detail-image"><img src="${esc(src)}" alt="${esc(e.title_ko)}" loading="lazy"></div>`).join("");
         const prev = i > 0
-          ? `<a href="exhibition.html?i=${i - 1}" data-ko="이전 전시" data-en="Prev Exhibition">이전 전시</a>` : `<span></span>`;
+          ? `<a href="exhibition.html?i=${i - 1}" data-ko="← 이전 전시" data-en="← Prev Exhibition">← 이전 전시</a>` : `<span></span>`;
         const next = i < ex.length - 1
-          ? `<a href="exhibition.html?i=${i + 1}" data-ko="다음 전시" data-en="Next Exhibition">다음 전시</a>` : `<span></span>`;
+          ? `<a href="exhibition.html?i=${i + 1}" data-ko="다음 전시 →" data-en="Next Exhibition →">다음 전시 →</a>` : `<span></span>`;
+
+        // 다른 전시 (현재 것 제외)
+        const otherExh = ex.map((o, idx) => ({ ...o, idx })).filter((o) => o.idx !== i);
+        const exOthersHTML = otherExh.length ? `
+          <section class="other-works">
+            <h2 data-ko="다른 전시" data-en="More Exhibitions">다른 전시</h2>
+            <div class="grid">${otherExh.map((o) => `
+              <figure class="card"><a href="exhibition.html?i=${o.idx}">
+                ${o.image
+                  ? `<div class="thumb"><img src="${esc(o.image)}" alt="${esc(o.title_ko)}" loading="lazy"></div>`
+                  : `<div class="thumb placeholder"><span>${esc(o.title_en)}</span></div>`}
+                <figcaption>
+                  <strong data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</strong><span>, ${esc(o.date)}</span>
+                </figcaption>
+              </a></figure>`).join("")}</div>
+          </section>` : "";
         exhDetail.innerHTML = `
           <p class="back-link detail-back"><a href="exhibitions.html" data-ko="← 전시 목록" data-en="← All Exhibitions">← 전시 목록</a></p>
           <article class="exh-detail">
@@ -652,7 +668,8 @@ async function renderDynamic() {
             <p class="exh-detail-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>
             ${extraHTML}
           </article>
-          <div class="work-nav">${prev}${next}</div>`;
+          <div class="work-nav">${prev}${next}</div>
+          ${exOthersHTML}`;
         document.title = `${e.title_ko} — An Se Eun`;
       }
     }
@@ -714,6 +731,11 @@ async function renderDynamic() {
         const pImageArea = pImages.length
           ? sliderHTML("project-slider", pImages, p.title_ko)
           : `<div class="placeholder exh-placeholder"><span>${esc(p.title_en)}</span></div>`;
+        const pPrev = i > 0
+          ? `<a href="project.html?i=${i - 1}" data-ko="← 이전 프로젝트" data-en="← Prev Project">← 이전 프로젝트</a>` : `<span></span>`;
+        const pNext = i < all.length - 1
+          ? `<a href="project.html?i=${i + 1}" data-ko="다음 프로젝트 →" data-en="Next Project →">다음 프로젝트 →</a>` : `<span></span>`;
+
         // 다른 프로젝트 (현재 것 제외)
         const otherProjects = all
           .map((o, idx) => ({ ...o, idx }))
@@ -739,6 +761,7 @@ async function renderDynamic() {
             <p class="exh-detail-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>
             <div class="exh-detail-image project-image-below">${pImageArea}</div>
           </article>
+          <div class="work-nav">${pPrev}${pNext}</div>
           ${othersHTML}`;
         const pSlider = document.getElementById("project-slider");
         if (pSlider) initSlider(pSlider);
