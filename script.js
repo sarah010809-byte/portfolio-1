@@ -505,7 +505,7 @@ async function renderDynamic() {
           <div class="series-head"><h2 data-ko="${esc(g.label_ko)}" data-en="${esc(g.label_en)}">${esc(g.label_ko)}</h2></div>
           <div class="grid">${g.items.map((w) =>
             cardHTML({ ...w, caption_ko: view === "series" ? w.year : "", caption_en: view === "series" ? w.year : "" },
-              w.title_en, `work.html?i=${w.idx}`)
+              w.title_en, `work.html?i=${w.idx}&view=${view}`)
           ).join("")}</div>
         </section>`).join("");
     }
@@ -543,21 +543,36 @@ async function renderDynamic() {
              data-ko="${esc(w.series_ko || w.series_en)}" data-en="${esc(w.series_en || w.series_ko)}">${esc(w.series_ko || w.series_en)}</a></p>`
         : "";
 
-      // 이전/다음과 순번은 같은 연도 안에서만
-      const yearList = list.filter((o) => o.year === w.year);
+      // 보기 모드: 연도별(기본) / 시리즈별 — 이전/다음·더보기가 그 문맥을 따라감
+      const mode = params.get("view") === "series" ? "series" : "years";
+      const yearList = mode === "series"
+        ? list.filter((o) => seriesKey(o) === seriesKey(w))
+        : list.filter((o) => o.year === w.year);
       const yPos = yearList.findIndex((o) => o.idx === w.idx);
-      const link = (p) => `work.html?i=${yearList[p].idx}`;
+      const link = (p) => `work.html?i=${yearList[p].idx}&view=${mode}`;
       const prev = yPos > 0
         ? `<a href="${link(yPos - 1)}" data-ko="← 이전 작품" data-en="← Prev Work">← 이전 작품</a>` : `<span></span>`;
       const next = yPos < yearList.length - 1
         ? `<a href="${link(yPos + 1)}" data-ko="다음 작품 →" data-en="Next Work →">다음 작품 →</a>` : `<span></span>`;
 
-      const sameYear = yearList.filter((o) => o.idx !== w.idx);
-      const others = sameYear.length ? `
+      const sameCtx = yearList.filter((o) => o.idx !== w.idx);
+      const sKo = w.series_ko || w.series_en || "기타";
+      const sEn = w.series_en || w.series_ko || "Other";
+      const othersHead = mode === "series"
+        ? `<h2 data-ko="${esc(sKo)} 더보기" data-en="More from ${esc(sEn)}">${esc(sKo)} 더보기</h2>`
+        : `<h2 data-ko="${esc(w.year)}년의 다른 작품" data-en="More works from ${esc(w.year)}">${esc(w.year)}년의 다른 작품</h2>`;
+      const others = sameCtx.length ? `
         <section class="other-works">
-          <h2 data-ko="${esc(w.year)}년의 다른 작품" data-en="More works from ${esc(w.year)}">${esc(w.year)}년의 다른 작품</h2>
-          <div class="grid">${sameYear.map((o) =>
-            cardHTML({ ...o, caption_ko: "", caption_en: "" }, o.title_en, `work.html?i=${o.idx}`)
+          ${othersHead}
+          <div class="grid">${sameCtx.map((o) => mode === "series"
+            ? `<figure class="card"><a href="work.html?i=${o.idx}&view=series">
+                ${thumbHTML(o, o.title_en)}
+                <figcaption class="stack-caption">
+                  <strong data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</strong>
+                  <span class="card-date">${esc(o.year)}</span>
+                </figcaption>
+              </a></figure>`
+            : cardHTML({ ...o, caption_ko: "", caption_en: "" }, o.title_en, `work.html?i=${o.idx}&view=years`)
           ).join("")}</div>
         </section>` : "";
 
@@ -649,8 +664,10 @@ async function renderDynamic() {
                 ${o.image
                   ? `<div class="thumb"><img src="${esc(o.image)}" alt="${esc(o.title_ko)}" loading="lazy"></div>`
                   : `<div class="thumb placeholder"><span>${esc(o.title_en)}</span></div>`}
-                <figcaption>
-                  <strong data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</strong><span>, ${esc(o.date)}</span>
+                <figcaption class="stack-caption">
+                  <span class="card-cat" data-ko="${o.type === "group" ? "그룹전" : "개인전"}" data-en="${o.type === "group" ? "Group Exhibition" : "Solo Exhibition"}">${o.type === "group" ? "그룹전" : "개인전"}</span>
+                  <strong data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</strong>
+                  <span class="card-date">${esc(o.date)}</span>
                 </figcaption>
               </a></figure>`).join("")}</div>
           </section>` : "";
@@ -746,8 +763,10 @@ async function renderDynamic() {
             <div class="grid">${otherProjects.map((o) => `
               <figure class="card"><a href="project.html?i=${o.idx}">
                 ${thumbHTML(o, o.title_en)}
-                <figcaption>
-                  <strong data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</strong><span>, ${esc(o.year)}</span>
+                <figcaption class="stack-caption">
+                  <span class="card-cat">${o.category === "curatorial" ? "Curatorial Project" : "Collaboration"}</span>
+                  <strong data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</strong>
+                  <span class="card-date">${esc(o.year)}</span>
                 </figcaption>
               </a></figure>`).join("")}</div>
           </section>` : "";
@@ -843,7 +862,25 @@ async function renderDynamic() {
             </p>
             <div class="writing-body" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</div>
             ${t.link ? `<p class="writing-link"><a href="${esc(t.link)}" target="_blank" rel="noopener" data-ko="원문 보기 →" data-en="Read original →">원문 보기 →</a></p>` : ""}
-          </article>`;
+          </article>
+          <div class="work-nav">${
+            i > 0 ? `<a href="writing.html?i=${i - 1}" data-ko="← 이전 글" data-en="← Prev Writing">← 이전 글</a>` : `<span></span>`
+          }${
+            i < all.length - 1 ? `<a href="writing.html?i=${i + 1}" data-ko="다음 글 →" data-en="Next Writing →">다음 글 →</a>` : `<span></span>`
+          }</div>
+          ${all.length > 1 ? `
+          <section class="other-works">
+            <h2 data-ko="다른 글" data-en="More Writings">다른 글</h2>
+            <ul class="writing-list">${all.map((o, k) => {
+              if (k === i) return "";
+              const oc = WRITING_CATS.find((c) => c.key === o.category) || { ko: "기타", en: "Etc." };
+              return `<li><a href="writing.html?i=${k}">
+                <span class="card-cat" data-ko="${esc(oc.ko)}" data-en="${esc(oc.en)}">${esc(oc.ko)}</span>
+                <span class="writing-title" data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</span>
+                <span class="writing-author">${esc(o.year)}</span>
+              </a></li>`;
+            }).join("")}</ul>
+          </section>` : ""}`;
         document.title = `${t.title_ko} — An Se Eun`;
       }
     }
@@ -1057,8 +1094,10 @@ function closeLightbox() {
   lbResetZoom();
 }
 
+// 맥은 호버 줌이 불안정한 환경이 있어 클릭 시 확대 뷰어를 연다
+const IS_MAC = /Mac/.test(navigator.platform || navigator.userAgent);
 document.addEventListener("click", (e) => {
-  const img = null; // 클릭 확대(라이트박스) 일단 비활성 — 호버 줌으로 대체
+  const img = IS_MAC ? (e.target.closest && e.target.closest(".slider .slide img")) : null;
   if (img) {
     const slider = img.closest(".slider");
     lbState.slider = slider;

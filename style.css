@@ -780,6 +780,26 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .card figcaption strong { font-weight: 400; }
 .card figcaption span { color: inherit; }
 
+/* 더보기 섹션 카드: 카테고리 라벨 + 제목 + 아래 연회색 날짜 */
+.stack-caption strong { display: block; }
+.card-cat {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 300;
+  color: #aaa;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.card-date {
+  display: block;
+  font-size: 0.75rem;
+  color: #b5b5b5;
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+.writing-list .card-cat { min-width: 90px; margin-bottom: 0; }
+
 /* ===== 플레이스홀더 (실제 이미지로 교체) ===== */
 .placeholder {
   background: #f7f7f7;
