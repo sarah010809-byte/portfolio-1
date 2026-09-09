@@ -1286,7 +1286,7 @@ renderDynamic().then(() => {
     const io = new IntersectionObserver((es) => es.forEach((x) => {
       x.target.classList.toggle("reveal-in", x.isIntersecting);
     }), { threshold: 0.12 });
-    document.querySelectorAll("main > .section:not(#exh-scroll)").forEach((s) => {
+    document.querySelectorAll("main > .section, main > .exh-scroll").forEach((s) => {
       s.classList.add("reveal");
       io.observe(s);
     });

@@ -870,6 +870,19 @@ body.page-leave main {
   transform: none;
 }
 
+/* 전시(고정 스크롤) 섹션 전용 리빌: sticky 를 깨지 않게 내부 요소만 애니메이션 */
+.exh-scroll .section-head,
+.exh-scroll .view-all {
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.exh-scroll .exh-track { transition: opacity 0.8s ease; } /* 가로 이동(transform)과 충돌 방지 — 페이드만 */
+.exh-scroll.reveal:not(.reveal-in) .section-head,
+.exh-scroll.reveal:not(.reveal-in) .view-all {
+  opacity: 0;
+  transform: translateY(48px);
+}
+.exh-scroll.reveal:not(.reveal-in) .exh-track { opacity: 0; }
+
 /* ===== 플레이스홀더 (실제 이미지로 교체) ===== */
 .placeholder {
   background: #f7f7f7;
