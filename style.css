@@ -415,6 +415,12 @@ body:not(.subpage) .exh-sticky {
 
 .series-nav { list-style: none; }
 .series-nav li { margin-bottom: 8px; }
+/* 긴 시리즈 이름: 한 열 유지, 자연스럽게 줄바꿈 */
+.series-nav a {
+  display: block;
+  line-height: 1.45;
+  overflow-wrap: break-word;
+}
 .series-nav a {
   font-size: 0.95rem;
   color: #888;
