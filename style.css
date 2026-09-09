@@ -407,6 +407,7 @@ body:not(.subpage) .exh-sticky {
 }
 
 .sidebar h1 {
+  line-height: 1;
   font-size: 2.8rem;
   letter-spacing: 0.03em;
   margin-bottom: 20px;
@@ -433,7 +434,8 @@ body:not(.subpage) .exh-sticky {
   gap: 16px;
   margin-bottom: 20px;
 }
-.series-head h2 { font-size: 1.1rem; letter-spacing: 0.02em; }
+.series-head h2 {
+  line-height: 1; font-size: 1.1rem; letter-spacing: 0.02em; }
 .series-meta { font-size: 0.85rem; color: #999; }
 
 /* 사이드바 앵커 이동 시 헤더에 가리지 않게 */
