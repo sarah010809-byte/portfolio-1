@@ -791,7 +791,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   display: block;
   font-size: 0.68rem;
   font-weight: 300;
-  color: #c2c2c2;
+  color: #d5d5d5;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   margin-bottom: 2px;
@@ -799,7 +799,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .card-date {
   display: block;
   font-size: 0.75rem;
-  color: #c8c8c8;
+  color: #d9d9d9;
   margin-top: 2px;
   letter-spacing: 0.04em;
 }
