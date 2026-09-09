@@ -35,6 +35,42 @@
       "desc_en": "This sample project exists to demonstrate the two-line excerpt with an ellipsis in the More section. Working across photography and sculpture, the artist collaborated with creators from multiple fields on a responsive installation. This sentence should be cut off in the card.",
       "image": "",
       "images": []
+    },
+    {
+      "category": "curatorial",
+      "title_ko": "샘플 기획 프로젝트 2",
+      "title_en": "Sample Curatorial Project 2",
+      "year": "2024",
+      "venue_ko": "프로젝트 스페이스, 서울",
+      "venue_en": "Project Space, Seoul",
+      "desc_ko": "짧은 설명입니다.",
+      "desc_en": "A short description.",
+      "image": "",
+      "images": []
+    },
+    {
+      "category": "collaboration",
+      "title_ko": "샘플 협업 프로젝트 3",
+      "title_en": "Sample Collaboration 3",
+      "year": "2023",
+      "venue_ko": "레지던시, 인천",
+      "venue_en": "Residency, Incheon",
+      "desc_ko": "설명 길이가 중간 정도인 프로젝트로, 두 줄을 조금 넘길 만큼의 텍스트가 들어가 말줄임이 적용됩니다.",
+      "desc_en": "A medium-length description that runs slightly past two lines so the ellipsis applies.",
+      "image": "",
+      "images": []
+    },
+    {
+      "category": "curatorial",
+      "title_ko": "샘플 기획 프로젝트 4",
+      "title_en": "Sample Curatorial Project 4",
+      "year": "2023",
+      "venue_ko": "갤러리, 부산",
+      "venue_en": "Gallery, Busan",
+      "desc_ko": "",
+      "desc_en": "",
+      "image": "",
+      "images": []
     }
   ]
 }
