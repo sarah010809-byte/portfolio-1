@@ -1120,14 +1120,12 @@ body.subpage .exh-layout { min-height: 100vh; }
 
   /* 모바일 프로젝트: writings처럼 정사각 이미지 좌측 + 텍스트 우측 */
   #projects-content .grid { grid-template-columns: 1fr; gap: 28px; }
-  /* 이미지+텍스트 묶음을 카드 영역 중앙에 (왼쪽 치우침 방지) */
+  /* 카드 그룹은 중앙에, 각 카드의 왼쪽 라인은 서로 정렬 */
+  #projects-content .grid { width: fit-content; max-width: 100%; margin: 0 auto; }
   #projects-content .card a {
     display: flex;
     align-items: center;
     gap: 16px;
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto;
     text-align: left;
   }
   #projects-content .card figcaption { max-width: 55vw; }
