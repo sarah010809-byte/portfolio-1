@@ -23,6 +23,18 @@
       "desc_en": "Description of the curatorial project goes here.",
       "image": "",
       "images": []
+    },
+    {
+      "category": "collaboration",
+      "title_ko": "긴 설명이 있는 협업 프로젝트",
+      "title_en": "Collaboration with a Long Description",
+      "year": "2024",
+      "venue_ko": "문화역서울284, 서울",
+      "venue_en": "Culture Station Seoul 284, Seoul",
+      "desc_ko": "이 프로젝트는 설명이 길 때 더보기 섹션에서 두 줄까지만 보이고 나머지는 말줄임표로 처리되는 것을 확인하기 위한 예시입니다. 사진과 조형을 매개로 여러 분야의 창작자들과 협업하며, 전시 공간 안에서 관객의 움직임에 반응하는 설치 작업을 함께 만들었습니다. 이 문장부터는 카드에서 보이지 않아야 합니다.",
+      "desc_en": "This sample project exists to demonstrate the two-line excerpt with an ellipsis in the More section. Working across photography and sculpture, the artist collaborated with creators from multiple fields on a responsive installation. This sentence should be cut off in the card.",
+      "image": "",
+      "images": []
     }
   ]
 }
