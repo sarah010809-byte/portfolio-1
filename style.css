@@ -1129,6 +1129,9 @@ body.subpage .exh-layout { min-height: 100vh; }
   .work-nav a::before { font-size: 1.3rem; color: #555; }
   .work-nav a:first-child::before { content: "←"; }
   .work-nav a:last-child::before { content: "→"; }
+  /* 화살표 글자 끝이 레이아웃 여백선에 정확히 닿게 (터치 패딩만큼 당김) */
+  .work-nav a:first-child { margin-left: -12px; }
+  .work-nav a:last-child { margin-right: -12px; }
 
   /* 카드 그룹은 중앙에, 각 카드의 왼쪽 라인은 서로 정렬 */
   #projects-content .grid { width: fit-content; max-width: 100%; margin: 0 auto; }
