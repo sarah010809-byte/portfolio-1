@@ -1120,6 +1120,16 @@ body.subpage .exh-layout { min-height: 100vh; }
 
   /* 모바일 프로젝트: writings처럼 정사각 이미지 좌측 + 텍스트 우측 */
   #projects-content .grid { grid-template-columns: 1fr; gap: 28px; }
+  /* 상세페이지 이전/다음: 모바일에선 화살표만 (텍스트 숨김) */
+  .work-nav a {
+    font-size: 0;
+    border-bottom: none;
+    padding: 8px 12px; /* 터치 영역 확보 */
+  }
+  .work-nav a::before { font-size: 1.3rem; color: #555; }
+  .work-nav a:first-child::before { content: "←"; }
+  .work-nav a:last-child::before { content: "→"; }
+
   /* 카드 그룹은 중앙에, 각 카드의 왼쪽 라인은 서로 정렬 */
   #projects-content .grid { width: fit-content; max-width: 100%; margin: 0 auto; }
   #projects-content .card a {
