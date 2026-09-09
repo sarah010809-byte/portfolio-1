@@ -56,7 +56,7 @@ img { max-width: 100%; display: block; }
 
 /* 화면 크기와 무관하게 외곽 여백 고정 (중앙 정렬 안 함) */
 .header-inner {
-  padding: 22px 44px;
+  padding: 22px var(--hpad, 44px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -279,7 +279,8 @@ main > .section:last-child { padding-bottom: 140px; }
 .view-all:hover { color: #111; }
 
 /* 메인 페이지 섹션: 리움처럼 넉넉한 좌우 여백 (화면의 약 10%) */
-body:not(.subpage) { --hpad: clamp(44px, 10vw, 220px); }
+/* 공통 좌우 여백 — 헤더·본문·구분선이 같은 폭을 공유 (국제갤러리식 정렬) */
+body { --hpad: clamp(44px, 6vw, 120px); }
 body:not(.subpage) .section {
   max-width: none;
   padding-left: var(--hpad);
@@ -390,9 +391,9 @@ body:not(.subpage) .exh-sticky {
 
 /* ===== 서브페이지 레이아웃 (좌측 사이드바 + 우측 콘텐츠) ===== */
 .page-layout {
-  max-width: 1100px;
+  max-width: none;
   margin: 0 auto;
-  padding: 120px 20px 40px;
+  padding: 120px var(--hpad, 20px) 40px;
   display: flex;
   gap: 48px;
   align-items: flex-start;
@@ -408,8 +409,8 @@ body:not(.subpage) .exh-sticky {
 
 .sidebar h1 {
   line-height: 1;
-  font-size: 2.8rem;
-  letter-spacing: 0.03em;
+  font-size: 3.4rem;
+  letter-spacing: 0.01em;
   margin-bottom: 20px;
 }
 
@@ -880,16 +881,16 @@ body.page-leave main {
 
 /* ===== 전시 페이지 (가운데 제목 + 이미지/정보 리스트) ===== */
 .exh-layout {
-  max-width: 1100px;
+  max-width: none;
   margin: 0 auto;
-  padding: 120px 20px 40px;
+  padding: 120px var(--hpad, 20px) 40px;
   min-height: 70vh;
 }
 
 .page-title {
   text-align: center;
-  font-size: 3rem;
-  letter-spacing: 0.06em;
+  font-size: 3.8rem;
+  letter-spacing: 0.01em;
   margin-bottom: 56px;
   font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
 }
@@ -1232,6 +1233,7 @@ img.profile { object-fit: cover; }
 @media (max-width: 768px) {
   .menu-btn { display: block; }
 
+  body { --hpad: 20px; }
   .header-inner { padding: 22px 20px; }
   .hero-text { padding: 0 20px 48px; }
   .hero-caption { left: 20px; bottom: 36px; }
