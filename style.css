@@ -912,6 +912,25 @@ body.page-leave main {
 .exh-info { flex: 1; min-width: 0; }
 .exh-info h2 { font-size: 1.2rem; margin-bottom: 6px; }
 
+/* 호버 시 제목에 왼쪽→오른쪽 밑줄 */
+.exh-info h2 {
+  display: inline-block;
+  position: relative;
+}
+.exh-info h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: #111;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.exh-item:hover .exh-info h2::after { transform: scaleX(1); }
+
 /* 콘텐츠 영역 상단 제목 (Works 페이지) */
 .content-title {
   font-size: 1.35rem;
