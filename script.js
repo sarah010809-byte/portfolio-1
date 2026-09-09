@@ -182,6 +182,16 @@ function setupExhScroll() {
   const sticky = section.querySelector(".exh-sticky");
   let overflow = 0;
 
+  // 진행 인디케이터: 현재 번호 · 진행 바 · 전체 개수 (국제갤러리식)
+  const progress = document.createElement("div");
+  progress.className = "exh-progress";
+  progress.innerHTML = `<span class="ep-cur">01</span><div class="ep-bar"><div class="ep-fill"></div></div><span class="ep-total">01</span>`;
+  track.insertAdjacentElement("afterend", progress);
+  const epCur = progress.querySelector(".ep-cur");
+  const epTotal = progress.querySelector(".ep-total");
+  const epFill = progress.querySelector(".ep-fill");
+  const pad2 = (n) => String(n).padStart(2, "0");
+
   function measure() {
     if (window.innerWidth <= 768) {
       section.style.height = "";
@@ -213,6 +223,14 @@ function setupExhScroll() {
     const rect = section.getBoundingClientRect();
     const px = Math.min(Math.max(-rect.top, 0), overflow);
     track.style.transform = `translateX(${-px}px)`;
+    // 진행 바·현재 번호 갱신
+    const total = track.children.length;
+    if (total) {
+      const p = px / overflow;
+      epFill.style.width = `${p * 100}%`;
+      epTotal.textContent = pad2(total);
+      epCur.textContent = pad2(Math.min(total, 1 + Math.round(p * (total - 1))));
+    }
   }
 
   measure();

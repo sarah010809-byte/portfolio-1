@@ -1126,6 +1126,36 @@ body.subpage .exh-layout { min-height: 100vh; }
   .slider .slide img { cursor: crosshair; }
 }
 
+/* 홈 전시 가로 스크롤: 진행 인디케이터 */
+.exh-progress {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 36px;
+  font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.exh-progress .ep-cur { color: #111; }
+.exh-progress .ep-total { color: #b5b5b5; }
+.exh-progress .ep-bar {
+  flex: 1;
+  height: 2px;
+  background: #dcdcdc;
+  position: relative;
+}
+.exh-progress .ep-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  background: #111;
+}
+@media (max-width: 768px) {
+  .exh-progress { display: none; } /* 모바일은 세로 나열이라 불필요 */
+}
+
 /* TOP 버튼 (검정 푸터 위 흰 영역, 우측 정렬) */
 .to-top-wrap {
   display: flex;
