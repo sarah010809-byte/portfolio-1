@@ -280,7 +280,8 @@ main > .section:last-child { padding-bottom: 140px; }
 
 /* 메인 페이지 섹션: 리움처럼 넉넉한 좌우 여백 (화면의 약 10%) */
 /* 공통 좌우 여백 — 헤더·본문·구분선이 같은 폭을 공유 (국제갤러리식 정렬) */
-body { --hpad: clamp(44px, 6vw, 120px); }
+/* 국제갤러리처럼 넓은 화면일수록 좌우 여백을 크게 (콘텐츠 프레임) */
+body { --hpad: clamp(44px, 12vw, 300px); }
 body:not(.subpage) .section {
   max-width: none;
   padding-left: var(--hpad);
@@ -1038,7 +1039,13 @@ body.page-leave main {
 .pager .pg-next { font-size: 1.1rem; }
 
 /* Writings 페이지: 정사각 이미지 좌측 + 글 정보 우측 (메인 섹션과 동일 형식) */
-.writing-rows { display: flex; flex-direction: column; gap: 48px; }
+.writing-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1100px;
+  margin: 0 auto; /* 덩어리 중앙 정렬 */
+}
 .writing-row {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -1126,20 +1133,19 @@ body.subpage .exh-layout { min-height: 100vh; }
 .hover-zoom.show { opacity: 1; }
 
 /* ===== 전시 상세: 국제갤러리식 (상단 이미지 좌 + 정보 우, 아래 섹션들) ===== */
+/* 좌측 끝을 상단 로고(공통 여백선)와 정렬 — 국제갤러리식 */
 .exh-detail-top {
   display: flex;
   gap: 56px;
   align-items: flex-start;
-  max-width: 1360px;
-  margin: 0 auto 72px;
+  margin: 0 0 72px;
 }
 .exh-detail-top .exh-detail-image { width: 58%; flex-shrink: 0; margin-bottom: 0; }
 .exh-detail-side { flex: 1; min-width: 0; padding-top: 44px; }
 .exh-detail-side h1 { font-size: 1.5rem; margin-bottom: 8px; }
 
 .exh-detail-section {
-  max-width: 1100px;
-  margin: 0 auto 72px;
+  margin: 0 0 72px; /* 좌측 정렬 — 제목·본문이 로고 세로선에 맞음 */
 }
 .exh-detail-section h3 {
   font-size: 1.2rem;
