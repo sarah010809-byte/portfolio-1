@@ -579,7 +579,7 @@ async function renderDynamic() {
       const sEn = w.series_en || w.series_ko || "Other";
       const othersHead = mode === "series"
         ? `<h2 data-ko="${esc(sKo)} 더보기" data-en="More from ${esc(sEn)}">${esc(sKo)} 더보기</h2>`
-        : `<h2 data-ko="${esc(w.year)}년의 다른 작품" data-en="More works from ${esc(w.year)}">${esc(w.year)}년의 다른 작품</h2>`;
+        : `<h2 data-ko="${esc(w.year)}년의 다른 작품" data-en="More Works from ${esc(w.year)}">${esc(w.year)}년의 다른 작품</h2>`;
       const others = sameCtx.length ? `
         <section class="other-works">
           ${othersHead}
