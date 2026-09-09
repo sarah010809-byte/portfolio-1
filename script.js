@@ -1282,8 +1282,9 @@ renderDynamic().then(() => {
   setLang(currentLang());
   // 홈: 섹션이 스크롤에 따라 살짝 올라오며 나타남
   if (!document.body.classList.contains("subpage") && "IntersectionObserver" in window) {
+    // 화면을 벗어나면 초기화 → 다시 스크롤해 들어올 때마다 재등장
     const io = new IntersectionObserver((es) => es.forEach((x) => {
-      if (x.isIntersecting) { x.target.classList.add("reveal-in"); io.unobserve(x.target); }
+      x.target.classList.toggle("reveal-in", x.isIntersecting);
     }), { threshold: 0.12 });
     document.querySelectorAll("main > .section:not(#exh-scroll)").forEach((s) => {
       s.classList.add("reveal");
