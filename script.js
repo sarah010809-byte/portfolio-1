@@ -954,7 +954,7 @@ hoverZoom.className = "hover-zoom";
 document.body.appendChild(hoverZoom);
 const HZ_SCALE = 2.2;
 
-document.addEventListener("mousemove", (e) => {
+function hoverZoomMove(e) {
   const img = e.target.closest && e.target.closest(".slider .slide img");
   if (!img || !window.matchMedia("(hover: hover)").matches) {
     hoverZoom.classList.remove("show");
@@ -977,7 +977,11 @@ document.addEventListener("mousemove", (e) => {
   hoverZoom.style.backgroundPosition =
     `${-(x * HZ_SCALE - w / 2)}px ${-(y * HZ_SCALE - h / 2)}px`;
   hoverZoom.classList.add("show");
-});
+}
+// 브라우저에 따라 어느 이벤트가 먼저 오든 동작하도록 셋 다 연결
+document.addEventListener("mousemove", hoverZoomMove);
+document.addEventListener("pointermove", hoverZoomMove);
+document.addEventListener("mouseover", hoverZoomMove);
 
 // ===== 이미지 확대 뷰어 (라이트박스) =====
 // 이미지 클릭 → 확대. 좌우 화살표로 넘기기, 아무 곳이나 클릭하거나 Esc 로 닫기
