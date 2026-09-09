@@ -1122,6 +1122,18 @@ body.subpage .exh-layout { min-height: 100vh; }
   transition: opacity 0.15s ease;
 }
 .hover-zoom.show { opacity: 1; }
+
+/* 넓은 화면에서 작품 상세: 이미지+정보 블록을 가운데로 모음 */
+.work-page .work-top {
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 전시 목록: 텍스트 블록을 이미지 상단보다 조금 아래에 */
+@media (min-width: 769px) {
+  .exh-item .exh-info { padding-top: 44px; }
+}
 @media (hover: hover) {
   .slider .slide img { cursor: crosshair; }
 }

@@ -1068,6 +1068,13 @@ document.addEventListener("mousemove", hoverZoomMove);
 document.addEventListener("pointermove", hoverZoomMove);
 document.addEventListener("mouseover", hoverZoomMove);
 
+// 마우스가 창 밖으로 나가거나 스크롤하면 호버 줌 패널 숨김 (잔상 방지)
+document.addEventListener("mouseout", (e) => {
+  if (!e.relatedTarget) hoverZoom.classList.remove("show");
+});
+window.addEventListener("blur", () => hoverZoom.classList.remove("show"));
+window.addEventListener("scroll", () => hoverZoom.classList.remove("show"), { passive: true });
+
 // ===== 이미지 확대 뷰어 (라이트박스) =====
 // 이미지 클릭 → 확대. 좌우 화살표로 넘기기, 아무 곳이나 클릭하거나 Esc 로 닫기
 const lightbox = document.createElement("div");
