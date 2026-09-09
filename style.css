@@ -480,7 +480,7 @@ body:not(.subpage) .exh-sticky {
 .work-side .work-desc { margin-top: 20px; font-size: 0.9rem; color: #333; }
 .detail-back { margin-bottom: 20px; }
 
-.other-works { margin-top: 56px; padding-top: 24px; border-top: 1px solid #eee; }
+.other-works { margin-top: 24px; padding-top: 24px; border-top: 1px solid #eee; }
 .other-works h2 { font-size: 1rem; margin-bottom: 20px; }
 .work-desc { margin-top: 14px; max-width: 640px; color: #333; font-size: 0.95rem; white-space: pre-line; }
 
@@ -488,7 +488,7 @@ body:not(.subpage) .exh-sticky {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 32px;
+  margin-top: 56px;
   font-size: 0.9rem;
 }
 .work-nav a { color: #888; }
@@ -528,7 +528,8 @@ body:not(.subpage) .exh-sticky {
   gap: 14px;
   margin-top: 14px;
 }
-.slider-prev, .slider-next {
+.slider-prev, .slider-next { display: none; }
+.slider-prev-off, .slider-next-off {
   background: none;
   border: none;
   cursor: pointer;
