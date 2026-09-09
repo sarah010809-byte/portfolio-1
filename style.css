@@ -483,7 +483,7 @@ body:not(.subpage) .exh-sticky {
 .detail-back { margin-bottom: 20px; }
 
 .other-works { margin-top: 24px; padding-top: 24px; border-top: 1px solid #eee; }
-.other-works h2 { font-size: 1rem; margin-bottom: 20px; }
+.other-works h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 22px; }
 .work-desc { margin-top: 14px; max-width: 640px; color: #333; font-size: 0.95rem; white-space: pre-line; }
 
 .work-nav {
