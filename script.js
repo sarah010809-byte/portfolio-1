@@ -1083,7 +1083,8 @@ function hoverZoomMove(e) {
   hoverZoom.style.width = `${w}px`;
   hoverZoom.style.height = `${h}px`;
   hoverZoom.style.left = `${left}px`;
-  hoverZoom.style.top = `${Math.max(8, Math.min(r.top, window.innerHeight - h - 8))}px`;
+  // 이미지 하단 기준 정렬 (우측 작품 제목을 가리지 않게)
+  hoverZoom.style.top = `${Math.max(8, Math.min(r.bottom - h, window.innerHeight - h - 8))}px`;
   hoverZoom.style.backgroundImage = `url("${img.src}")`;
   hoverZoom.style.backgroundSize = `${r.width * HZ_SCALE}px ${r.height * HZ_SCALE}px`;
   const x = Math.min(Math.max(e.clientX - r.left, 0), r.width);
