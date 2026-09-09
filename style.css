@@ -895,11 +895,13 @@ body.page-leave main {
   font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
 }
 
+/* 이미지+텍스트 덩어리를 화면 중앙에 (우측 빈 공간 방지) */
 .exh-item {
   display: flex;
   gap: 48px;
   align-items: flex-start;
-  margin-bottom: 110px;
+  margin: 0 auto 110px;
+  max-width: 1100px;
 }
 
 .exh-image { width: 46%; flex-shrink: 0; }
