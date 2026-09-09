@@ -781,13 +781,13 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .card figcaption span { color: inherit; }
 
 /* 더보기 섹션 카드: 카테고리 라벨 + 제목 + 아래 연회색 날짜 */
-.stack-caption strong {
+.card figcaption.stack-caption strong {
   display: block;
   font-size: 0.95rem;
   font-weight: 600;
   color: #111;
 }
-.card-cat {
+.card figcaption .card-cat, .card-cat {
   display: block;
   font-size: 0.68rem;
   font-weight: 300;
@@ -796,7 +796,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   text-transform: uppercase;
   margin-bottom: 2px;
 }
-.card-date {
+.card figcaption .card-date, .card-date {
   display: block;
   font-size: 0.75rem;
   color: #d9d9d9;
