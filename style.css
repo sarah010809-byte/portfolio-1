@@ -817,6 +817,51 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 }
 .writing-list .card-cat { min-width: 90px; margin-bottom: 0; }
 
+/* ===== 카드 호버 모션: 이미지 살짝 어두워지고 제목에 밑줄이 스르륵 ===== */
+.card a .thumb,
+.home-exh-card .exh-thumb { position: relative; }
+.card a .thumb::after,
+.home-exh-card .exh-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+.card a:hover .thumb::after,
+.home-exh-card:hover .exh-thumb::after { background: rgba(0,0,0,0.07); }
+.card a figcaption strong,
+.home-exh-card h3 {
+  display: inline;
+  background-image: linear-gradient(#111, #111);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.35s ease;
+  padding-bottom: 2px;
+}
+.card figcaption.stack-caption strong { display: inline-block; }
+.card a:hover figcaption strong,
+.home-exh-card:hover h3 { background-size: 100% 1px; }
+
+/* ===== 페이지 이동 페이드아웃 ===== */
+body.page-leave main {
+  opacity: 0 !important;
+  transition: opacity 0.16s ease !important;
+}
+
+/* ===== 홈 섹션 스크롤 리빌 ===== */
+.section.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.section.reveal.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
 /* ===== 플레이스홀더 (실제 이미지로 교체) ===== */
 .placeholder {
   background: #f7f7f7;

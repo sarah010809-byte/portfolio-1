@@ -1016,6 +1016,11 @@ document.body.appendChild(hoverZoom);
 const HZ_SCALE = 2.2;
 
 function hoverZoomMove(e) {
+  // 확대 뷰어가 열려 있는 동안엔 호버 줌 패널을 띄우지 않음
+  if (typeof lightbox !== "undefined" && lightbox.classList.contains("show")) {
+    hoverZoom.classList.remove("show");
+    return;
+  }
   const img = e.target.closest && e.target.closest(".slider .slide img");
   if (!img || !window.matchMedia("(hover: hover)").matches) {
     hoverZoom.classList.remove("show");
@@ -1116,6 +1121,7 @@ document.addEventListener("click", (e) => {
       t.addEventListener("click", (ev) => { ev.stopPropagation(); lbShow(k); }));
     lightbox.classList.add("show");
     document.body.style.overflow = "hidden";
+    hoverZoom.classList.remove("show"); // 클릭과 동시에 떠 있던 호버 줌 패널 정리
   }
 });
 lbPrev.addEventListener("click", (e) => { e.stopPropagation(); lbShow(lbState.i - 1); });
@@ -1205,8 +1211,30 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight" && lbState.imgs.length > 1) lbShow(lbState.i + 1);
 });
 
+// ===== 내부 링크 이동 시 짧은 페이드아웃 (로드 페이드인과 짝) =====
+document.addEventListener("click", (e) => {
+  if (e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+  const a = e.target.closest && e.target.closest("a[href]");
+  if (!a || a.target === "_blank") return;
+  const href = a.getAttribute("href");
+  if (!href || href.startsWith("#") || href.startsWith("http") || href.startsWith("mailto:")) return;
+  e.preventDefault();
+  document.body.classList.add("page-leave");
+  setTimeout(() => { location.href = href; }, 160);
+});
+
 renderDynamic().then(() => {
   setLang(currentLang());
+  // 홈: 섹션이 스크롤에 따라 살짝 올라오며 나타남
+  if (!document.body.classList.contains("subpage") && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((es) => es.forEach((x) => {
+      if (x.isIntersecting) { x.target.classList.add("reveal-in"); io.unobserve(x.target); }
+    }), { threshold: 0.12 });
+    document.querySelectorAll("main > .section:not(#exh-scroll)").forEach((s) => {
+      s.classList.add("reveal");
+      io.observe(s);
+    });
+  }
   if (location.hash) {
     document.querySelector(location.hash)?.scrollIntoView();
   }
