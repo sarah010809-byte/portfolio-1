@@ -690,19 +690,48 @@ async function renderDynamic() {
                 </figcaption>
               </a></figure>`).join("")}</div>
           </section>` : "";
+        // 이 전시와 연결된 작품 (작품의 '관련 전시'에 전시명이 포함된 것)
+        const worksData = await loadJSON("data/works.json");
+        const relWorks = worksData
+          ? sortedWorks(worksData).filter((w) =>
+              (w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
+              (w.related_en && e.title_en && w.related_en.includes(e.title_en)))
+          : [];
+        const relWorksHTML = relWorks.length ? `
+          <section class="exh-detail-section">
+            <h3 data-ko="작품" data-en="Works">작품</h3>
+            <div class="grid">${relWorks.map((w) =>
+              cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
+                w.title_en, `work.html?i=${w.idx}`)).join("")}</div>
+          </section>` : "";
+
+        // 국제갤러리식: 상단 이미지 좌 + 정보 우, 아래로 전시 소개 / 설치 전경 / 작품
         exhDetail.innerHTML = `
           <p class="back-link detail-back"><a href="exhibitions.html" data-ko="← 전시 목록" data-en="← All Exhibitions">← 전시 목록</a></p>
           <article class="exh-detail">
-            <div class="exh-detail-image">${
-              e.image
-                ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}">`
-                : `<div class="placeholder exh-placeholder"><span>${esc(e.title_en)}</span></div>`
-            }</div>
-            <h1 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h1>
-            <p class="exh-date">${esc(e.date)}</p>
-            <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
-            <p class="exh-detail-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>
-            ${extraHTML}
+            <div class="exh-detail-top">
+              <div class="exh-detail-image">${
+                e.image
+                  ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}">`
+                  : `<div class="placeholder exh-placeholder"><span>${esc(e.title_en)}</span></div>`
+              }</div>
+              <div class="exh-detail-side">
+                <h1 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h1>
+                <p class="exh-date">${esc(e.date)}</p>
+                <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
+              </div>
+            </div>
+            ${(e.desc_ko || e.desc_en) ? `
+            <section class="exh-detail-section">
+              <h3 data-ko="전시 소개" data-en="About the Exhibition">전시 소개</h3>
+              <p class="exh-detail-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>
+            </section>` : ""}
+            ${extra.length ? `
+            <section class="exh-detail-section">
+              <h3 data-ko="설치 전경" data-en="Installation Views">설치 전경</h3>
+              ${extraHTML}
+            </section>` : ""}
+            ${relWorksHTML}
           </article>
           <div class="work-nav">${prev}${next}</div>
           ${exOthersHTML}`;
