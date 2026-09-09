@@ -766,6 +766,8 @@ async function renderDynamic() {
                 <figcaption class="stack-caption">
                   <span class="card-cat">${o.category === "curatorial" ? "Curatorial Project" : "Collaboration"}</span>
                   <strong data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</strong>
+                  ${(o.desc_ko || o.desc_en)
+                    ? `<span class="card-excerpt" data-ko="${esc(o.desc_ko)}" data-en="${esc(o.desc_en)}">${esc(o.desc_ko)}</span>` : ""}
                   <span class="card-date">${esc(o.year)}</span>
                 </figcaption>
               </a></figure>`).join("")}</div>

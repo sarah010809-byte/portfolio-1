@@ -791,7 +791,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   display: block;
   font-size: 0.68rem;
   font-weight: 300;
-  color: #d5d5d5;
+  color: #b0b0b0;
   letter-spacing: 0.02em;
   text-transform: uppercase;
   margin-bottom: 2px;
@@ -799,9 +799,21 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .card figcaption .card-date, .card-date {
   display: block;
   font-size: 0.75rem;
-  color: #d9d9d9;
+  color: #b8b8b8;
   margin-top: 2px;
   letter-spacing: 0.04em;
+}
+/* 더보기 카드 요약문: 두 줄 말줄임(...) */
+.card figcaption .card-excerpt {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.82rem;
+  color: #777;
+  line-height: 1.55;
+  margin-top: 4px;
+  white-space: normal;
 }
 .writing-list .card-cat { min-width: 90px; margin-bottom: 0; }
 
