@@ -183,7 +183,7 @@ img { max-width: 100%; display: block; }
   z-index: 1;
   color: #fff;
   width: 100%;
-  padding: 0 44px 56px; /* 헤더와 같은 외곽 여백 */
+  padding: 0 var(--hpad, 44px) 56px; /* 헤더·본문과 같은 외곽 여백 */
 }
 
 .hero-name {
@@ -198,7 +198,7 @@ img { max-width: 100%; display: block; }
 /* 홈 대표작 캡션 (좌하단) */
 .hero-caption {
   position: absolute;
-  left: 44px;
+  left: var(--hpad, 44px);
   bottom: 48px;
   z-index: 1;
   color: #fff;
