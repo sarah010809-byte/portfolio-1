@@ -791,6 +791,8 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   align-items: center;
   justify-content: center;
 }
+#works-content .card .thumb:not(.placeholder) { background: transparent; }
+#works-content .card a:hover .thumb img { transform: none; }
 #works-content .card .thumb img {
   width: auto;
   height: auto;
