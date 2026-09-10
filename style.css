@@ -786,6 +786,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .card a:hover .thumb img { transform: scale(1.04); }
 
 /* 작품 페이지: 그리드 칸은 유지하고 이미지는 원본 비율대로 (PKM 갤러리 스타일) */
+#works-content .grid { row-gap: 40px; } /* 카드 위아래 간격 살짝 여유 */
 #works-content .card .thumb {
   display: flex;
   align-items: center;
