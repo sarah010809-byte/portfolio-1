@@ -789,7 +789,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 #works-content .card .thumb {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* 이미지를 왼쪽에 붙여 캡션과 정렬 */
+  justify-content: center;
 }
 #works-content .card .thumb:not(.placeholder) { background: transparent; }
 #works-content .card a:hover .thumb img { transform: none; }
