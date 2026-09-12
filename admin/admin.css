@@ -103,6 +103,43 @@ div[class*="ControlPaneContainer"] textarea { min-height: 96px; }
 /* 필드 사이 간격 */
 div[class*="ControlContainer"] div[class*="ControlContainer"] { margin-bottom: 14px; }
 
+/* 편집 화면 좌측 고정 카테고리 사이드바 */
+#quick-side {
+  position: fixed;
+  left: 24px;
+  top: 90px;
+  width: 190px;
+  background: #fff;
+  border: 1px solid #e5e7ea;
+  border-radius: 12px;
+  padding: 16px 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  z-index: 200;
+  display: none;
+}
+#quick-side .qs-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #16181c;
+  margin: 2px 8px 10px;
+}
+#quick-side a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 7px;
+  font-size: 14px;
+  color: #4b5058;
+  text-decoration: none;
+}
+#quick-side a:hover { background: #f2f4f6; color: #111; }
+#quick-side a.on {
+  background: #eef3fd;
+  color: #1b53c9;
+  font-weight: 600;
+}
+/* 좁은 화면에선 편집 영역과 겹치므로 숨김 */
+@media (max-width: 1320px) { #quick-side { display: none !important; } }
+
 /* 안내 문구(hint) */
 div[class*="ControlHint"], p[class*="ControlHint"] {
   color: #8a8f98 !important;

@@ -71,6 +71,30 @@
   window.addEventListener("hashchange", autoEnter);
   setTimeout(autoEnter, 300);
 })();
+
+/* 편집 화면에서도 항상 보이는 카테고리 사이드바
+   → 뒤로 나갈 필요 없이 바로 다른 카테고리로 전환 */
+(function () {
+  var ITEMS = [
+    ["works", "Works"], ["exhibitions", "Exhibitions"], ["projects", "Projects"],
+    ["writings", "Writings"], ["artist", "About"],
+  ];
+  var side = document.createElement("nav");
+  side.id = "quick-side";
+  side.innerHTML = "<p class='qs-title'>컬렉션</p>" + ITEMS.map(function (it) {
+    return "<a data-col='" + it[0] + "' href='#/collections/" + it[0] + "/entries/" + it[0] + "'>" + it[1] + "</a>";
+  }).join("");
+  document.body.appendChild(side);
+  function sync() {
+    var m = location.hash.match(/^#\/collections\/([a-z]+)\/entries\//);
+    side.style.display = m ? "block" : "none";
+    side.querySelectorAll("a").forEach(function (a) {
+      a.classList.toggle("on", !!m && a.dataset.col === m[1]);
+    });
+  }
+  window.addEventListener("hashchange", sync);
+  setInterval(sync, 800); // 초기 로드·내부 라우팅 대비
+})();
 </script>
 </body>
 </html>
