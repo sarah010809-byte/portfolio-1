@@ -1,7 +1,7 @@
 {
   "series_order": [
     { "name": "시리즈 A" },
-    { "name": "아주 길어질 수도 있는 시리즈 제목의 예시" },
+    { "name": "시리즈 B" },
     { "name": "시리즈 C" },
     { "name": "시리즈 D" }
   ],
@@ -40,8 +40,8 @@
       "related_ko": "",
       "related_en": "",
       "image": "images/uploads/70288.jpg",
-      "series_ko": "아주 길어질 수도 있는 시리즈 제목의 예시",
-      "series_en": "An Example of a Series Title That Can Get Quite Long",
+      "series_ko": "시리즈 B",
+      "series_en": "Series B",
       "images": [],
       "featured": false
     },
@@ -120,8 +120,8 @@
       "related_ko": "",
       "related_en": "",
       "image": "",
-      "series_ko": "아주 길어질 수도 있는 시리즈 제목의 예시",
-      "series_en": "An Example of a Series Title That Can Get Quite Long",
+      "series_ko": "시리즈 B",
+      "series_en": "Series B",
       "images": [],
       "featured": false
     },
@@ -136,8 +136,8 @@
       "related_ko": "",
       "related_en": "",
       "image": "",
-      "series_ko": "아주 길어질 수도 있는 시리즈 제목의 예시",
-      "series_en": "An Example of a Series Title That Can Get Quite Long",
+      "series_ko": "시리즈 B",
+      "series_en": "Series B",
       "images": [],
       "featured": false
     },
@@ -152,8 +152,8 @@
       "related_ko": "",
       "related_en": "",
       "image": "",
-      "series_ko": "아주 길어질 수도 있는 시리즈 제목의 예시",
-      "series_en": "An Example of a Series Title That Can Get Quite Long",
+      "series_ko": "시리즈 B",
+      "series_en": "Series B",
       "images": [],
       "featured": false
     },
@@ -168,8 +168,8 @@
       "related_ko": "",
       "related_en": "",
       "image": "",
-      "series_ko": "아주 길어질 수도 있는 시리즈 제목의 예시",
-      "series_en": "An Example of a Series Title That Can Get Quite Long",
+      "series_ko": "시리즈 B",
+      "series_en": "Series B",
       "images": [],
       "featured": false
     },
@@ -184,8 +184,8 @@
       "related_ko": "",
       "related_en": "",
       "image": "",
-      "series_ko": "아주 길어질 수도 있는 시리즈 제목의 예시",
-      "series_en": "An Example of a Series Title That Can Get Quite Long",
+      "series_ko": "시리즈 B",
+      "series_en": "Series B",
       "images": [],
       "featured": false
     },
