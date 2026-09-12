@@ -85,6 +85,16 @@
     return "<a data-col='" + it[0] + "' href='#/collections/" + it[0] + "/entries/" + it[0] + "'>" + it[1] + "</a>";
   }).join("");
   document.body.appendChild(side);
+  // 편집 화면끼리 곧장 전환하면 이전 카테고리 내용이 남는 문제 → 전환 시 화면을 새로 불러옴
+  side.addEventListener("click", function (e) {
+    var a = e.target.closest("a");
+    if (!a) return;
+    e.preventDefault();
+    if (location.hash !== a.getAttribute("href")) {
+      location.hash = a.getAttribute("href");
+      location.reload();
+    }
+  });
   function sync() {
     var m = location.hash.match(/^#\/collections\/([a-z]+)\/entries\//);
     side.style.display = m ? "block" : "none";
