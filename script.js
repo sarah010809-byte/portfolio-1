@@ -119,6 +119,16 @@ if (hasHero) {
   footer.parentNode.insertBefore(wrap, footer);
 })();
 
+// ===== 새 페이지로 이동하면 항상 맨 위에서 시작 =====
+// (이전 페이지의 스크롤 위치가 이어지는 문제 방지 — 뒤로가기의 위치 복원은 유지)
+try {
+  const navT = performance.getEntriesByType("navigation")[0];
+  if (!location.hash && navT && (navT.type === "navigate" || navT.type === "reload")) {
+    window.scrollTo(0, 0);
+    window.addEventListener("load", () => window.scrollTo(0, 0));
+  }
+} catch (_) {}
+
 // ===== 뒤로가기 시 화면이 투명하게 남는 문제 방지 =====
 function forceVisible() {
   document.documentElement.classList.add("bf-restored");
