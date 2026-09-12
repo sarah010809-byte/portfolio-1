@@ -270,6 +270,31 @@ function setupExhScroll() {
   window.addEventListener("load", () => { measure(); onScroll(); });
 }
 
+// 카테고리 중첩 구조 → 평탄한 목록 (각 항목에 카테고리 키 부여)
+function flattenGroups(groups, catField) {
+  return (groups || []).flatMap((g) =>
+    (g.items || []).map((it) => ({ ...it, [catField]: g.key })));
+}
+// 전시: 날짜의 연도 기준 최신순 (같은 연도는 관리자 배치 순서)
+function exhAll(data) {
+  const flat = (data.types && data.types.some((t) => t.items))
+    ? flattenGroups(data.types, "type")
+    : (data.exhibitions || []);
+  return flat
+    .map((e, idx) => ({ ...e, idx }))
+    .sort((a, b) => (parseInt(b.date) || 0) - (parseInt(a.date) || 0));
+}
+function projAll(data) {
+  return data.projects
+    ? data.projects.map((p, idx) => ({ ...p, idx }))
+    : flattenGroups(data.categories, "category").map((p, idx) => ({ ...p, idx }));
+}
+function writAll(data) {
+  return data.writings
+    ? data.writings.map((t, idx) => ({ ...t, idx }))
+    : flattenGroups(data.categories, "category").map((t, idx) => ({ ...t, idx }));
+}
+
 // 시리즈 중첩 구조 → 평탄한 작품 목록 (각 작품에 시리즈명 부여)
 function flattenWorks(data) {
   if (data.series) {
@@ -453,7 +478,7 @@ async function renderDynamic() {
   if (homeExh) {
     const data = await loadJSON("data/exhibitions.json");
     if (data) {
-      const ex = data.exhibitions || [];
+      const ex = exhAll(data);
       // 카드: 제목 아래 장소 없이 제목·(첫 카드만 전시 정보)·날짜
       const exhCard = (e, showInfo, idx) => `
         <a class="home-exh-card" href="exhibition.html?i=${idx}">
@@ -469,7 +494,7 @@ async function renderDynamic() {
           <p class="exh-date">${esc(e.date)}</p>
         </a>`;
       // 첫(최신) 전시 카드에만 전시 정보 표시, 최대 5개
-      homeExh.innerHTML = ex.slice(0, 5).map((e, i) => exhCard(e, i === 0, i)).join("");
+      homeExh.innerHTML = ex.slice(0, 5).map((e, i) => exhCard(e, i === 0, e.idx)).join("");
       setupExhScroll();
     }
   }
@@ -480,7 +505,9 @@ async function renderDynamic() {
     const data = await loadJSON("data/projects.json");
     if (data) {
       const pcats = (data.categories && data.categories.length) ? data.categories : DEFAULT_PROJ_CATS;
-      const picks = (data.projects || []).map((p, idx) => ({ ...p, idx })).slice(0, 3);
+      const picks = projAll(data)
+        .sort((a, b) => String(b.year).localeCompare(String(a.year)))
+        .slice(0, 3);
       homeProjects.innerHTML = `<div class="home-card-row">${picks.map((p) => `
         <a class="home-exh-card" href="project.html?i=${p.idx}">
           <div class="exh-thumb">${
@@ -503,7 +530,7 @@ async function renderDynamic() {
     const data = await loadJSON("data/writings.json");
     if (data) {
       const wcats = (data.categories && data.categories.length) ? data.categories : DEFAULT_WRITING_CATS;
-      const picks = (data.writings || []).map((t, idx) => ({ ...t, idx }))
+      const picks = writAll(data)
         .sort((a, b) => String(b.year).localeCompare(String(a.year)))
         .slice(0, 3);
       homeWritings.innerHTML = `<div class="home-card-row">${picks.map((t) => {
@@ -689,7 +716,7 @@ async function renderDynamic() {
   if (exhList) {
     const data = await loadJSON("data/exhibitions.json");
     if (data) {
-      const all = (data.exhibitions || []).map((e, idx) => ({ ...e, idx }));
+      const all = exhAll(data);
 
       // 구분 탭 — 관리자에서 편집한 카테고리 목록(data.types)으로 자동 생성
       const exTypes = (data.types && data.types.length)
@@ -729,20 +756,22 @@ async function renderDynamic() {
   if (exhDetail) {
     const data = await loadJSON("data/exhibitions.json");
     if (data) {
-      const ex = data.exhibitions || [];
-      const i = Math.min(Math.max(0, parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0), ex.length - 1);
-      const e = ex[i];
+      const ex = exhAll(data);
+      const reqIdx = parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0;
+      let pos = ex.findIndex((o) => o.idx === reqIdx);
+      if (pos < 0) pos = 0;
+      const e = ex[pos];
       if (e) {
         const extra = (e.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
         const extraHTML = extra.map((src) =>
           `<div class="exh-detail-image"><img src="${esc(src)}" alt="${esc(e.title_ko)}" loading="lazy"></div>`).join("");
-        const prev = i > 0
-          ? `<a href="exhibition.html?i=${i - 1}" data-ko="← 이전 전시" data-en="← Prev Exhibition">← 이전 전시</a>` : `<span></span>`;
-        const next = i < ex.length - 1
-          ? `<a href="exhibition.html?i=${i + 1}" data-ko="다음 전시 →" data-en="Next Exhibition →">다음 전시 →</a>` : `<span></span>`;
+        const prev = pos > 0
+          ? `<a href="exhibition.html?i=${ex[pos - 1].idx}" data-ko="← 이전 전시" data-en="← Prev Exhibition">← 이전 전시</a>` : `<span></span>`;
+        const next = pos < ex.length - 1
+          ? `<a href="exhibition.html?i=${ex[pos + 1].idx}" data-ko="다음 전시 →" data-en="Next Exhibition →">다음 전시 →</a>` : `<span></span>`;
 
         // 다른 전시 (현재 것 제외)
-        const otherExh = ex.map((o, idx) => ({ ...o, idx })).filter((o) => o.idx !== i);
+        const otherExh = ex.filter((o) => o.idx !== e.idx);
         const exOthersHTML = otherExh.length ? `
           <section class="other-works">
             <h2 data-ko="다른 전시" data-en="More Exhibitions">다른 전시</h2>
@@ -813,7 +842,7 @@ async function renderDynamic() {
   if (projectsContent) {
     const data = await loadJSON("data/projects.json");
     if (data) {
-      const all = (data.projects || []).map((p, idx) => ({ ...p, idx }));
+      const all = projAll(data);
       // 탭 = 관리자에서 편집한 카테고리 목록
       const cats = (data.categories && data.categories.length) ? data.categories : DEFAULT_PROJ_CATS;
 
@@ -853,9 +882,11 @@ async function renderDynamic() {
   if (projectDetail) {
     const data = await loadJSON("data/projects.json");
     if (data) {
-      const all = data.projects || [];
+      const all = projAll(data);
       const pcats = (data.categories && data.categories.length) ? data.categories : DEFAULT_PROJ_CATS;
-      const i = Math.min(Math.max(0, parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0), all.length - 1);
+      const reqIdx = parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0;
+      let i = all.findIndex((o) => o.idx === reqIdx);
+      if (i < 0) i = 0;
       const p = all[i];
       if (p) {
         // 대표 이미지 + 추가 이미지를 하나의 슬라이드쇼로 (썸네일 클릭 전환)
@@ -864,14 +895,12 @@ async function renderDynamic() {
           ? sliderHTML("project-slider", pImages, p.title_ko)
           : `<div class="placeholder exh-placeholder"><span>${esc(p.title_en)}</span></div>`;
         const pPrev = i > 0
-          ? `<a href="project.html?i=${i - 1}" data-ko="← 이전 프로젝트" data-en="← Prev Project">← 이전 프로젝트</a>` : `<span></span>`;
+          ? `<a href="project.html?i=${all[i - 1].idx}" data-ko="← 이전 프로젝트" data-en="← Prev Project">← 이전 프로젝트</a>` : `<span></span>`;
         const pNext = i < all.length - 1
-          ? `<a href="project.html?i=${i + 1}" data-ko="다음 프로젝트 →" data-en="Next Project →">다음 프로젝트 →</a>` : `<span></span>`;
+          ? `<a href="project.html?i=${all[i + 1].idx}" data-ko="다음 프로젝트 →" data-en="Next Project →">다음 프로젝트 →</a>` : `<span></span>`;
 
         // 다른 프로젝트 (현재 것 제외)
-        const otherProjects = all
-          .map((o, idx) => ({ ...o, idx }))
-          .filter((o) => o.idx !== i);
+        const otherProjects = all.filter((o) => o.idx !== p.idx);
         const othersHTML = otherProjects.length ? `
           <section class="other-works">
             <h2 data-ko="다른 프로젝트" data-en="More Projects">다른 프로젝트</h2>
@@ -911,7 +940,7 @@ async function renderDynamic() {
   if (writingsContent) {
     const data = await loadJSON("data/writings.json");
     if (data) {
-      const all = (data.writings || []).map((t, idx) => ({ ...t, idx }));
+      const all = writAll(data);
       // 탭 = 관리자에서 편집한 카테고리 목록
       const wcats = (data.categories && data.categories.length) ? data.categories : DEFAULT_WRITING_CATS;
 
@@ -958,9 +987,11 @@ async function renderDynamic() {
   if (writingDetail) {
     const data = await loadJSON("data/writings.json");
     if (data) {
-      const all = data.writings || [];
+      const all = writAll(data);
       const wcats = (data.categories && data.categories.length) ? data.categories : DEFAULT_WRITING_CATS;
-      const i = Math.min(Math.max(0, parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0), all.length - 1);
+      const reqIdx = parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0;
+      let i = all.findIndex((o) => o.idx === reqIdx);
+      if (i < 0) i = 0;
       const t = all[i];
       if (t) {
         const catName = catLabel(wcats, t.category, "");
@@ -977,9 +1008,9 @@ async function renderDynamic() {
             ${t.link ? `<p class="writing-link"><a href="${esc(t.link)}" target="_blank" rel="noopener" data-ko="원문 보기 →" data-en="Read original →">원문 보기 →</a></p>` : ""}
           </article>
           <div class="work-nav">${
-            i > 0 ? `<a href="writing.html?i=${i - 1}" data-ko="← 이전 글" data-en="← Prev Writing">← 이전 글</a>` : `<span></span>`
+            i > 0 ? `<a href="writing.html?i=${all[i - 1].idx}" data-ko="← 이전 글" data-en="← Prev Writing">← 이전 글</a>` : `<span></span>`
           }${
-            i < all.length - 1 ? `<a href="writing.html?i=${i + 1}" data-ko="다음 글 →" data-en="Next Writing →">다음 글 →</a>` : `<span></span>`
+            i < all.length - 1 ? `<a href="writing.html?i=${all[i + 1].idx}" data-ko="다음 글 →" data-en="Next Writing →">다음 글 →</a>` : `<span></span>`
           }</div>
           ${all.length > 1 ? `
           <section class="other-works">
@@ -987,7 +1018,7 @@ async function renderDynamic() {
             <ul class="writing-list">${all.map((o, k) => {
               if (k === i) return "";
               const ocName = catLabel(wcats, o.category, "Etc.");
-              return `<li><a href="writing.html?i=${k}">
+              return `<li><a href="writing.html?i=${o.idx}">
                 <span class="card-cat">${esc(ocName)}</span>
                 <span class="writing-title" data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</span>
                 <span class="writing-author">${esc(o.year)}</span>

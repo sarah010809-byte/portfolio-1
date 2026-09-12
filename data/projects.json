@@ -1,80 +1,94 @@
 {
-  "categories": [
-    { "key": "collaboration", "label": "Collaboration" },
-    { "key": "curatorial", "label": "Curatorial Project" }
-  ],
-  "projects": [
-    {
-      "category": "collaboration",
-      "title_ko": "협업 프로젝트 제목",
-      "title_en": "Collaboration Project Title",
-      "year": "2026",
-      "venue_ko": "장소, 서울",
-      "venue_en": "Venue, Seoul",
-      "desc_ko": "여기에 협업 프로젝트 설명이 들어갑니다. 관리자 페이지의 '프로젝트'에서 수정할 수 있습니다.",
-      "desc_en": "Description of the collaboration project goes here.",
-      "image": "",
-      "images": []
-    },
-    {
-      "category": "curatorial",
-      "title_ko": "기획 프로젝트 제목",
-      "title_en": "Curatorial Project Title",
-      "year": "2025",
-      "venue_ko": "장소, 서울",
-      "venue_en": "Venue, Seoul",
-      "desc_ko": "여기에 기획(큐레이토리얼) 프로젝트 설명이 들어갑니다.",
-      "desc_en": "Description of the curatorial project goes here.",
-      "image": "",
-      "images": []
-    },
-    {
-      "category": "collaboration",
-      "title_ko": "긴 설명이 있는 협업 프로젝트",
-      "title_en": "Collaboration with a Long Description",
-      "year": "2024",
-      "venue_ko": "문화역서울284, 서울",
-      "venue_en": "Culture Station Seoul 284, Seoul",
-      "desc_ko": "이 프로젝트는 설명이 길 때 더보기 섹션에서 두 줄까지만 보이고 나머지는 말줄임표로 처리되는 것을 확인하기 위한 예시입니다. 사진과 조형을 매개로 여러 분야의 창작자들과 협업하며, 전시 공간 안에서 관객의 움직임에 반응하는 설치 작업을 함께 만들었습니다. 이 문장부터는 카드에서 보이지 않아야 합니다.",
-      "desc_en": "This sample project exists to demonstrate the two-line excerpt with an ellipsis in the More section. Working across photography and sculpture, the artist collaborated with creators from multiple fields on a responsive installation. This sentence should be cut off in the card.",
-      "image": "",
-      "images": []
-    },
-    {
-      "category": "curatorial",
-      "title_ko": "샘플 기획 프로젝트 2",
-      "title_en": "Sample Curatorial Project 2",
-      "year": "2024",
-      "venue_ko": "프로젝트 스페이스, 서울",
-      "venue_en": "Project Space, Seoul",
-      "desc_ko": "짧은 설명입니다.",
-      "desc_en": "A short description.",
-      "image": "",
-      "images": []
-    },
-    {
-      "category": "collaboration",
-      "title_ko": "샘플 협업 프로젝트 3",
-      "title_en": "Sample Collaboration 3",
-      "year": "2023",
-      "venue_ko": "레지던시, 인천",
-      "venue_en": "Residency, Incheon",
-      "desc_ko": "설명 길이가 중간 정도인 프로젝트로, 두 줄을 조금 넘길 만큼의 텍스트가 들어가 말줄임이 적용됩니다.",
-      "desc_en": "A medium-length description that runs slightly past two lines so the ellipsis applies.",
-      "image": "",
-      "images": []
-    },
-    {
-      "category": "curatorial",
-      "title_ko": "샘플 기획 프로젝트 4",
-      "title_en": "Sample Curatorial Project 4",
-      "year": "2023",
-      "venue_ko": "갤러리, 부산",
-      "venue_en": "Gallery, Busan",
-      "desc_ko": "",
-      "desc_en": "",
-      "image": "",
-      "images": []
-    }
-  ]
+    "categories":  [
+                       {
+                           "key":  "collaboration",
+                           "label":  "Collaboration",
+                           "items":  [
+                                         {
+                                             "title_ko":  "협업 프로젝트 제목",
+                                             "title_en":  "Collaboration Project Title",
+                                             "year":  "2026",
+                                             "venue_ko":  "장소, 서울",
+                                             "venue_en":  "Venue, Seoul",
+                                             "desc_ko":  "여기에 협업 프로젝트 설명이 들어갑니다. 관리자 페이지의 '프로젝트'에서 수정할 수 있습니다.",
+                                             "desc_en":  "Description of the collaboration project goes here.",
+                                             "image":  "",
+                                             "images":  [
+
+                                                        ]
+                                         },
+                                         {
+                                             "title_ko":  "긴 설명이 있는 협업 프로젝트",
+                                             "title_en":  "Collaboration with a Long Description",
+                                             "year":  "2024",
+                                             "venue_ko":  "문화역서울284, 서울",
+                                             "venue_en":  "Culture Station Seoul 284, Seoul",
+                                             "desc_ko":  "이 프로젝트는 설명이 길 때 더보기 섹션에서 두 줄까지만 보이고 나머지는 말줄임표로 처리되는 것을 확인하기 위한 예시입니다. 사진과 조형을 매개로 여러 분야의 창작자들과 협업하며, 전시 공간 안에서 관객의 움직임에 반응하는 설치 작업을 함께 만들었습니다. 이 문장부터는 카드에서 보이지 않아야 합니다.",
+                                             "desc_en":  "This sample project exists to demonstrate the two-line excerpt with an ellipsis in the More section. Working across photography and sculpture, the artist collaborated with creators from multiple fields on a responsive installation. This sentence should be cut off in the card.",
+                                             "image":  "",
+                                             "images":  [
+
+                                                        ]
+                                         },
+                                         {
+                                             "title_ko":  "샘플 협업 프로젝트 3",
+                                             "title_en":  "Sample Collaboration 3",
+                                             "year":  "2023",
+                                             "venue_ko":  "레지던시, 인천",
+                                             "venue_en":  "Residency, Incheon",
+                                             "desc_ko":  "설명 길이가 중간 정도인 프로젝트로, 두 줄을 조금 넘길 만큼의 텍스트가 들어가 말줄임이 적용됩니다.",
+                                             "desc_en":  "A medium-length description that runs slightly past two lines so the ellipsis applies.",
+                                             "image":  "",
+                                             "images":  [
+
+                                                        ]
+                                         }
+                                     ]
+                       },
+                       {
+                           "key":  "curatorial",
+                           "label":  "Curatorial Project",
+                           "items":  [
+                                         {
+                                             "title_ko":  "기획 프로젝트 제목",
+                                             "title_en":  "Curatorial Project Title",
+                                             "year":  "2025",
+                                             "venue_ko":  "장소, 서울",
+                                             "venue_en":  "Venue, Seoul",
+                                             "desc_ko":  "여기에 기획(큐레이토리얼) 프로젝트 설명이 들어갑니다.",
+                                             "desc_en":  "Description of the curatorial project goes here.",
+                                             "image":  "",
+                                             "images":  [
+
+                                                        ]
+                                         },
+                                         {
+                                             "title_ko":  "샘플 기획 프로젝트 2",
+                                             "title_en":  "Sample Curatorial Project 2",
+                                             "year":  "2024",
+                                             "venue_ko":  "프로젝트 스페이스, 서울",
+                                             "venue_en":  "Project Space, Seoul",
+                                             "desc_ko":  "짧은 설명입니다.",
+                                             "desc_en":  "A short description.",
+                                             "image":  "",
+                                             "images":  [
+
+                                                        ]
+                                         },
+                                         {
+                                             "title_ko":  "샘플 기획 프로젝트 4",
+                                             "title_en":  "Sample Curatorial Project 4",
+                                             "year":  "2023",
+                                             "venue_ko":  "갤러리, 부산",
+                                             "venue_en":  "Gallery, Busan",
+                                             "desc_ko":  "",
+                                             "desc_en":  "",
+                                             "image":  "",
+                                             "images":  [
+
+                                                        ]
+                                         }
+                                     ]
+                       }
+                   ]
 }

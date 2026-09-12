@@ -1,63 +1,83 @@
 {
-  "categories": [
-    { "key": "artist", "label": "Artist's Writings" },
-    { "key": "criticism", "label": "Criticism" },
-    { "key": "interview", "label": "Interview" },
-    { "key": "article", "label": "Article" },
-    { "key": "etc", "label": "Etc." }
-  ],
-  "writings": [
-    {
-      "category": "artist",
-      "title_ko": "작가의 글 제목",
-      "title_en": "Artist's Writing Title",
-      "year": "2026",
-      "author_ko": "안세은",
-      "author_en": "An Se Eun",
-      "source_ko": "",
-      "source_en": "",
-      "body_ko": "여기에 글 본문(한글)이 들어갑니다. 관리자 페이지의 '글'에서 수정할 수 있고 줄바꿈도 그대로 반영됩니다.",
-      "body_en": "The English text goes here.",
-      "link": ""
-    },
-    {
-      "category": "criticism",
-      "title_ko": "비평 제목",
-      "title_en": "Criticism Title",
-      "year": "2025",
-      "author_ko": "평론가 이름",
-      "author_en": "Critic Name",
-      "source_ko": "『발행처』",
-      "source_en": "Publication",
-      "body_ko": "비평 본문이 들어갑니다.",
-      "body_en": "The criticism text goes here.",
-      "link": ""
-    },
-    {
-      "category": "interview",
-      "title_ko": "인터뷰 제목",
-      "title_en": "Interview Title",
-      "year": "2025",
-      "author_ko": "매체 이름",
-      "author_en": "Media Name",
-      "source_ko": "",
-      "source_en": "",
-      "body_ko": "인터뷰 내용 또는 소개가 들어갑니다. 외부 링크가 있으면 '원문 링크'에 넣어주세요.",
-      "body_en": "Interview text or introduction goes here.",
-      "link": ""
-    },
-    {
-      "category": "article",
-      "title_ko": "기사 제목",
-      "title_en": "Article Title",
-      "year": "2024",
-      "author_ko": "기자 이름",
-      "author_en": "Reporter Name",
-      "source_ko": "신문/매체 이름",
-      "source_en": "Newspaper Name",
-      "body_ko": "기사 내용 또는 요약이 들어갑니다.",
-      "body_en": "Article text or summary goes here.",
-      "link": ""
-    }
-  ]
+    "categories":  [
+                       {
+                           "key":  "artist",
+                           "label":  "Artist's Writings",
+                           "items":  [
+                                         {
+                                             "title_ko":  "작가의 글 제목",
+                                             "title_en":  "Artist's Writing Title",
+                                             "year":  "2026",
+                                             "author_ko":  "안세은",
+                                             "author_en":  "An Se Eun",
+                                             "source_ko":  "",
+                                             "source_en":  "",
+                                             "body_ko":  "여기에 글 본문(한글)이 들어갑니다. 관리자 페이지의 '글'에서 수정할 수 있고 줄바꿈도 그대로 반영됩니다.",
+                                             "body_en":  "The English text goes here.",
+                                             "link":  ""
+                                         }
+                                     ]
+                       },
+                       {
+                           "key":  "criticism",
+                           "label":  "Criticism",
+                           "items":  [
+                                         {
+                                             "title_ko":  "비평 제목",
+                                             "title_en":  "Criticism Title",
+                                             "year":  "2025",
+                                             "author_ko":  "평론가 이름",
+                                             "author_en":  "Critic Name",
+                                             "source_ko":  "『발행처』",
+                                             "source_en":  "Publication",
+                                             "body_ko":  "비평 본문이 들어갑니다.",
+                                             "body_en":  "The criticism text goes here.",
+                                             "link":  ""
+                                         }
+                                     ]
+                       },
+                       {
+                           "key":  "interview",
+                           "label":  "Interview",
+                           "items":  [
+                                         {
+                                             "title_ko":  "인터뷰 제목",
+                                             "title_en":  "Interview Title",
+                                             "year":  "2025",
+                                             "author_ko":  "매체 이름",
+                                             "author_en":  "Media Name",
+                                             "source_ko":  "",
+                                             "source_en":  "",
+                                             "body_ko":  "인터뷰 내용 또는 소개가 들어갑니다. 외부 링크가 있으면 '원문 링크'에 넣어주세요.",
+                                             "body_en":  "Interview text or introduction goes here.",
+                                             "link":  ""
+                                         }
+                                     ]
+                       },
+                       {
+                           "key":  "article",
+                           "label":  "Article",
+                           "items":  [
+                                         {
+                                             "title_ko":  "기사 제목",
+                                             "title_en":  "Article Title",
+                                             "year":  "2024",
+                                             "author_ko":  "기자 이름",
+                                             "author_en":  "Reporter Name",
+                                             "source_ko":  "신문/매체 이름",
+                                             "source_en":  "Newspaper Name",
+                                             "body_ko":  "기사 내용 또는 요약이 들어갑니다.",
+                                             "body_en":  "Article text or summary goes here.",
+                                             "link":  ""
+                                         }
+                                     ]
+                       },
+                       {
+                           "key":  "etc",
+                           "label":  "Etc.",
+                           "items":  [
+
+                                     ]
+                       }
+                   ]
 }
