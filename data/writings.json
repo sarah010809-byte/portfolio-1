@@ -1,4 +1,11 @@
 {
+  "categories": [
+    { "key": "artist", "label": "Artist's Writings" },
+    { "key": "criticism", "label": "Criticism" },
+    { "key": "interview", "label": "Interview" },
+    { "key": "article", "label": "Article" },
+    { "key": "etc", "label": "Etc." }
+  ],
   "writings": [
     {
       "category": "artist",

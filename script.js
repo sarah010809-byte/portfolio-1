@@ -277,6 +277,23 @@ function sortedWorks(data) {
     .sort((a, b) => String(b.year).localeCompare(String(a.year)));
 }
 
+// 카테고리 키 → 표시 이름 (관리자에서 편집한 목록 기준, 없으면 fallback)
+function catLabel(list, key, fallback) {
+  const c = (list || []).find((x) => x.key === key);
+  return c ? c.label : (fallback || key || "");
+}
+const DEFAULT_PROJ_CATS = [
+  { key: "collaboration", label: "Collaboration" },
+  { key: "curatorial", label: "Curatorial Project" },
+];
+const DEFAULT_WRITING_CATS = [
+  { key: "artist", label: "Artist's Writings" },
+  { key: "criticism", label: "Criticism" },
+  { key: "interview", label: "Interview" },
+  { key: "article", label: "Article" },
+  { key: "etc", label: "Etc." },
+];
+
 // 작품의 시리즈 이름 (없으면 '기타'로 묶음)
 function seriesKey(w) {
   return w.series_en || w.series_ko || "Other";
@@ -453,6 +470,7 @@ async function renderDynamic() {
   if (homeProjects) {
     const data = await loadJSON("data/projects.json");
     if (data) {
+      const pcats = (data.categories && data.categories.length) ? data.categories : DEFAULT_PROJ_CATS;
       const picks = (data.projects || []).map((p, idx) => ({ ...p, idx })).slice(0, 3);
       homeProjects.innerHTML = `<div class="home-card-row">${picks.map((p) => `
         <a class="home-exh-card" href="project.html?i=${p.idx}">
@@ -461,7 +479,7 @@ async function renderDynamic() {
               ? `<img src="${esc(p.image)}" alt="${esc(p.title_ko)}" loading="lazy">`
               : `<div class="placeholder"><span>${esc(p.title_en)}</span></div>`
           }</div>
-          <p class="home-cat">${p.category === "curatorial" ? "Curatorial Project" : "Collaboration"}</p>
+          <p class="home-cat">${esc(catLabel(pcats, p.category))}</p>
           <h3 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h3>
           ${(p.desc_ko || p.desc_en)
             ? `<p class="home-excerpt" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}
@@ -475,13 +493,12 @@ async function renderDynamic() {
   if (homeWritings) {
     const data = await loadJSON("data/writings.json");
     if (data) {
-      const CAT_LABELS = { artist: ["작가의 글", "Artist's Writings"], criticism: ["비평", "Criticism"],
-        interview: ["인터뷰", "Interview"], article: ["기사", "Article"], etc: ["기타", "Etc."] };
+      const wcats = (data.categories && data.categories.length) ? data.categories : DEFAULT_WRITING_CATS;
       const picks = (data.writings || []).map((t, idx) => ({ ...t, idx }))
         .sort((a, b) => String(b.year).localeCompare(String(a.year)))
         .slice(0, 3);
       homeWritings.innerHTML = `<div class="home-card-row">${picks.map((t) => {
-        const cat = CAT_LABELS[t.category] || CAT_LABELS.etc;
+        const cat = [null, catLabel(wcats, t.category, "Etc.")];
         return `
         <a class="home-exh-card home-writing-card" href="writing.html?i=${t.idx}">
           <div class="exh-thumb">${
@@ -663,15 +680,18 @@ async function renderDynamic() {
     if (data) {
       const all = (data.exhibitions || []).map((e, idx) => ({ ...e, idx }));
 
-      // 전체 / 개인전 / 그룹전 토글 (기본: 전체, 목록 순서 = 최신순)
+      // 구분 탭 — 관리자에서 편집한 카테고리 목록(data.types)으로 자동 생성
+      const exTypes = (data.types && data.types.length)
+        ? data.types
+        : [{ key: "solo", label: "Solo" }, { key: "group", label: "Group" }];
       const typeParam = new URLSearchParams(location.search).get("type");
-      const selType = ["solo", "group"].includes(typeParam) ? typeParam : null;
+      const selType = exTypes.some((t) => t.key === typeParam) ? typeParam : null;
       const toggle = document.getElementById("exh-view-toggle");
       if (toggle) {
-        toggle.innerHTML = `
-          <a href="exhibitions.html"${selType ? "" : ' class="on"'}>All</a>
-          <a href="exhibitions.html?type=solo"${selType === "solo" ? ' class="on"' : ""}>Solo</a>
-          <a href="exhibitions.html?type=group"${selType === "group" ? ' class="on"' : ""}>Group</a>`;
+        toggle.innerHTML = `<a href="exhibitions.html"${selType ? "" : ' class="on"'}>All</a>` +
+          exTypes.map((t) =>
+            `<a href="exhibitions.html?type=${esc(t.key)}"${selType === t.key ? ' class="on"' : ""}>${esc(t.label)}</a>`
+          ).join("");
       }
 
       const shown = selType ? all.filter((e) => e.type === selType) : all;
@@ -783,10 +803,8 @@ async function renderDynamic() {
     const data = await loadJSON("data/projects.json");
     if (data) {
       const all = (data.projects || []).map((p, idx) => ({ ...p, idx }));
-      const cats = [
-        { key: "collaboration", label: "Collaboration" },
-        { key: "curatorial", label: "Curatorial Project" },
-      ];
+      // 탭 = 관리자에서 편집한 카테고리 목록
+      const cats = (data.categories && data.categories.length) ? data.categories : DEFAULT_PROJ_CATS;
 
       // 전체 / Collaboration / Curatorial Project 토글
       const catParam = new URLSearchParams(location.search).get("cat");
@@ -809,7 +827,7 @@ async function renderDynamic() {
         <figure class="card"><a href="project.html?i=${p.idx}">
           ${thumbHTML(p, p.title_en)}
           <figcaption class="proj-caption">
-            <span class="home-cat">${p.category === "curatorial" ? "Curatorial Project" : "Collaboration"}</span>
+            <span class="home-cat">${esc(catLabel(cats, p.category))}</span>
             <strong data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</strong>
             ${p.venue_ko || p.venue_en
               ? `<span class="proj-venue" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</span>` : ""}
@@ -825,6 +843,7 @@ async function renderDynamic() {
     const data = await loadJSON("data/projects.json");
     if (data) {
       const all = data.projects || [];
+      const pcats = (data.categories && data.categories.length) ? data.categories : DEFAULT_PROJ_CATS;
       const i = Math.min(Math.max(0, parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0), all.length - 1);
       const p = all[i];
       if (p) {
@@ -849,7 +868,7 @@ async function renderDynamic() {
               <figure class="card"><a href="project.html?i=${o.idx}">
                 ${thumbHTML(o, o.title_en)}
                 <figcaption class="stack-caption">
-                  <span class="card-cat">${o.category === "curatorial" ? "Curatorial Project" : "Collaboration"}</span>
+                  <span class="card-cat">${esc(catLabel(pcats, o.category))}</span>
                   <strong data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</strong>
                   ${(o.desc_ko || o.desc_en)
                     ? `<span class="card-excerpt" data-ko="${esc(o.desc_ko)}" data-en="${esc(o.desc_en)}">${esc(o.desc_ko)}</span>` : ""}
@@ -862,7 +881,7 @@ async function renderDynamic() {
           <p class="back-link detail-back"><a href="projects.html" data-ko="← 프로젝트 목록" data-en="← All Projects">← 프로젝트 목록</a></p>
           <article class="exh-detail">
             <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
-            <p class="exh-date">${esc(p.year)}${p.category === "curatorial" ? " · Curatorial Project" : " · Collaboration"}</p>
+            <p class="exh-date">${esc(p.year)}${p.category ? ` · ${esc(catLabel(pcats, p.category))}` : ""}</p>
             <p class="exh-venue" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>
             <p class="exh-detail-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>
             <div class="exh-detail-image project-image-below">${pImageArea}</div>
@@ -877,28 +896,23 @@ async function renderDynamic() {
   }
 
   // ===== Writings 페이지: 카테고리별 글 목록 =====
-  const WRITING_CATS = [
-    { key: "artist", ko: "작가의 글", en: "Artist's Writings" },
-    { key: "criticism", ko: "비평", en: "Criticism" },
-    { key: "interview", ko: "인터뷰", en: "Interview" },
-    { key: "article", ko: "기사", en: "Article" },
-    { key: "etc", ko: "기타", en: "Etc." },
-  ];
   const writingsContent = document.getElementById("writings-content");
   if (writingsContent) {
     const data = await loadJSON("data/writings.json");
     if (data) {
       const all = (data.writings || []).map((t, idx) => ({ ...t, idx }));
+      // 탭 = 관리자에서 편집한 카테고리 목록
+      const wcats = (data.categories && data.categories.length) ? data.categories : DEFAULT_WRITING_CATS;
 
       // All / 분류 탭 (전시·프로젝트 페이지와 통일)
       const catParam = new URLSearchParams(location.search).get("cat");
-      const selCat = WRITING_CATS.some((c) => c.key === catParam) ? catParam : null;
+      const selCat = wcats.some((c) => c.key === catParam) ? catParam : null;
       const wToggle = document.getElementById("writing-view-toggle");
       if (wToggle) {
         wToggle.innerHTML = `
           <a href="writings.html"${selCat ? "" : ' class="on"'}>All</a>` +
-          WRITING_CATS.map((c) =>
-            `<a href="writings.html?cat=${c.key}"${selCat === c.key ? ' class="on"' : ""}>${esc(c.en)}</a>`
+          wcats.map((c) =>
+            `<a href="writings.html?cat=${c.key}"${selCat === c.key ? ' class="on"' : ""}>${esc(c.label)}</a>`
           ).join("");
       }
 
@@ -908,7 +922,7 @@ async function renderDynamic() {
       const href = (n) => `writings.html?${selCat ? `cat=${selCat}&` : ""}p=${n}`;
       // 메인 페이지 Writings 섹션처럼: 정사각 이미지 좌측 + 종류·제목·내용·날짜 우측
       writingsContent.innerHTML = `<div class="writing-rows">${view.map((t) => {
-        const cat = WRITING_CATS.find((c) => c.key === t.category);
+        const cat = { en: catLabel(wcats, t.category, "Etc.") };
         return `
         <a class="writing-row" href="writing.html?i=${t.idx}">
           <div class="thumb sq">${
@@ -934,14 +948,15 @@ async function renderDynamic() {
     const data = await loadJSON("data/writings.json");
     if (data) {
       const all = data.writings || [];
+      const wcats = (data.categories && data.categories.length) ? data.categories : DEFAULT_WRITING_CATS;
       const i = Math.min(Math.max(0, parseInt(new URLSearchParams(location.search).get("i") || "0", 10) || 0), all.length - 1);
       const t = all[i];
       if (t) {
-        const cat = WRITING_CATS.find((c) => c.key === t.category);
+        const catName = catLabel(wcats, t.category, "");
         writingDetail.innerHTML = `
           <p class="back-link detail-back"><a href="writings.html" data-ko="← 글 목록" data-en="← All Writings">← 글 목록</a></p>
           <article class="writing-detail">
-            ${cat ? `<p class="exh-date" data-ko="${esc(cat.ko)}" data-en="${esc(cat.en)}">${esc(cat.ko)}</p>` : ""}
+            ${catName ? `<p class="exh-date">${esc(catName)}</p>` : ""}
             ${t.image ? `<div class="exh-detail-image"><img src="${esc(t.image)}" alt="${esc(t.title_ko)}"></div>` : ""}
             <h1 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h1>
             <p class="writing-meta">
@@ -960,9 +975,9 @@ async function renderDynamic() {
             <h2 data-ko="다른 글" data-en="More Writings">다른 글</h2>
             <ul class="writing-list">${all.map((o, k) => {
               if (k === i) return "";
-              const oc = WRITING_CATS.find((c) => c.key === o.category) || { ko: "기타", en: "Etc." };
+              const ocName = catLabel(wcats, o.category, "Etc.");
               return `<li><a href="writing.html?i=${k}">
-                <span class="card-cat" data-ko="${esc(oc.ko)}" data-en="${esc(oc.en)}">${esc(oc.ko)}</span>
+                <span class="card-cat">${esc(ocName)}</span>
                 <span class="writing-title" data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</span>
                 <span class="writing-author">${esc(o.year)}</span>
               </a></li>`;

@@ -5,9 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>사이트 관리 — An Se Eun</title>
 <!-- 설정 파일에 버전을 붙여 캐시 문제 방지 (설정 변경 시 숫자만 올리면 됨) -->
-<link href="config.yml?v=2" type="text/yaml" rel="cms-config-url">
+<link href="config.yml?v=3" type="text/yaml" rel="cms-config-url">
 </head>
 <body>
 <script src="https://unpkg.com/decap-cms@^3.8.4/dist/decap-cms.js"></script>
+<script>
+/* 동적 카테고리 선택 위젯:
+   관리자에서 편집하는 카테고리 목록(data/*.json)을 그대로 선택지로 보여준다.
+   → 카테고리를 추가/수정하면 선택지와 사이트 탭에 자동 반영 */
+(function () {
+  var cache = {};
+  function load(src) {
+    if (!cache[src]) {
+      cache[src] = fetch("../" + src + "?t=" + Date.now()).then(function (r) { return r.json(); });
+    }
+    return cache[src];
+  }
+  var Control = createClass({
+    getInitialState: function () { return { opts: [] }; },
+    componentDidMount: function () {
+      var f = this.props.field, self = this;
+      load(f.get("source")).then(function (j) {
+        self.setState({ opts: j[f.get("list_key")] || [] });
+      }).catch(function () {});
+    },
+    render: function () {
+      var self = this;
+      var value = this.props.value || "";
+      var options = [h("option", { key: "_", value: "" }, "— 선택 —")].concat(
+        this.state.opts.map(function (o, i) {
+          return h("option", { key: i, value: o.key }, o.label || o.key);
+        })
+      );
+      return h("select", {
+        id: this.props.forID,
+        value: value,
+        style: { width: "100%", padding: "10px 12px", fontSize: "14px",
+                 border: "2px solid #dfdfe3", borderRadius: "5px", background: "#fff" },
+        onChange: function (e) { self.props.onChange(e.target.value); },
+      }, options);
+    },
+  });
+  CMS.registerWidget("dyncat", Control);
+})();
+</script>
 </body>
 </html>

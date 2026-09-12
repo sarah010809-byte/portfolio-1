@@ -1,4 +1,8 @@
 {
+  "types": [
+    { "key": "solo", "label": "Solo" },
+    { "key": "group", "label": "Group" }
+  ],
   "exhibitions": [
     {
       "title_ko": "전시 제목 1",
