@@ -127,6 +127,9 @@ function forceVisible() {
   window.dispatchEvent(new Event("scroll"));
   window.dispatchEvent(new Event("resize"));
 }
+// 0) 핵심: 페이지가 표시될 때마다 '이동 중 페이드아웃(page-leave)' 상태 해제
+//    (뒤로가기 복원 시 투명한 채 남아 빈 화면이 되는 근본 원인)
+window.addEventListener("pageshow", () => document.body.classList.remove("page-leave"));
 // 1) bfcache 복원 감지
 window.addEventListener("pageshow", (e) => { if (e.persisted) forceVisible(); });
 // 2) 뒤로가기로 인한 재로딩 감지 (bfcache 미사용 브라우저)
