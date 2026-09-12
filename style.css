@@ -1234,24 +1234,32 @@ body.subpage .exh-layout { min-height: 100vh; }
   max-width: 860px;
   margin: 0 auto;
 }
+/* 왼쪽 정렬: 분류 라벨 → 굵은 제목 → 날짜 → 장소 */
 .post-head {
-  text-align: center;
-  margin-bottom: 44px;
+  text-align: left;
+  margin-bottom: 40px;
+}
+.post-cat {
+  color: #999;
+  font-size: 0.82rem;
+  margin-bottom: 10px;
 }
 .post-head h1 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 14px;
 }
 .post-meta {
   color: #999;
   font-size: 0.88rem;
   letter-spacing: 0.02em;
+  margin-bottom: 4px;
 }
 .post-image { margin-bottom: 32px; }
 .post-image img { width: 100%; display: block; }
 .post-desc {
-  max-width: 700px;
-  margin: 0 auto 44px;
+  margin: 0 0 44px;
   color: #444;
   font-size: 0.95rem;
   white-space: pre-line;

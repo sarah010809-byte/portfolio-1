@@ -807,9 +807,11 @@ async function renderDynamic() {
           <p class="back-link detail-back"><a href="exhibitions.html" data-ko="← 전시 목록" data-en="← All Exhibitions">← 전시 목록</a></p>
           <article class="exh-detail post-detail">
             <header class="post-head">
+              <p class="post-cat">Exhibitions</p>
               <h1 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h1>
-              <p class="post-meta">${esc(e.date)}${(e.venue_ko || e.venue_en)
-                ? ` · <span data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</span>` : ""}</p>
+              <p class="post-meta">${esc(e.date)}</p>
+              ${(e.venue_ko || e.venue_en)
+                ? `<p class="post-meta" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>` : ""}
             </header>
             <div class="post-image">${
               e.image
@@ -912,9 +914,11 @@ async function renderDynamic() {
           <p class="back-link detail-back"><a href="projects.html" data-ko="← 프로젝트 목록" data-en="← All Projects">← 프로젝트 목록</a></p>
           <article class="exh-detail post-detail">
             <header class="post-head">
+              <p class="post-cat">${p.category ? esc(catLabel(pcats, p.category)) : "Projects"}</p>
               <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
-              <p class="post-meta">${esc(p.year)}${p.category ? ` · ${esc(catLabel(pcats, p.category))}` : ""}${(p.venue_ko || p.venue_en)
-                ? ` · <span data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</span>` : ""}</p>
+              <p class="post-meta">${esc(p.year)}</p>
+              ${(p.venue_ko || p.venue_en)
+                ? `<p class="post-meta" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>` : ""}
             </header>
             <div class="post-image">${pImageArea}</div>
             ${(p.desc_ko || p.desc_en)
