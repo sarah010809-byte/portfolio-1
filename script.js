@@ -119,6 +119,17 @@ if (hasHero) {
   footer.parentNode.insertBefore(wrap, footer);
 })();
 
+// ===== 뒤로가기(bfcache) 복원 시 화면이 투명하게 남는 문제 방지 =====
+window.addEventListener("pageshow", (e) => {
+  if (!e.persisted) return;
+  document.documentElement.classList.add("bf-restored");
+  const m = document.querySelector("main");
+  if (m) { m.style.animation = "none"; m.style.opacity = "1"; }
+  // 등장 효과 상태 재계산을 위해 스크롤 핸들러들 갱신
+  window.dispatchEvent(new Event("scroll"));
+  window.dispatchEvent(new Event("resize"));
+});
+
 // ===== 모바일 메뉴 (우측 슬라이드 + 햄버거 ↔ X) =====
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");

@@ -11,6 +11,14 @@ body {
 
 /* 페이지 로드 시 은은한 페이드인 */
 main { animation: fadeUp 0.7s ease both; }
+
+/* 뒤로가기 캐시 복원 시: 애니메이션·등장 효과 무시하고 전부 표시 */
+.bf-restored main { animation: none; opacity: 1; }
+.bf-restored .reveal { opacity: 1 !important; transform: none !important; }
+.bf-restored .exh-scroll .section-head,
+.bf-restored .exh-scroll .view-all { opacity: 1 !important; transform: none !important; }
+/* 트랙은 가로 이동(transform)을 살려야 하므로 투명도만 해제 */
+.bf-restored .exh-scroll .exh-track { opacity: 1 !important; }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: none; }
