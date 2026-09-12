@@ -48,6 +48,20 @@
   });
   CMS.registerWidget("dyncat", Control);
 })();
+
+/* 좌측 카테고리 클릭 → 중간 목록 없이 바로 편집 화면으로 이동
+   (각 카테고리에 파일이 하나뿐이라 목록 화면이 불필요) */
+(function () {
+  var SINGLE = { works: "works", exhibitions: "exhibitions", projects: "projects", writings: "writings", artist: "artist" };
+  function autoEnter() {
+    var m = location.hash.match(/^#\/collections\/([a-z]+)$/);
+    if (m && SINGLE[m[1]]) {
+      location.replace(location.pathname + "#/collections/" + m[1] + "/entries/" + SINGLE[m[1]]);
+    }
+  }
+  window.addEventListener("hashchange", autoEnter);
+  setTimeout(autoEnter, 300);
+})();
 </script>
 </body>
 </html>
