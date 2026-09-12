@@ -879,6 +879,14 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .card a:hover figcaption strong,
 .home-exh-card:hover h3 { background-size: 100% 1px; }
 
+/* 터치 기기: 밑줄·오버레이 호버 효과 전부 비활성화 */
+@media (hover: none) {
+  .card a figcaption strong,
+  .home-exh-card h3 { background-image: none; }
+  .card a:hover .thumb::after,
+  .home-exh-card:hover .exh-thumb::after { background: rgba(0,0,0,0); }
+}
+
 /* ===== 페이지 이동 페이드아웃 ===== */
 body.page-leave main {
   opacity: 0 !important;
