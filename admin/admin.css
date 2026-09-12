@@ -1,0 +1,110 @@
+/* ===== 관리자 화면 스타일 =====
+   위계: 연회색 바탕 → 섹션 흰 카드 → 굵은 섹션 제목 → 행 카드 목록 */
+
+body { background: #f3f4f6 !important; }
+
+/* 편집 컬럼: 중앙 정렬 */
+div[class*="ControlPaneContainer"] {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 36px 24px 100px !important;
+}
+
+/* 최상위 필드(카테고리 관리 / 목록)를 카드로 */
+div[class*="ControlPaneContainer"] > div > div[class*="ControlContainer"] {
+  background: #fff;
+  border: 1px solid #e5e7ea;
+  border-radius: 12px;
+  padding: 22px 22px 18px;
+  margin-bottom: 26px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* 라벨: 배경 칩 제거, 뚜렷한 제목으로 */
+label[class*="FieldLabel"] {
+  background: transparent !important;
+  color: #16181c !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  padding: 0 !important;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+/* 카드의 첫 라벨 = 섹션 제목 (더 크게) */
+div[class*="ControlPaneContainer"] > div > div[class*="ControlContainer"] > label[class*="FieldLabel"],
+div[class*="ControlPaneContainer"] > div > div[class*="ControlContainer"] > div > label[class*="FieldLabel"] {
+  font-size: 16px !important;
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* 목록 항목: 행 카드 */
+div[class*="SortableListItem"] {
+  background: #fff;
+  border: 1px solid #e2e4e8 !important;
+  border-radius: 9px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+div[class*="SortableListItem"]:hover {
+  border-color: #c9cdd3 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* 항목 상단 바(드래그·삭제 아이콘 줄) */
+div[class*="ListItemTopBar"] {
+  background: #f8f9fa !important;
+  border: 0 !important;
+  border-bottom: 1px solid #eef0f2 !important;
+  padding: 8px 10px !important;
+}
+
+/* 접힌 항목의 요약 텍스트 */
+div[class*="NestedObjectLabel"] {
+  font-size: 14px !important;
+  font-weight: 600;
+  color: #23262b;
+  background: #fff !important;
+  padding: 13px 16px !important;
+}
+
+/* 목록 헤더(펼침 + 추가 버튼 줄) */
+div[class*="TopBarContainer"] {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 0 12px !important;
+}
+
+/* '~ 추가' 버튼: 검정 버튼으로 */
+div[class*="TopBarContainer"] button[class*="AddButton"],
+div[class*="TopBarContainer"] > div:last-child button {
+  background: #17191d !important;
+  color: #fff !important;
+  border-radius: 7px !important;
+  padding: 8px 14px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+}
+div[class*="TopBarContainer"] > div:last-child button:hover { background: #34383f !important; }
+
+/* 입력 필드: 여유 있게 */
+div[class*="ControlPaneContainer"] input:not([type="checkbox"]):not([type="file"]),
+div[class*="ControlPaneContainer"] textarea,
+div[class*="ControlPaneContainer"] select {
+  font-size: 14px !important;
+  padding: 10px 12px !important;
+  border-radius: 7px !important;
+  line-height: 1.5 !important;
+}
+div[class*="ControlPaneContainer"] textarea { min-height: 96px; }
+
+/* 필드 사이 간격 */
+div[class*="ControlContainer"] div[class*="ControlContainer"] { margin-bottom: 14px; }
+
+/* 안내 문구(hint) */
+div[class*="ControlHint"], p[class*="ControlHint"] {
+  color: #8a8f98 !important;
+  font-size: 12px !important;
+}

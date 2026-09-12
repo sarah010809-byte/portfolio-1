@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>admin dev (스타일 작업용 — 실제 데이터와 무관)</title>
+</head>
+<body>
+<script>window.CMS_MANUAL_INIT = true;</script>
+<script src="https://unpkg.com/decap-cms@^3.8.4/dist/decap-cms.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<link rel="stylesheet" href="admin.css">
+<script>
+fetch("config.yml?dev=" + Date.now())
+  .then((r) => r.text())
+  .then((txt) => {
+    const config = jsyaml.load(txt);
+    config.backend = { name: "test-repo" }; // 로그인 없이 UI만 확인
+    config.load_config_file = false; // config.yml 자동 로드 방지 (이중 로드 → 중복 오류)
+    CMS.init({ config });
+  });
+</script>
+</body>
+</html>
