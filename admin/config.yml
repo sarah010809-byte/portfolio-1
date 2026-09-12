@@ -19,50 +19,48 @@ editor:
 collections:
   - name: "works"
     label: "Works"
-    description: "작품을 추가·수정합니다. 연도와 시리즈를 입력하면 사이트에서 By Years / By Series 로 자동 정리됩니다. '대표 작품'에 체크한 작품이 홈 화면 전체에 표시됩니다."
+    description: "시리즈 안에 작품을 추가합니다. 시리즈의 배치 순서 = 사이트 By Series 표시 순서이고, 연도별 보기는 작품의 '제작 연도'로 자동 정리됩니다. '대표 작품'에 체크한 작품이 홈 화면 전체에 표시됩니다."
     files:
       - label: "작품 목록"
         name: "works"
         file: "data/works.json"
         fields:
-          - label: "시리즈 표시 순서 (위→아래 순, 작품의 시리즈명과 똑같이 입력)"
+          - label: "시리즈"
             label_singular: "시리즈"
-            name: "series_order"
-            widget: "list"
-            required: false
-            collapsed: true
-            summary: "{{fields.name}}"
-            fields:
-              - { label: "시리즈 이름", name: "name", widget: "string" }
-          - label: "작품"
-            label_singular: "작품"
-            name: "works"
+            name: "series"
             widget: "list"
             collapsed: true
-            summary: "{{fields.year}} — {{fields.title_ko}}"
+            summary: "{{fields.name_ko}}"
             fields:
-              - { label: "작품 제목 (한글)", name: "title_ko", widget: "string" }
-              - { label: "작품 제목 (영문)", name: "title_en", widget: "string" }
-              - { label: "제작 연도 (예: 2026)", name: "year", widget: "string" }
-              - { label: "시리즈 이름 (한글)", name: "series_ko", widget: "string", required: false, hint: "같은 시리즈끼리 묶어서 볼 수 있습니다. 비워두면 '기타'로 묶입니다" }
-              - { label: "시리즈 이름 (영문)", name: "series_en", widget: "string", required: false }
-              - { label: "형식 (한글, 예: 혼합 매체)", name: "medium_ko", widget: "string", required: false, hint: "작품 상세페이지에만 표시됩니다" }
-              - { label: "형식 (영문, 예: Mixed media)", name: "medium_en", widget: "string", required: false }
-              - { label: "관련 전시 (한글)", name: "related_ko", widget: "string", required: false, hint: "예: 《전시명》, 갤러리, 2026" }
-              - { label: "관련 전시 (영문)", name: "related_en", widget: "string", required: false }
-              - { label: "작품 설명 (한글)", name: "desc_ko", widget: "text", required: false }
-              - { label: "작품 설명 (영문)", name: "desc_en", widget: "text", required: false }
-              - { label: "대표 이미지", name: "image", widget: "image", required: false }
-              - label: "추가 이미지 (디테일 컷)"
-                label_singular: "이미지"
-                name: "images"
+              - { label: "시리즈 이름 (한글)", name: "name_ko", widget: "string" }
+              - { label: "시리즈 이름 (영문)", name: "name_en", widget: "string" }
+              - label: "이 시리즈의 작품"
+                label_singular: "작품"
+                name: "works"
                 widget: "list"
-                required: false
                 collapsed: true
-                hint: "디테일 컷이 있으면 추가하세요. 상세페이지에서 자동으로 슬라이드됩니다"
+                summary: "{{fields.year}} — {{fields.title_ko}}"
                 fields:
-                  - { label: "이미지", name: "image", widget: "image" }
-              - { label: "대표 작품 (홈 화면에 표시)", name: "featured", widget: "boolean", required: false, default: false }
+                  - { label: "작품 제목 (한글)", name: "title_ko", widget: "string" }
+                  - { label: "작품 제목 (영문)", name: "title_en", widget: "string" }
+                  - { label: "제작 연도 (예: 2026)", name: "year", widget: "string", hint: "연도별 보기는 이 값으로 자동 분류됩니다" }
+                  - { label: "형식 (한글, 예: 혼합 매체)", name: "medium_ko", widget: "string", required: false, hint: "작품 상세페이지에만 표시됩니다" }
+                  - { label: "형식 (영문, 예: Mixed media)", name: "medium_en", widget: "string", required: false }
+                  - { label: "관련 전시 (한글)", name: "related_ko", widget: "string", required: false, hint: "예: 《전시명》, 갤러리, 2026" }
+                  - { label: "관련 전시 (영문)", name: "related_en", widget: "string", required: false }
+                  - { label: "작품 설명 (한글)", name: "desc_ko", widget: "text", required: false }
+                  - { label: "작품 설명 (영문)", name: "desc_en", widget: "text", required: false }
+                  - { label: "대표 이미지", name: "image", widget: "image", required: false }
+                  - label: "추가 이미지 (디테일 컷)"
+                    label_singular: "이미지"
+                    name: "images"
+                    widget: "list"
+                    required: false
+                    collapsed: true
+                    hint: "디테일 컷이 있으면 추가하세요. 상세페이지에서 자동으로 슬라이드됩니다"
+                    fields:
+                      - { label: "이미지", name: "image", widget: "image" }
+                  - { label: "대표 작품 (홈 화면에 표시)", name: "featured", widget: "boolean", required: false, default: false }
 
   - name: "exhibitions"
     label: "Exhibitions"

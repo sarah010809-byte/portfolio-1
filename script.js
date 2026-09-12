@@ -270,9 +270,18 @@ function setupExhScroll() {
   window.addEventListener("load", () => { measure(); onScroll(); });
 }
 
+// 시리즈 중첩 구조 → 평탄한 작품 목록 (각 작품에 시리즈명 부여)
+function flattenWorks(data) {
+  if (data.series) {
+    return data.series.flatMap((s) =>
+      (s.works || []).map((w) => ({ ...w, series_ko: s.name_ko, series_en: s.name_en })));
+  }
+  return data.works || [];
+}
+
 // 작품 목록을 연도 내림차순으로 정렬 (원본 인덱스 유지)
 function sortedWorks(data) {
-  return (data.works || [])
+  return flattenWorks(data)
     .map((w, idx) => ({ ...w, idx }))
     .sort((a, b) => String(b.year).localeCompare(String(a.year)));
 }
@@ -539,17 +548,19 @@ async function renderDynamic() {
           key: y, label_ko: y, label_en: y,
           items: list.filter((w) => w.year === y),
         }));
+      } else if (data.series) {
+        // 시리즈 순서 = 관리자 목록의 배치 순서 그대로
+        groups = data.series.map((s) => {
+          const key = s.name_en || s.name_ko || "Other";
+          return {
+            key,
+            label_ko: s.name_ko || s.name_en || "기타",
+            label_en: s.name_en || s.name_ko || "Other",
+            items: list.filter((w) => seriesKey(w) === key),
+          };
+        }).filter((g) => g.items.length);
       } else {
-        // 관리자에서 지정한 시리즈 순서 우선, 없는 시리즈는 최신작 순으로 뒤에
-        const order = (data.series_order || []).map((s) => (typeof s === "string" ? s : s.name));
-        const keys = [...new Set(list.map(seriesKey))].sort((a, b) => {
-          const ia = order.findIndex((n) => n && (a === n || list.some((w) => seriesKey(w) === a && (w.series_ko === n || w.series_en === n))));
-          const ib = order.findIndex((n) => n && (b === n || list.some((w) => seriesKey(w) === b && (w.series_ko === n || w.series_en === n))));
-          if (ia === -1 && ib === -1) return 0;
-          if (ia === -1) return 1;
-          if (ib === -1) return -1;
-          return ia - ib;
-        });
+        const keys = [...new Set(list.map(seriesKey))];
         groups = keys.map((k) => {
           const items = list.filter((w) => seriesKey(w) === k);
           return {
