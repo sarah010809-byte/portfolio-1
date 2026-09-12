@@ -802,32 +802,23 @@ async function renderDynamic() {
                 w.title_en, `work.html?i=${w.idx}`)).join("")}</div>
           </section>` : "";
 
-        // 국제갤러리식: 상단 이미지 좌 + 정보 우, 아래로 전시 소개 / 설치 전경 / 작품
+        // 포스트식: 중앙 제목(전시명·날짜·장소) → 이미지 → 설명 → 이미지들 세로 흐름
         exhDetail.innerHTML = `
           <p class="back-link detail-back"><a href="exhibitions.html" data-ko="← 전시 목록" data-en="← All Exhibitions">← 전시 목록</a></p>
-          <article class="exh-detail">
-            <div class="exh-detail-top">
-              <div class="exh-detail-image">${
-                e.image
-                  ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}">`
-                  : `<div class="placeholder exh-placeholder"><span>${esc(e.title_en)}</span></div>`
-              }</div>
-              <div class="exh-detail-side">
-                <h1 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h1>
-                <p class="exh-date">${esc(e.date)}</p>
-                <p class="exh-venue" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>
-              </div>
-            </div>
-            ${(e.desc_ko || e.desc_en) ? `
-            <section class="exh-detail-section">
-              <h3 data-ko="전시 소개" data-en="About the Exhibition">전시 소개</h3>
-              <p class="exh-detail-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>
-            </section>` : ""}
-            ${extra.length ? `
-            <section class="exh-detail-section">
-              <h3 data-ko="설치 전경" data-en="Installation Views">설치 전경</h3>
-              ${extraHTML}
-            </section>` : ""}
+          <article class="exh-detail post-detail">
+            <header class="post-head">
+              <h1 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h1>
+              <p class="post-meta">${esc(e.date)}${(e.venue_ko || e.venue_en)
+                ? ` · <span data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</span>` : ""}</p>
+            </header>
+            <div class="post-image">${
+              e.image
+                ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}">`
+                : `<div class="placeholder exh-placeholder"><span>${esc(e.title_en)}</span></div>`
+            }</div>
+            ${(e.desc_ko || e.desc_en)
+              ? `<p class="post-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
+            ${extraHTML}
             ${relWorksHTML}
           </article>
           <div class="work-nav">${prev}${next}</div>
@@ -919,12 +910,15 @@ async function renderDynamic() {
 
         projectDetail.innerHTML = `
           <p class="back-link detail-back"><a href="projects.html" data-ko="← 프로젝트 목록" data-en="← All Projects">← 프로젝트 목록</a></p>
-          <article class="exh-detail">
-            <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
-            <p class="exh-date">${esc(p.year)}${p.category ? ` · ${esc(catLabel(pcats, p.category))}` : ""}</p>
-            <p class="exh-venue" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>
-            <p class="exh-detail-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>
-            <div class="exh-detail-image project-image-below">${pImageArea}</div>
+          <article class="exh-detail post-detail">
+            <header class="post-head">
+              <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
+              <p class="post-meta">${esc(p.year)}${p.category ? ` · ${esc(catLabel(pcats, p.category))}` : ""}${(p.venue_ko || p.venue_en)
+                ? ` · <span data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</span>` : ""}</p>
+            </header>
+            <div class="post-image">${pImageArea}</div>
+            ${(p.desc_ko || p.desc_en)
+              ? `<p class="post-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}
           </article>
           <div class="work-nav">${pPrev}${pNext}</div>
           ${othersHTML}`;

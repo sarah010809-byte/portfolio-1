@@ -1229,6 +1229,41 @@ body.subpage .exh-layout { min-height: 100vh; }
 .hover-zoom.show { opacity: 1; }
 
 /* ===== 전시 상세: 국제갤러리식 (상단 이미지 좌 + 정보 우, 아래 섹션들) ===== */
+/* ===== 상세 포스트식 레이아웃 (중앙 제목 → 이미지 → 설명 세로 흐름) ===== */
+.post-detail {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.post-head {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.post-head h1 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+.post-meta {
+  color: #999;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+}
+.post-image { margin-bottom: 32px; }
+.post-image img { width: 100%; display: block; }
+.post-desc {
+  max-width: 700px;
+  margin: 0 auto 44px;
+  color: #444;
+  font-size: 0.95rem;
+  white-space: pre-line;
+}
+.post-detail .exh-detail-image { margin-bottom: 32px; } /* 설치 전경 이미지들 세로 나열 */
+.post-detail .exh-detail-section { margin: 56px 0 0; }
+
+@media (max-width: 768px) {
+  .post-head { margin-bottom: 28px; }
+  .post-head h1 { font-size: 1.2rem; }
+}
+
 /* 좌측 끝을 상단 로고(공통 여백선)와 정렬 — 국제갤러리식 */
 .exh-detail-top {
   display: flex;
