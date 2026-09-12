@@ -970,6 +970,11 @@ body.page-leave main {
 }
 .exh-item:hover .exh-info h2::after { transform: scaleX(1); }
 
+/* 터치 기기(모바일)에서는 호버 밑줄 효과 없음 */
+@media (hover: none) {
+  .exh-info h2::after { display: none; }
+}
+
 /* 콘텐츠 영역 상단 제목 (Works 페이지) */
 .content-title {
   font-size: 1.35rem;
