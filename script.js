@@ -523,7 +523,16 @@ async function renderDynamic() {
           items: list.filter((w) => w.year === y),
         }));
       } else {
-        const keys = [...new Set(list.map(seriesKey))];
+        // 관리자에서 지정한 시리즈 순서 우선, 없는 시리즈는 최신작 순으로 뒤에
+        const order = (data.series_order || []).map((s) => (typeof s === "string" ? s : s.name));
+        const keys = [...new Set(list.map(seriesKey))].sort((a, b) => {
+          const ia = order.findIndex((n) => n && (a === n || list.some((w) => seriesKey(w) === a && (w.series_ko === n || w.series_en === n))));
+          const ib = order.findIndex((n) => n && (b === n || list.some((w) => seriesKey(w) === b && (w.series_ko === n || w.series_en === n))));
+          if (ia === -1 && ib === -1) return 0;
+          if (ia === -1) return 1;
+          if (ib === -1) return -1;
+          return ia - ib;
+        });
         groups = keys.map((k) => {
           const items = list.filter((w) => seriesKey(w) === k);
           return {

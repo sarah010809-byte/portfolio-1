@@ -437,6 +437,14 @@ body:not(.subpage) .exh-sticky {
   transition: color 0.2s;
 }
 .series-nav a:hover { color: #111; }
+/* 긴 시리즈 제목: 목록에선 2줄까지만 보여주고 말줄임 (전체 제목은 해당 섹션 제목에서) */
+.series-nav a {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 220px;
+}
 .series-nav a.current-year { color: #111; font-weight: 600; }
 
 .page-content { flex: 1; min-width: 0; }

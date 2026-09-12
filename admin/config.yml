@@ -24,6 +24,15 @@ collections:
         name: "works"
         file: "data/works.json"
         fields:
+          - label: "시리즈 표시 순서 (위→아래 순, 작품의 시리즈명과 똑같이 입력)"
+            label_singular: "시리즈"
+            name: "series_order"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "시리즈 이름", name: "name", widget: "string" }
           - label: "작품"
             label_singular: "작품"
             name: "works"
