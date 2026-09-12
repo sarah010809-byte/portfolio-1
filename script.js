@@ -119,15 +119,29 @@ if (hasHero) {
   footer.parentNode.insertBefore(wrap, footer);
 })();
 
-// ===== 뒤로가기(bfcache) 복원 시 화면이 투명하게 남는 문제 방지 =====
-window.addEventListener("pageshow", (e) => {
-  if (!e.persisted) return;
+// ===== 뒤로가기 시 화면이 투명하게 남는 문제 방지 =====
+function forceVisible() {
   document.documentElement.classList.add("bf-restored");
   const m = document.querySelector("main");
   if (m) { m.style.animation = "none"; m.style.opacity = "1"; }
-  // 등장 효과 상태 재계산을 위해 스크롤 핸들러들 갱신
   window.dispatchEvent(new Event("scroll"));
   window.dispatchEvent(new Event("resize"));
+}
+// 1) bfcache 복원 감지
+window.addEventListener("pageshow", (e) => { if (e.persisted) forceVisible(); });
+// 2) 뒤로가기로 인한 재로딩 감지 (bfcache 미사용 브라우저)
+try {
+  const navEntry = performance.getEntriesByType("navigation")[0];
+  if (navEntry && navEntry.type === "back_forward") forceVisible();
+} catch (_) {}
+// 3) 최후 안전망: 로드 1초 뒤, 화면 안에 있는데 아직 투명한 섹션이 있으면 강제 표시
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.querySelectorAll(".reveal:not(.reveal-in)").forEach((s) => {
+      const r = s.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < window.innerHeight) s.classList.add("reveal-in");
+    });
+  }, 1000);
 });
 
 // ===== 모바일 메뉴 (우측 슬라이드 + 햄버거 ↔ X) =====
