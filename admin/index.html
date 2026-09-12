@@ -54,11 +54,19 @@
    (각 카테고리에 파일이 하나뿐이라 목록 화면이 불필요) */
 (function () {
   var SINGLE = { works: "works", exhibitions: "exhibitions", projects: "projects", writings: "writings", artist: "artist" };
+  var prevHash = "";
   function autoEnter() {
     var m = location.hash.match(/^#\/collections\/([a-z]+)$/);
     if (m && SINGLE[m[1]]) {
-      location.replace(location.pathname + "#/collections/" + m[1] + "/entries/" + SINGLE[m[1]]);
+      // 편집 화면에서 '뒤로'로 나온 경우는 건너뛰지 않음 (카테고리 선택 화면으로 복귀 허용)
+      var cameFromEntry = prevHash.indexOf("#/collections/" + m[1] + "/entries/") === 0;
+      if (!cameFromEntry) {
+        prevHash = location.hash;
+        location.replace(location.pathname + "#/collections/" + m[1] + "/entries/" + SINGLE[m[1]]);
+        return;
+      }
     }
+    prevHash = location.hash;
   }
   window.addEventListener("hashchange", autoEnter);
   setTimeout(autoEnter, 300);
