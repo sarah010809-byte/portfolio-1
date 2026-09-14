@@ -151,6 +151,12 @@ div[class*="ControlHint"], p[class*="ControlHint"] {
   font-size: 12px !important;
 }
 
+/* 편집 화면 좌측 상단 '뒤로가기' 링크 — 목록 화면을 건너뛰므로 불필요해 숨김
+   (카테고리 전환은 좌측 고정 사이드바(#quick-side)로) */
+div[class*="EditorToolbar"] [class*="Back"] {
+  display: none !important;
+}
+
 /* 상단 저장/재게시 버튼: 더 크고 눈에 띄게 */
 div[class*="EditorToolbar"] button {
   font-size: 15px !important;
