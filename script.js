@@ -851,9 +851,11 @@ async function renderDynamic() {
               (w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
               (w.related_en && e.title_en && w.related_en.includes(e.title_en)))
           : [];
+        // 관련 작품은 "다른 전시"와 같은 .other-works 스타일을 그대로 써서
+        // 상단바와 같은 폭으로 (post-detail의 좁은 폭 제약 밖에 위치)
         const relWorksHTML = relWorks.length ? `
-          <section class="exh-detail-section">
-            <h3 data-ko="관련 작품" data-en="Related Works">관련 작품</h3>
+          <section class="other-works">
+            <h2 data-ko="관련 작품" data-en="Related Works">관련 작품</h2>
             <div class="grid">${relWorks.map((w) =>
               cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
                 w.title_en, `work.html?i=${w.idx}`)).join("")}</div>
@@ -883,8 +885,8 @@ async function renderDynamic() {
               ? `<p class="post-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
             ${extraHTML}
             ${exhWorksHTML}
-            ${relWorksHTML}
           </article>
+          ${relWorksHTML}
           <div class="work-nav">${prev}${next}</div>
           ${exOthersHTML}`;
         document.title = `${e.title_ko} — An Se Eun`;
