@@ -977,8 +977,8 @@ async function renderDynamic() {
         projectDetail.innerHTML = `
           <p class="back-link detail-back"><a href="projects.html" data-ko="← 프로젝트 목록" data-en="← All Projects">← 프로젝트 목록</a></p>
           <article class="exh-detail post-detail">
-            <div class="post-top${hasSubworks && !pImages.length ? " no-image" : ""}">
-              ${(!hasSubworks || pImages.length) ? `<div class="post-image">${pImageArea}</div>` : ""}
+            <div class="post-top${hasSubworks ? " no-image" : ""}">
+              ${!hasSubworks ? `<div class="post-image">${pImageArea}</div>` : ""}
               <div class="post-side">
                 <p class="post-cat">${p.category ? esc(catLabel(pcats, p.category)) : "Projects"}</p>
                 <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
