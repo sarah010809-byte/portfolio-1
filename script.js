@@ -555,7 +555,7 @@ async function renderDynamic() {
         .sort((a, b) => String(b.year).localeCompare(String(a.year)))
         .slice(0, 3);
       homeWritings.innerHTML = `<div class="home-card-row">${picks.map((t) => {
-        const cat = [null, catLabel(wcats, t.category, "Etc.")];
+        const cat = [null, t.label_en || t.label_ko || catLabel(wcats, t.category, "Etc.")];
         return `
         <a class="home-exh-card home-writing-card" href="writing.html?i=${t.idx}">
           <div class="exh-thumb">${
@@ -1034,7 +1034,7 @@ async function renderDynamic() {
       const href = (n) => `writings.html?${selCat ? `cat=${selCat}&` : ""}p=${n}`;
       // 글에는 이미지가 없으므로 썸네일 없이 텍스트 목록으로 구성
       writingsContent.innerHTML = `<div class="writing-rows">${view.map((t) => {
-        const catName = catLabel(wcats, t.category, "Etc.");
+        const catName = t.label_en || t.label_ko || catLabel(wcats, t.category, "Etc.");
         const byline = (t.author_ko || t.author_en || t.source_ko || t.source_en)
           ? [t.author_ko || t.author_en, t.source_ko || t.source_en].filter(Boolean).join(" · ") : "";
         return `
@@ -1064,7 +1064,7 @@ async function renderDynamic() {
       if (i < 0) i = 0;
       const t = all[i];
       if (t) {
-        const catName = catLabel(wcats, t.category, "");
+        const catName = t.label_en || t.label_ko || catLabel(wcats, t.category, "");
         writingDetail.innerHTML = `
           <p class="back-link detail-back"><a href="writings.html" data-ko="← 글 목록" data-en="← All Writings">← 글 목록</a></p>
           <article class="writing-detail">
@@ -1088,7 +1088,7 @@ async function renderDynamic() {
             <h2 data-ko="다른 글" data-en="More Writings">다른 글</h2>
             <ul class="writing-list">${all.map((o, k) => {
               if (k === i) return "";
-              const ocName = catLabel(wcats, o.category, "Etc.");
+              const ocName = o.label_en || o.label_ko || catLabel(wcats, o.category, "Etc.");
               return `<li><a href="writing.html?i=${o.idx}">
                 <span class="card-cat">${esc(ocName)}</span>
                 <span class="writing-title" data-ko="${esc(o.title_ko)}" data-en="${esc(o.title_en)}">${esc(o.title_ko)}</span>

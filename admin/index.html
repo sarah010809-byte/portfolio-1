@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>사이트 관리 — An Se Eun</title>
 <!-- 설정 파일에 버전을 붙여 캐시 문제 방지 (설정 변경 시 숫자만 올리면 됨) -->
-<link href="config.yml?v=10" type="text/yaml" rel="cms-config-url">
+<link href="config.yml?v=11" type="text/yaml" rel="cms-config-url">
 <link rel="stylesheet" href="admin.css?v=4">
 </head>
 <body>
@@ -50,23 +50,18 @@
   CMS.registerWidget("dyncat", Control);
 })();
 
-/* 좌측 카테고리 클릭 → 중간 목록 없이 바로 편집 화면으로 이동
-   (각 카테고리에 파일이 하나뿐이라 목록 화면이 불필요) */
+/* 좌측 카테고리 클릭 → 중간 목록 화면 없이 항상 바로 편집 화면으로 이동
+   (각 카테고리에 파일이 하나뿐이라 목록 화면이 불필요)
+   — 해시만 바꾸면(location.replace) Decap 내부 라우터가 못 따라가는 경우가 있어
+     쿼릭 사이드바 전환과 동일하게 해시를 정해놓고 완전히 새로고침한다 */
 (function () {
   var SINGLE = { works: "works", exhibitions: "exhibitions", projects: "projects", writings: "writings", artist: "artist" };
-  var prevHash = "";
   function autoEnter() {
     var m = location.hash.match(/^#\/collections\/([a-z]+)$/);
     if (m && SINGLE[m[1]]) {
-      // 편집 화면에서 '뒤로'로 나온 경우는 건너뛰지 않음 (카테고리 선택 화면으로 복귀 허용)
-      var cameFromEntry = prevHash.indexOf("#/collections/" + m[1] + "/entries/") === 0;
-      if (!cameFromEntry) {
-        prevHash = location.hash;
-        location.replace(location.pathname + "#/collections/" + m[1] + "/entries/" + SINGLE[m[1]]);
-        return;
-      }
+      location.hash = "#/collections/" + m[1] + "/entries/" + SINGLE[m[1]];
+      location.reload();
     }
-    prevHash = location.hash;
   }
   window.addEventListener("hashchange", autoEnter);
   setTimeout(autoEnter, 300);

@@ -216,6 +216,8 @@ collections:
                   - { label: "제목 (한글)", name: "title_ko", widget: "string" }
                   - { label: "제목 (영문)", name: "title_en", widget: "string" }
                   - { label: "연도 (예: 2026)", name: "year", widget: "string" }
+                  - { label: "표시 라벨 (한글, 예: 인터뷰 — 비워두면 분류 이름이 표시됩니다)", name: "label_ko", widget: "string", required: false, hint: "글 제목 위 작은 표시를 분류와 다르게 쓰고 싶을 때만 입력하세요" }
+                  - { label: "표시 라벨 (영문, 예: Interview)", name: "label_en", widget: "string", required: false }
                   - { label: "글쓴이 (한글)", name: "author_ko", widget: "string", required: false }
                   - { label: "글쓴이 (영문)", name: "author_en", widget: "string", required: false }
                   - { label: "출처·발행처 (한글)", name: "source_ko", widget: "string", required: false }
