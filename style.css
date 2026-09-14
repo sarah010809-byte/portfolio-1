@@ -505,7 +505,9 @@ body:not(.subpage) .exh-sticky {
 }
 .work-top .work-image { flex: 1; min-width: 0; }
 
-.work-side { width: 240px; flex-shrink: 0; padding-top: 48px; }
+/* 이미지가 세로로 긴 경우 캡션이 짧아 먼저 스크롤되어 사라져 보이는 문제
+   → 이미지를 스크롤하는 동안 캡션이 계속 옆에 붙어 있도록 고정 */
+.work-side { width: 240px; flex-shrink: 0; padding-top: 48px; position: sticky; top: 100px; }
 .work-side h1 { font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; font-style: italic; }
 .side-medium {
   color: #666;
@@ -1280,7 +1282,9 @@ body.subpage .exh-layout { min-height: 100vh; }
   margin-bottom: 32px;
 }
 .post-top .post-image { flex: 1; min-width: 0; margin-bottom: 0; }
-.post-side { width: 240px; flex-shrink: 0; padding-top: 4px; }
+/* 이미지가 세로로 긴 경우 캡션이 짧아 먼저 스크롤되어 사라져 보이는 문제
+   → 이미지를 스크롤하는 동안 캡션이 계속 옆에 붙어 있도록 고정 */
+.post-side { width: 240px; flex-shrink: 0; padding-top: 4px; position: sticky; top: 100px; }
 .post-top.no-image .post-side { width: auto; }
 .post-side .post-head, .post-side { display: block; }
 .post-head h1, .post-side h1 {
@@ -1292,7 +1296,7 @@ body.subpage .exh-layout { min-height: 100vh; }
 }
 @media (max-width: 768px) {
   .post-top { flex-direction: column; gap: 20px; }
-  .post-side { width: auto; padding-top: 0; }
+  .post-side { width: auto; padding-top: 0; position: static; }
 }
 .post-desc {
   margin: 0 0 44px;
@@ -1673,7 +1677,7 @@ img.profile { object-fit: cover; }
   .work-page.page-layout { padding-top: 124px; padding-left: 20px; padding-right: 20px; }
   .work-page .detail-back { display: none; }
   .work-top { flex-direction: column; gap: 20px; }
-  .work-side { width: auto; padding-top: 0; }
+  .work-side { width: auto; padding-top: 0; position: static; }
 
   /* 전시: 모바일에선 이미지 아래에 정보 */
   .exh-item { flex-direction: column; gap: 16px; }
@@ -1711,10 +1715,10 @@ img.profile { object-fit: cover; }
   .series { margin-bottom: 64px; }
   .exh-item { margin-bottom: 64px; }
 
-  /* 작품 상세 하단 카드: 정사각형 2개씩, 이름 없이 */
+  /* 작품 상세 하단 카드: 정사각형 2개씩 */
   .other-works .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .other-works .card .thumb { aspect-ratio: 1 / 1; margin-bottom: 0; }
-  .other-works .card figcaption { display: none; }
+  .other-works .card figcaption { font-size: 0.8rem; line-height: 1.4; margin-top: 8px; }
 
   /* 메인 페이지: 정사각형 대표작 6개 (2개씩 3줄) */
   #home-works .grid {
