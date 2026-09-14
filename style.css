@@ -881,18 +881,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .writing-list .card-cat { min-width: 90px; margin-bottom: 0; }
 
 /* ===== 카드 호버 모션: 제목에 밑줄이 스르륵 (Works/Projects 메인 목록에만) =====
-   이미지 어두워지는 효과는 Projects에만 — Works는 원본 비율 유지 방식이라
-   레터박스 여백까지 어두워져 보이므로 적용하지 않음 (아래 #works-content 참고) */
-#projects-content .card a .thumb { position: relative; }
-#projects-content .card a .thumb::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0);
-  transition: background 0.3s ease;
-  pointer-events: none;
-}
-#projects-content .card a:hover .thumb::after { background: rgba(0,0,0,0.07); }
+   이미지가 어두워지는 효과는 쓰지 않음(통일) — 제목 밑줄만 */
 #works-content .card a figcaption strong,
 #projects-content .card a figcaption strong {
   display: inline;
@@ -907,11 +896,10 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 #works-content .card a:hover figcaption strong,
 #projects-content .card a:hover figcaption strong { background-size: 100% 1px; }
 
-/* 터치 기기: 밑줄·오버레이 호버 효과 전부 비활성화 */
+/* 터치 기기: 밑줄 호버 효과 비활성화 */
 @media (hover: none) {
   #works-content .card a figcaption strong,
   #projects-content .card a figcaption strong { background-image: none; }
-  #projects-content .card a:hover .thumb::after { background: rgba(0,0,0,0); }
 }
 
 /* ===== 페이지 이동 페이드아웃 ===== */
@@ -1168,7 +1156,7 @@ body.page-leave main {
 /* Projects 페이지: 카드 2열 크게 + 콘텐츠 영역이 화면을 채우게 */
 #projects-content .grid { grid-template-columns: repeat(2, 1fr); gap: 48px 40px; }
 /* 다른 페이지와 같은 텍스트 위계: 회색 분류 → 굵은 제목 → 회색 장소·연도 */
-.proj-caption { display: flex; flex-direction: column; gap: 2px; }
+.proj-caption { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
 .card .proj-caption .home-cat { margin-bottom: 2px; color: #aaa; }
 .card .proj-caption strong {
   font-weight: 600;
