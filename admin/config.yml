@@ -44,8 +44,9 @@ collections:
                   - { label: "작품 제목 (한글)", name: "title_ko", widget: "string" }
                   - { label: "작품 제목 (영문)", name: "title_en", widget: "string" }
                   - { label: "제작 연도 (예: 2026)", name: "year", widget: "string", hint: "연도별 보기는 이 값으로 자동 분류됩니다" }
-                  - { label: "형식 (한글, 예: 혼합 매체)", name: "medium_ko", widget: "string", required: false, hint: "작품 상세페이지에만 표시됩니다" }
-                  - { label: "형식 (영문, 예: Mixed media)", name: "medium_en", widget: "string", required: false }
+                  - { label: "재료 (한글, 예: 혼합 매체)", name: "medium_ko", widget: "string", required: false, hint: "작품 상세페이지에만 표시됩니다" }
+                  - { label: "재료 (영문, 예: Mixed media)", name: "medium_en", widget: "string", required: false }
+                  - { label: "크기 (예: 50 x 50 cm each (set of 6) / Ø 140 cm)", name: "size", widget: "string", required: false }
                   - { label: "관련 전시 (한글)", name: "related_ko", widget: "string", required: false, hint: "예: 《전시명》, 갤러리, 2026" }
                   - { label: "관련 전시 (영문)", name: "related_en", widget: "string", required: false }
                   - { label: "작품 설명 (한글)", name: "desc_ko", widget: "text", required: false }
@@ -234,62 +235,130 @@ collections:
         fields:
           - { label: "프로필 사진", name: "profile_image", widget: "image", required: false }
           - { label: "이메일 주소", name: "email", widget: "string" }
+          - { label: "전화번호", name: "phone", widget: "string", required: false }
           - { label: "인스타그램 주소 (https://...)", name: "instagram", widget: "string", hint: "About 페이지·푸터 아이콘에 모두 반영됩니다" }
           - { label: "인스타그램 아이디 표시용 (예: @gildong)", name: "instagram_handle", widget: "string" }
-          - { label: "작가 노트 (한글)", name: "statement_ko", widget: "text" }
-          - { label: "작가 노트 (영문)", name: "statement_en", widget: "text" }
-          - label: "학력 (C.V.)"
+          - { label: "작가 노트 (한글)", name: "statement_ko", widget: "text", required: false }
+          - { label: "작가 노트 (영문)", name: "statement_en", widget: "text", required: false }
+          - label: "학력 (한글) — C.V. 한글/영문은 항목 수가 달라도 됩니다"
             label_singular: "학력"
-            name: "education"
+            name: "education_ko"
             widget: "list"
             required: false
             collapsed: true
-            summary: "{{fields.year}} — {{fields.text_ko}}"
+            summary: "{{fields.year}} — {{fields.text}}"
             fields:
-              - { label: "연도", name: "year", widget: "string" }
-              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
-              - { label: "내용 (영문)", name: "text_en", widget: "string" }
-          - label: "개인전 (C.V.)"
+              - { label: "연도", name: "year", widget: "string", required: false }
+              - { label: "내용", name: "text", widget: "string" }
+          - label: "Education (영문)"
+            label_singular: "Item"
+            name: "education_en"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text}}"
+            fields:
+              - { label: "Year", name: "year", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "string" }
+          - label: "개인전 (한글)"
             label_singular: "개인전"
-            name: "solo"
+            name: "solo_ko"
             widget: "list"
+            required: false
             collapsed: true
-            summary: "{{fields.year}} — {{fields.text_ko}}"
+            summary: "{{fields.year}} — {{fields.text}}"
             fields:
-              - { label: "연도", name: "year", widget: "string" }
-              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
-              - { label: "내용 (영문)", name: "text_en", widget: "string" }
-          - label: "단체전 (C.V.)"
+              - { label: "연도", name: "year", widget: "string", required: false }
+              - { label: "내용", name: "text", widget: "string" }
+          - label: "Solo Exhibitions (영문)"
+            label_singular: "Item"
+            name: "solo_en"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text}}"
+            fields:
+              - { label: "Year", name: "year", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "string" }
+          - label: "단체전 (한글)"
             label_singular: "단체전"
-            name: "group"
-            widget: "list"
-            collapsed: true
-            summary: "{{fields.year}} — {{fields.text_ko}}"
-            fields:
-              - { label: "연도", name: "year", widget: "string" }
-              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
-              - { label: "내용 (영문)", name: "text_en", widget: "string" }
-          - label: "수상 및 레지던시 (C.V.)"
-            label_singular: "항목"
-            name: "awards"
+            name: "group_ko"
             widget: "list"
             required: false
             collapsed: true
-            summary: "{{fields.year}} — {{fields.text_ko}}"
+            summary: "{{fields.year}} — {{fields.text}}"
             fields:
-              - { label: "연도", name: "year", widget: "string" }
-              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
-              - { label: "내용 (영문)", name: "text_en", widget: "string" }
-          - label: "전시 기획 (C.V.)"
-            label_singular: "항목"
-            name: "curatorial"
+              - { label: "연도", name: "year", widget: "string", required: false }
+              - { label: "내용", name: "text", widget: "string" }
+          - label: "Group Exhibitions (영문)"
+            label_singular: "Item"
+            name: "group_en"
             widget: "list"
             required: false
             collapsed: true
-            summary: "{{fields.year}} — {{fields.text_ko}}"
+            summary: "{{fields.year}} — {{fields.text}}"
             fields:
-              - { label: "연도", name: "year", widget: "string" }
-              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
-              - { label: "내용 (영문)", name: "text_en", widget: "string" }
+              - { label: "Year", name: "year", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "string" }
+          - label: "전시 기획 (한글)"
+            label_singular: "항목"
+            name: "curatorial_ko"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string", required: false }
+              - { label: "내용", name: "text", widget: "string" }
+          - label: "Curatorial Projects (영문)"
+            label_singular: "Item"
+            name: "curatorial_en"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text}}"
+            fields:
+              - { label: "Year", name: "year", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "string" }
+          - label: "퍼포먼스 및 무대미술 (한글)"
+            label_singular: "항목"
+            name: "performance_ko"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string", required: false }
+              - { label: "내용", name: "text", widget: "string" }
+          - label: "Performance & Stage Design (영문)"
+            label_singular: "Item"
+            name: "performance_en"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text}}"
+            fields:
+              - { label: "Year", name: "year", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "string" }
+          - label: "수상 및 레지던시 (한글)"
+            label_singular: "항목"
+            name: "awards_ko"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string", required: false }
+              - { label: "내용", name: "text", widget: "string" }
+          - label: "Awards & Residencies (영문)"
+            label_singular: "Item"
+            name: "awards_en"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text}}"
+            fields:
+              - { label: "Year", name: "year", widget: "string", required: false }
+              - { label: "Text", name: "text", widget: "string" }
           - { label: "작품 소장 (한글, 쉼표로 구분)", name: "collections_ko", widget: "text", required: false }
           - { label: "작품 소장 (영문)", name: "collections_en", widget: "text", required: false }

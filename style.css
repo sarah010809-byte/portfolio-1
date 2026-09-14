@@ -88,7 +88,7 @@ img { max-width: 100%; display: block; }
 }
 
 .logo {
-  font-weight: 800;
+  font-weight: 600;
   font-size: 1.35rem;
   letter-spacing: 0.02em;
 }
@@ -405,9 +405,7 @@ body:not(.subpage) .exh-sticky {
 .home-exh-card .exh-thumb img,
 .home-exh-card .exh-thumb .placeholder {
   width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.5s ease;
 }
-.home-exh-card:hover .exh-thumb img { transform: scale(1.04); }
 .home-exh-card h3 { font-size: 1rem; line-height: 1.35; }
 .home-exh-card .exh-venue { font-size: 0.85rem; margin-top: 0; line-height: 1.4; }
 
@@ -801,8 +799,9 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .writing-author { color: #999; font-size: 0.85rem; margin-left: auto; }
 
 .writing-detail { max-width: 720px; margin: 0 auto; }
-.writing-detail h1 { font-size: 1.4rem; margin: 6px 0 8px; }
-.writing-meta { color: #999; font-size: 0.85rem; margin-bottom: 36px; }
+.writing-detail h1 { font-size: 1.4rem; margin: 6px 0 10px; }
+.writing-byline { color: #555; font-size: 0.95rem; margin-bottom: 6px; }
+.writing-source-line { color: #999; font-size: 0.85rem; margin-bottom: 44px; }
 .writing-body {
   white-space: pre-line;
   color: #333;
@@ -821,15 +820,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 }
 
 .card .thumb { aspect-ratio: 4 / 3; margin-bottom: 14px; overflow: hidden; background: #f7f7f7; }
-.card .thumb img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.card a:hover .thumb img { transform: scale(1.04); }
-
-/* 프로젝트 페이지: 카드 호버 시 이미지 확대 효과 제거 */
-#projects-content .card a:hover .thumb img,
-#project-detail .card a:hover .thumb img { transform: none; }
+.card .thumb img { width: 100%; height: 100%; object-fit: cover; }
 
 /* 작품 페이지: 그리드 칸은 유지하고 이미지는 원본 비율대로 (PKM 갤러리 스타일) */
 #works-content .grid { row-gap: 40px; } /* 카드 위아래 간격 살짝 여유 */
@@ -997,7 +988,7 @@ body.page-leave main {
 .exh-placeholder { aspect-ratio: 4 / 3; }
 
 .exh-info { flex: 1; min-width: 0; }
-.exh-info h2 { font-size: 1.2rem; margin-bottom: 6px; }
+.exh-info h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 6px; }
 
 /* 호버 시 제목에 왼쪽→오른쪽 밑줄 */
 .exh-info h2 {
@@ -1279,7 +1270,7 @@ body.subpage .exh-layout { min-height: 100vh; }
 }
 .post-head h1 {
   font-size: 1.7rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.35;
   margin-bottom: 14px;
 }
@@ -1324,10 +1315,11 @@ body.subpage .exh-layout { min-height: 100vh; }
 .exh-work-cap .cap-title { color: #111; font-weight: 700; font-style: italic; }
 .exh-work-cap .cap-medium { letter-spacing: -0.01em; }
 
-/* 프로젝트 상세: 한 사진에 여러 작품이 담긴 경우 — 작품별 캡션 목록 */
+/* 프로젝트 상세: 한 사진에 여러 작품이 담긴 경우 — 작품별 캡션 목록 (제목/재료/크기/연도 줄바꿈) */
 .proj-subworks { margin: 24px 0 0; padding: 0; list-style: none; }
-.proj-subworks li { display: flex; gap: 10px; padding: 10px 0; border-top: 1px solid #eee; font-size: 0.85rem; color: #666; }
-.proj-subworks li strong { color: #111; font-weight: 700; flex-shrink: 0; }
+.proj-subworks li { padding: 14px 0; border-top: 1px solid #eee; font-size: 0.85rem; line-height: 1.7; color: #666; }
+.proj-subworks li span { display: block; letter-spacing: -0.01em; }
+.proj-subworks li strong { display: block; color: #111; font-weight: 700; font-style: italic; margin-bottom: 2px; }
 
 @media (max-width: 768px) {
   .post-head { margin-bottom: 28px; }

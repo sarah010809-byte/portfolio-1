@@ -728,6 +728,7 @@ async function renderDynamic() {
           <aside class="work-side">
             <h1 data-ko="${esc(w.title_ko)}" data-en="${esc(w.title_en)}">${esc(w.title_ko)}</h1>
             ${(w.medium_en || w.medium_ko) ? `<p class="side-medium">${esc(w.medium_en || w.medium_ko)}</p>` : ""}
+            ${w.size ? `<p class="side-medium">${esc(w.size)}</p>` : ""}
             <p class="side-caption side-year">${esc(w.year)}</p>
             ${seriesLine}
             ${desc}
@@ -973,18 +974,24 @@ async function renderDynamic() {
             <header class="post-head">
               <p class="post-cat">${p.category ? esc(catLabel(pcats, p.category)) : "Projects"}</p>
               <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
-              <p class="post-meta">${esc(p.year)}</p>
               ${(p.collaborator_ko || p.collaborator_en)
                 ? `<p class="post-meta" data-ko="${esc(p.collaborator_ko || p.collaborator_en)}" data-en="${esc(p.collaborator_en || p.collaborator_ko)}">${esc(p.collaborator_ko || p.collaborator_en)}</p>` : ""}
-              ${(p.medium_en || p.medium_ko || p.size)
-                ? `<p class="post-meta">${esc([p.medium_en || p.medium_ko, p.size].filter(Boolean).join(", "))}</p>` : ""}
+              ${(p.medium_en || p.medium_ko)
+                ? `<p class="post-meta">${esc(p.medium_en || p.medium_ko)}</p>` : ""}
+              ${p.size ? `<p class="post-meta">${esc(p.size)}</p>` : ""}
               ${(p.venue_ko || p.venue_en)
                 ? `<p class="post-meta" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>` : ""}
+              <p class="post-meta">${esc(p.year)}</p>
             </header>
             <div class="post-image">${pImageArea}</div>
             ${(p.works && p.works.length) ? `
             <ul class="proj-subworks">${p.works.map((w) => `
-              <li><strong>${esc(w.title_en || w.title_ko)}</strong><span>${esc([w.medium_en || w.medium_ko, w.size, w.year].filter(Boolean).join(", "))}</span></li>`).join("")}
+              <li>
+                <strong>${esc(w.title_en || w.title_ko)}</strong>
+                ${(w.medium_en || w.medium_ko) ? `<span>${esc(w.medium_en || w.medium_ko)}</span>` : ""}
+                ${w.size ? `<span>${esc(w.size)}</span>` : ""}
+                ${w.year ? `<span>${esc(w.year)}</span>` : ""}
+              </li>`).join("")}
             </ul>` : ""}
             ${(p.desc_ko || p.desc_en)
               ? `<p class="post-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}
@@ -1062,9 +1069,10 @@ async function renderDynamic() {
             ${catName ? `<p class="exh-date">${esc(catName)}</p>` : ""}
             ${t.image ? `<div class="exh-detail-image"><img src="${esc(t.image)}" alt="${esc(t.title_ko)}"></div>` : ""}
             <h1 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h1>
-            <p class="writing-meta">
-              ${t.author_ko || t.author_en ? `<span data-ko="${esc(t.author_ko)}" data-en="${esc(t.author_en)}">${esc(t.author_ko)}</span> · ` : ""}${esc(t.year)}${t.source_ko || t.source_en ? ` · <span data-ko="${esc(t.source_ko)}" data-en="${esc(t.source_en)}">${esc(t.source_ko)}</span>` : ""}
-            </p>
+            ${(t.author_ko || t.author_en)
+              ? `<p class="writing-byline" data-ko="${esc(t.author_ko)}" data-en="${esc(t.author_en)}">${esc(t.author_ko)}</p>` : ""}
+            <p class="writing-source-line">${(t.source_ko || t.source_en)
+              ? `<span data-ko="${esc(t.source_ko)}" data-en="${esc(t.source_en)}">${esc(t.source_ko)}</span>, ` : ""}${esc(t.year)}</p>
             <div class="writing-body" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</div>
             ${t.link ? `<p class="writing-link"><a href="${esc(t.link)}" target="_blank" rel="noopener" data-ko="원문 보기 →" data-en="Read original →">원문 보기 →</a></p>` : ""}
           </article>
@@ -1096,31 +1104,45 @@ async function renderDynamic() {
   if (aboutContent) {
     const a = await loadJSON("data/artist.json");
     if (a) {
+      // 한글/영문 C.V. 항목 수가 달라도 되도록, 언어별로 별도 배열을 그대로 렌더링
+      // (attribute 스왑이 아니라 언어 전환 시 직접 다시 그림)
       const cvList = (items) => `<ul class="cv-list">${(items || []).map((it) =>
-        `<li><span class="year">${esc(it.year)}</span><span data-ko="${esc(it.text_ko)}" data-en="${esc(it.text_en)}">${esc(it.text_ko)}</span></li>`
+        `<li><span class="year">${esc(it.year)}</span><span>${esc(it.text)}</span></li>`
       ).join("")}</ul>`;
 
-      const cvSection = (label_ko, label_en, items) => (items || []).length
-        ? `<h3 data-ko="${esc(label_ko)}" data-en="${esc(label_en)}">${esc(label_ko)}</h3>${cvList(items)}`
-        : "";
+      const cvSection = (label, items) => (items || []).length
+        ? `<h3>${esc(label)}</h3>${cvList(items)}` : "";
+
+      const cvBody = document.createElement("div");
+      const renderCV = (lang) => {
+        const L = (ko, en) => (lang === "ko" ? ko : en);
+        cvBody.innerHTML = `
+          ${cvSection(L("학력", "Education"), lang === "ko" ? a.education_ko : a.education_en)}
+          ${cvSection(L("개인전", "Solo Exhibitions"), lang === "ko" ? a.solo_ko : a.solo_en)}
+          ${cvSection(L("단체전", "Group Exhibitions"), lang === "ko" ? a.group_ko : a.group_en)}
+          ${cvSection(L("전시 기획", "Curatorial Projects"), lang === "ko" ? a.curatorial_ko : a.curatorial_en)}
+          ${cvSection(L("퍼포먼스 및 무대미술", "Performance & Stage Design"), lang === "ko" ? a.performance_ko : a.performance_en)}
+          ${cvSection(L("수상 및 레지던시", "Awards & Residencies"), lang === "ko" ? a.awards_ko : a.awards_en)}
+          ${(a.collections_ko || a.collections_en) ? `
+          <h3>${L("작품 소장", "Selected Collections")}</h3>
+          <p class="cv-collections">${esc(L(a.collections_ko, a.collections_en))}</p>` : ""}`;
+      };
 
       aboutContent.innerHTML = `
         <section class="artist-section artist-cv">
           <h2>C.V.</h2>
-          ${cvSection("학력", "Education", a.education)}
-          ${cvSection("개인전", "Solo Exhibitions", a.solo)}
-          ${cvSection("단체전", "Group Exhibitions", a.group)}
-          ${cvSection("전시 기획", "Curatorial Projects", a.curatorial)}
-          ${cvSection("수상 및 레지던시", "Awards & Residencies", a.awards)}
-          ${(a.collections_ko || a.collections_en) ? `
-          <h3 data-ko="작품 소장" data-en="Selected Collections">작품 소장</h3>
-          <p class="cv-collections" data-ko="${esc(a.collections_ko)}" data-en="${esc(a.collections_en)}">${esc(a.collections_ko)}</p>` : ""}
         </section>
         <section class="artist-section">
           <h2>Contact</h2>
           <p class="contact-line">Email — <a href="mailto:${esc(a.email)}">${esc(a.email)}</a></p>
+          ${a.phone ? `<p class="contact-line">Phone — <a href="tel:${esc(a.phone.replace(/\s+/g, ""))}">${esc(a.phone)}</a></p>` : ""}
           <p class="contact-line">Instagram — <a href="${esc(a.instagram)}" target="_blank" rel="noopener">${esc(a.instagram_handle)}</a></p>
         </section>`;
+      aboutContent.querySelector(".artist-cv").appendChild(cvBody);
+      renderCV(currentLang());
+      // 언어 토글은 항목 개수가 다를 수 있어 속성 스왑이 아니라 다시 그리는 방식으로 대응
+      btnKo.addEventListener("click", () => setTimeout(() => renderCV("ko"), 180));
+      btnEn.addEventListener("click", () => setTimeout(() => renderCV("en"), 180));
     }
   }
 }
