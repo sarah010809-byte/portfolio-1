@@ -6,7 +6,7 @@
 <title>사이트 관리 — An Se Eun</title>
 <!-- 설정 파일에 버전을 붙여 캐시 문제 방지 (설정 변경 시 숫자만 올리면 됨) -->
 <link href="config.yml?v=10" type="text/yaml" rel="cms-config-url">
-<link rel="stylesheet" href="admin.css?v=2">
+<link rel="stylesheet" href="admin.css?v=3">
 </head>
 <body>
 <script src="https://unpkg.com/decap-cms@^3.8.4/dist/decap-cms.js"></script>
@@ -104,6 +104,26 @@
   }
   window.addEventListener("hashchange", sync);
   setInterval(sync, 800); // 초기 로드·내부 라우팅 대비
+})();
+
+/* 목록 항목(x) 삭제 전 확인창
+   목록 항목 상단 바(ListItemTopBar)에는 버튼이 둘뿐 — 펼침/접기(첫 번째), 삭제(마지막).
+   버튼 클래스 이름이 매번 해시라 안정적으로 잡을 수 없어, "그 줄의 마지막 버튼"이라는
+   구조로 삭제 버튼을 식별한다. */
+(function () {
+  document.addEventListener("click", function (e) {
+    var bar = e.target.closest('div[class*="ListItemTopBar"]');
+    if (!bar) return;
+    var btn = e.target.closest("button");
+    if (!btn) return;
+    var buttons = bar.querySelectorAll("button");
+    if (!buttons.length || buttons[buttons.length - 1] !== btn) return;
+    if (!window.confirm("이 항목을 삭제하시겠습니까?")) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+    }
+  }, true);
 })();
 </script>
 </body>

@@ -145,3 +145,11 @@ div[class*="ControlHint"], p[class*="ControlHint"] {
   color: #8a8f98 !important;
   font-size: 12px !important;
 }
+
+/* 상단 저장/재게시 버튼: 더 크고 눈에 띄게 */
+div[class*="EditorToolbar"] button {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 12px 22px !important;
+  border-radius: 8px !important;
+}
