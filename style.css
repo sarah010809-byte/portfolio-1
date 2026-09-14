@@ -1288,7 +1288,7 @@ body.subpage .exh-layout { min-height: 100vh; }
   white-space: pre-line;
 }
 .post-detail .exh-detail-image { margin-bottom: 32px; } /* 설치 전경 이미지들 세로 나열 */
-.post-detail .exh-detail-section { margin: 56px 0 0; }
+.post-detail .exh-detail-section { margin: 56px 0 0; padding-top: 32px; border-top: 1px solid #eee; }
 
 /* 전시 제목은 전시 상세 페이지 안에서만 이탤릭 */
 .post-head h1.exh-title,
@@ -1321,8 +1321,8 @@ body.subpage .exh-layout { min-height: 100vh; }
   gap: 40px;
   align-items: flex-start;
   padding: 32px 0;
-  border-top: 1px solid #eee;
 }
+.proj-subworks li:first-child { padding-top: 0; }
 .proj-subwork-img { flex: 1; min-width: 0; }
 .proj-subwork-img img { width: 100%; display: block; }
 .proj-subwork-cap { width: 240px; flex-shrink: 0; font-size: 0.85rem; line-height: 1.7; color: #666; }
