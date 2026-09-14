@@ -183,6 +183,14 @@ function esc(s) {
   return String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 }
 
+// 관련 전시 문구 안의 전시명을 항상 《》로 감싼다
+// (관리자에서 꺾쇠를 직접 입력하지 않아도 실제 전시명과 매칭되면 자동으로 붙여준다)
+function wrapExhTitle(text, title) {
+  if (!text || !title) return text;
+  if (text.includes(`《${title}》`)) return text;
+  return text.replace(title, `《${title}》`);
+}
+
 function thumbHTML(work, label) {
   if (work.image) {
     return `<div class="thumb"><img src="${esc(work.image)}" alt="${esc(work.title_ko)}" loading="lazy"></div>`;
@@ -663,20 +671,23 @@ async function renderDynamic() {
 
       // 관련 전시 문구에서 실제 전시를 찾아 해당 전시 상세 페이지로 연결
       let relatedHref = "";
+      let exhMatch = null;
       if (w.related_ko || w.related_en) {
         const exhData = await loadJSON("data/exhibitions.json");
-        const exhMatch = exhData
+        exhMatch = exhData
           ? exhAll(exhData).find((e) =>
               (w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
               (w.related_en && e.title_en && w.related_en.includes(e.title_en)))
           : null;
         if (exhMatch) relatedHref = `exhibition.html?i=${exhMatch.idx}`;
       }
+      const relatedKo = exhMatch ? wrapExhTitle(w.related_ko, exhMatch.title_ko) : w.related_ko;
+      const relatedEn = exhMatch ? wrapExhTitle(w.related_en, exhMatch.title_en) : w.related_en;
       const related = (w.related_ko || w.related_en) ? `
         <h3 data-ko="관련 전시" data-en="Related Exhibition">관련 전시</h3>
         ${relatedHref
-          ? `<a class="side-related" href="${relatedHref}" data-ko="${esc(w.related_ko)}" data-en="${esc(w.related_en)}">${esc(w.related_ko)}</a>`
-          : `<p class="side-related" data-ko="${esc(w.related_ko)}" data-en="${esc(w.related_en)}">${esc(w.related_ko)}</p>`}` : "";
+          ? `<a class="side-related" href="${relatedHref}" data-ko="${esc(relatedKo)}" data-en="${esc(relatedEn)}">${esc(relatedKo)}</a>`
+          : `<p class="side-related" data-ko="${esc(relatedKo)}" data-en="${esc(relatedEn)}">${esc(relatedKo)}</p>`}` : "";
 
       const desc = (w.desc_ko || w.desc_en)
         ? `<p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>`

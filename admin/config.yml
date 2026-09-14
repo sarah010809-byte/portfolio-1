@@ -47,7 +47,7 @@ collections:
                   - { label: "재료 (한글, 예: 혼합 매체)", name: "medium_ko", widget: "string", required: false, hint: "작품 상세페이지에만 표시됩니다" }
                   - { label: "재료 (영문, 예: Mixed media)", name: "medium_en", widget: "string", required: false }
                   - { label: "크기 (예: 50 x 50 cm each (set of 6) / Ø 140 cm)", name: "size", widget: "string", required: false }
-                  - { label: "관련 전시 (한글)", name: "related_ko", widget: "string", required: false, hint: "예: 《전시명》, 갤러리, 2026" }
+                  - { label: "관련 전시 (한글)", name: "related_ko", widget: "string", required: false, hint: "예: 전시명, 갤러리, 2026 (전시명은 사이트에서 자동으로 《》 처리됩니다)" }
                   - { label: "관련 전시 (영문)", name: "related_en", widget: "string", required: false }
                   - { label: "작품 설명 (한글)", name: "desc_ko", widget: "text", required: false }
                   - { label: "작품 설명 (영문)", name: "desc_en", widget: "text", required: false }
