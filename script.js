@@ -329,8 +329,8 @@ function catLabel(list, key, fallback) {
   return c ? c.label : (fallback || key || "");
 }
 const DEFAULT_PROJ_CATS = [
-  { key: "collaboration", label: "Collaboration" },
-  { key: "curatorial", label: "Curatorial Project" },
+  { key: "collaboration", label: "Collaborations" },
+  { key: "curatorial", label: "Curatorial Projects" },
 ];
 const DEFAULT_WRITING_CATS = [
   { key: "artist", label: "Artist's Writings" },
@@ -963,6 +963,10 @@ async function renderDynamic() {
               <p class="post-cat">${p.category ? esc(catLabel(pcats, p.category)) : "Projects"}</p>
               <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
               <p class="post-meta">${esc(p.year)}</p>
+              ${(p.collaborator_ko || p.collaborator_en)
+                ? `<p class="post-meta" data-ko="${esc(p.collaborator_ko || p.collaborator_en)}" data-en="${esc(p.collaborator_en || p.collaborator_ko)}">${esc(p.collaborator_ko || p.collaborator_en)}</p>` : ""}
+              ${(p.medium_ko || p.medium_en || p.size)
+                ? `<p class="post-meta" data-ko="${esc([p.medium_ko || p.medium_en, p.size].filter(Boolean).join(", "))}" data-en="${esc([p.medium_en || p.medium_ko, p.size].filter(Boolean).join(", "))}">${esc([p.medium_ko || p.medium_en, p.size].filter(Boolean).join(", "))}</p>` : ""}
               ${(p.venue_ko || p.venue_en)
                 ? `<p class="post-meta" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>` : ""}
             </header>

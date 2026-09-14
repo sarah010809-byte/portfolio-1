@@ -85,16 +85,11 @@
                                          "desc_en":  "The work description goes here. You can freely write about materials, dimensions, and background. Enter it in the admin page.",
                                          "related_ko":  "《전시 제목》, 갤러리 이름, 서울, 2026",
                                          "related_en":  "“Exhibition Title”, Gallery Name, Seoul, 2026",
-                                         "image":  "images/uploads/T16358_10.jpg",
+                                         "image":  "",
                                          "images":  [
-                                                        {
-                                                            "image":  "images/uploads/temp-detail-1.svg"
-                                                        },
-                                                        {
-                                                            "image":  "images/uploads/temp-detail-2.svg"
-                                                        }
+
                                                     ],
-                                         "featured":  true
+                                         "featured":  false
                                      },
                                      {
                                          "title_ko":  "작품 제목 3",
@@ -176,7 +171,7 @@
                                          "desc_en":  "",
                                          "related_ko":  "",
                                          "related_en":  "",
-                                         "image":  "images/uploads/70288.jpg",
+                                         "image":  "",
                                          "images":  [
 
                                                     ],

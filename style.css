@@ -964,8 +964,8 @@ body.page-leave main {
 .page-title {
   text-align: center;
   font-size: 3.8rem;
-  font-weight: 500; /* 살짝 얇게 */
-  color: #3d3d3d;   /* 진한 회색 */
+  font-weight: 400; /* 조금 더 연하게 */
+  color: #9a9a9a;   /* 연한 회색 */
   letter-spacing: 0.01em;
   margin-bottom: 56px;
   font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
@@ -1287,10 +1287,8 @@ body.subpage .exh-layout { min-height: 100vh; }
 .post-detail .exh-detail-image { margin-bottom: 32px; } /* 설치 전경 이미지들 세로 나열 */
 .post-detail .exh-detail-section { margin: 56px 0 0; }
 
-/* 전시 제목은 이탤릭으로 통일 */
+/* 전시 제목은 전시 상세 페이지 안에서만 이탤릭 */
 .post-head h1.exh-title,
-.exh-info h2,
-.home-exh-card h3,
 #exh-detail .other-works .stack-caption strong { font-style: italic; }
 
 /* 전시 상세: 전시 출품작 블록 — 단독 컷(+디테일 컷 나란히) 아래 상세 캡션 */
@@ -1310,7 +1308,7 @@ body.subpage .exh-layout { min-height: 100vh; }
   color: #666;
 }
 .exh-work-cap span { display: block; }
-.exh-work-cap .cap-title { color: #111; }
+.exh-work-cap .cap-title { color: #111; font-weight: 700; }
 
 @media (max-width: 768px) {
   .post-head { margin-bottom: 28px; }
