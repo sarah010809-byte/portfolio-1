@@ -1,83 +1,50 @@
 {
-    "categories":  [
-                       {
-                           "key":  "artist",
-                           "label":  "Artist's Writings",
-                           "items":  [
-                                         {
-                                             "title_ko":  "작가의 글 제목",
-                                             "title_en":  "Artist's Writing Title",
-                                             "year":  "2026",
-                                             "author_ko":  "안세은",
-                                             "author_en":  "An Se Eun",
-                                             "source_ko":  "",
-                                             "source_en":  "",
-                                             "body_ko":  "여기에 글 본문(한글)이 들어갑니다. 관리자 페이지의 '글'에서 수정할 수 있고 줄바꿈도 그대로 반영됩니다.",
-                                             "body_en":  "The English text goes here.",
-                                             "link":  ""
-                                         }
-                                     ]
-                       },
-                       {
-                           "key":  "criticism",
-                           "label":  "Criticism",
-                           "items":  [
-                                         {
-                                             "title_ko":  "비평 제목",
-                                             "title_en":  "Criticism Title",
-                                             "year":  "2025",
-                                             "author_ko":  "평론가 이름",
-                                             "author_en":  "Critic Name",
-                                             "source_ko":  "『발행처』",
-                                             "source_en":  "Publication",
-                                             "body_ko":  "비평 본문이 들어갑니다.",
-                                             "body_en":  "The criticism text goes here.",
-                                             "link":  ""
-                                         }
-                                     ]
-                       },
-                       {
-                           "key":  "interview",
-                           "label":  "Interview",
-                           "items":  [
-                                         {
-                                             "title_ko":  "인터뷰 제목",
-                                             "title_en":  "Interview Title",
-                                             "year":  "2025",
-                                             "author_ko":  "매체 이름",
-                                             "author_en":  "Media Name",
-                                             "source_ko":  "",
-                                             "source_en":  "",
-                                             "body_ko":  "인터뷰 내용 또는 소개가 들어갑니다. 외부 링크가 있으면 '원문 링크'에 넣어주세요.",
-                                             "body_en":  "Interview text or introduction goes here.",
-                                             "link":  ""
-                                         }
-                                     ]
-                       },
-                       {
-                           "key":  "article",
-                           "label":  "Article",
-                           "items":  [
-                                         {
-                                             "title_ko":  "기사 제목",
-                                             "title_en":  "Article Title",
-                                             "year":  "2024",
-                                             "author_ko":  "기자 이름",
-                                             "author_en":  "Reporter Name",
-                                             "source_ko":  "신문/매체 이름",
-                                             "source_en":  "Newspaper Name",
-                                             "body_ko":  "기사 내용 또는 요약이 들어갑니다.",
-                                             "body_en":  "Article text or summary goes here.",
-                                             "link":  ""
-                                         }
-                                     ]
-                       },
-                       {
-                           "key":  "etc",
-                           "label":  "Etc.",
-                           "items":  [
-
-                                     ]
-                       }
-                   ]
+  "categories": [
+    {
+      "key": "criticism",
+      "label": "Criticism",
+      "items": [
+        {
+          "title_ko": "전시 서문: 《NOT CONFORMED》",
+          "title_en": "Exhibition Text for NOT CONFORMED",
+          "year": "2026",
+          "author_ko": "라우라 비고 (Laura Vigo), 이리스 아미즐레브 (Iris Amizlev)",
+          "author_en": "Laura Vigo and Iris Amizlev",
+          "source_ko": "몬트리올 미술관 큐레이터",
+          "source_en": "Curators, Montreal Museum of Fine Arts",
+          "body_ko": "안세은의 텍스트는 구조와 리듬을 통해 통제하고자 하는 잠재의식적 충동과, 이에 적응해 나가는 감수성을 보여준다. 안세은의 연작 '우리가 사랑을 이야기할 때 (When We Talk About Love)'는 현대사회에서 관계의 취약함에 주목하며, 인간 관계의 미묘하고도 감지하기 어려운 뉘앙스를 깊이 탐구한다. 만트라처럼 반복되는 하나의 문장은 특정한 배열로 화폭에 나타나는데 컵받침이나 도일리와 같은 진부한 일회용품으로 암시되는, 그 누구도 피해갈 수 없는 인생무상에 대한 은유의 장치가 된다. 여러 나라를 오가며 살아온 안세은은 수많은 만남과 이별 속에서 생겨나는 소통의 불안정성과 단절을 애도한다. 자주 입 밖에 오르지만 좀처럼 기억되지 않는 하나의 문장은 빠르게 맺어지고 쉽사리 해체되는 현대인들의 관계를 고스란히 투영한다.",
+          "body_en": "An Se Eun's written texts reveal an adaptive sensibility—a subconscious urge to control through structure and rhythm. The frailty of contemporary relationships is the focus of An's series When We Talk About Love, as she delves into the subtle and often imperceptible nuances of human connections. A single phrase uttered like a mantra and transferred on a canvas in a particular disposition, ultimately morphs into shapes often alluding to banal disposable objects—like coasters and doilies—and a metaphor for inevitable transience. Having lived across the world, An laments the instability of communication and the disconnection that arises from countless encounters and farewells. A single phrase—often spoken and seldom remembered—here echoes modern relationships—quickly formed and easily dissolved.",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "key": "articles",
+      "label": "Articles",
+      "items": [
+        {
+          "title_ko": "체화된 실천",
+          "title_en": "Embodied Practice",
+          "year": "2026",
+          "author_ko": "인터뷰: 라우라 비고 (Laura Vigo), 이리스 아미즐레브 (Iris Amizlev)",
+          "author_en": "Interview with Laura Vigo and Iris Amizlev",
+          "source_ko": "ART/AROUND, 몬트리올 미술관 큐레이터",
+          "source_en": "ART/AROUND — Curators, Montreal Museum of Fine Arts",
+          "body_ko": "ArtAround: 이번 전시를 준비하면서, 작업을 설명하는 용어로 '체화된 실천 (embodied practice)'이라는 말을 자주 들었습니다. 이 표현이 어떻게 와닿는지, 그리고 그것이 예술가로서의 자신을 어떻게 정의해 주는지 궁금합니다.\n\n안세은: 저에게 작업은 일종의 생명줄과 같았습니다. 저를 붙잡아 주고 삶의 중심을 잃지 않게 해주는 존재였달까요. 여러 나라를 옮겨 다니며 적응하고 비슷한 어려움을 반복해서 겪는 과정 속에서, 제 삶의 경험은 자연스럽게 작업 방식이나 재료 안에 녹아든 것 같습니다. 지난 25년 동안 외교관인 남편의 부임지를 따라 여러 나라를 옮겨 다니며 살아왔습니다. 새로운 장소에 갈 때마다 수많은 변화가 일어났고, 그 안에서 '내가 생각하는 나'와 '타인이 바라보는 나' 사이의 긴장을 수없이 경험했습니다. 처음부터 작업에 삶을 녹여내겠다고 의도한 적은 없었지만, 돌이켜보니 제 삶의 방식과 작업은 늘 분리되지 않고 함께해 왔습니다. 힘든 시기도 있었습니다. 특히 아이들이 어렸을 때는 작업에 몰두할 시간이나 재료를 마련하는 것조차 쉽지 않았고, 때로는 혼자 고립된 기분이 들기도 했습니다. 도일리를 소재로 작업을 시작하게 된 것도 그 시기였습니다. 케이크나 디저트 아래 놓이는 얇고 장식적인 종이 매트인데, 그 섬세함과 연약함에 마음이 끌렸습니다. 마치 당시 제 상황처럼 소중하면서도 동시에 덧없게 느껴졌기 때문입니다. 그 문양들을 확대하여 오랜 시간 공들여 그려 나갔습니다. 그렇게 시작된 도일리 모티프는 지금까지도 제 작업에서 가장 중요한 요소로 남아 있습니다.\n\nArtAround: 당신의 작업에서는 강렬하고 내재된 긴장감이 느껴집니다. 그것이 매우 선명하게 전달되는데요. 그 긴장감은 무엇을 의미하나요? 그것은 어디에서 비롯된다고 보시나요? 의식적으로 인지하고 있는 부분인가요, 아니면 예상치 못한 방식으로 드러난 것인가요?\n\n안세은: 오랫동안 저는 쉽게 버려지거나 사소하게 여겨지는 것들에 주목해 왔습니다. 도일리 같은 일회용 장식 종이, 1센트짜리 동전, 한 번 읽고 버려지는 신문, 그리고 일상의 평범한 풍경들 같은 것들이요. 그런 것들을 크게 확대하거나 오랜 시간 공들여 작업하면서, 그 존재를 다시 보게 하고 새로운 가치를 부여하고 싶었습니다. 이러한 관심은 제가 인간 관계를 바라보는 방식과도 맞닿아 있습니다. 우리는 서로의 삶을 스쳐 지나가듯 지나칠 때가 많습니다. 예의를 갖추고 연결되어 있는 듯 보이지만, 사실은 아주 짧은 만남에 그치는 경우도 많고요. 저는 이런 '덧없는 연결'에 대해, 제가 탐구해온 '금방 사라질 연약한 사물들'과 결부시켜 자주 생각하곤 했습니다. 제 개인적인 경험 역시 세상을 바라보는 이러한 시선에 큰 영향을 주었습니다. 낯선 땅에서 완전한 관광객도, 그렇다고 온전히 정착한 거주자도 아닌 상태로 머무는 일. 어딘가 외부인과 내부자 사이의 경계에 놓여 있는 느낌은 제게 늘 묘한 긴장감을 안겨주었습니다.\n\n저는 \"I love you\", \"I miss you\", \"Thank you\" 같은 문장들을 반복해서 쓰고, 화면을 집요하게 채워 나갑니다. 이 반복적인 행위는 우리가 익히 아는 친숙한 표현들 뒤에 숨겨진 무게와 미묘한 뉘앙스를 드러내는 방식이기도 합니다. 예를 들어, 제게 \"Thank you\"라는 말은 한국어인 \"고맙습니다\"로 들을 때와는 조금 다른 감각으로 다가옵니다. 의미는 비슷할지 몰라도, 다른 언어로 그 말을 들을 때면 말하는 사람의 진심이 무엇인지 한 번 더 생각하게 되거든요. 상대가 느끼는 감사가 제가 짐작하는 그 마음과 일치할까요? 누군가 \"I miss you\"라고 말할 때, 그 말에는 과연 어느 정도의 깊이가 담겨 있을지 가늠해 보곤 합니다. 혹은 반대로, 상대는 진심을 다해 말했는데 제가 그 말을 너무 가볍게 받아들이고 있는 건 아닐까 고민하기도 합니다. 같은 언어를 쓰는 사이라도 말은 결코 동일한 의미로 전달되지 않습니다. 특히 외국어로 들을 때는 그 말에 조금 더 거리감이 생기면서, 묘한 겹이 덧붙여진 것처럼 느껴집니다. 그래서 그 의미들을 더 깊이 곱씹게 됩니다. 작업 과정에서 저는 물감과 펜촉으로 한 글자 한 글자 정성껏 써 내려가며 긴 시간을 보냅니다. 선을 가지런히 유지하고 글자를 일정하게 맞추려 노력하지만, 화면에 쓰여진 각각의 \"I love you\"는 결국 미세하게 다른 모습을 하고 있습니다. 같은 말이 반복되더라도 그 의미는 결코 같을 수 없다고 생각합니다. 그래서 제 작업에서 나타나는 긴장은 어떤 극적인 갈등이라기보다, 우리가 무심코 내뱉는 말과 그 속에 담긴 감정의 무게 사이, 그 미묘한 틈에서 생깁니다. 같은 문장을 무수히 반복해도 결코 같아질 수 없다는 사실을 직시하고 그 차이를 끈질기게 관찰하는 것, 그 지점에 제 작업의 핵심과 긴장이 존재합니다.\n\nArtAround: 당신의 작업은 제작 과정뿐 아니라 완성된 작품에서도 깊은 친밀감(intimacy)이 느껴집니다. 이러한 친밀함은 관람자에게 어떻게 전달된다고 생각하시나요? 특히 관람자가 작품에 가까이 다가가 천천히 들여다보며 시간을 보내게 되는 그 경험이 어떤 방식으로 작용한다고 보시는지도 궁금합니다.\n\n안세은: 저는 오래전부터 큰 영향을 주지 않으면서도 그저 존재하는 것들, 있어도 그만이고 없어도 그만인 것들에 관심을 가져왔습니다. 이번 작업에서는 도일리 형상 위를 아주 작고 빽빽하게 반복되는 텍스트로 덮고 있는데, 멀리서는 거의 읽을 수 없어요. 그래서 관람객이 작품에 가까이 다가와 몸을 기울이고 들여다보며, 글자를 하나하나 발견하고 반복되는 문장 속 의미를 되새겨 보기를 바랍니다. 그렇게 가까이 다가서는 순간의 거리는 단순히 물리적인 거리를 좁히는 것 이상의 의미를 갖습니다. 가까이 마주할 때 한 글자 한 글자에 들인 시간과 정성이 느껴지고, 반복되는 리듬을 따라 단어 이면의 의미를 천천히 곱씹게 되기 때문입니다. 저는 바로 그 순간에 친밀함이 생긴다고 생각합니다. 모든 존재는 주의 깊게 바라볼 때 비로소 그 가치를 드러낸다고 믿습니다. 하지만 빠르고 바쁘게 흘러가는 일상 속에서 우리는 그렇게 바라볼 시간이나 여유를 좀처럼 갖기 어렵습니다. 관람객이 잠시 멈추어 작품과 가까이 마주하는 그 순간, 그 멈춤의 시간이 진정한 친밀함을 향한 하나의 몸짓이 되기를 희망합니다.\n\nArtAround: 그렇다면 이제 당신의 작업 전반에 어떤 방식으로든 내재되어 있는 '집', 그리고 '가정성(domesticity)'이라는 개념에 대해 좀 더 이야기해 볼까요?\n\n안세은: 저는 분명 존재하지만 눈에 잘 띄지는 않는 것들에 마음이 끌리곤 합니다. 어떤 면에서 그런 것들은 반복적인 일들, 특히 가사 노동을 떠올리게 하죠. 집안일은 하지 않으면 금방 티가 나지만, 다 해놓고 나면 마치 아무 일도 없었던 것처럼 언제나 그랬던 것처럼 티가 나지 않더라고요. 그러한 반복의 속성, 그리고 쉽게 간과된다는 점이 제가 작업에 사용하는 작고 소박한 사물들과 매우 닮았다는 생각이 듭니다.\n\nArtAround: 공간에 처음 들어서면 모든 것이 제자리에 놓여 있는 듯, 고요하고 평온한 느낌을 줍니다. 하지만 조금 더 가까이 들여다보면, 그 고요함 아래에 미묘한 동요가 일렁이고 있다는 걸 깨닫게 되죠. 마치 얼음 아래의 움직임처럼요. 표면은 고요해 보이지만, 그 아래에는 끊임없이 움직이고 변화하는 에너지가 가득합니다. 그리고 바로 그 지점에, 비록 크게 드러나지는 않더라도 분명히 존재합니다. 바로 '순응하지 않는 마음(Non conformity)' 말이에요. 여러분은 모두 어머니로서, 누군가를 보살피고 길러내는 시간을 살아오셨습니다. 저희는 여러분의 작업에서 그러한 면모가 드러난다고 느낍니다. 작품에서 드러나는 세심함과 '돌봄'의 감각 같은 것들 말이에요. 이러한 돌봄의 태도는 작업 과정에서 어떻게 나타나나요? 창작할 때 무언가를 보살피고 키워낸다는 감각을 느끼시나요? 이러한 헌신과 몰입은 매우 인상적으로 다가오며, 남성 예술가들에게서 항상 볼 수 있는 것은 아닌 어떤 특징처럼 느껴지기도 합니다.\n\n안세은: 저 또한 집에서 가사 일을 병행하며 모든 것의 균형을 잡으려 애쓰던 시기가 있었습니다. 주로 식탁에 앉아, 그때그때 비어 있는 공간을 찾아 옮겨 다니며 작업하곤 했죠. 일상의 틈새, 그 짧은 시간과 좁은 공간 속으로 끊임없이 스며들듯 들어가, 다른 일들 사이사이에 작업을 이어가려 했던 것 같아요. 조금 이상하게 들릴 수도 있지만, 저에게 작업은 저 자신을 돌보는 시간이었습니다. 스스로를 가만히 들여다보고 생각할 수 있는, 일종의 명상이기도 했고요. 집안일을 하다가도 그런 작은 순간들을 놓치지 않으려고 했고, 그 감각을 붙잡으려고 늘 애썼던 것 같아요. 지금은 작업실이 따로 있지만, 가끔은 오히려 그때가 그립기도 합니다. 가정이라는 삶의 리듬 속에서 치열하게 작업하던 그 시간이요. 엄마이자 주부로서 집안일과 작업을 병행하며 균형을 잡아온 제 상황을 생각해보면, 이번 전시 제목은 제 이야기와 아주 잘 맞는 것 같습니다.\n\nArtAround: 여러분은 모두 시간을 쪼개어 작업을 이어나가고 계시죠. 그 과정에는 상당한 수준의 인내와 끈기가 필요할 것 같은데, 그렇지 않나요?\n\n안세은: 작가로 살아오며 제게 '인내'는 무엇보다 아주 중요한 부분이었어요. 가족과 함께 새로운 나라로 이주할 때마다, 제 작업 도구들을 늘 가장 마지막에 풀었습니다. 가족들이 먼저 자리를 잡고 나서야 비로소 제 작업을 다시 시작할 수 있었거든요. 그런 의미에서 제 작업은 항상 다른 모든 일들 뒤에 밀려나 있었습니다. 이런 과정이 여러 번 반복되다 보니 작가로서의 정체성을 지키는 게 쉽지 않았고, '왜 계속 작업을 해야 하는가' 하는 근본적인 의문이 드는 순간도 많았습니다. 그런데 지나고 돌아보니, 그런 중단과 인내의 시간들이 오히려 지금의 작업을 만들어 온 것 같아요. 제 작업은 오랜 시간 반복하고 쌓아가는 과정을 통해 이루어지는데, 어쩌면 그 리듬 자체가 지난 세월 제가 살아온 삶의 방식을 그대로 반영하고 있는지도 모르겠습니다. 한국으로 돌아와 온전히 작업에 몰입할 수 있는 공간을 갖게 된 지금도, 가끔은 작업을 계속할 수 없을지 몰라 노심초사했던 그때를 떠올립니다. 결국 그 시간을 견뎌낸 경험이 지금의 저를 지탱하는 중요한 기반이 되었으니까요. 어쩌면 제 작업은 작업실 안에서 만들어진 것이 아니라, 일상의 평범한 순간들과 함께 호흡하며 천천히 형성되어 온 것이 아닐까 생각합니다.",
+          "body_en": "ArtAround: While preparing this exhibition, we often heard the term \"embodied practice\" used to describe your work. How does that resonate with you, and define who you are as an artist?\n\nSE EUN: For me, making art has been like a lifeline—something that keeps me grounded. Through moving, adapting, and repeating familiar challenges, my life experience naturally is embodied with my process and materials. For the past 25 years, I have followed my husband's diplomatic assignments, moving from country to country. Each new place brought changes, often feeling a tension between who I am and how others perceive me. I never set out to create an embodied practice, but in retrospect, my way of living and working has always been inseparable. There were some difficult moments. Even finding time and materials for my work was especially trying when my children were young. I felt isolated. During that period, I began working with doilies: the delicate, paper mats often placed as ornaments on plates under cakes and sweet confections. I was drawn to their beauty and fragility. They felt both precious and fleeting, much like my own situation. I would magnify these patterns and spend long hours drawing them. Today, that doily motif remains a central element in my work.\n\nArtAround: You seem to carry a strong, intrinsic sense of tension in your work. It's something that really comes through. What does that tension represent for you? Where does it come from? Is it something you're consciously aware of, or has it emerged in ways you hadn't anticipated?\n\nSE EUN: For a long time, I focused on things that are easily discarded or considered trivial—disposable decorative papers like doilies, one-cent coins, daily newspapers that are read once and thrown away, and ordinary scenes from everyday life. By enlarging them or spending a long time carefully working on them, I wanted to draw attention to their existence and give them value. Similarly, this connects to how I think about human relationships today. We sometimes pass through each other's lives casually. We maintain politeness and appear to connect, but these are just brief encounters. I've often thought about this sense of fleeting connection alongside my exploration of ephemeral objects. My own life experience has also shaped this perspective. Not exactly a tourist, but not fully a settled resident either. Positioned at the boundary between outsider and insider, and living in that in-between state has always carried a certain tension for me.\n\nI repeatedly write phrases such as \"I love you,\" \"I miss you,\" and \"Thank you\", filling the surface of the painting almost obsessively. This repetitive act is a reflection of the weight and nuance behind these familiar expressions. The word \"Thank you\" feels subtly different to me when I hear it in English compared to Korean. Although the meaning is similar, hearing it in another language makes me pause and think more carefully about what the speaker truly intends. Is their gratitude the same as what I imagine? When someone says \"I miss you,\" how much depth does that expression carry? Or perhaps the opposite: the person may speak with sincerity, but I might receive those words too lightly. Even between people who share the same language, words can never carry exactly the same meaning. But when spoken in a foreign language, they seem to gain an extra layer or distance, which makes me reflect on them even more. In my work, I spend hours carefully writing each letter using paint and a pen nib. I try to keep the lines neat and the letters uniform, yet each \"I love you\" ends up looking slightly different. Even when the same words are repeated, their meaning can never be exactly the same. So in my work, tension does not appear as a dramatic conflict but rather in the subtle gap between words that are casually used and the emotional weight they might carry. The fact that the same phrase can be repeated endlessly yet never mean exactly the same thing—and continuing to observe that difference—is where the tension in my work exists.\n\nArtAround: Your practices feel deeply intimate, both in the process of making and in the finished works. How does that intimacy translate to the viewer? The audience can come physically close to the work, to lean in, to spend time and engage with it. How do you think that proximity shapes their experience?\n\nSE EUN: I have long been interested in things that exist without really making much difference, things that could be here or not. In my current series, the tiny, densely repeated text covering the paintings of doilies is unreadable from a distance. I hope viewers come closer, lean in, and notice the letters, reflecting on the meanings within the repeated phrases. The closeness becomes more than physical. Up close, one can sense the time and care invested in each letter and, through the rhythm of repetition, slowly contemplate the meaning behind the words. It is in that moment that intimacy emerges. I believe that all things reveal their value only when observed carefully. Yet in our fast-paced and crowded lives, we rarely have the time or energy to do so. When viewers pause and engage closely with the work, that moment of stillness becomes a gesture of true intimacy.\n\nArtAround: So let's talk more about home and the idea of domesticity, which is inherent in all your works in one way or another.\n\nSE EUN: I think I'm often drawn to things that are there, but not really noticed. In a way, they remind me of repetitive tasks, especially domestic labor. Housework is something that becomes obvious when it's not done, but when it is done, it tends to disappear. That sense of repetition, and of being overlooked, feels very similar to the kinds of small, humble objects I work with.\n\nArtAround: When you first enter the space, it feels so peaceful—as if everything is perfectly in place, calm and still. But look closer, and you realize there's a subtle unrest beneath that calm. Like moving under ice, the surface may seem quiet, but there's a world of motion beneath it—a restless energy, always shifting, always alive. And just like that, even if it is not out loud, there it is: Non conformity! You are all mothers, you've been nurturers in a way. We feel that your work reflects this—there's a carefulness in it, a sense of care. How does this care manifest in your practice? When you create, do you feel a sense of nurturing? We get the sense that this kind of investment in your work is something unique, something not always seen in male artists.\n\nSE EUN: I was also just working from home, trying to balance everything with housework. Most of the time at the kitchen table, moving around and using whatever space wasn't being occupied. I think I was always slipping into these small gaps, little bits of time and space, just trying to keep my work going in between everything else. It might sound a bit strange, but working was also a way of taking care of myself, of looking inward, maybe even healing a bit. Even in the middle of housework, I kept trying to find those small moments, almost struggling to hold onto that feeling. Now I do have a separate studio, but sometimes I actually miss that time, when I was working so intensely within the rhythms of home. I feel like the exhibition title you came up with fits my situation almost perfectly, given that I've been balancing my work with domestic life as a mother and a housewife.\n\nArtAround: You all carve time to practice. That entails a certain degree of patience and resilience, doesn't it?\n\nSE EUN: Patience has been an essential part of my life as an artist. Each time my family moved to a new country, my work materials were always unpacked last. Only after my family had settled could I begin again. In that sense, my work always came after everything else. As this cycle repeated over the years, it became difficult to maintain my identity as an artist, and there were many moments when I questioned why I should continue. But looking back, I realize that those periods of interruption and patience ultimately shaped my practice. My work is built through repetition and accumulation over long periods of time, and perhaps that rhythm reflects the way my life unfolded during those years. Now that I have returned to my home country and finally have a proper studio, I sometimes think back to those days when I worried I might not be able to continue working. In the end, enduring that time has become an important foundation of who I am as an artist today. Perhaps my work was not formed only inside a studio, but slowly shaped alongside those moments of everyday life.",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "key": "statement",
+      "label": "Statement",
+      "items": []
+    },
+    {
+      "key": "essays",
+      "label": "Essays",
+      "items": []
+    }
+  ]
 }
