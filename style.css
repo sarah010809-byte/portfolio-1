@@ -1301,8 +1301,8 @@ body.subpage .exh-layout { min-height: 100vh; }
   gap: 12px;
   align-items: start;
 }
-.exh-work-imgs.cols-2 { grid-template-columns: 1fr 1fr; }
-.exh-work-imgs.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.exh-work-imgs.cols-2 { grid-template-columns: 1.4fr 1fr; }
+.exh-work-imgs.cols-3 { grid-template-columns: 1.4fr 1fr 1fr; }
 .exh-work-imgs img { width: 100%; display: block; }
 .exh-work-cap {
   margin-top: 16px;
