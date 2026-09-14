@@ -15,13 +15,7 @@
           "body_ko": "안세은의 텍스트는 구조와 리듬을 통해 통제하고자 하는 잠재의식적 충동과, 이에 적응해 나가는 감수성을 보여준다. 안세은의 연작 '우리가 사랑을 이야기할 때 (When We Talk about Love)'는 현대사회에서 관계의 취약함에 주목하며, 인간 관계의 미묘하고도 감지하기 어려운 뉘앙스를 깊이 탐구한다. 만트라처럼 반복되는 하나의 문장은 특정한 배열로 화폭에 나타나는데 컵받침이나 도일리와 같은 진부한 일회용품으로 암시되는, 그 누구도 피해갈 수 없는 인생무상에 대한 은유의 장치가 된다. 여러 나라를 오가며 살아온 안세은은 수많은 만남과 이별 속에서 생겨나는 소통의 불안정성과 단절을 애도한다. 자주 입 밖에 오르지만 좀처럼 기억되지 않는 하나의 문장은 빠르게 맺어지고 쉽사리 해체되는 현대인들의 관계를 고스란히 투영한다.",
           "body_en": "An Se Eun's written texts reveal an adaptive sensibility—a subconscious urge to control through structure and rhythm. The frailty of contemporary relationships is the focus of An's series When We Talk about Love, as she delves into the subtle and often imperceptible nuances of human connections. A single phrase uttered like a mantra and transferred on a canvas in a particular disposition, ultimately morphs into shapes often alluding to banal disposable objects—like coasters and doilies—and a metaphor for inevitable transience. Having lived across the world, An laments the instability of communication and the disconnection that arises from countless encounters and farewells. A single phrase—often spoken and seldom remembered—here echoes modern relationships—quickly formed and easily dissolved.",
           "link": ""
-        }
-      ]
-    },
-    {
-      "key": "articles",
-      "label": "Articles",
-      "items": [
+        },
         {
           "title_ko": "체화된 실천",
           "title_en": "Embodied Practice",
@@ -35,6 +29,11 @@
           "link": ""
         }
       ]
+    },
+    {
+      "key": "articles",
+      "label": "Articles",
+      "items": []
     },
     {
       "key": "statement",

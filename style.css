@@ -880,12 +880,10 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 }
 .writing-list .card-cat { min-width: 90px; margin-bottom: 0; }
 
-/* ===== 카드 호버 모션: 이미지 살짝 어두워지고 제목에 밑줄이 스르륵 =====
-   각 카테고리 메인 목록 페이지(Works/Projects)에서만 적용 — 상세 페이지의
-   "관련 작품"·"다른 전시"·"다른 프로젝트" 등 하위 그리드에는 적용하지 않음 */
-#works-content .card a .thumb,
+/* ===== 카드 호버 모션: 제목에 밑줄이 스르륵 (Works/Projects 메인 목록에만) =====
+   이미지 어두워지는 효과는 Projects에만 — Works는 원본 비율 유지 방식이라
+   레터박스 여백까지 어두워져 보이므로 적용하지 않음 (아래 #works-content 참고) */
 #projects-content .card a .thumb { position: relative; }
-#works-content .card a .thumb::after,
 #projects-content .card a .thumb::after {
   content: "";
   position: absolute;
@@ -894,7 +892,6 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   transition: background 0.3s ease;
   pointer-events: none;
 }
-#works-content .card a:hover .thumb::after,
 #projects-content .card a:hover .thumb::after { background: rgba(0,0,0,0.07); }
 #works-content .card a figcaption strong,
 #projects-content .card a figcaption strong {
@@ -914,7 +911,6 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 @media (hover: none) {
   #works-content .card a figcaption strong,
   #projects-content .card a figcaption strong { background-image: none; }
-  #works-content .card a:hover .thumb::after,
   #projects-content .card a:hover .thumb::after { background: rgba(0,0,0,0); }
 }
 
