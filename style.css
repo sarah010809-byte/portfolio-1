@@ -48,7 +48,7 @@ img { max-width: 100%; display: block; }
 
 .site-header.scrolled {
   background: rgba(255,255,255,0.97);
-  color: #111;
+  color: #3d3d3d; /* 이름·메뉴: 블랙 대신 진한 회색 */
   box-shadow: 0 1px 0 #eee;
 }
 
@@ -59,8 +59,8 @@ img { max-width: 100%; display: block; }
 
 .site-header.scrolled .lang-toggle,
 .site-header.scrolled .lang-toggle button { color: #999; }
-.site-header.scrolled .lang-toggle button.active { color: #111; }
-.site-header.scrolled .menu-btn { color: #111; }
+.site-header.scrolled .lang-toggle button.active { color: #3d3d3d; }
+.site-header.scrolled .menu-btn { color: #3d3d3d; }
 
 /* 화면 크기와 무관하게 외곽 여백 고정 (중앙 정렬 안 함) */
 .header-inner {

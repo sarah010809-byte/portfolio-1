@@ -458,13 +458,23 @@ async function renderDynamic() {
   if (hero) {
     const data = await loadJSON("data/works.json");
     if (data) {
-      const list = sortedWorks(data);
-      const feat = list.find((w) => w.featured && w.image) || list.find((w) => w.image);
-      if (feat) {
+      // 1순위: 전용 대표 이미지 파일(images/uploads/hero-main.jpg) — 작품과 무관하게 첫 화면 전용
+      // 2순위: 관리자에서 '대표 작품' 체크한 작품의 이미지
+      let heroSrc = null;
+      try {
+        const head = await fetch("images/uploads/hero-main.jpg", { method: "HEAD" });
+        if (head.ok) heroSrc = "images/uploads/hero-main.jpg";
+      } catch (_) {}
+      if (!heroSrc) {
+        const list = sortedWorks(data);
+        const feat = list.find((w) => w.featured && w.image) || list.find((w) => w.image);
+        if (feat) heroSrc = feat.image;
+      }
+      if (heroSrc) {
         // 배경을 별도 레이어에 넣어 스크롤 시 살짝 확대되는 효과 적용
         const bg = document.createElement("div");
         bg.className = "hero-bg";
-        bg.style.background = `url("${feat.image}") center / cover no-repeat`;
+        bg.style.background = `url("${heroSrc}") center / cover no-repeat`;
         hero.prepend(bg);
       }
     }
