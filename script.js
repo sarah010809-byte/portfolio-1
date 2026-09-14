@@ -822,13 +822,22 @@ async function renderDynamic() {
               </a></figure>`).join("")}</div>
           </section>` : "";
         // 전시에서 선보인 작품들 — 단독 컷(+디테일 컷 나란히)과 상세 캡션
+        // Works에 같은 제목의 작품이 있으면 그 작품 상세 페이지로 연결
+        const worksData = await loadJSON("data/works.json");
+        const workIdxByTitle = new Map();
+        if (worksData) {
+          sortedWorks(worksData).forEach((w) => {
+            if (w.title_en) workIdxByTitle.set(w.title_en, w.idx);
+            if (w.title_ko) workIdxByTitle.set(w.title_ko, w.idx);
+          });
+        }
         const exhWorks = (e.works || []).filter((w) => w.image);
         const exhWorksHTML = exhWorks.map((w) => {
           const details = (w.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
           const imgs = [w.image, ...details];
           const title = w.title_en || w.title_ko || "";
-          return `
-          <figure class="exh-work">
+          const workIdx = workIdxByTitle.get(title);
+          const cap = `
             <div class="exh-work-imgs cols-${Math.min(imgs.length, 3)}">${imgs.map((src) =>
               `<img src="${esc(src)}" alt="${esc(title)}" loading="lazy">`).join("")}</div>
             <figcaption class="exh-work-cap">
@@ -837,14 +846,16 @@ async function renderDynamic() {
                 ? `<span class="cap-medium">${esc(w.medium_en || w.medium_ko)}</span>` : ""}
               ${w.size ? `<span>${esc(w.size)}</span>` : ""}
               ${w.year ? `<span>${esc(w.year)}</span>` : ""}
-            </figcaption>
-          </figure>`;
+            </figcaption>`;
+          return `
+          <figure class="exh-work">${workIdx !== undefined
+            ? `<a href="work.html?i=${workIdx}">${cap}</a>`
+            : cap}</figure>`;
         }).join("");
 
         // 이 전시와 연결된 작품 (작품의 '관련 전시'에 전시명이 포함된 것)
         // — 전시 자체에 작품 목록(works)이 있으면 중복되므로 생략
-        const worksData = exhWorks.length ? null : await loadJSON("data/works.json");
-        const relWorks = worksData
+        const relWorks = (!exhWorks.length && worksData)
           ? sortedWorks(worksData).filter((w) =>
               (w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
               (w.related_en && e.title_en && w.related_en.includes(e.title_en)))
