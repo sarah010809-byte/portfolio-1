@@ -863,20 +863,22 @@ async function renderDynamic() {
         exhDetail.innerHTML = `
           <p class="back-link detail-back"><a href="exhibitions.html" data-ko="← 전시 목록" data-en="← All Exhibitions">← 전시 목록</a></p>
           <article class="exh-detail post-detail">
-            <header class="post-head">
-              <p class="post-cat">Exhibitions</p>
-              <h1 class="exh-title" data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h1>
-              <p class="post-meta">${esc(e.date)}</p>
-              ${(e.curator_ko || e.curator_en)
-                ? `<p class="post-meta" data-ko="${esc(e.curator_ko || e.curator_en)}" data-en="${esc(e.curator_en || e.curator_ko)}">${esc(e.curator_ko || e.curator_en)}</p>` : ""}
-              ${(e.venue_ko || e.venue_en)
-                ? `<p class="post-meta" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>` : ""}
-            </header>
-            <div class="post-image">${
-              e.image
-                ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}">`
-                : `<div class="placeholder exh-placeholder"><span>${esc(e.title_en)}</span></div>`
-            }</div>
+            <div class="post-top">
+              <div class="post-image">${
+                e.image
+                  ? `<img src="${esc(e.image)}" alt="${esc(e.title_ko)}">`
+                  : `<div class="placeholder exh-placeholder"><span>${esc(e.title_en)}</span></div>`
+              }</div>
+              <div class="post-side">
+                <p class="post-cat">Exhibitions</p>
+                <h1 class="exh-title" data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h1>
+                <p class="post-meta">${esc(e.date)}</p>
+                ${(e.curator_ko || e.curator_en)
+                  ? `<p class="post-meta" data-ko="${esc(e.curator_ko || e.curator_en)}" data-en="${esc(e.curator_en || e.curator_ko)}">${esc(e.curator_ko || e.curator_en)}</p>` : ""}
+                ${(e.venue_ko || e.venue_en)
+                  ? `<p class="post-meta" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>` : ""}
+              </div>
+            </div>
             ${(e.desc_ko || e.desc_en)
               ? `<p class="post-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
             ${extraHTML}
@@ -943,6 +945,8 @@ async function renderDynamic() {
       const p = all[i];
       if (p) {
         // 대표 이미지 + 추가 이미지를 하나의 슬라이드쇼로 (썸네일 클릭 전환)
+        // — 프로젝트 안에 작품별 사진(works)이 있으면 대표 이미지 없이 그 목록만 보여줌
+        const hasSubworks = !!(p.works && p.works.length);
         const pImages = [p.image, ...(p.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
         const pImageArea = pImages.length
           ? sliderHTML("project-slider", pImages, p.title_ko)
@@ -973,26 +977,31 @@ async function renderDynamic() {
         projectDetail.innerHTML = `
           <p class="back-link detail-back"><a href="projects.html" data-ko="← 프로젝트 목록" data-en="← All Projects">← 프로젝트 목록</a></p>
           <article class="exh-detail post-detail">
-            <header class="post-head">
-              <p class="post-cat">${p.category ? esc(catLabel(pcats, p.category)) : "Projects"}</p>
-              <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
-              ${(p.collaborator_ko || p.collaborator_en)
-                ? `<p class="post-meta" data-ko="${esc(p.collaborator_ko || p.collaborator_en)}" data-en="${esc(p.collaborator_en || p.collaborator_ko)}">${esc(p.collaborator_ko || p.collaborator_en)}</p>` : ""}
-              ${(p.medium_en || p.medium_ko)
-                ? `<p class="post-meta">${esc(p.medium_en || p.medium_ko)}</p>` : ""}
-              ${p.size ? `<p class="post-meta">${esc(p.size)}</p>` : ""}
-              ${(p.venue_ko || p.venue_en)
-                ? `<p class="post-meta" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>` : ""}
-              <p class="post-meta">${esc(p.year)}</p>
-            </header>
-            <div class="post-image">${pImageArea}</div>
+            <div class="post-top${hasSubworks && !pImages.length ? " no-image" : ""}">
+              ${(!hasSubworks || pImages.length) ? `<div class="post-image">${pImageArea}</div>` : ""}
+              <div class="post-side">
+                <p class="post-cat">${p.category ? esc(catLabel(pcats, p.category)) : "Projects"}</p>
+                <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
+                ${(p.collaborator_ko || p.collaborator_en)
+                  ? `<p class="post-meta" data-ko="${esc(p.collaborator_ko || p.collaborator_en)}" data-en="${esc(p.collaborator_en || p.collaborator_ko)}">${esc(p.collaborator_ko || p.collaborator_en)}</p>` : ""}
+                ${(p.medium_en || p.medium_ko)
+                  ? `<p class="post-meta">${esc(p.medium_en || p.medium_ko)}</p>` : ""}
+                ${p.size ? `<p class="post-meta">${esc(p.size)}</p>` : ""}
+                ${(p.venue_ko || p.venue_en)
+                  ? `<p class="post-meta" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>` : ""}
+                <p class="post-meta">${esc(p.year)}</p>
+              </div>
+            </div>
             ${(p.works && p.works.length) ? `
             <ul class="proj-subworks">${p.works.map((w) => `
               <li>
-                <strong>${esc(w.title_en || w.title_ko)}</strong>
-                ${(w.medium_en || w.medium_ko) ? `<span>${esc(w.medium_en || w.medium_ko)}</span>` : ""}
-                ${w.size ? `<span>${esc(w.size)}</span>` : ""}
-                ${w.year ? `<span>${esc(w.year)}</span>` : ""}
+                ${w.image ? `<div class="proj-subwork-img"><img src="${esc(w.image)}" alt="${esc(w.title_en || w.title_ko)}" loading="lazy"></div>` : ""}
+                <div class="proj-subwork-cap">
+                  <strong>${esc(w.title_en || w.title_ko)}</strong>
+                  ${(w.medium_en || w.medium_ko) ? `<span>${esc(w.medium_en || w.medium_ko)}</span>` : ""}
+                  ${w.size ? `<span>${esc(w.size)}</span>` : ""}
+                  ${w.year ? `<span>${esc(w.year)}</span>` : ""}
+                </div>
               </li>`).join("")}
             </ul>` : ""}
             ${(p.desc_ko || p.desc_en)
@@ -1136,9 +1145,9 @@ async function renderDynamic() {
         </section>
         <section class="artist-section">
           <h2>Contact</h2>
-          <p class="contact-line">Email — <a href="mailto:${esc(a.email)}">${esc(a.email)}</a></p>
-          ${a.phone ? `<p class="contact-line">Phone — <a href="tel:${esc(a.phone.replace(/\s+/g, ""))}">${esc(a.phone)}</a></p>` : ""}
-          <p class="contact-line">Instagram — <a href="${esc(a.instagram)}" target="_blank" rel="noopener">${esc(a.instagram_handle)}</a></p>
+          <p class="contact-line"><span class="contact-label">Email</span><a href="mailto:${esc(a.email)}">${esc(a.email)}</a></p>
+          ${a.phone ? `<p class="contact-line"><span class="contact-label">Phone</span><a href="tel:${esc(a.phone.replace(/\s+/g, ""))}">${esc(a.phone)}</a></p>` : ""}
+          <p class="contact-line"><span class="contact-label">Instagram</span><a href="${esc(a.instagram)}" target="_blank" rel="noopener">${esc(a.instagram_handle)}</a></p>
         </section>`;
       aboutContent.querySelector(".artist-cv").appendChild(cvBody);
       renderCV(currentLang());

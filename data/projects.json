@@ -35,7 +35,7 @@
                                              "venue_en":  "",
                                              "desc_ko":  "",
                                              "desc_en":  "",
-                                             "image":  "images/uploads/collab-zaidshawwa-triptych.jpg",
+                                             "image":  "",
                                              "images":  [
 
                                                         ],
@@ -44,19 +44,22 @@
                                                                "title_en":  "Evolving",
                                                                "medium_en":  "Acrylic on canvas",
                                                                "size":  "160 x 140 cm",
-                                                               "year":  "2023"
+                                                               "year":  "2023",
+                                                               "image":  "images/uploads/collab-evolving.jpg"
                                                            },
                                                            {
                                                                "title_en":  "Game",
                                                                "medium_en":  "Acrylic on canvas",
                                                                "size":  "160 x 140 cm",
-                                                               "year":  "2023"
+                                                               "year":  "2023",
+                                                               "image":  "images/uploads/collab-game-2023.jpg"
                                                            },
                                                            {
                                                                "title_en":  "Game",
                                                                "medium_en":  "Acrylic on canvas",
-                                                               "size":  "60 x 80 cm each (set of 3)",
-                                                               "year":  "2022"
+                                                               "size":  "160 x 140 cm",
+                                                               "year":  "2022",
+                                                               "image":  "images/uploads/collab-game-2022.jpg"
                                                            }
                                                        ]
                                          }
