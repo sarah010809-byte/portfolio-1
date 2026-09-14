@@ -513,7 +513,7 @@ body:not(.subpage) .exh-sticky {
   color: #666;
   font-size: 0.85rem;
   line-height: 1.7;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
 }
 .side-caption {
   color: #999;
@@ -826,6 +826,10 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   transition: transform 0.5s ease;
 }
 .card a:hover .thumb img { transform: scale(1.04); }
+
+/* 프로젝트 페이지: 카드 호버 시 이미지 확대 효과 제거 */
+#projects-content .card a:hover .thumb img,
+#project-detail .card a:hover .thumb img { transform: none; }
 
 /* 작품 페이지: 그리드 칸은 유지하고 이미지는 원본 비율대로 (PKM 갤러리 스타일) */
 #works-content .grid { row-gap: 40px; } /* 카드 위아래 간격 살짝 여유 */
@@ -1145,31 +1149,32 @@ body.page-leave main {
 .pager .pg.on { background: #111; color: #fff; }
 .pager .pg-next { font-size: 1.1rem; }
 
-/* Writings 페이지: 정사각 이미지 좌측 + 글 정보 우측 (메인 섹션과 동일 형식) */
+/* Writings 페이지: 이미지 없이 텍스트로만 구성된 목록 */
 .writing-rows {
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  max-width: 1100px;
+  max-width: 760px;
   margin: 0 auto; /* 덩어리 중앙 정렬 */
 }
-.writing-row {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 32px;
-  align-items: center;
+.writing-row-flat {
+  display: block;
+  padding: 28px 0;
+  border-bottom: 1px solid #eee;
+  transition: opacity 0.2s;
 }
-.writing-row .thumb.sq {
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  background: #f7f7f7;
+.writing-row-flat:hover { opacity: 0.6; }
+.writing-row-flat:first-child { padding-top: 0; }
+.writing-row-flat-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
 }
-.writing-row .thumb.sq img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-.writing-row:hover .thumb.sq img { transform: scale(1.04); }
-.writing-row .thumb.sq .placeholder { width: 100%; height: 100%; }
-.writing-row-info h3 { font-size: 1.05rem; margin-bottom: 6px; }
-.writing-row-info .home-excerpt { max-width: 520px; }
-.writing-row-info .exh-date { margin-top: 8px; }
+.writing-row-flat-head .home-cat { margin: 0; }
+.writing-row-flat-head .exh-date { color: #999; font-size: 0.85rem; }
+.writing-row-flat h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.writing-row-byline { color: #888; font-size: 0.85rem; margin-bottom: 8px; }
+.writing-row-flat .home-excerpt { max-width: 640px; }
 
 /* Projects 페이지: 카드 2열 크게 + 콘텐츠 영역이 화면을 채우게 */
 #projects-content .grid { grid-template-columns: repeat(2, 1fr); gap: 48px 40px; }
@@ -1317,7 +1322,7 @@ body.subpage .exh-layout { min-height: 100vh; }
 }
 .exh-work-cap span { display: block; }
 .exh-work-cap .cap-title { color: #111; font-weight: 700; font-style: italic; }
-.exh-work-cap .cap-medium { letter-spacing: -0.03em; }
+.exh-work-cap .cap-medium { letter-spacing: -0.01em; }
 
 /* 프로젝트 상세: 한 사진에 여러 작품이 담긴 경우 — 작품별 캡션 목록 */
 .proj-subworks { margin: 24px 0 0; padding: 0; list-style: none; }

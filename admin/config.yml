@@ -280,3 +280,16 @@ collections:
               - { label: "연도", name: "year", widget: "string" }
               - { label: "내용 (한글)", name: "text_ko", widget: "string" }
               - { label: "내용 (영문)", name: "text_en", widget: "string" }
+          - label: "전시 기획 (C.V.)"
+            label_singular: "항목"
+            name: "curatorial"
+            widget: "list"
+            required: false
+            collapsed: true
+            summary: "{{fields.year}} — {{fields.text_ko}}"
+            fields:
+              - { label: "연도", name: "year", widget: "string" }
+              - { label: "내용 (한글)", name: "text_ko", widget: "string" }
+              - { label: "내용 (영문)", name: "text_en", widget: "string" }
+          - { label: "작품 소장 (한글, 쉼표로 구분)", name: "collections_ko", widget: "text", required: false }
+          - { label: "작품 소장 (영문)", name: "collections_en", widget: "text", required: false }

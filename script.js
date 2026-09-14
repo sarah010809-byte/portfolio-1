@@ -462,23 +462,22 @@ async function renderDynamic() {
     if (data) {
       // 1순위: 전용 대표 이미지 파일(images/uploads/hero-main.jpg) — 작품과 무관하게 첫 화면 전용
       // 2순위: 관리자에서 '대표 작품' 체크한 작품의 이미지
-      let heroSrc = null;
-      try {
-        const head = await fetch("images/uploads/hero-main.jpg", { method: "HEAD" });
-        if (head.ok) heroSrc = "images/uploads/hero-main.jpg";
-      } catch (_) {}
-      if (!heroSrc) {
-        const list = sortedWorks(data);
-        const feat = list.find((w) => w.featured && w.image) || list.find((w) => w.image);
-        if (feat) heroSrc = feat.image;
-      }
-      if (heroSrc) {
-        // 배경을 별도 레이어에 넣어 스크롤 시 살짝 확대되는 효과 적용
+      const setHeroBg = (src) => {
         const bg = document.createElement("div");
         bg.className = "hero-bg";
-        bg.style.background = `url("${heroSrc}") center / cover no-repeat`;
+        bg.style.background = `url("${src}") center / cover no-repeat`;
         hero.prepend(bg);
-      }
+      };
+      const fallbackHero = () => {
+        const list = sortedWorks(data);
+        const feat = list.find((w) => w.featured && w.image) || list.find((w) => w.image);
+        if (feat) setHeroBg(feat.image);
+      };
+      // fetch HEAD는 일부 정적 호스팅에서 신뢰할 수 없어 실제 이미지 로드로 존재를 확인
+      const probe = new Image();
+      probe.onload = () => setHeroBg("images/uploads/hero-main.jpg");
+      probe.onerror = fallbackHero;
+      probe.src = "images/uploads/hero-main.jpg";
     }
   }
 
@@ -1024,23 +1023,21 @@ async function renderDynamic() {
         .sort((a, b) => String(b.year).localeCompare(String(a.year)));
       const { view, page, total } = sliceForPage(shown);
       const href = (n) => `writings.html?${selCat ? `cat=${selCat}&` : ""}p=${n}`;
-      // 메인 페이지 Writings 섹션처럼: 정사각 이미지 좌측 + 종류·제목·내용·날짜 우측
+      // 글에는 이미지가 없으므로 썸네일 없이 텍스트 목록으로 구성
       writingsContent.innerHTML = `<div class="writing-rows">${view.map((t) => {
-        const cat = { en: catLabel(wcats, t.category, "Etc.") };
+        const catName = catLabel(wcats, t.category, "Etc.");
+        const byline = (t.author_ko || t.author_en || t.source_ko || t.source_en)
+          ? [t.author_ko || t.author_en, t.source_ko || t.source_en].filter(Boolean).join(" · ") : "";
         return `
-        <a class="writing-row" href="writing.html?i=${t.idx}">
-          <div class="thumb sq">${
-            t.image
-              ? `<img src="${esc(t.image)}" alt="${esc(t.title_ko)}" loading="lazy">`
-              : `<div class="placeholder"><span>${esc(t.title_en)}</span></div>`
-          }</div>
-          <div class="writing-row-info">
-            <p class="home-cat">${cat ? esc(cat.en) : "Etc."}</p>
-            <h3 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h3>
-            ${(t.body_ko || t.body_en)
-              ? `<p class="home-excerpt" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</p>` : ""}
-            <p class="exh-date">${esc(t.year)}</p>
+        <a class="writing-row-flat" href="writing.html?i=${t.idx}">
+          <div class="writing-row-flat-head">
+            <span class="home-cat">${esc(catName)}</span>
+            <span class="exh-date">${esc(t.year)}</span>
           </div>
+          <h3 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h3>
+          ${byline ? `<p class="writing-row-byline">${esc(byline)}</p>` : ""}
+          ${(t.body_ko || t.body_en)
+            ? `<p class="home-excerpt" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</p>` : ""}
         </a>`;
       }).join("")}</div>` + pagerHTML(href, page, total);
     }
@@ -1108,36 +1105,16 @@ async function renderDynamic() {
         : "";
 
       aboutContent.innerHTML = `
-        <div class="artist-top">
-          <div class="artist-photo">
-            ${a.profile_image
-              ? `<img class="profile" src="${esc(a.profile_image)}" alt="Profile">`
-              : `<div class="profile placeholder"><span data-ko="프로필 사진" data-en="Profile Photo">프로필 사진</span></div>`}
-            <div class="artist-icons">
-              <a href="mailto:${esc(a.email)}" class="icon-circle" aria-label="Email">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>
-                </svg>
-              </a>
-              <a href="${esc(a.instagram)}" target="_blank" rel="noopener" class="icon-circle" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/>
-                  <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div class="artist-main">
-            <h2 data-ko="작가 노트" data-en="Artist Statement">작가 노트</h2>
-            <p class="statement" data-ko="${esc(a.statement_ko)}" data-en="${esc(a.statement_en)}">${esc(a.statement_ko)}</p>
-          </div>
-        </div>
         <section class="artist-section artist-cv">
           <h2>C.V.</h2>
           ${cvSection("학력", "Education", a.education)}
           ${cvSection("개인전", "Solo Exhibitions", a.solo)}
           ${cvSection("단체전", "Group Exhibitions", a.group)}
+          ${cvSection("전시 기획", "Curatorial Projects", a.curatorial)}
           ${cvSection("수상 및 레지던시", "Awards & Residencies", a.awards)}
+          ${(a.collections_ko || a.collections_en) ? `
+          <h3 data-ko="작품 소장" data-en="Selected Collections">작품 소장</h3>
+          <p class="cv-collections" data-ko="${esc(a.collections_ko)}" data-en="${esc(a.collections_en)}">${esc(a.collections_ko)}</p>` : ""}
         </section>
         <section class="artist-section">
           <h2>Contact</h2>
