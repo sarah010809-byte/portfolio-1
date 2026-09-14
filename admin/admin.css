@@ -75,9 +75,11 @@ div[class*="TopBarContainer"] {
   background: transparent !important;
   border: 0 !important;
   padding: 0 0 12px !important;
+  flex-wrap: wrap !important;
+  gap: 8px;
 }
 
-/* '~ 추가' 버튼: 검정 버튼으로 */
+/* '~ 추가' 버튼: 검정 버튼으로, 글자가 줄바꿈되지 않게 */
 div[class*="TopBarContainer"] button[class*="AddButton"],
 div[class*="TopBarContainer"] > div:last-child button {
   background: #17191d !important;
@@ -86,6 +88,9 @@ div[class*="TopBarContainer"] > div:last-child button {
   padding: 8px 14px !important;
   font-weight: 600 !important;
   font-size: 13px !important;
+  white-space: nowrap !important;
+  width: auto !important;
+  flex-shrink: 0 !important;
 }
 div[class*="TopBarContainer"] > div:last-child button:hover { background: #34383f !important; }
 
