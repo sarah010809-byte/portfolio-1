@@ -506,7 +506,7 @@ body:not(.subpage) .exh-sticky {
 .work-top .work-image { flex: 1; min-width: 0; }
 
 .work-side { width: 240px; flex-shrink: 0; padding-top: 48px; }
-.work-side h1 { font-size: 1.25rem; margin-bottom: 6px; font-style: italic; }
+.work-side h1 { font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; font-style: italic; }
 .side-medium {
   color: #666;
   font-size: 0.85rem;
@@ -958,11 +958,11 @@ body.page-leave main {
 
 .page-title {
   text-align: center;
-  font-size: 3.8rem;
+  font-size: 1.3rem;   /* 아래 하위분류 탭(0.85rem)보다 조금만 크게 */
   font-weight: 500;
   color: #6e6e6e;   /* 기존(#3d3d3d)보다 살짝만 연하게 */
   letter-spacing: 0.01em;
-  margin-bottom: 56px;
+  margin-bottom: 24px;
   font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
 }
 
@@ -1306,6 +1306,7 @@ body.subpage .exh-layout { min-height: 100vh; }
 /* 전시 제목은 전시 상세 페이지 안에서만 이탤릭 */
 .post-head h1.exh-title,
 #exh-detail .other-works .stack-caption strong { font-style: italic; }
+.post-side h1.exh-title { font-weight: 500; }
 
 /* 전시 상세: 전시 출품작 블록 — 단독 컷(+디테일 컷 나란히) 아래 상세 캡션 */
 .exh-work { margin: 64px 0 0; }
@@ -1637,7 +1638,7 @@ img.profile { object-fit: cover; }
     padding-top: 120px;
   }
   .sidebar h1 { font-size: 2.1rem; }
-  .page-title { font-size: 2.1rem; margin-bottom: 40px; }
+  .page-title { font-size: 1.2rem; margin-bottom: 24px; }
   .sidebar { position: static; width: auto; }
   .series-nav { display: flex; flex-wrap: wrap; gap: 14px; }
   .series-nav li { margin-bottom: 0; }
