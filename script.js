@@ -728,7 +728,8 @@ async function renderDynamic() {
           <div class="work-image">${imageArea}</div>
           <aside class="work-side">
             <h1 data-ko="${esc(w.title_ko)}" data-en="${esc(w.title_en)}">${esc(w.title_ko)}</h1>
-            <p class="side-caption">${esc(w.year)}${(w.medium_en || w.medium_ko) ? `, ${esc(w.medium_en || w.medium_ko)}` : ""}</p>
+            ${(w.medium_en || w.medium_ko) ? `<p class="side-medium">${esc(w.medium_en || w.medium_ko)}</p>` : ""}
+            <p class="side-caption side-year">${esc(w.year)}</p>
             ${seriesLine}
             ${desc}
             ${related}
@@ -833,7 +834,7 @@ async function renderDynamic() {
             <figcaption class="exh-work-cap">
               <span class="cap-title">${esc(title)}</span>
               ${(w.medium_en || w.medium_ko)
-                ? `<span>${esc(w.medium_en || w.medium_ko)}</span>` : ""}
+                ? `<span class="cap-medium">${esc(w.medium_en || w.medium_ko)}</span>` : ""}
               ${w.size ? `<span>${esc(w.size)}</span>` : ""}
               ${w.year ? `<span>${esc(w.year)}</span>` : ""}
             </figcaption>

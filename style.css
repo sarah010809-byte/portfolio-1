@@ -508,14 +508,20 @@ body:not(.subpage) .exh-sticky {
 .work-top .work-image { flex: 1; min-width: 0; }
 
 .work-side { width: 240px; flex-shrink: 0; padding-top: 48px; }
-.work-side h1 { font-size: 1.25rem; margin-bottom: 6px; }
+.work-side h1 { font-size: 1.25rem; margin-bottom: 6px; font-style: italic; }
+.side-medium {
+  color: #666;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  letter-spacing: -0.03em;
+}
 .side-caption {
   color: #999;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 24px;
 }
+.side-caption.side-year { margin-bottom: 24px; }
 .work-side h3 { font-size: 0.85rem; color: #555; margin: 20px 0 6px; }
 .side-related { font-size: 0.9rem; color: #333; }
 a.side-related { display: inline-block; transition: opacity 0.2s; }
@@ -1310,7 +1316,8 @@ body.subpage .exh-layout { min-height: 100vh; }
   color: #666;
 }
 .exh-work-cap span { display: block; }
-.exh-work-cap .cap-title { color: #111; font-weight: 700; }
+.exh-work-cap .cap-title { color: #111; font-weight: 700; font-style: italic; }
+.exh-work-cap .cap-medium { letter-spacing: -0.03em; }
 
 /* 프로젝트 상세: 한 사진에 여러 작품이 담긴 경우 — 작품별 캡션 목록 */
 .proj-subworks { margin: 24px 0 0; padding: 0; list-style: none; }
