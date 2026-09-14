@@ -37,6 +37,57 @@
                       "label":  "Group",
                       "items":  [
                                     {
+                                        "title_ko":  "NOT CONFORMED: FOUR WOMEN CARVING TIME",
+                                        "title_en":  "NOT CONFORMED: FOUR WOMEN CARVING TIME",
+                                        "date":  "May 26 – June 18, 2026",
+                                        "curator_ko":  "Curated by Art/Around",
+                                        "curator_en":  "Curated by Art/Around",
+                                        "venue_ko":  "Sueño 339, Seoul",
+                                        "venue_en":  "Sueño 339, Seoul",
+                                        "desc_ko":  "",
+                                        "desc_en":  "",
+                                        "image":  "images/uploads/notconformed-install-1.jpg",
+                                        "images":  [
+                                                       { "image": "images/uploads/notconformed-install-2.jpg" }
+                                                   ],
+                                        "works":  [
+                                                      {
+                                                          "title_en":  "When We Talk about Love-Thank you",
+                                                          "medium_ko":  "캔버스에 아크릴",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "24.2 x 41 cm each",
+                                                          "year":  "2026",
+                                                          "image":  "images/uploads/wwtal-thank-you.jpg",
+                                                          "images":  [
+                                                                         { "image": "images/uploads/wwtal-thank-you-d1.jpg" }
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "title_en":  "When We Talk about Love-I love you",
+                                                          "medium_ko":  "캔버스에 아크릴",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "50 x 50 cm each (set of 6)",
+                                                          "year":  "2026",
+                                                          "image":  "images/uploads/wwtal-i-love-you.jpg",
+                                                          "images":  [
+                                                                         { "image": "images/uploads/wwtal-i-love-you-d1.jpg" }
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "title_en":  "You",
+                                                          "medium_ko":  "돌에 아크릴",
+                                                          "medium_en":  "Acrylic on stone",
+                                                          "size":  "Ø 140 cm",
+                                                          "year":  "2026",
+                                                          "image":  "images/uploads/you-stones.jpg",
+                                                          "images":  [
+                                                                         { "image": "images/uploads/you-stones-d1.jpg" },
+                                                                         { "image": "images/uploads/you-stones-d2.jpg" }
+                                                                     ]
+                                                      }
+                                                  ]
+                                    },
+                                    {
                                         "title_ko":  "전시 제목 2",
                                         "title_en":  "Exhibition Title 2",
                                         "date":  "2025. 9. 5 – 10. 12",

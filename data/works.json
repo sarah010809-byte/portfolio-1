@@ -1,6 +1,77 @@
 {
     "series":  [
                    {
+                       "name_ko":  "When We Talk About Love",
+                       "name_en":  "When We Talk About Love",
+                       "works":  [
+                                     {
+                                         "title_ko":  "When We Talk about Love",
+                                         "title_en":  "When We Talk about Love",
+                                         "year":  "2026",
+                                         "medium_ko":  "캔버스에 아크릴, 설치 전경",
+                                         "medium_en":  "Acrylic on canvas, Installation view",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
+                                         "related_en":  "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
+                                         "image":  "images/uploads/notconformed-install-1.jpg",
+                                         "images":  [
+                                                        { "image": "images/uploads/notconformed-install-2.jpg" }
+                                                    ],
+                                         "featured":  false
+                                     },
+                                     {
+                                         "title_ko":  "When We Talk about Love-Thank you",
+                                         "title_en":  "When We Talk about Love-Thank you",
+                                         "year":  "2026",
+                                         "medium_ko":  "캔버스에 아크릴, 각 24.2 x 41 cm",
+                                         "medium_en":  "Acrylic on canvas, 24.2 x 41 cm each",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
+                                         "related_en":  "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
+                                         "image":  "images/uploads/wwtal-thank-you.jpg",
+                                         "images":  [
+                                                        { "image": "images/uploads/wwtal-thank-you-d1.jpg" }
+                                                    ],
+                                         "featured":  false
+                                     },
+                                     {
+                                         "title_ko":  "When We Talk about Love-I love you",
+                                         "title_en":  "When We Talk about Love-I love you",
+                                         "year":  "2026",
+                                         "medium_ko":  "캔버스에 아크릴, 각 50 x 50 cm (6점)",
+                                         "medium_en":  "Acrylic on canvas, 50 x 50 cm each (set of 6)",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
+                                         "related_en":  "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
+                                         "image":  "images/uploads/wwtal-i-love-you.jpg",
+                                         "images":  [
+                                                        { "image": "images/uploads/wwtal-i-love-you-d1.jpg" }
+                                                    ],
+                                         "featured":  false
+                                     },
+                                     {
+                                         "title_ko":  "You",
+                                         "title_en":  "You",
+                                         "year":  "2026",
+                                         "medium_ko":  "돌에 아크릴, Ø 140 cm",
+                                         "medium_en":  "Acrylic on stone, Ø 140 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
+                                         "related_en":  "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
+                                         "image":  "images/uploads/you-stones.jpg",
+                                         "images":  [
+                                                        { "image": "images/uploads/you-stones-d1.jpg" },
+                                                        { "image": "images/uploads/you-stones-d2.jpg" }
+                                                    ],
+                                         "featured":  false
+                                     }
+                                 ]
+                   },
+                   {
                        "name_ko":  "시리즈 A",
                        "name_en":  "Series A",
                        "works":  [

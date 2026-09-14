@@ -290,9 +290,11 @@ function exhAll(data) {
   const flat = (data.types && data.types.some((t) => t.items))
     ? flattenGroups(data.types, "type")
     : (data.exhibitions || []);
+  // 날짜에서 연도(4자리)를 찾아 정렬 — "2026. 3. 1"과 "May 26 – June 18, 2026" 모두 지원
+  const yearOf = (d) => parseInt(((d || "").match(/\d{4}/) || [0])[0], 10) || 0;
   return flat
     .map((e, idx) => ({ ...e, idx }))
-    .sort((a, b) => (parseInt(b.date) || 0) - (parseInt(a.date) || 0));
+    .sort((a, b) => yearOf(b.date) - yearOf(a.date));
 }
 function projAll(data) {
   return data.projects
@@ -807,8 +809,29 @@ async function renderDynamic() {
                 </figcaption>
               </a></figure>`).join("")}</div>
           </section>` : "";
+        // 전시에서 선보인 작품들 — 단독 컷(+디테일 컷 나란히)과 상세 캡션
+        const exhWorks = (e.works || []).filter((w) => w.image);
+        const exhWorksHTML = exhWorks.map((w) => {
+          const details = (w.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
+          const imgs = [w.image, ...details];
+          const title = w.title_en || w.title_ko || "";
+          return `
+          <figure class="exh-work">
+            <div class="exh-work-imgs cols-${Math.min(imgs.length, 3)}">${imgs.map((src) =>
+              `<img src="${esc(src)}" alt="${esc(title)}" loading="lazy">`).join("")}</div>
+            <figcaption class="exh-work-cap">
+              <span class="cap-title">${esc(title)}</span>
+              ${(w.medium_ko || w.medium_en)
+                ? `<span data-ko="${esc(w.medium_ko || w.medium_en)}" data-en="${esc(w.medium_en || w.medium_ko)}">${esc(w.medium_ko || w.medium_en)}</span>` : ""}
+              ${w.size ? `<span>${esc(w.size)}</span>` : ""}
+              ${w.year ? `<span>${esc(w.year)}</span>` : ""}
+            </figcaption>
+          </figure>`;
+        }).join("");
+
         // 이 전시와 연결된 작품 (작품의 '관련 전시'에 전시명이 포함된 것)
-        const worksData = await loadJSON("data/works.json");
+        // — 전시 자체에 작품 목록(works)이 있으면 중복되므로 생략
+        const worksData = exhWorks.length ? null : await loadJSON("data/works.json");
         const relWorks = worksData
           ? sortedWorks(worksData).filter((w) =>
               (w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
@@ -828,8 +851,10 @@ async function renderDynamic() {
           <article class="exh-detail post-detail">
             <header class="post-head">
               <p class="post-cat">Exhibitions</p>
-              <h1 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h1>
+              <h1 class="exh-title" data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h1>
               <p class="post-meta">${esc(e.date)}</p>
+              ${(e.curator_ko || e.curator_en)
+                ? `<p class="post-meta" data-ko="${esc(e.curator_ko || e.curator_en)}" data-en="${esc(e.curator_en || e.curator_ko)}">${esc(e.curator_ko || e.curator_en)}</p>` : ""}
               ${(e.venue_ko || e.venue_en)
                 ? `<p class="post-meta" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>` : ""}
             </header>
@@ -841,6 +866,7 @@ async function renderDynamic() {
             ${(e.desc_ko || e.desc_en)
               ? `<p class="post-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
             ${extraHTML}
+            ${exhWorksHTML}
             ${relWorksHTML}
           </article>
           <div class="work-nav">${prev}${next}</div>

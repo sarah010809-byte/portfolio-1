@@ -1287,9 +1287,37 @@ body.subpage .exh-layout { min-height: 100vh; }
 .post-detail .exh-detail-image { margin-bottom: 32px; } /* 설치 전경 이미지들 세로 나열 */
 .post-detail .exh-detail-section { margin: 56px 0 0; }
 
+/* 전시 제목은 이탤릭으로 통일 */
+.post-head h1.exh-title,
+.exh-info h2,
+.home-exh-card h3,
+#exh-detail .other-works .stack-caption strong { font-style: italic; }
+
+/* 전시 상세: 전시 출품작 블록 — 단독 컷(+디테일 컷 나란히) 아래 상세 캡션 */
+.exh-work { margin: 64px 0 0; }
+.exh-work-imgs {
+  display: grid;
+  gap: 12px;
+  align-items: start;
+}
+.exh-work-imgs.cols-2 { grid-template-columns: 1fr 1fr; }
+.exh-work-imgs.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+.exh-work-imgs img { width: 100%; display: block; }
+.exh-work-cap {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #666;
+}
+.exh-work-cap span { display: block; }
+.exh-work-cap .cap-title { color: #111; }
+
 @media (max-width: 768px) {
   .post-head { margin-bottom: 28px; }
   .post-head h1 { font-size: 1.2rem; }
+  .exh-work { margin-top: 48px; }
+  /* 모바일: 디테일 컷도 세로로 나열 */
+  .exh-work-imgs.cols-2, .exh-work-imgs.cols-3 { grid-template-columns: 1fr; }
 }
 
 /* 좌측 끝을 상단 로고(공통 여백선)와 정렬 — 국제갤러리식 */

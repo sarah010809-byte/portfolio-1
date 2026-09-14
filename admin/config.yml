@@ -90,6 +90,8 @@ collections:
                   - { label: "전시명 (한글)", name: "title_ko", widget: "string" }
                   - { label: "전시명 (영문)", name: "title_en", widget: "string" }
                   - { label: "날짜 (예: 2026. 3. 1 – 3. 30)", name: "date", widget: "string" }
+                  - { label: "기획 (한글, 예: Curated by Art/Around)", name: "curator_ko", widget: "string", required: false }
+                  - { label: "기획 (영문)", name: "curator_en", widget: "string", required: false }
                   - { label: "장소 (한글, 예: 갤러리 이름, 서울)", name: "venue_ko", widget: "string", required: false }
                   - { label: "장소 (영문)", name: "venue_en", widget: "string", required: false }
                   - { label: "전시 설명 (한글)", name: "desc_ko", widget: "text", required: false }
@@ -103,6 +105,28 @@ collections:
                     collapsed: true
                     fields:
                       - { label: "이미지", name: "image", widget: "image" }
+                  - label: "전시 출품작 (단독 컷 + 캡션 — 전시 상세 페이지에 순서대로 표시)"
+                    label_singular: "출품작"
+                    name: "works"
+                    widget: "list"
+                    required: false
+                    collapsed: true
+                    summary: "{{fields.title_en}}"
+                    fields:
+                      - { label: "작품 제목 (영문 표기 그대로, 예: When We Talk about Love-I love you)", name: "title_en", widget: "string" }
+                      - { label: "재료 (한글, 예: 캔버스에 아크릴)", name: "medium_ko", widget: "string", required: false }
+                      - { label: "재료 (영문, 예: Acrylic on canvas)", name: "medium_en", widget: "string", required: false }
+                      - { label: "크기 (예: 50 x 50 cm each (set of 6) / Ø 140 cm)", name: "size", widget: "string", required: false }
+                      - { label: "연도 (예: 2026)", name: "year", widget: "string", required: false }
+                      - { label: "단독 컷 (대표 이미지)", name: "image", widget: "image" }
+                      - label: "디테일 컷 (옆에 나란히 표시)"
+                        label_singular: "이미지"
+                        name: "images"
+                        widget: "list"
+                        required: false
+                        collapsed: true
+                        fields:
+                          - { label: "이미지", name: "image", widget: "image" }
 
   - name: "projects"
     label: "Projects"
