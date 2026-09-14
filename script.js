@@ -119,6 +119,15 @@ if (hasHero) {
   footer.parentNode.insertBefore(wrap, footer);
 })();
 
+// ===== main 진입 애니메이션이 끝나면 완전히 제거 =====
+// (animation-fill-mode: both 로 끝난 뒤에도 transform 이 "적용된" 상태로 남아있으면
+//  브라우저가 main 을 새 containing block 으로 취급해 하위 요소의
+//  position: sticky 가 동작하지 않는 문제가 생김 — 애니메이션 종료 시 완전히 제거)
+(function () {
+  const m = document.querySelector("main");
+  if (m) m.addEventListener("animationend", () => { m.style.animation = "none"; }, { once: true });
+})();
+
 // ===== 새 페이지로 이동하면 항상 맨 위에서 시작 =====
 // (이전 페이지의 스크롤 위치가 이어지는 문제 방지 — 뒤로가기의 위치 복원은 유지)
 try {
