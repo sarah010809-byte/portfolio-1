@@ -174,6 +174,18 @@ collections:
                     collapsed: true
                     fields:
                       - { label: "이미지", name: "image", widget: "image" }
+                  - label: "이 프로젝트에 포함된 작품들 (사진 한 장에 여러 작품이 담겨 있을 때 — 각 작품 캡션만 별도 표시)"
+                    label_singular: "작품"
+                    name: "works"
+                    widget: "list"
+                    required: false
+                    collapsed: true
+                    summary: "{{fields.year}} — {{fields.title_en}}"
+                    fields:
+                      - { label: "작품 제목 (영문)", name: "title_en", widget: "string" }
+                      - { label: "재료 (영문, 예: Acrylic on canvas)", name: "medium_en", widget: "string", required: false }
+                      - { label: "크기 (예: 160 x 140 cm)", name: "size", widget: "string", required: false }
+                      - { label: "연도 (예: 2026)", name: "year", widget: "string", required: false }
 
   - name: "writings"
     label: "Writings"

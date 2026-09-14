@@ -662,9 +662,22 @@ async function renderDynamic() {
         ? sliderHTML("work-slider", images, w.title_ko)
         : `<div class="placeholder detail-placeholder"><span>${esc(w.title_en)}</span></div>`;
 
+      // 관련 전시 문구에서 실제 전시를 찾아 해당 전시 상세 페이지로 연결
+      let relatedHref = "";
+      if (w.related_ko || w.related_en) {
+        const exhData = await loadJSON("data/exhibitions.json");
+        const exhMatch = exhData
+          ? exhAll(exhData).find((e) =>
+              (w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
+              (w.related_en && e.title_en && w.related_en.includes(e.title_en)))
+          : null;
+        if (exhMatch) relatedHref = `exhibition.html?i=${exhMatch.idx}`;
+      }
       const related = (w.related_ko || w.related_en) ? `
         <h3 data-ko="관련 전시" data-en="Related Exhibition">관련 전시</h3>
-        <p class="side-related" data-ko="${esc(w.related_ko)}" data-en="${esc(w.related_en)}">${esc(w.related_ko)}</p>` : "";
+        ${relatedHref
+          ? `<a class="side-related" href="${relatedHref}" data-ko="${esc(w.related_ko)}" data-en="${esc(w.related_en)}">${esc(w.related_ko)}</a>`
+          : `<p class="side-related" data-ko="${esc(w.related_ko)}" data-en="${esc(w.related_en)}">${esc(w.related_ko)}</p>`}` : "";
 
       const desc = (w.desc_ko || w.desc_en)
         ? `<p class="work-desc" data-ko="${esc(w.desc_ko)}" data-en="${esc(w.desc_en)}">${esc(w.desc_ko)}</p>`
@@ -715,9 +728,7 @@ async function renderDynamic() {
           <div class="work-image">${imageArea}</div>
           <aside class="work-side">
             <h1 data-ko="${esc(w.title_ko)}" data-en="${esc(w.title_en)}">${esc(w.title_ko)}</h1>
-            <p class="side-caption"
-               data-ko="${esc(w.year)}${w.medium_ko ? `, ${esc(w.medium_ko)}` : ""}"
-               data-en="${esc(w.year)}${w.medium_en ? `, ${esc(w.medium_en)}` : ""}">${esc(w.year)}</p>
+            <p class="side-caption">${esc(w.year)}${(w.medium_en || w.medium_ko) ? `, ${esc(w.medium_en || w.medium_ko)}` : ""}</p>
             ${seriesLine}
             ${desc}
             ${related}
@@ -821,8 +832,8 @@ async function renderDynamic() {
               `<img src="${esc(src)}" alt="${esc(title)}" loading="lazy">`).join("")}</div>
             <figcaption class="exh-work-cap">
               <span class="cap-title">${esc(title)}</span>
-              ${(w.medium_ko || w.medium_en)
-                ? `<span data-ko="${esc(w.medium_ko || w.medium_en)}" data-en="${esc(w.medium_en || w.medium_ko)}">${esc(w.medium_ko || w.medium_en)}</span>` : ""}
+              ${(w.medium_en || w.medium_ko)
+                ? `<span>${esc(w.medium_en || w.medium_ko)}</span>` : ""}
               ${w.size ? `<span>${esc(w.size)}</span>` : ""}
               ${w.year ? `<span>${esc(w.year)}</span>` : ""}
             </figcaption>
@@ -965,12 +976,16 @@ async function renderDynamic() {
               <p class="post-meta">${esc(p.year)}</p>
               ${(p.collaborator_ko || p.collaborator_en)
                 ? `<p class="post-meta" data-ko="${esc(p.collaborator_ko || p.collaborator_en)}" data-en="${esc(p.collaborator_en || p.collaborator_ko)}">${esc(p.collaborator_ko || p.collaborator_en)}</p>` : ""}
-              ${(p.medium_ko || p.medium_en || p.size)
-                ? `<p class="post-meta" data-ko="${esc([p.medium_ko || p.medium_en, p.size].filter(Boolean).join(", "))}" data-en="${esc([p.medium_en || p.medium_ko, p.size].filter(Boolean).join(", "))}">${esc([p.medium_ko || p.medium_en, p.size].filter(Boolean).join(", "))}</p>` : ""}
+              ${(p.medium_en || p.medium_ko || p.size)
+                ? `<p class="post-meta">${esc([p.medium_en || p.medium_ko, p.size].filter(Boolean).join(", "))}</p>` : ""}
               ${(p.venue_ko || p.venue_en)
                 ? `<p class="post-meta" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>` : ""}
             </header>
             <div class="post-image">${pImageArea}</div>
+            ${(p.works && p.works.length) ? `
+            <ul class="proj-subworks">${p.works.map((w) => `
+              <li><strong>${esc(w.title_en || w.title_ko)}</strong><span>${esc([w.medium_en || w.medium_ko, w.size, w.year].filter(Boolean).join(", "))}</span></li>`).join("")}
+            </ul>` : ""}
             ${(p.desc_ko || p.desc_en)
               ? `<p class="post-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}
           </article>

@@ -518,6 +518,8 @@ body:not(.subpage) .exh-sticky {
 }
 .work-side h3 { font-size: 0.85rem; color: #555; margin: 20px 0 6px; }
 .side-related { font-size: 0.9rem; color: #333; }
+a.side-related { display: inline-block; transition: opacity 0.2s; }
+a.side-related:hover { opacity: 0.55; }
 .work-side .back-link { margin-top: 28px; }
 
 /* 우측 패널의 상세 설명 */
@@ -964,8 +966,8 @@ body.page-leave main {
 .page-title {
   text-align: center;
   font-size: 3.8rem;
-  font-weight: 400; /* 조금 더 연하게 */
-  color: #9a9a9a;   /* 연한 회색 */
+  font-weight: 500;
+  color: #6e6e6e;   /* 기존(#3d3d3d)보다 살짝만 연하게 */
   letter-spacing: 0.01em;
   margin-bottom: 56px;
   font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
@@ -1309,6 +1311,11 @@ body.subpage .exh-layout { min-height: 100vh; }
 }
 .exh-work-cap span { display: block; }
 .exh-work-cap .cap-title { color: #111; font-weight: 700; }
+
+/* 프로젝트 상세: 한 사진에 여러 작품이 담긴 경우 — 작품별 캡션 목록 */
+.proj-subworks { margin: 24px 0 0; padding: 0; list-style: none; }
+.proj-subworks li { display: flex; gap: 10px; padding: 10px 0; border-top: 1px solid #eee; font-size: 0.85rem; color: #666; }
+.proj-subworks li strong { color: #111; font-weight: 700; flex-shrink: 0; }
 
 @media (max-width: 768px) {
   .post-head { margin-bottom: 28px; }

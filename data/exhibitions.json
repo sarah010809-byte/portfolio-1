@@ -4,19 +4,7 @@
                       "key":  "solo",
                       "label":  "Solo",
                       "items":  [
-                                    {
-                                        "title_ko":  "전시 제목 4",
-                                        "title_en":  "Exhibition Title 4",
-                                        "date":  "2023. 6. 10 – 7. 2",
-                                        "venue_ko":  "갤러리 이름, 서울",
-                                        "venue_en":  "Gallery Name, Seoul",
-                                        "desc_ko":  "네 번째 전시 설명입니다.",
-                                        "desc_en":  "Description for the fourth exhibition.",
-                                        "image":  "",
-                                        "images":  [
 
-                                                   ]
-                                    }
                                 ]
                   },
                   {
@@ -40,7 +28,7 @@
                                         "works":  [
                                                       {
                                                           "title_en":  "When We Talk about Love-Thank you",
-                                                          "medium_ko":  "캔버스에 아크릴",
+                                                          "medium_ko":  "Acrylic on canvas",
                                                           "medium_en":  "Acrylic on canvas",
                                                           "size":  "24.2 x 41 cm each",
                                                           "year":  "2026",
@@ -51,7 +39,7 @@
                                                       },
                                                       {
                                                           "title_en":  "When We Talk about Love-I love you",
-                                                          "medium_ko":  "캔버스에 아크릴",
+                                                          "medium_ko":  "Acrylic on canvas",
                                                           "medium_en":  "Acrylic on canvas",
                                                           "size":  "50 x 50 cm each (set of 6)",
                                                           "year":  "2026",
@@ -62,7 +50,7 @@
                                                       },
                                                       {
                                                           "title_en":  "You",
-                                                          "medium_ko":  "돌에 아크릴",
+                                                          "medium_ko":  "Acrylic on stone",
                                                           "medium_en":  "Acrylic on stone",
                                                           "size":  "Ø 140 cm",
                                                           "year":  "2026",
@@ -73,45 +61,6 @@
                                                                      ]
                                                       }
                                                   ]
-                                    },
-                                    {
-                                        "title_ko":  "전시 제목 2",
-                                        "title_en":  "Exhibition Title 2",
-                                        "date":  "2025. 9. 5 – 10. 12",
-                                        "venue_ko":  "미술관 이름, 부산",
-                                        "venue_en":  "Museum Name, Busan",
-                                        "desc_ko":  "두 번째 전시 설명입니다.",
-                                        "desc_en":  "Description for the second exhibition.",
-                                        "image":  "",
-                                        "images":  [
-
-                                                   ]
-                                    },
-                                    {
-                                        "title_ko":  "전시 제목 3",
-                                        "title_en":  "Exhibition Title 3",
-                                        "date":  "2024. 12. 1 – 12. 15",
-                                        "venue_ko":  "학교 이름, 서울",
-                                        "venue_en":  "School Name, Seoul",
-                                        "desc_ko":  "세 번째 전시 설명입니다.",
-                                        "desc_en":  "Description for the third exhibition.",
-                                        "image":  "",
-                                        "images":  [
-
-                                                   ]
-                                    },
-                                    {
-                                        "title_ko":  "전시 제목 5",
-                                        "title_en":  "Exhibition Title 5",
-                                        "date":  "2022. 4. 8 – 5. 1",
-                                        "venue_ko":  "미술관 이름, 서울",
-                                        "venue_en":  "Museum Name, Seoul",
-                                        "desc_ko":  "다섯 번째 전시 설명입니다.",
-                                        "desc_en":  "Description for the fifth exhibition.",
-                                        "image":  "",
-                                        "images":  [
-
-                                                   ]
                                     }
                                 ]
                   }
