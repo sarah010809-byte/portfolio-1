@@ -1297,8 +1297,6 @@ body.subpage .exh-layout { min-height: 100vh; }
 
 /* 전시 상세: 전시 출품작 블록 — 단독 컷(+디테일 컷 나란히) 아래 상세 캡션 */
 .exh-work { margin: 64px 0 0; }
-.exh-work > a { display: block; color: inherit; text-decoration: none; transition: opacity 0.2s; }
-.exh-work > a:hover { opacity: 0.75; }
 .exh-work-imgs {
   display: grid;
   gap: 12px;
