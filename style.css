@@ -435,6 +435,8 @@ body:not(.subpage) .exh-sticky {
 .sidebar h1 {
   line-height: 1;
   font-size: 3.4rem;
+  font-weight: 500; /* 살짝 얇게 */
+  color: #3d3d3d;   /* 진한 회색 */
   letter-spacing: 0.01em;
   margin-bottom: 20px;
 }
@@ -962,6 +964,8 @@ body.page-leave main {
 .page-title {
   text-align: center;
   font-size: 3.8rem;
+  font-weight: 500; /* 살짝 얇게 */
+  color: #3d3d3d;   /* 진한 회색 */
   letter-spacing: 0.01em;
   margin-bottom: 56px;
   font-family: "Jost", "Pretendard Variable", Pretendard, sans-serif;
