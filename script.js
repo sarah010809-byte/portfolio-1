@@ -1044,8 +1044,10 @@ async function renderDynamic() {
       // 글에는 이미지가 없으므로 썸네일 없이 텍스트 목록으로 구성
       writingsContent.innerHTML = `<div class="writing-rows">${view.map((t) => {
         const catName = t.label_en || t.label_ko || catLabel(wcats, t.category, "Etc.");
-        const byline = (t.author_ko || t.author_en || t.source_ko || t.source_en)
+        const bylineKo = (t.author_ko || t.author_en || t.source_ko || t.source_en)
           ? [t.author_ko || t.author_en, t.source_ko || t.source_en].filter(Boolean).join(" · ") : "";
+        const bylineEn = (t.author_ko || t.author_en || t.source_ko || t.source_en)
+          ? [t.author_en || t.author_ko, t.source_en || t.source_ko].filter(Boolean).join(" · ") : "";
         return `
         <a class="writing-row-flat" href="writing.html?i=${t.idx}">
           <div class="writing-row-flat-head">
@@ -1053,7 +1055,7 @@ async function renderDynamic() {
             <span class="exh-date">${esc(t.year)}</span>
           </div>
           <h3 data-ko="${esc(t.title_ko)}" data-en="${esc(t.title_en)}">${esc(t.title_ko)}</h3>
-          ${byline ? `<p class="writing-row-byline">${esc(byline)}</p>` : ""}
+          ${bylineKo ? `<p class="writing-row-byline" data-ko="${esc(bylineKo)}" data-en="${esc(bylineEn)}">${esc(bylineKo)}</p>` : ""}
           ${(t.body_ko || t.body_en)
             ? `<p class="home-excerpt" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</p>` : ""}
         </a>`;
