@@ -880,11 +880,13 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 }
 .writing-list .card-cat { min-width: 90px; margin-bottom: 0; }
 
-/* ===== 카드 호버 모션: 이미지 살짝 어두워지고 제목에 밑줄이 스르륵 ===== */
-.card a .thumb,
-.home-exh-card .exh-thumb { position: relative; }
-.card a .thumb::after,
-.home-exh-card .exh-thumb::after {
+/* ===== 카드 호버 모션: 이미지 살짝 어두워지고 제목에 밑줄이 스르륵 =====
+   각 카테고리 메인 목록 페이지(Works/Projects)에서만 적용 — 상세 페이지의
+   "관련 작품"·"다른 전시"·"다른 프로젝트" 등 하위 그리드에는 적용하지 않음 */
+#works-content .card a .thumb,
+#projects-content .card a .thumb { position: relative; }
+#works-content .card a .thumb::after,
+#projects-content .card a .thumb::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -892,10 +894,10 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   transition: background 0.3s ease;
   pointer-events: none;
 }
-.card a:hover .thumb::after,
-.home-exh-card:hover .exh-thumb::after { background: rgba(0,0,0,0.07); }
-.card a figcaption strong,
-.home-exh-card h3 {
+#works-content .card a:hover .thumb::after,
+#projects-content .card a:hover .thumb::after { background: rgba(0,0,0,0.07); }
+#works-content .card a figcaption strong,
+#projects-content .card a figcaption strong {
   display: inline;
   background-image: linear-gradient(#111, #111);
   background-size: 0% 1px;
@@ -905,15 +907,15 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   padding-bottom: 2px;
 }
 .card figcaption.stack-caption strong { display: inline-block; }
-.card a:hover figcaption strong,
-.home-exh-card:hover h3 { background-size: 100% 1px; }
+#works-content .card a:hover figcaption strong,
+#projects-content .card a:hover figcaption strong { background-size: 100% 1px; }
 
 /* 터치 기기: 밑줄·오버레이 호버 효과 전부 비활성화 */
 @media (hover: none) {
-  .card a figcaption strong,
-  .home-exh-card h3 { background-image: none; }
-  .card a:hover .thumb::after,
-  .home-exh-card:hover .exh-thumb::after { background: rgba(0,0,0,0); }
+  #works-content .card a figcaption strong,
+  #projects-content .card a figcaption strong { background-image: none; }
+  #works-content .card a:hover .thumb::after,
+  #projects-content .card a:hover .thumb::after { background: rgba(0,0,0,0); }
 }
 
 /* ===== 페이지 이동 페이드아웃 ===== */
