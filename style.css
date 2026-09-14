@@ -532,7 +532,9 @@ a.side-related:hover { opacity: 0.55; }
 
 .other-works { margin-top: 24px; padding-top: 24px; border-top: 1px solid #eee; }
 .other-works h2 { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 22px; }
-/* 더보기/관련 작품 그리드: Works 페이지처럼 원본 비율 유지(레터박스) */
+/* 원본 비율 유지 그리드의 기본 규칙: 레터박스 배경은 항상 흰 바탕에 묻히도록 투명 처리
+   (회색 박스가 도드라져 보이지 않게 — Works 페이지와 동일한 방식을 모든 "그리드 안 원본
+   비율 유지" 썸네일에 공통 적용) */
 .other-works .card .thumb:not(.placeholder) img,
 .exh-detail-section .card .thumb:not(.placeholder) img {
   width: 100%;
@@ -540,7 +542,7 @@ a.side-related:hover { opacity: 0.55; }
   object-fit: contain;
 }
 .other-works .card .thumb:not(.placeholder),
-.exh-detail-section .card .thumb:not(.placeholder) { background: #f7f7f7; }
+.exh-detail-section .card .thumb:not(.placeholder) { background: transparent; }
 .work-desc { margin-top: 14px; max-width: 640px; color: #333; font-size: 0.95rem; white-space: pre-line; }
 
 .work-nav {
