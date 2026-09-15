@@ -969,8 +969,12 @@ async function renderDynamic() {
       if (p) {
         // 대표 이미지 + 추가 이미지를 슬라이드쇼 없이 개별적으로 세로 나열
         // — 프로젝트 안에 작품별 사진(works)이 있으면 대표 이미지 없이 그 목록만 보여줌
+        // — 이미지가 한 장이면 이미지 좌측+정보 우측 (When We Talk about Love 방식)
+        // — 이미지가 여러 장이면 정보를 맨 위로, 이미지는 그 아래 전체 폭으로 (Evolving, Game 방식)
+        //   → 모바일에서도 같은 순서(정보 → 이미지)가 되어 정보가 맨 밑에 묻히지 않음
         const hasSubworks = !!(p.works && p.works.length);
         const pImages = [p.image, ...(p.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
+        const multiImage = !hasSubworks && pImages.length > 1;
         const pImageArea = pImages.length
           ? `<div class="post-image-stack">${pImages.map((src) =>
               `<img src="${esc(src)}" alt="${esc(p.title_en)}" loading="lazy">`).join("")}</div>`
@@ -1001,8 +1005,8 @@ async function renderDynamic() {
         projectDetail.innerHTML = `
           <p class="back-link detail-back"><a href="projects.html" data-ko="← 프로젝트 목록" data-en="← All Projects">← 프로젝트 목록</a></p>
           <article class="exh-detail post-detail">
-            <div class="post-top${hasSubworks ? " no-image" : ""}">
-              ${!hasSubworks ? `<div class="post-image">${pImageArea}</div>` : ""}
+            <div class="post-top${(hasSubworks || multiImage) ? " no-image" : ""}">
+              ${(!hasSubworks && !multiImage) ? `<div class="post-image">${pImageArea}</div>` : ""}
               <div class="post-side">
                 <p class="post-cat">${p.category ? esc(catLabel(pcats, p.category)) : "Projects"}</p>
                 <h1 data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</h1>
@@ -1019,6 +1023,7 @@ async function renderDynamic() {
                        data-ko="도록 보기 (PDF)" data-en="View Catalogue (PDF)">도록 보기 (PDF)</a></p>` : ""}
               </div>
             </div>
+            ${multiImage ? `<div class="post-image">${pImageArea}</div>` : ""}
             ${(p.works && p.works.length) ? `
             <ul class="proj-subworks">${p.works.map((w) => `
               <li>
