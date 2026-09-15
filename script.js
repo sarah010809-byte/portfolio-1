@@ -1025,16 +1025,36 @@ async function renderDynamic() {
             </div>
             ${multiImage ? `<div class="post-image">${pImageArea}</div>` : ""}
             ${(p.works && p.works.length) ? `
-            <ul class="proj-subworks">${p.works.map((w) => `
+            <ul class="proj-subworks">${p.works.map((w) => {
+              const wTitle = w.title_en || w.title_ko || "";
+              const wDetails = (w.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
+              const wImgs = [w.image, ...wDetails].filter(Boolean);
+              // 디테일 컷이 있으면: 대표 이미지 옆에 작게 나란히 + 캡션은 아래로 (전시 출품작과 동일한 방식)
+              // 디테일 컷이 없으면: 대표 이미지 옆에 캡션 (기존 좌우 배치)
+              if (wDetails.length) {
+                return `
+              <li class="proj-subwork-detailed">
+                <div class="exh-work-imgs cols-${Math.min(wImgs.length, 3)}">${wImgs.map((src) =>
+                  `<img src="${esc(src)}" alt="${esc(wTitle)}" loading="lazy">`).join("")}</div>
+                <div class="exh-work-cap">
+                  <span class="cap-title">${esc(wTitle)}</span>
+                  ${(w.medium_en || w.medium_ko) ? `<span class="cap-medium">${esc(w.medium_en || w.medium_ko)}</span>` : ""}
+                  ${w.size ? `<span>${esc(w.size)}</span>` : ""}
+                  ${w.year ? `<span>${esc(w.year)}</span>` : ""}
+                </div>
+              </li>`;
+              }
+              return `
               <li>
-                ${w.image ? `<div class="proj-subwork-img"><img src="${esc(w.image)}" alt="${esc(w.title_en || w.title_ko)}" loading="lazy"></div>` : ""}
+                ${w.image ? `<div class="proj-subwork-img"><img src="${esc(w.image)}" alt="${esc(wTitle)}" loading="lazy"></div>` : ""}
                 <div class="proj-subwork-cap">
-                  <strong>${esc(w.title_en || w.title_ko)}</strong>
+                  <strong>${esc(wTitle)}</strong>
                   ${(w.medium_en || w.medium_ko) ? `<span>${esc(w.medium_en || w.medium_ko)}</span>` : ""}
                   ${w.size ? `<span>${esc(w.size)}</span>` : ""}
                   ${w.year ? `<span>${esc(w.year)}</span>` : ""}
                 </div>
-              </li>`).join("")}
+              </li>`;
+            }).join("")}
             </ul>` : ""}
             ${(p.desc_ko || p.desc_en)
               ? `<p class="post-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}

@@ -1361,6 +1361,9 @@ body.subpage .exh-layout { min-height: 100vh; }
   .proj-subworks li { flex-direction: column; gap: 14px; }
   .proj-subwork-cap { width: auto; }
 }
+/* 디테일 컷이 있는 작품: 좌우 배치 대신 전시 출품작과 동일하게
+   대표+디테일 이미지를 나란히, 캡션은 그 아래로 */
+.proj-subworks li.proj-subwork-detailed { display: block; }
 
 @media (max-width: 768px) {
   .post-head { margin-bottom: 28px; }
