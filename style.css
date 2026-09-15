@@ -836,9 +836,9 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 
 .card .thumb { aspect-ratio: 4 / 3; margin-bottom: 14px; overflow: hidden; background: #f7f7f7; }
 .card .thumb img { width: 100%; height: 100%; object-fit: cover; }
-/* When We Talk about Love: 세로로 긴 원본 사진이라 중앙 기준으로 자르면 작품 위쪽이 잘림
-   → 상단 기준으로 잘리게 */
-.card .thumb img[src*="collab-park-insook-love"] { object-position: top; }
+/* When We Talk about Love: 세로로 긴 원본 사진이라 위쪽 기준으로 자르면 작품이 잘림
+   → 조금 더 아래쪽을 기준으로 잘리게 */
+.card .thumb img[src*="collab-park-insook-love"] { object-position: center 35%; }
 
 /* 작품 페이지: 그리드 칸은 유지하고 이미지는 원본 비율대로 (PKM 갤러리 스타일) */
 #works-content .grid { row-gap: 40px; } /* 카드 위아래 간격 살짝 여유 */
@@ -1279,6 +1279,8 @@ body.subpage .exh-layout { min-height: 100vh; }
 .post-pdf-link:hover { opacity: 0.6; }
 .post-image { margin-bottom: 32px; }
 .post-image img { width: 100%; display: block; }
+.post-image-stack { display: flex; flex-direction: column; gap: 24px; }
+.post-image-stack img { width: 100%; display: block; }
 
 /* 전시·프로젝트 상세: 이미지 좌측 + 정보 우측 (작품 상세와 동일한 레이아웃) */
 .post-top {

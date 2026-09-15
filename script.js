@@ -969,12 +969,13 @@ async function renderDynamic() {
       if (i < 0) i = 0;
       const p = all[i];
       if (p) {
-        // 대표 이미지 + 추가 이미지를 하나의 슬라이드쇼로 (썸네일 클릭 전환)
+        // 대표 이미지 + 추가 이미지를 슬라이드쇼 없이 개별적으로 세로 나열
         // — 프로젝트 안에 작품별 사진(works)이 있으면 대표 이미지 없이 그 목록만 보여줌
         const hasSubworks = !!(p.works && p.works.length);
         const pImages = [p.image, ...(p.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
         const pImageArea = pImages.length
-          ? sliderHTML("project-slider", pImages, p.title_ko)
+          ? `<div class="post-image-stack">${pImages.map((src) =>
+              `<img src="${esc(src)}" alt="${esc(p.title_en)}" loading="lazy">`).join("")}</div>`
           : `<div class="placeholder exh-placeholder"><span>${esc(p.title_en)}</span></div>`;
         const pPrev = i > 0
           ? `<a href="project.html?i=${all[i - 1].idx}" data-ko="← 이전 프로젝트" data-en="← Prev Project">← 이전 프로젝트</a>` : `<span></span>`;
@@ -1037,8 +1038,6 @@ async function renderDynamic() {
           </article>
           <div class="work-nav">${pPrev}${pNext}</div>
           ${othersHTML}`;
-        const pSlider = document.getElementById("project-slider");
-        if (pSlider) initSlider(pSlider);
         document.title = `${p.title_ko} — An Se Eun`;
       }
     }
