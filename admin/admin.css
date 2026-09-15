@@ -20,21 +20,23 @@ div[class*="ControlPaneContainer"] > div > div[class*="ControlContainer"] {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* 라벨: 배경 칩 제거, 뚜렷한 제목으로 */
+/* 라벨(무엇을 적는 칸인지 알려주는 안내)은 연하게 — 실제 입력한 내용이 먼저 눈에 들어오도록 */
 label[class*="FieldLabel"] {
   background: transparent !important;
-  color: #16181c !important;
-  font-size: 13.5px !important;
-  font-weight: 700 !important;
+  color: #858c96 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
   padding: 0 !important;
   margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
 
-/* 카드의 첫 라벨 = 섹션 제목 (더 크게) */
+/* 카드의 첫 라벨 = 섹션 제목 (크고 진하게) */
 div[class*="ControlPaneContainer"] > div > div[class*="ControlContainer"] > label[class*="FieldLabel"],
 div[class*="ControlPaneContainer"] > div > div[class*="ControlContainer"] > div > label[class*="FieldLabel"] {
   font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #16181c !important;
   margin-bottom: 14px;
   display: block;
 }
@@ -125,14 +127,16 @@ div:has(> div[class*="ImageWrapper"]) > div:last-child {
   gap: 6px;
 }
 
-/* 입력 필드: 여유 있게 */
+/* 입력 필드: 여유 있게, 입력한 내용은 진하게 */
 div[class*="ControlPaneContainer"] input:not([type="checkbox"]):not([type="file"]),
 div[class*="ControlPaneContainer"] textarea,
 div[class*="ControlPaneContainer"] select {
-  font-size: 14px !important;
+  font-size: 14.5px !important;
   padding: 10px 12px !important;
   border-radius: 7px !important;
   line-height: 1.5 !important;
+  color: #14161a !important;
+  font-weight: 500 !important;
 }
 div[class*="ControlPaneContainer"] textarea { min-height: 96px; }
 
@@ -224,9 +228,9 @@ div[class*="ControlPaneContainer"] div[class*="ControlPaneContainer"] {
   padding: 0 !important;
 }
 
-/* 안내 문구(hint) */
+/* 안내 문구(hint) — 라벨보다 한 단계 더 연하게 */
 div[class*="ControlHint"], p[class*="ControlHint"] {
-  color: #8a8f98 !important;
+  color: #a2a8b0 !important;
   font-size: 12px !important;
 }
 
