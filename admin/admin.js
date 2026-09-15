@@ -1,0 +1,111 @@
+/* 동적 카테고리 선택 위젯:
+   관리자에서 편집하는 카테고리 목록(data/*.json)을 그대로 선택지로 보여준다.
+   → 카테고리를 추가/수정하면 선택지와 사이트 탭에 자동 반영 */
+(function () {
+  var cache = {};
+  function load(src) {
+    if (!cache[src]) {
+      cache[src] = fetch("../" + src + "?t=" + Date.now()).then(function (r) { return r.json(); });
+    }
+    return cache[src];
+  }
+  var Control = createClass({
+    getInitialState: function () { return { opts: [] }; },
+    componentDidMount: function () {
+      var f = this.props.field, self = this;
+      load(f.get("source")).then(function (j) {
+        self.setState({ opts: j[f.get("list_key")] || [] });
+      }).catch(function () {});
+    },
+    render: function () {
+      var self = this;
+      var value = this.props.value || "";
+      var options = [h("option", { key: "_", value: "" }, "— 선택 —")].concat(
+        this.state.opts.map(function (o, i) {
+          return h("option", { key: i, value: o.key }, o.label || o.key);
+        })
+      );
+      return h("select", {
+        id: this.props.forID,
+        value: value,
+        style: { width: "100%", padding: "10px 12px", fontSize: "14px",
+                 border: "2px solid #dfdfe3", borderRadius: "5px", background: "#fff" },
+        onChange: function (e) { self.props.onChange(e.target.value); },
+      }, options);
+    },
+  });
+  CMS.registerWidget("dyncat", Control);
+})();
+
+/* 좌측 카테고리 클릭 → 중간 목록 화면 없이 항상 바로 편집 화면으로 이동
+   (각 카테고리에 파일이 하나뿐이라 목록 화면이 불필요)
+   — 해시만 바꾸면(location.replace) Decap 내부 라우터가 못 따라가는 경우가 있어
+     쿼릭 사이드바 전환과 동일하게 해시를 정해놓고 완전히 새로고침한다 */
+(function () {
+  var SINGLE = { works: "works", exhibitions: "exhibitions", projects: "projects", writings: "writings", artist: "artist" };
+  function autoEnter() {
+    var m = location.hash.match(/^#\/collections\/([a-z]+)$/);
+    if (m && SINGLE[m[1]]) {
+      location.hash = "#/collections/" + m[1] + "/entries/" + SINGLE[m[1]];
+      location.reload();
+    }
+  }
+  window.addEventListener("hashchange", autoEnter);
+  setTimeout(autoEnter, 300);
+})();
+
+/* 편집 화면 상단에 항상 보이는 카테고리 버튼 바
+   → 뒤로 나갈 필요 없이 바로 다른 카테고리로 전환 */
+(function () {
+  var ITEMS = [
+    ["works", "Works"], ["exhibitions", "Exhibitions"], ["projects", "Projects"],
+    ["writings", "Writings"], ["artist", "About"],
+  ];
+  var side = document.createElement("nav");
+  side.id = "quick-top";
+  side.innerHTML = ITEMS.map(function (it) {
+    return "<a data-col='" + it[0] + "' href='#/collections/" + it[0] + "/entries/" + it[0] + "'>" + it[1] + "</a>";
+  }).join("");
+  // 편집 화면끼리 곧장 전환하면 이전 카테고리 내용이 남는 문제 → 전환 시 화면을 새로 불러옴
+  side.addEventListener("click", function (e) {
+    var a = e.target.closest("a");
+    if (!a) return;
+    e.preventDefault();
+    if (location.hash !== a.getAttribute("href")) {
+      location.hash = a.getAttribute("href");
+      location.reload();
+    }
+  });
+  function sync() {
+    // CMS 초기화가 body를 다시 그리면 바가 떨어져 나가므로 필요할 때마다 다시 붙인다
+    if (!side.isConnected) document.body.appendChild(side);
+    var m = location.hash.match(/^#\/collections\/([a-z]+)\/entries\//);
+    side.style.display = m ? "flex" : "none";
+    document.body.classList.toggle("has-quick-top", !!m);
+    side.querySelectorAll("a").forEach(function (a) {
+      a.classList.toggle("on", !!m && a.dataset.col === m[1]);
+    });
+  }
+  window.addEventListener("hashchange", sync);
+  setInterval(sync, 800); // 초기 로드·내부 라우팅 대비
+})();
+
+/* 목록 항목(x) 삭제 전 확인창
+   목록 항목 상단 바(ListItemTopBar)에는 버튼이 둘뿐 — 펼침/접기(첫 번째), 삭제(마지막).
+   버튼 클래스 이름이 매번 해시라 안정적으로 잡을 수 없어, "그 줄의 마지막 버튼"이라는
+   구조로 삭제 버튼을 식별한다. */
+(function () {
+  document.addEventListener("click", function (e) {
+    var bar = e.target.closest('div[class*="ListItemTopBar"]');
+    if (!bar) return;
+    var btn = e.target.closest("button");
+    if (!btn) return;
+    var buttons = bar.querySelectorAll("button");
+    if (!buttons.length || buttons[buttons.length - 1] !== btn) return;
+    if (!window.confirm("이 항목을 삭제하시겠습니까?")) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+    }
+  }, true);
+})();

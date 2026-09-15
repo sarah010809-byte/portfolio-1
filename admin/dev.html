@@ -2,22 +2,35 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>admin dev (스타일 작업용 — 실제 데이터와 무관)</title>
+<title>admin dev (스타일 작업용 — 저장해도 실제 파일은 바뀌지 않음)</title>
 </head>
 <body>
 <script>window.CMS_MANUAL_INIT = true;</script>
 <script src="https://unpkg.com/decap-cms@^3.8.4/dist/decap-cms.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 <link rel="stylesheet" href="admin.css">
+<!-- 실제 관리자 화면과 동일한 커스텀 UI(상단 카테고리 바 등)를 그대로 확인 -->
+<script src="admin.js"></script>
 <script>
-fetch("config.yml?dev=" + Date.now())
-  .then((r) => r.text())
-  .then((txt) => {
-    const config = jsyaml.load(txt);
-    config.backend = { name: "test-repo" }; // 로그인 없이 UI만 확인
-    config.load_config_file = false; // config.yml 자동 로드 방지 (이중 로드 → 중복 오류)
-    CMS.init({ config });
-  });
+// 실제 data/*.json 을 테스트 백엔드에 미리 넣어, 진짜 내용으로 화면을 확인한다
+// (test-repo 백엔드는 메모리에서만 동작 → 여기서 저장해도 실제 파일은 그대로)
+const DATA = ["works", "exhibitions", "projects", "writings", "artist"];
+Promise.all([
+  fetch("config.yml?dev=" + Date.now()).then((r) => r.text()),
+  ...DATA.map((n) => fetch("../data/" + n + ".json?dev=" + Date.now()).then((r) => r.text())),
+]).then(([txt, ...files]) => {
+  const dataDir = {};
+  DATA.forEach((n, i) => { dataDir[n + ".json"] = { content: files[i] }; });
+  // 테스트 백엔드가 스크립트 로드 시점의 window.repoFiles 객체를 그대로 붙잡아 두므로
+  // 새 객체로 덮어쓰지 말고 기존 객체에 채워 넣어야 한다
+  window.repoFiles = window.repoFiles || {};
+  window.repoFiles.data = dataDir;
+
+  const config = jsyaml.load(txt);
+  config.backend = { name: "test-repo" }; // 로그인 없이 UI만 확인
+  config.load_config_file = false; // config.yml 자동 로드 방지 (이중 로드 → 중복 오류)
+  CMS.init({ config });
+});
 </script>
 </body>
 </html>
