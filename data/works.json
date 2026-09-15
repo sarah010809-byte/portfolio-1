@@ -129,6 +129,57 @@
 
                                                     ],
                                          "featured":  false
+                                     },
+                                     {
+                                         "title_ko":  "Disposable Identity",
+                                         "title_en":  "Disposable Identity",
+                                         "year":  "2020",
+                                         "medium_ko":  "Oil on canvas",
+                                         "medium_en":  "Oil on canvas",
+                                         "size":  "70 x 70 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/disposable-identity-2020-70x70.jpg",
+                                         "images":  [
+
+                                                    ],
+                                         "featured":  false
+                                     },
+                                     {
+                                         "title_ko":  "Disposable Identity",
+                                         "title_en":  "Disposable Identity",
+                                         "year":  "2020",
+                                         "medium_ko":  "Oil on canvas",
+                                         "medium_en":  "Oil on canvas",
+                                         "size":  "100 x 100 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/disposable-identity-2020-100x100.jpg",
+                                         "images":  [
+
+                                                    ],
+                                         "featured":  false
+                                     },
+                                     {
+                                         "title_ko":  "Disposable Identity",
+                                         "title_en":  "Disposable Identity",
+                                         "year":  "2021",
+                                         "medium_ko":  "Oil on canvas",
+                                         "medium_en":  "Oil on canvas",
+                                         "size":  "100 x 100 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/disposable-identity-2021.jpg",
+                                         "images":  [
+
+                                                    ],
+                                         "featured":  false
                                      }
                                  ]
                    },
