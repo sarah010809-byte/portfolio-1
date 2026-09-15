@@ -76,6 +76,63 @@
                                  ]
                    },
                    {
+                       "name_ko":  "Disposable Identity",
+                       "name_en":  "Disposable Identity",
+                       "works":  [
+                                     {
+                                         "title_ko":  "Disposable Identity",
+                                         "title_en":  "Disposable Identity",
+                                         "year":  "2010",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "100 x 100 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/disposable-identity-2010.jpg",
+                                         "images":  [
+
+                                                    ],
+                                         "featured":  false
+                                     },
+                                     {
+                                         "title_ko":  "Disposable Identity",
+                                         "title_en":  "Disposable Identity",
+                                         "year":  "2010",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "100 x 100 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/disposable-identity-2010-2.jpg",
+                                         "images":  [
+
+                                                    ],
+                                         "featured":  false
+                                     },
+                                     {
+                                         "title_ko":  "Disposable Identity",
+                                         "title_en":  "Disposable Identity",
+                                         "year":  "2010",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "100 x 100 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/disposable-identity-2010-3.jpg",
+                                         "images":  [
+
+                                                    ],
+                                         "featured":  false
+                                     }
+                                 ]
+                   },
+                   {
                        "name_ko":  "시리즈 A",
                        "name_en":  "Series A",
                        "works":  [
