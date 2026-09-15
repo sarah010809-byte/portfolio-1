@@ -858,7 +858,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .card figcaption.stack-caption strong {
   display: block;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #111;
 }
 .card figcaption .card-cat, .card-cat {
