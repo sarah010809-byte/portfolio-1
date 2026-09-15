@@ -1292,9 +1292,8 @@ body.subpage .exh-layout { min-height: 100vh; }
   margin-bottom: 32px;
 }
 .post-top .post-image { flex: 1; min-width: 0; margin-bottom: 0; }
-/* 이미지가 세로로 긴 경우 캡션이 짧아 먼저 스크롤되어 사라져 보이는 문제
-   → 이미지를 스크롤하는 동안 캡션이 계속 옆에 붙어 있도록 고정 */
-.post-side { width: 240px; flex-shrink: 0; padding-top: 4px; position: sticky; top: 100px; }
+/* 캡션은 제자리에 두고 페이지와 함께 스크롤된다 (따라다니지 않음) */
+.post-side { width: 240px; flex-shrink: 0; padding-top: 4px; }
 .post-top.no-image .post-side { width: auto; }
 .post-side .post-head, .post-side { display: block; }
 .post-head h1, .post-side h1 {
@@ -1306,7 +1305,7 @@ body.subpage .exh-layout { min-height: 100vh; }
 }
 @media (max-width: 768px) {
   .post-top { flex-direction: column; gap: 20px; }
-  .post-side { width: auto; padding-top: 0; position: static; }
+  .post-side { width: auto; padding-top: 0; }
 }
 .post-desc {
   margin: 0 0 44px;
