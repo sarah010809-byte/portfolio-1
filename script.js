@@ -949,8 +949,6 @@ async function renderDynamic() {
           <figcaption class="proj-caption">
             <span class="home-cat">${esc(catLabel(cats, p.category))}</span>
             <strong data-ko="${esc(p.title_ko)}" data-en="${esc(p.title_en)}">${esc(p.title_ko)}</strong>
-            ${p.venue_ko || p.venue_en
-              ? `<span class="proj-venue" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</span>` : ""}
             <span class="exh-date">${esc(p.year)}</span>
           </figcaption>
         </a></figure>`).join("")}</div>` + pagerHTML(href, page, total);
