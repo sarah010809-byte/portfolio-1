@@ -224,6 +224,46 @@
                                  ]
                    },
                    {
+                       "name_ko":  "Layers of Time",
+                       "name_en":  "Layers of Time",
+                       "works":  [
+                                     {
+                                         "title_ko":  "Layers of Time",
+                                         "title_en":  "Layers of Time",
+                                         "year":  "2021",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "44 cm (diameter)",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/layers-of-time-1.jpg",
+                                         "images":  [
+
+                                                    ],
+                                         "featured":  false
+                                     },
+                                     {
+                                         "title_ko":  "Layers of Time",
+                                         "title_en":  "Layers of Time",
+                                         "year":  "2021",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "44 cm (diameter)",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/layers-of-time-2.jpg",
+                                         "images":  [
+
+                                                    ],
+                                         "featured":  false
+                                     }
+                                 ]
+                   },
+                   {
                        "name_ko":  "시리즈 A",
                        "name_en":  "Series A",
                        "works":  [
