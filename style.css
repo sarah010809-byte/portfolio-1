@@ -1314,6 +1314,7 @@ body.subpage .exh-layout { min-height: 100vh; }
 .post-head h1.exh-title,
 #exh-detail .other-works .stack-caption strong { font-style: italic; }
 .post-side h1.exh-title { font-weight: 500; }
+#project-detail .post-side h1 { font-weight: 600; }
 
 /* 전시 상세: 전시 출품작 블록 — 단독 컷(+디테일 컷 나란히) 아래 상세 캡션 */
 .exh-work { margin: 64px 0 0; }
