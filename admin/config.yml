@@ -61,7 +61,6 @@ collections:
                     hint: "디테일 컷이 있으면 추가하세요. 상세페이지에서 자동으로 슬라이드됩니다"
                     fields:
                       - { label: "이미지", name: "image", widget: "image" }
-                  - { label: "대표 작품 (홈 화면에 표시)", name: "featured", widget: "boolean", required: false, default: false }
 
   - name: "exhibitions"
     label: "Exhibitions"
@@ -112,7 +111,7 @@ collections:
                     name: "works"
                     widget: "list"
                     required: false
-                    collapsed: true
+                    collapsed: false
                     hint: "단독 컷 + 캡션으로 전시 상세 페이지에 순서대로 표시됩니다"
                     summary: "{{fields.title_en}}"
                     fields:
@@ -184,7 +183,7 @@ collections:
                     name: "works"
                     widget: "list"
                     required: false
-                    collapsed: true
+                    collapsed: false
                     hint: "한 프로젝트에 작품이 여러 점일 때 작품별 사진+캡션으로 표시됩니다. 디테일 컷을 추가하면 대표 이미지 옆에 작게 나란히 놓이고 캡션은 그 아래로 내려가며(전시 출품작과 동일), 디테일 컷이 없으면 대표 이미지 옆에 캡션이 표시됩니다"
                     summary: "{{fields.year}} — {{fields.title_en}}"
                     fields:

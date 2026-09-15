@@ -489,8 +489,7 @@ async function renderDynamic() {
         hero.prepend(bg);
       };
       const fallbackHero = () => {
-        const list = sortedWorks(data);
-        const feat = list.find((w) => w.featured && w.image) || list.find((w) => w.image);
+        const feat = sortedWorks(data).find((w) => w.image);
         if (feat) setHeroBg(feat.image);
       };
       // fetch HEAD는 일부 정적 호스팅에서 신뢰할 수 없어 실제 이미지 로드로 존재를 확인

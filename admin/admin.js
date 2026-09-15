@@ -187,6 +187,23 @@
       }, STEP);
     }, STEP);
   }
+  /* 선택한 분류 안의 항목을 한꺼번에 펼치거나 접는다
+     — 여러 작품의 캡션을 이어서 입력할 때 항목마다 펼치지 않아도 되도록 */
+  function toggleAll(open) {
+    if (sel.l1 == null) return;
+    var parent = topItems()[sel.l1];
+    if (!parent) return;
+    var count = childItems(parent).length;
+    var i = 0;
+    (function step() {
+      if (i >= count) { sel.l2 = null; lastKey = ""; render(); return; }
+      var p2 = topItems()[sel.l1];
+      var k = p2 ? childItems(p2)[i] : null;
+      if (k) setOpen(k, open);
+      i++;
+      setTimeout(step, 90); // React 가 다시 그릴 틈을 주며 하나씩
+    })();
+  }
   function renameL1() {
     if (sel.l1 == null) return;
     open(sel.l1, null);
@@ -304,10 +321,14 @@
     rows.l2.style.display = "flex";
     var kids = childItems(items[sel.l1]);
     if (sel.l2 != null && !kids[sel.l2]) sel.l2 = null;
+    var allOpen = kids.length > 0 && kids.every(function (k) { return !isCollapsed(k); });
     fillRow(rows.l2, kids.map(labelOf), function (i) {
       sel.l2 = i;
       open(sel.l1, i);
-    }, sel.l2, [{ text: "+ " + col.l2 + " 추가", cls: "qt-add", onClick: addL2 }]);
+    }, sel.l2, [
+      { text: allOpen ? "모두 접기" : "모두 펼치기", onClick: function () { toggleAll(!allOpen); } },
+      { text: "+ " + col.l2 + " 추가", cls: "qt-add", onClick: addL2 },
+    ]);
     syncHeight();
   }
 
@@ -344,4 +365,16 @@
       e.stopImmediatePropagation();
     }
   }, true);
+})();
+
+/* 접힌 줄은 아무 곳이나 눌러도 펼쳐지게 (작은 화살표를 정확히 겨냥하지 않아도 되도록) */
+(function () {
+  document.addEventListener("click", function (e) {
+    if (e.target.closest("button, input, textarea, select, a")) return;
+    var label = e.target.closest('div[class*="NestedObjectLabel"]');
+    if (!label) return;
+    var item = label.closest('div[class*="SortableListItem"]');
+    var btn = item && item.querySelector('div[class*="ListItemTopBar"] button');
+    if (btn) btn.click();
+  });
 })();
