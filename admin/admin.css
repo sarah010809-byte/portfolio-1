@@ -139,40 +139,83 @@ div[class*="ControlPaneContainer"] textarea { min-height: 96px; }
 /* 필드 사이 간격 */
 div[class*="ControlContainer"] div[class*="ControlContainer"] { margin-bottom: 14px; }
 
-/* 편집 화면 상단 고정 카테고리 버튼 바 */
+/* 편집 화면 상단 고정 내비게이션 바 (컬렉션 / 분류 / 항목 3단) */
 #quick-top {
   position: fixed;
   top: 56px;
   left: 0;
   right: 0;
   display: none;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.96);
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: saturate(180%) blur(8px);
   border-bottom: 1px solid #e5e7ea;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   z-index: 200;
+  max-height: 46vh;
+  overflow-y: auto;
 }
-#quick-top a {
-  padding: 9px 18px;
+#quick-top .qt-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 5px 0;
+}
+#quick-top .qt-row + .qt-row { border-top: 1px dashed #e9ebee; }
+#quick-top .qt-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+#quick-top .qt-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+#quick-top a,
+#quick-top button {
+  padding: 7px 15px;
   border: 1px solid #dcdfe4;
   border-radius: 999px;
-  font-size: 14px;
+  font: inherit;
+  font-size: 13.5px;
   font-weight: 600;
   color: #4b5058;
   background: #fff;
   text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
-#quick-top a:hover { background: #f2f4f6; color: #111; border-color: #c4c8cf; }
-#quick-top a.on {
+#quick-top a:hover,
+#quick-top button:hover { background: #f2f4f6; color: #111; border-color: #c4c8cf; }
+#quick-top a.on,
+#quick-top button.on {
   background: #17191d;
   border-color: #17191d;
   color: #fff;
 }
-/* 버튼 바가 보일 때 편집 영역이 가려지지 않도록 여백 확보 */
-body.has-quick-top div[class*="ControlPaneContainer"] { padding-top: 76px !important; }
+/* 2·3줄은 조금 작게 — 단계가 내려갈수록 위계가 보이도록 */
+#quick-top [data-row="l1"] button { font-size: 13px; padding: 6px 13px; }
+#quick-top [data-row="l2"] button { font-size: 12.5px; padding: 5px 12px; font-weight: 500; }
+#quick-top .qt-add { border-style: dashed; color: #1b53c9; border-color: #b9c8ea; }
+#quick-top .qt-add:hover { background: #eef3fd; color: #1b53c9; border-color: #1b53c9; }
+#quick-top .qt-danger { color: #b4232b; border-color: #edc9cb; }
+#quick-top .qt-danger:hover { background: #fdf0f1; color: #b4232b; border-color: #b4232b; }
+#quick-top .qt-empty { font-size: 13px; color: #9aa0a8; padding: 7px 2px; }
+
+/* 상단 바에서 이동했을 때 고정 바에 가려지지 않게 (바 높이는 줄 수에 따라 JS 가 알려준다) */
+div[class*="SortableListItem"] { scroll-margin-top: calc(var(--qt-h, 120px) + 68px); }
+
+/* 고정 바가 보일 때 편집 영역이 가려지지 않도록 여백 확보 */
+body.has-quick-top div[class*="ControlPaneContainer"] {
+  padding-top: max(28px, calc(var(--qt-h, 120px) - 22px)) !important;
+}
 
 /* 편집 컬럼 컨테이너는 중첩돼 렌더링된다 — 안쪽에까지 폭 제한·패딩이 겹쳐 적용되면
    편집 영역이 불필요하게 좁아지므로 바깥쪽에만 적용한다 */
