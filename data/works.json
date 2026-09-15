@@ -264,6 +264,29 @@
                                  ]
                    },
                    {
+                       "name_ko":  "All of Me",
+                       "name_en":  "All of Me",
+                       "works":  [
+                                     {
+                                         "title_ko":  "All of Me",
+                                         "title_en":  "All of Me",
+                                         "year":  "2022–2025",
+                                         "medium_ko":  "Carved acrylic layers on wood panel",
+                                         "medium_en":  "Carved acrylic layers on wood panel",
+                                         "size":  "15 x 15 cm each (48 pieces)",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/all-of-me.jpg",
+                                         "images":  [
+
+                                                    ],
+                                         "featured":  false
+                                     }
+                                 ]
+                   },
+                   {
                        "name_ko":  "시리즈 A",
                        "name_en":  "Series A",
                        "works":  [
