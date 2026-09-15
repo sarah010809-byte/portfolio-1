@@ -813,7 +813,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 .writing-author { color: #999; font-size: 0.85rem; margin-left: auto; }
 
 .writing-detail { max-width: 720px; margin: 0 auto; }
-.writing-detail h1 { font-size: 1.4rem; margin: 6px 0 10px; }
+.writing-detail h1 { font-size: 1.4rem; font-weight: 600; margin: 6px 0 10px; }
 .writing-byline { color: #555; font-size: 0.95rem; margin-bottom: 6px; }
 .writing-source-line { color: #999; font-size: 0.85rem; margin-bottom: 44px; }
 .writing-body {
@@ -1162,7 +1162,7 @@ body.page-leave main {
 }
 .writing-row-flat-head .home-cat { margin: 0; }
 .writing-row-flat-head .exh-date { color: #999; font-size: 0.85rem; }
-.writing-row-flat h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.writing-row-flat h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; }
 .writing-row-byline { color: #888; font-size: 0.85rem; margin-bottom: 8px; }
 .writing-row-flat .home-excerpt { max-width: 640px; }
 
