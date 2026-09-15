@@ -76,7 +76,27 @@
                            "key":  "curatorial",
                            "label":  "Curatorial Projects",
                            "items":  [
-
+                                         {
+                                             "title_ko":  "너에게 난, 나에게 넌 – 판화로 만나는 우리",
+                                             "title_en":  "Me to You, You to Me – Our Encounter through Printmaking",
+                                             "year":  "2024",
+                                             "collaborator_ko":  "한국·캐나다 협업 전시",
+                                             "collaborator_en":  "Korea–Canada Collaborative Exhibition",
+                                             "medium_ko":  "",
+                                             "medium_en":  "",
+                                             "size":  "",
+                                             "venue_ko":  "스페이스 소포라, 서울 · 2024.11.28 – 12.15",
+                                             "venue_en":  "Space Sophora, Seoul · 2024.11.28 – 12.15",
+                                             "desc_ko":  "",
+                                             "desc_en":  "",
+                                             "image":  "images/uploads/metoyou-poster.jpg",
+                                             "images":  [
+                                                            { "image": "images/uploads/metoyou-install.jpg" },
+                                                            { "image": "images/uploads/metoyou-poster-teal.jpg" },
+                                                            { "image": "images/uploads/metoyou-poster-black.jpg" }
+                                                        ],
+                                             "pdf":  "files/me-to-you-you-to-me-catalogue.pdf"
+                                         }
                                      ]
                        }
                    ]

@@ -1015,6 +1015,9 @@ async function renderDynamic() {
                 ${(p.venue_ko || p.venue_en)
                   ? `<p class="post-meta" data-ko="${esc(p.venue_ko)}" data-en="${esc(p.venue_en)}">${esc(p.venue_ko)}</p>` : ""}
                 <p class="post-meta">${esc(p.year)}</p>
+                ${p.pdf
+                  ? `<p class="post-meta"><a class="post-pdf-link" href="${esc(p.pdf)}" target="_blank" rel="noopener"
+                       data-ko="도록 보기 (PDF)" data-en="View Catalogue (PDF)">도록 보기 (PDF)</a></p>` : ""}
               </div>
             </div>
             ${(p.works && p.works.length) ? `

@@ -175,6 +175,7 @@ collections:
                     collapsed: true
                     fields:
                       - { label: "이미지", name: "image", widget: "image" }
+                  - { label: "도록 PDF 파일", name: "pdf", widget: "file", required: false, media_folder: "/files", public_folder: "/files", hint: "업로드하면 프로젝트 상세페이지에 '도록 보기 (PDF)' 링크가 생깁니다" }
                   - label: "이 프로젝트에 포함된 작품들 (한 프로젝트에 작품이 여러 점일 때 — 작품별 사진+캡션)"
                     label_singular: "작품"
                     name: "works"

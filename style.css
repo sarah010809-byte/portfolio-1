@@ -1275,6 +1275,8 @@ body.subpage .exh-layout { min-height: 100vh; }
   line-height: 1.3;
   margin-bottom: 6px;
 }
+.post-pdf-link { color: #333; text-decoration: underline; transition: opacity 0.2s; }
+.post-pdf-link:hover { opacity: 0.6; }
 .post-image { margin-bottom: 32px; }
 .post-image img { width: 100%; display: block; }
 
