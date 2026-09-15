@@ -381,8 +381,11 @@ function sliderHTML(id, images, alt) {
 }
 
 // 모바일: 스테이지 높이를 대표(첫) 이미지 비율에 맞춰 고정 — 디테일컷 비율이 달라도 안 흔들림
+// (이미지가 한 장뿐이면 전환될 일이 없으니 적용하지 않음 — 세로로 긴 사진의 경우
+//  높이를 강제로 줄이면 이미지가 그 아래 텍스트를 가리는 문제가 생김)
 function sizeStageForMobile(root) {
   if (!window.matchMedia("(max-width: 768px)").matches) return;
+  if (!root.classList.contains("multi")) return;
   const stage = root.querySelector(".slides");
   const first = root.querySelector(".slide img");
   if (!stage || !first) return;
