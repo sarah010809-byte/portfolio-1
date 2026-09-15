@@ -461,7 +461,7 @@ body:not(.subpage) .exh-sticky {
   overflow: hidden;
   max-width: 220px;
 }
-.series-nav a.current-year { color: #111; font-weight: 600; }
+.series-nav a.current-year { color: #111; font-weight: 500; }
 
 .page-content { flex: 1; min-width: 0; }
 
@@ -475,7 +475,7 @@ body:not(.subpage) .exh-sticky {
   margin-bottom: 20px;
 }
 .series-head h2 {
-  line-height: 1; font-size: 1.1rem; letter-spacing: 0.02em; }
+  line-height: 1; font-size: 1.1rem; font-weight: 500; letter-spacing: 0.02em; }
 .series-meta { font-size: 0.85rem; color: #999; }
 
 /* 사이드바 앵커 이동 시 헤더에 가리지 않게 */
@@ -493,6 +493,7 @@ body:not(.subpage) .exh-sticky {
   max-height: 75vh;
   width: auto;
   height: auto;
+  margin: 0 auto;
 }
 
 .detail-placeholder { aspect-ratio: 4 / 3; }
@@ -783,7 +784,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 }
 .view-toggle a { color: #bbb; letter-spacing: 0.03em; transition: color 0.2s; }
 .view-toggle a:hover { color: #111; }
-.view-toggle a.on { color: #111; font-weight: 600; border-bottom: 1px solid #111; }
+.view-toggle a.on { color: #111; font-weight: 500; border-bottom: 1px solid #111; }
 
 /* Exhibitions 페이지: 가운데 정렬 토글 (전체 / 개인전 / 그룹전) */
 .exh-toggle {
