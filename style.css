@@ -1305,7 +1305,8 @@ body.subpage .exh-layout { min-height: 100vh; }
 }
 @media (max-width: 768px) {
   .post-top { flex-direction: column; gap: 20px; }
-  .post-side { width: auto; padding-top: 0; }
+  /* 모바일: 전시·프로젝트 정보(제목·날짜·장소)를 이미지보다 먼저 보여준다 */
+  .post-side { width: auto; padding-top: 0; order: -1; }
 }
 .post-desc {
   margin: 0 0 44px;
