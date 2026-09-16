@@ -126,6 +126,38 @@
                                      {
                                          "title_ko":  "Disposable Identity",
                                          "title_en":  "Disposable Identity",
+                                         "year":  "2012",
+                                         "medium_ko":  "Acrylic and gold leaf on canvas",
+                                         "medium_en":  "Acrylic and gold leaf on canvas",
+                                         "size":  "90 x 90 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/disposable-identity-2012-gold-1.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     },
+                                     {
+                                         "title_ko":  "Disposable Identity",
+                                         "title_en":  "Disposable Identity",
+                                         "year":  "2012",
+                                         "medium_ko":  "Acrylic and gold leaf on canvas",
+                                         "medium_en":  "Acrylic and gold leaf on canvas",
+                                         "size":  "90 x 90 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/disposable-identity-2012-gold-2.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     },
+                                     {
+                                         "title_ko":  "Disposable Identity",
+                                         "title_en":  "Disposable Identity",
                                          "year":  "2020",
                                          "medium_ko":  "Oil on canvas",
                                          "medium_en":  "Oil on canvas",
@@ -265,6 +297,50 @@
                                          "related_ko":  "",
                                          "related_en":  "",
                                          "image":  "images/uploads/all-of-me.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     }
+                                 ]
+                   },
+                   {
+                       "name_ko":  "The Road Home",
+                       "name_en":  "The Road Home",
+                       "works":  [
+                                     {
+                                         "title_ko":  "The Road Home",
+                                         "title_en":  "The Road Home",
+                                         "year":  "2016",
+                                         "medium_ko":  "Cardboard box",
+                                         "medium_en":  "Cardboard box",
+                                         "size":  "255 x 210 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/the-road-home-2016.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     }
+                                 ]
+                   },
+                   {
+                       "name_ko":  "Collected Memories",
+                       "name_en":  "Collected Memories",
+                       "works":  [
+                                     {
+                                         "title_ko":  "Collected Memories",
+                                         "title_en":  "Collected Memories",
+                                         "year":  "2011",
+                                         "medium_ko":  "Newspaper, pinecone, sticker",
+                                         "medium_en":  "Newspaper, pinecone, sticker",
+                                         "size":  "Installation view",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/collected-memories-install.jpg",
                                          "images":  [
 
                                                     ]
