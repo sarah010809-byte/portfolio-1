@@ -535,6 +535,9 @@ a.side-related:hover { opacity: 0.55; }
 
 .other-works { margin-top: 24px; padding-top: 24px; border-top: 1px solid #eee; }
 .other-works h2 { font-size: 1.3rem; font-weight: 500; letter-spacing: 0.02em; margin-bottom: 22px; }
+/* 더보기 섹션도 Works 목록과 동일하게: 이미지가 칸 가운데 놓이므로 캡션도 가운데 정렬
+   (Writings 더보기는 카드가 아닌 텍스트 목록이라 해당 없음) */
+.other-works .card { text-align: center; }
 /* 원본 비율 유지 그리드의 기본 규칙: 레터박스 배경은 항상 흰 바탕에 묻히도록 투명 처리
    (회색 박스가 도드라져 보이지 않게 — Works 페이지와 동일한 방식을 모든 "그리드 안 원본
    비율 유지" 썸네일에 공통 적용) */
