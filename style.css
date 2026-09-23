@@ -844,6 +844,8 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
 
 /* 작품 페이지: 그리드 칸은 유지하고 이미지는 원본 비율대로 (PKM 갤러리 스타일) */
 #works-content .grid { row-gap: 40px; } /* 카드 위아래 간격 살짝 여유 */
+/* 이미지가 칸 가운데에 놓이므로 작품명도 가운데 정렬 */
+#works-content .card { text-align: center; }
 #works-content .card .thumb:not(.placeholder) { background: transparent; }
 #works-content .card a:hover .thumb img { transform: none; }
 /* width/height:100%+object-fit:contain (object-position 기본값 50% 50%로 중앙 정렬됨) —

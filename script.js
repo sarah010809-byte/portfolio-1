@@ -337,7 +337,7 @@ function flattenWorks(data) {
 function sortedWorks(data) {
   return flattenWorks(data)
     .map((w, idx) => ({ ...w, idx }))
-    .sort((a, b) => String(b.year).localeCompare(String(a.year)));
+    .sort((a, b) => workYear(b).localeCompare(workYear(a)));
 }
 
 // 카테고리 키 → 표시 이름 (관리자에서 편집한 목록 기준, 없으면 fallback)
@@ -360,6 +360,13 @@ const DEFAULT_WRITING_CATS = [
 // 작품의 시리즈 이름 (없으면 '기타'로 묶음)
 function seriesKey(w) {
   return w.series_en || w.series_ko || "Other";
+}
+
+// 연도 표기가 "2022–2025" 처럼 기간일 수 있어, 연도별 분류·정렬은 끝 연도를 기준으로 한다
+// (캡션에는 원래 표기가 그대로 나가고, 목록에서만 한 해로 묶임)
+function workYear(w) {
+  const found = String(w.year || "").match(/\d{4}/g);
+  return found ? found[found.length - 1] : String(w.year || "");
 }
 
 // ===== 상세 슬라이드쇼 (자동 재생 + 화살표 + 썸네일) =====
@@ -610,10 +617,10 @@ async function renderDynamic() {
 
       let groups; // [{ key, label_ko, label_en, items }]
       if (view === "years") {
-        const years = [...new Set(list.map((w) => w.year))];
+        const years = [...new Set(list.map(workYear))];
         groups = years.map((y) => ({
           key: y, label_ko: y, label_en: y,
-          items: list.filter((w) => w.year === y),
+          items: list.filter((w) => workYear(w) === y),
         }));
       } else if (data.series) {
         // 시리즈 순서 = 관리자 목록의 배치 순서 그대로
@@ -716,7 +723,7 @@ async function renderDynamic() {
       const mode = params.get("view") === "series" ? "series" : "years";
       const yearList = mode === "series"
         ? list.filter((o) => seriesKey(o) === seriesKey(w))
-        : list.filter((o) => o.year === w.year);
+        : list.filter((o) => workYear(o) === workYear(w));
       const yPos = yearList.findIndex((o) => o.idx === w.idx);
       const link = (p) => `work.html?i=${yearList[p].idx}&view=${mode}`;
       const prev = yPos > 0
@@ -729,7 +736,7 @@ async function renderDynamic() {
       const sEn = w.series_en || w.series_ko || "Other";
       const othersHead = mode === "series"
         ? `<h2 data-ko="${esc(sKo)} 더보기" data-en="More from ${esc(sEn)}">${esc(sKo)} 더보기</h2>`
-        : `<h2 data-ko="${esc(w.year)}년의 다른 작품" data-en="More Works from ${esc(w.year)}">${esc(w.year)}년의 다른 작품</h2>`;
+        : `<h2 data-ko="${esc(workYear(w))}년의 다른 작품" data-en="More Works from ${esc(workYear(w))}">${esc(workYear(w))}년의 다른 작품</h2>`;
       const others = sameCtx.length ? `
         <section class="other-works">
           ${othersHead}
