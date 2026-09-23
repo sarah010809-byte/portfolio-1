@@ -1035,6 +1035,11 @@ async function renderDynamic() {
             ${(p.works && p.works.length) ? `
             <ul class="proj-subworks">${p.works.map((w) => {
               const wTitle = w.title_en || w.title_ko || "";
+              // 협업 정보는 작품마다 캡션 제목 바로 아래에 (제목·협업·재료·크기·연도 순서)
+              const collabKo = p.collaborator_ko || p.collaborator_en || "";
+              const collabEn = p.collaborator_en || p.collaborator_ko || "";
+              const collabLine = collabKo
+                ? `<span data-ko="${esc(collabKo)}" data-en="${esc(collabEn)}">${esc(collabKo)}</span>` : "";
               const wDetails = (w.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
               const wImgs = [w.image, ...wDetails].filter(Boolean);
               // 디테일 컷이 있으면: 대표 이미지 옆에 작게 나란히 + 캡션은 아래로 (전시 출품작과 동일한 방식)
@@ -1046,6 +1051,7 @@ async function renderDynamic() {
                   `<img src="${esc(src)}" alt="${esc(wTitle)}" loading="lazy">`).join("")}</div>
                 <div class="exh-work-cap">
                   <span class="cap-title">${esc(wTitle)}</span>
+                  ${collabLine}
                   ${(w.medium_en || w.medium_ko) ? `<span class="cap-medium">${esc(w.medium_en || w.medium_ko)}</span>` : ""}
                   ${w.size ? `<span>${esc(w.size)}</span>` : ""}
                   ${w.year ? `<span>${esc(w.year)}</span>` : ""}
@@ -1057,6 +1063,7 @@ async function renderDynamic() {
                 ${w.image ? `<div class="proj-subwork-img"><img src="${esc(w.image)}" alt="${esc(wTitle)}" loading="lazy"></div>` : ""}
                 <div class="proj-subwork-cap">
                   <strong>${esc(wTitle)}</strong>
+                  ${collabLine}
                   ${(w.medium_en || w.medium_ko) ? `<span>${esc(w.medium_en || w.medium_ko)}</span>` : ""}
                   ${w.size ? `<span>${esc(w.size)}</span>` : ""}
                   ${w.year ? `<span>${esc(w.year)}</span>` : ""}
