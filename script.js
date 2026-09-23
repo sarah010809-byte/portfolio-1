@@ -617,7 +617,9 @@ async function renderDynamic() {
         }));
       } else if (data.series) {
         // 시리즈 순서 = 관리자 목록의 배치 순서 그대로
-        groups = data.series.map((s) => {
+        // 시리즈 이름이 비어 있으면 '아직 시리즈를 정하지 않은 작품' 묶음으로 보고
+        // By Series 에는 표시하지 않는다 (By Years 에는 그대로 나옴)
+        groups = data.series.filter((s) => s.name_ko || s.name_en).map((s) => {
           const key = s.name_en || s.name_ko || "Other";
           return {
             key,

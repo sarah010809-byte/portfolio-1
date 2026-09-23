@@ -380,6 +380,76 @@
                                  ]
                    },
                    {
+                       "name_ko":  "",
+                       "name_en":  "",
+                       "works":  [
+                                     {
+                                         "title_ko":  "I am enough",
+                                         "title_en":  "I am enough",
+                                         "year":  "2026",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "60 x 60 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/i-am-enough-2026.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     },
+                                     {
+                                         "title_ko":  "I am fine",
+                                         "title_en":  "I am fine",
+                                         "year":  "2026",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "61 x 91 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/i-am-fine-2026.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     },
+                                     {
+                                         "title_ko":  "After love",
+                                         "title_en":  "After love",
+                                         "year":  "2026",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "50 x 50 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/after-love-2026.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     },
+                                     {
+                                         "title_ko":  "I miss you",
+                                         "title_en":  "I miss you",
+                                         "year":  "2025",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "50 x 50 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/i-miss-you-2025.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     }
+                                 ]
+                   },
+                   {
                        "name_ko":  "시리즈 A",
                        "name_en":  "Series A",
                        "works":  [
