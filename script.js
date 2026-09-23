@@ -763,7 +763,7 @@ async function renderDynamic() {
       const slider = document.getElementById("work-slider");
       if (slider) initSlider(slider);
 
-      document.title = `${w.title_ko} — An Se Eun`;
+      document.title = `${w.title_ko} — An Se-eun`;
     }
   }
 
@@ -911,7 +911,7 @@ async function renderDynamic() {
           ${relWorksHTML}
           <div class="work-nav">${prev}${next}</div>
           ${exOthersHTML}`;
-        document.title = `${e.title_ko} — An Se Eun`;
+        document.title = `${e.title_ko} — An Se-eun`;
       }
     }
   }
@@ -1060,7 +1060,7 @@ async function renderDynamic() {
           </article>
           <div class="work-nav">${pPrev}${pNext}</div>
           ${othersHTML}`;
-        document.title = `${p.title_ko} — An Se Eun`;
+        document.title = `${p.title_ko} — An Se-eun`;
       }
     }
   }
@@ -1156,7 +1156,7 @@ async function renderDynamic() {
               </a></li>`;
             }).join("")}</ul>
           </section>` : ""}`;
-        document.title = `${t.title_ko} — An Se Eun`;
+        document.title = `${t.title_ko} — An Se-eun`;
       }
     }
   }
@@ -1175,6 +1175,14 @@ async function renderDynamic() {
       const cvSection = (label, items) => (items || []).length
         ? `<h3>${esc(label)}</h3>${cvList(items)}` : "";
 
+      // 소장처는 쉼표로 끊어 각각 한 덩어리로 묶는다 — 기관 이름이 줄 중간에서
+      // 잘리지 않게 (예: "국제민간항공기구 ICAO", "Embassy of ... in the Philippines")
+      const collectionsHTML = (text) => {
+        const items = String(text || "").split(",").map((s) => s.trim()).filter(Boolean);
+        return items.map((s, k) =>
+          `<span>${esc(s)}${k < items.length - 1 ? "," : ""}</span>`).join(" ");
+      };
+
       const cvBody = document.createElement("div");
       const renderCV = (lang) => {
         const L = (ko, en) => (lang === "ko" ? ko : en);
@@ -1184,16 +1192,14 @@ async function renderDynamic() {
           ${cvSection(L("단체전", "Group Exhibitions"), lang === "ko" ? a.group_ko : a.group_en)}
           ${cvSection(L("전시 기획", "Curatorial Projects"), lang === "ko" ? a.curatorial_ko : a.curatorial_en)}
           ${cvSection(L("퍼포먼스 및 무대미술", "Performance & Stage Design"), lang === "ko" ? a.performance_ko : a.performance_en)}
-          ${cvSection(L("수상 및 레지던시", "Awards & Residencies"), lang === "ko" ? a.awards_ko : a.awards_en)}
+          ${cvSection(L("기금 수혜", "Artist Grants"), lang === "ko" ? a.awards_ko : a.awards_en)}
           ${(a.collections_ko || a.collections_en) ? `
           <h3>${L("작품 소장", "Selected Collections")}</h3>
-          <p class="cv-collections">${esc(L(a.collections_ko, a.collections_en))}</p>` : ""}`;
+          <p class="cv-collections">${collectionsHTML(L(a.collections_ko, a.collections_en))}</p>` : ""}`;
       };
 
       aboutContent.innerHTML = `
-        <section class="artist-section artist-cv">
-          <h2>C.V.</h2>
-        </section>
+        <section class="artist-section artist-cv"></section>
         <section class="artist-section">
           <h2>Contact</h2>
           <p class="contact-line"><span class="contact-label">Email</span><a href="mailto:${esc(a.email)}">${esc(a.email)}</a></p>

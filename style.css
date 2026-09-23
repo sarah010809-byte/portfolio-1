@@ -1556,6 +1556,10 @@ body:not(.subpage) .site-footer { margin-top: 0; }
 .cv-list .year { color: #999; min-width: 44px; }
 .cv-list .year:empty { min-width: 0; }
 
+/* 작품 소장: 위 목록들과 같은 크기로, 기관 이름은 줄 중간에서 끊기지 않게 */
+.cv-collections { font-size: 0.85rem; line-height: 1.9; }
+.cv-collections span { white-space: nowrap; }
+
 img.profile { object-fit: cover; }
 
 /* ===== 모바일 (768px 이하) ===== */
