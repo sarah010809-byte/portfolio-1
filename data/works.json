@@ -68,6 +68,22 @@
                                                         { "image": "images/uploads/you-stones-d1.jpg" },
                                                         { "image": "images/uploads/you-stones-d2.jpg" }
                                                     ]
+                                     },
+                                     {
+                                         "title_ko":  "Me for you",
+                                         "title_en":  "Me for you",
+                                         "year":  "2025",
+                                         "medium_ko":  "Acrylic on paper",
+                                         "medium_en":  "Acrylic on paper",
+                                         "size":  "38 x 240 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/me-for-you-2025.jpg",
+                                         "images":  [
+
+                                                    ]
                                      }
                                  ]
                    },
@@ -275,6 +291,22 @@
                                          "related_ko":  "",
                                          "related_en":  "",
                                          "image":  "images/uploads/layers-of-time-2.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     },
+                                     {
+                                         "title_ko":  "Silent Longing",
+                                         "title_en":  "Silent Longing",
+                                         "year":  "2022",
+                                         "medium_ko":  "Acrylic on sheepskin drum",
+                                         "medium_en":  "Acrylic on sheepskin drum",
+                                         "size":  "Ø 38.5 x H 7 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/silent-longing-2022.jpg",
                                          "images":  [
 
                                                     ]
