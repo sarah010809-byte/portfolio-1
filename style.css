@@ -839,6 +839,7 @@ body.loupe-on, body.loupe-on * { cursor: none !important; }
   color: #333;
   font-size: 0.98rem;
   line-height: 1.9;
+  margin-bottom: 44px;
 }
 .writing-link { margin-top: 32px; }
 .writing-link a { color: #888; border-bottom: 1px solid #ddd; }
