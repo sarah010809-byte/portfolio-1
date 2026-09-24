@@ -311,6 +311,38 @@
                                          "images":  [
                                                         { "image": "images/uploads/silent-longing-2022-d1.jpg" }
                                                     ]
+                                     },
+                                     {
+                                         "title_ko":  "Shape of You",
+                                         "title_en":  "Shape of You",
+                                         "year":  "2021",
+                                         "medium_ko":  "Carved acrylic layers on canvas",
+                                         "medium_en":  "Carved acrylic layers on canvas",
+                                         "size":  "Ø 60 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/shape-of-you-2021-1.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     },
+                                     {
+                                         "title_ko":  "Shape of You",
+                                         "title_en":  "Shape of You",
+                                         "year":  "2021",
+                                         "medium_ko":  "Carved acrylic layers on canvas",
+                                         "medium_en":  "Carved acrylic layers on canvas",
+                                         "size":  "Ø 60 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/shape-of-you-2021-2.jpg",
+                                         "images":  [
+
+                                                    ]
                                      }
                                  ]
                    },
