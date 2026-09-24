@@ -1187,8 +1187,11 @@ body.page-leave main {
 
 /* Projects 페이지: 카드 2열 크게 + 콘텐츠 영역이 화면을 채우게 */
 #projects-content .grid { grid-template-columns: repeat(2, 1fr); gap: 48px 40px; }
+/* 이미지가 칸 가운데에 놓이므로 프로젝트명도 가운데 정렬
+   (모바일은 이미지 옆에 텍스트가 붙는 구조라 아래 미디어쿼리에서 왼쪽 정렬 유지) */
+#projects-content .card { text-align: center; }
 /* 다른 페이지와 같은 텍스트 위계: 회색 분류 → 굵은 제목 → 회색 장소·연도 */
-.proj-caption { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+.proj-caption { display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .card .proj-caption .home-cat { margin-bottom: 2px; color: #aaa; }
 .card .proj-caption strong {
   font-weight: 500;
@@ -1253,6 +1256,7 @@ body.subpage .exh-layout { min-height: 100vh; }
   #projects-content .card figcaption {
     text-align: left;
     font-size: 0.9rem;
+    align-items: flex-start;
   }
 }
 
