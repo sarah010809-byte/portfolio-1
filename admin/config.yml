@@ -244,6 +244,8 @@ collections:
                   - { label: "본문 (한글)", name: "body_ko", widget: "text", required: false }
                   - { label: "본문 (영문)", name: "body_en", widget: "text", required: false }
                   - { label: "원문 링크 (https://...)", name: "link", widget: "string", required: false, hint: "외부 기사·인터뷰라면 링크만 넣어도 됩니다" }
+                  - { label: "관련 시리즈 (한글, 예: Layers of Time)", name: "related_series_ko", widget: "string", required: false, hint: "Works의 시리즈 이름과 정확히 같게 입력하면, 글 상세페이지 아래에 그 시리즈의 작품들이 '관련 작품'으로 표시됩니다" }
+                  - { label: "관련 시리즈 (영문)", name: "related_series_en", widget: "string", required: false }
                   - { label: "대표 이미지", name: "image", widget: "image", required: false, hint: "메인 페이지 카드와 글 상세에 표시됩니다" }
 
   - name: "artist"

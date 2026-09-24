@@ -1152,6 +1152,24 @@ async function renderDynamic() {
       const t = all[i];
       if (t) {
         const catName = t.label_en || t.label_ko || catLabel(wcats, t.category, "");
+        // 관련 작품 — 이 글이 다루는 시리즈를 지정해 두면(관련 시리즈), 그 시리즈의
+        // 작품들을 카드 그리드로 보여준다 (전시 상세의 '관련 작품'과 동일한 방식)
+        const relSeriesName = t.related_series_ko || t.related_series_en;
+        let relWorksHTML = "";
+        if (relSeriesName) {
+          const worksData = await loadJSON("data/works.json");
+          const relWorks = worksData
+            ? sortedWorks(worksData).filter((w) =>
+                w.series_ko === relSeriesName || w.series_en === relSeriesName)
+            : [];
+          relWorksHTML = relWorks.length ? `
+            <section class="other-works">
+              <h2 data-ko="관련 작품" data-en="Related Works">관련 작품</h2>
+              <div class="grid">${relWorks.map((w) =>
+                cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
+                  w.title_en, `work.html?i=${w.idx}&view=series`)).join("")}</div>
+            </section>` : "";
+        }
         writingDetail.innerHTML = `
           <p class="back-link detail-back"><a href="writings.html" data-ko="← 글 목록" data-en="← All Writings">← 글 목록</a></p>
           <article class="writing-detail">
@@ -1165,6 +1183,7 @@ async function renderDynamic() {
             <div class="writing-body" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</div>
             ${t.link ? `<p class="writing-link"><a href="${esc(t.link)}" target="_blank" rel="noopener" data-ko="원문 보기 →" data-en="Read original →">원문 보기 →</a></p>` : ""}
           </article>
+          ${relWorksHTML}
           <div class="work-nav">${
             i > 0 ? `<a href="writing.html?i=${all[i - 1].idx}" data-ko="← 이전 글" data-en="← Prev Writing">← 이전 글</a>` : `<span></span>`
           }${
