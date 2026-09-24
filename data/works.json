@@ -359,6 +359,38 @@
                                          "images":  [
 
                                                     ]
+                                     },
+                                     {
+                                         "title_ko":  "Layers of Time",
+                                         "title_en":  "Layers of Time",
+                                         "year":  "2020",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "50 x 50 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/layers-of-time-2020.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     },
+                                     {
+                                         "title_ko":  "Layers of Time",
+                                         "title_en":  "Layers of Time",
+                                         "year":  "2021",
+                                         "medium_ko":  "Carved acrylic layers on wood panel",
+                                         "medium_en":  "Carved acrylic layers on wood panel",
+                                         "size":  "15 x 15 cm each (9 pieces)",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/layers-of-time-9pieces.jpg",
+                                         "images":  [
+
+                                                    ]
                                      }
                                  ]
                    },
