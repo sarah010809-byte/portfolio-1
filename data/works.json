@@ -402,6 +402,38 @@
                                          "images":  [
                                                         { "image": "images/uploads/silent-longing-2022-30-d1.jpg" }
                                                     ]
+                                     },
+                                     {
+                                         "title_ko":  "Silent Longing",
+                                         "title_en":  "Silent Longing",
+                                         "year":  "2022",
+                                         "medium_ko":  "Acrylic on sheepskin drum",
+                                         "medium_en":  "Acrylic on sheepskin drum",
+                                         "size":  "Ø 30 x H 7 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/silent-longing-2022-30-olive.jpg",
+                                         "images":  [
+
+                                                    ]
+                                     },
+                                     {
+                                         "title_ko":  "Silent Longing",
+                                         "title_en":  "Silent Longing",
+                                         "year":  "2022",
+                                         "medium_ko":  "Acrylic on sheepskin drum",
+                                         "medium_en":  "Acrylic on sheepskin drum",
+                                         "size":  "Ø 30 x H 7 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/silent-longing-2022-30-cobalt.jpg",
+                                         "images":  [
+
+                                                    ]
                                      }
                                  ]
                    },
