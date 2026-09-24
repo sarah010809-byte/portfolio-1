@@ -1051,9 +1051,10 @@ async function renderDynamic() {
                 ? `<span data-ko="${esc(collabKo)}" data-en="${esc(collabEn)}">${esc(collabKo)}</span>` : "";
               const wDetails = (w.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
               const wImgs = [w.image, ...wDetails].filter(Boolean);
-              // 디테일 컷이 있으면: 대표 이미지 옆에 작게 나란히 + 캡션은 아래로 (전시 출품작과 동일한 방식)
-              // 디테일 컷이 없으면: 대표 이미지 옆에 캡션 (기존 좌우 배치)
-              if (wDetails.length) {
+              // 디테일 컷이 있거나(여러 장 나란히) 가로로 넓은 이미지라 전체 폭이 필요하면(full_width):
+              //   이미지를 위에 크게, 캡션은 아래로 (전시 출품작과 동일한 방식)
+              // 그 외에는 대표 이미지 옆에 캡션 (기존 좌우 배치)
+              if (wDetails.length || w.full_width) {
                 return `
               <li class="proj-subwork-detailed">
                 <div class="exh-work-imgs cols-${Math.min(wImgs.length, 3)}">${wImgs.map((src) =>
