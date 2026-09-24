@@ -96,7 +96,40 @@
                                                             { "image": "images/uploads/metoyou-poster-teal.jpg" },
                                                             { "image": "images/uploads/metoyou-poster-black.jpg" }
                                                         ],
-                                             "pdf":  "files/me-to-you-you-to-me-catalogue.pdf"
+                                             "pdf":  "files/me-to-you-you-to-me-catalogue.pdf",
+                                             "works":  [
+                                                           {
+                                                               "title_en":  "Interwoven Layers",
+                                                               "collaborator_ko":  "Collaboration with Dominique Desbiens",
+                                                               "collaborator_en":  "Collaboration with Dominique Desbiens",
+                                                               "medium_en":  "Silkscreen, relief print",
+                                                               "size":  "56 x 76 cm",
+                                                               "year":  "2024",
+                                                               "image":  "images/uploads/interwoven-layers-2024.jpg"
+                                                           }
+                                                       ]
+                                         },
+                                         {
+                                             "title_ko":  "my love – Marriage and Love through the Eyes of Female Artists in Korea and Jordan",
+                                             "title_en":  "my love – Marriage and Love through the Eyes of Female Artists in Korea and Jordan",
+                                             "year":  "2024",
+                                             "collaborator_ko":  "한국·요르단 협업 전시",
+                                             "collaborator_en":  "Korea–Jordan Collaborative Exhibition",
+                                             "medium_ko":  "",
+                                             "medium_en":  "",
+                                             "size":  "",
+                                             "venue_ko":  "티라즈 센터, 암만 · 2024.5.28 – 6.14, 스페이스 소포라, 서울 · 2024.11.28 – 12.15",
+                                             "venue_en":  "TIRAZ Centre, Amman · 28 May – 14 June 2024, Space Sophora, Seoul · 2024.11.28 – 12.15",
+                                             "desc_ko":  "",
+                                             "desc_en":  "",
+                                             "image":  "images/uploads/mylove-poster.jpg",
+                                             "images":  [
+                                                            { "image": "images/uploads/mylove-install-1.jpg" },
+                                                            { "image": "images/uploads/mylove-install-2.jpg" },
+                                                            { "image": "images/uploads/mylove-install-3.jpg" },
+                                                            { "image": "images/uploads/mylove-install-4.jpg" }
+                                                        ],
+                                             "pdf":  "files/mylove-brochure.pdf"
                                          }
                                      ]
                        }

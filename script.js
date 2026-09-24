@@ -985,13 +985,13 @@ async function renderDynamic() {
       const p = all[i];
       if (p) {
         // 대표 이미지 + 추가 이미지를 슬라이드쇼 없이 개별적으로 세로 나열
-        // — 프로젝트 안에 작품별 사진(works)이 있으면 대표 이미지 없이 그 목록만 보여줌
-        // — 이미지가 한 장이면 이미지 좌측+정보 우측 (When We Talk about Love 방식)
-        // — 이미지가 여러 장이면 정보를 맨 위로, 이미지는 그 아래 전체 폭으로 (Evolving, Game 방식)
+        // — 이미지가 한 장뿐이고 작품별 사진(works)도 없으면 이미지 좌측+정보 우측 (When We Talk about Love 방식)
+        // — 이미지가 여러 장이거나 작품별 사진이 있으면 정보를 맨 위로, 그 아래 전체 폭으로
+        //   (포스터·설치 전경 갤러리와 개별 작품 목록은 함께 표시될 수 있음 — Me to You, You to Me 방식)
         //   → 모바일에서도 같은 순서(정보 → 이미지)가 되어 정보가 맨 밑에 묻히지 않음
         const hasSubworks = !!(p.works && p.works.length);
         const pImages = [p.image, ...(p.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
-        const multiImage = !hasSubworks && pImages.length > 1;
+        const multiImage = pImages.length > 1;
         const pImageArea = pImages.length
           ? `<div class="post-image-stack">${pImages.map((src) =>
               `<img src="${esc(src)}" alt="${esc(p.title_en)}" loading="lazy">`).join("")}</div>`
@@ -1041,14 +1041,17 @@ async function renderDynamic() {
               </div>
             </div>
             ${multiImage ? `<div class="post-image">${pImageArea}</div>` : ""}
+            ${(p.desc_ko || p.desc_en)
+              ? `<p class="post-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}
             ${(p.works && p.works.length) ? `
             <ul class="proj-subworks">${p.works.map((w) => {
               const wTitle = w.title_en || w.title_ko || "";
-              // 협업 정보는 작품마다 캡션 제목 바로 아래에 (제목·협업·재료·크기·연도 순서)
-              const collabKo = p.collaborator_ko || p.collaborator_en || "";
-              const collabEn = p.collaborator_en || p.collaborator_ko || "";
-              const collabLine = collabKo
-                ? `<span data-ko="${esc(collabKo)}" data-en="${esc(collabEn)}">${esc(collabKo)}</span>` : "";
+              // 협업 정보는 작품마다 다를 수 있어 작품 자체에 적혀 있을 때만 표시
+              // (프로젝트 전체의 협업자와 같으면 위 프로젝트 정보에 이미 나오므로 반복하지 않음)
+              const wCollabKo = w.collaborator_ko || w.collaborator_en || "";
+              const wCollabEn = w.collaborator_en || w.collaborator_ko || "";
+              const collabLine = wCollabKo
+                ? `<span data-ko="${esc(wCollabKo)}" data-en="${esc(wCollabEn)}">${esc(wCollabKo)}</span>` : "";
               const wDetails = (w.images || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
               const wImgs = [w.image, ...wDetails].filter(Boolean);
               // 디테일 컷이 있거나(여러 장 나란히) 가로로 넓은 이미지라 전체 폭이 필요하면(full_width):
@@ -1081,8 +1084,6 @@ async function renderDynamic() {
               </li>`;
             }).join("")}
             </ul>` : ""}
-            ${(p.desc_ko || p.desc_en)
-              ? `<p class="post-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}
           </article>
           <div class="work-nav">${pPrev}${pNext}</div>
           ${othersHTML}`;
