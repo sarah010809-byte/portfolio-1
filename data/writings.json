@@ -38,13 +38,8 @@
       "items": []
     },
     {
-      "key": "statement",
-      "label": "Statement",
-      "items": []
-    },
-    {
-      "key": "essays",
-      "label": "Essays",
+      "key": "statements",
+      "label": "Statements",
       "items": []
     }
   ]

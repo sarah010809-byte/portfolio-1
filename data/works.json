@@ -410,6 +410,22 @@
                                          "images":  [
 
                                                     ]
+                                     },
+                                     {
+                                         "title_ko":  "Disposable Identity",
+                                         "title_en":  "Disposable Identity",
+                                         "year":  "2020",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "80 x 80 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/disposable-identity-2020-80-blue.jpg",
+                                         "images":  [
+
+                                                    ]
                                      }
                                  ]
                    },
