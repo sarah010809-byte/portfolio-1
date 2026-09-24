@@ -96,18 +96,7 @@
                                                             { "image": "images/uploads/metoyou-poster-teal.jpg" },
                                                             { "image": "images/uploads/metoyou-poster-black.jpg" }
                                                         ],
-                                             "pdf":  "files/me-to-you-you-to-me-catalogue.pdf",
-                                             "works":  [
-                                                           {
-                                                               "title_en":  "Interwoven Layers",
-                                                               "collaborator_ko":  "Collaboration with Dominique Desbiens",
-                                                               "collaborator_en":  "Collaboration with Dominique Desbiens",
-                                                               "medium_en":  "Silkscreen, relief print",
-                                                               "size":  "56 x 76 cm",
-                                                               "year":  "2024",
-                                                               "image":  "images/uploads/interwoven-layers-2024.jpg"
-                                                           }
-                                                       ]
+                                             "pdf":  "files/me-to-you-you-to-me-catalogue.pdf"
                                          },
                                          {
                                              "title_ko":  "my love – Marriage and Love through the Eyes of Female Artists in Korea and Jordan",
