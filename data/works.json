@@ -116,6 +116,22 @@
                                          "images":  [
 
                                                     ]
+                                     },
+                                     {
+                                         "title_ko":  "I love you",
+                                         "title_en":  "I love you",
+                                         "year":  "2026",
+                                         "medium_ko":  "Acrylic on canvas",
+                                         "medium_en":  "Acrylic on canvas",
+                                         "size":  "50 x 100 cm",
+                                         "desc_ko":  "",
+                                         "desc_en":  "",
+                                         "related_ko":  "",
+                                         "related_en":  "",
+                                         "image":  "images/uploads/iloveyou-2026.jpg",
+                                         "images":  [
+
+                                                    ]
                                      }
                                  ]
                    },
@@ -247,28 +263,6 @@
                                          "related_ko":  "",
                                          "related_en":  "",
                                          "image":  "images/uploads/disposable-identity-2021.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     }
-                                 ]
-                   },
-                   {
-                       "name_ko":  "I love you",
-                       "name_en":  "I love you",
-                       "works":  [
-                                     {
-                                         "title_ko":  "I love you",
-                                         "title_en":  "I love you",
-                                         "year":  "2026",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "50 x 100 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/iloveyou-2026.jpg",
                                          "images":  [
 
                                                     ]
