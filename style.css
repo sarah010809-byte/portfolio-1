@@ -609,6 +609,9 @@ a.side-related:hover { opacity: 0.55; }
 }
 .slider-prev:hover, .slider-next:hover { color: #111; }
 
+/* 작품 상세: 영상 작품 */
+.work-video video { width: 100%; height: auto; display: block; background: #000; }
+
 /* 작품 상세: '사진 나란히 배치'를 켠 작품 — 전환 없이 같은 크기로 나란히 */
 .work-images-row { display: grid; gap: 12px; align-items: start; }
 .work-images-row.cols-2 { grid-template-columns: repeat(2, 1fr); }

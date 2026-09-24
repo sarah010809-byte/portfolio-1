@@ -687,7 +687,11 @@ async function renderDynamic() {
       // — 작품에서 '사진 나란히 배치'를 켜면 전환 없이 같은 크기로 나란히 보여준다
       const images = [w.image, ...(w.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
       const sideBySide = !!w.side_by_side && images.length > 1;
-      const imageArea = images.length
+      // 영상 작품이면 재생기를 보여준다 — 대표 이미지는 재생 전 표지로 쓰인다
+      const imageArea = w.video
+        ? `<div class="work-video"><video controls preload="metadata" playsinline${
+            w.image ? ` poster="${esc(w.image)}"` : ""}><source src="${esc(w.video)}" type="video/mp4"></video></div>`
+        : images.length
         ? (sideBySide
             ? `<div class="work-images-row cols-${Math.min(images.length, 3)}">${images.map((src) =>
                 `<img src="${esc(src)}" alt="${esc(w.title_ko)}">`).join("")}</div>`

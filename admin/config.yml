@@ -62,6 +62,7 @@ collections:
                     fields:
                       - { label: "이미지", name: "image", widget: "image" }
                   - { label: "사진을 나란히 배치", name: "side_by_side", widget: "boolean", required: false, default: false, hint: "체크하면 썸네일로 넘기는 대신 사진들이 같은 크기로 나란히 표시됩니다 (사진이 2장 이상일 때)" }
+                  - { label: "영상 파일 (mp4)", name: "video", widget: "file", required: false, hint: "영상 작품이면 넣으세요. 상세페이지에서 재생기로 표시되고, 위 '대표 이미지'가 재생 전 표지로 쓰입니다. 용량은 50MB 이하를 권장합니다" }
 
   - name: "exhibitions"
     label: "Exhibitions"
