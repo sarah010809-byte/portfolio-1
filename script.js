@@ -684,9 +684,14 @@ async function renderDynamic() {
       const w = list[pos];
 
       // 대표 이미지 + 추가 이미지(디테일 컷)를 하나의 슬라이드쇼로
+      // — 작품에서 '사진 나란히 배치'를 켜면 전환 없이 같은 크기로 나란히 보여준다
       const images = [w.image, ...(w.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
+      const sideBySide = !!w.side_by_side && images.length > 1;
       const imageArea = images.length
-        ? sliderHTML("work-slider", images, w.title_ko)
+        ? (sideBySide
+            ? `<div class="work-images-row cols-${Math.min(images.length, 3)}">${images.map((src) =>
+                `<img src="${esc(src)}" alt="${esc(w.title_ko)}">`).join("")}</div>`
+            : sliderHTML("work-slider", images, w.title_ko))
         : `<div class="placeholder detail-placeholder"><span>${esc(w.title_en)}</span></div>`;
 
       // 관련 전시 문구에서 실제 전시를 찾아 해당 전시 상세 페이지로 연결
@@ -1310,7 +1315,7 @@ function hoverZoomMove(e) {
     hoverZoom.classList.remove("show");
     return;
   }
-  const img = e.target.closest && e.target.closest(".slider .slide img");
+  const img = e.target.closest && e.target.closest(".slider .slide img, .work-images-row img");
   if (!img || !window.matchMedia("(hover: hover)").matches) {
     hoverZoom.classList.remove("show");
     return;

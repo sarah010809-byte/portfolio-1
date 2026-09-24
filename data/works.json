@@ -307,6 +307,7 @@
                                          "related_ko":  "",
                                          "related_en":  "",
                                          "image":  "images/uploads/silent-longing-2022.jpg",
+                                         "side_by_side":  true,
                                          "images":  [
                                                         { "image": "images/uploads/silent-longing-2022-d1.jpg" }
                                                     ]

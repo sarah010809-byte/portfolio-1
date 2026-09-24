@@ -61,6 +61,7 @@ collections:
                     hint: "디테일 컷이 있으면 추가하세요. 상세페이지에서 자동으로 슬라이드됩니다"
                     fields:
                       - { label: "이미지", name: "image", widget: "image" }
+                  - { label: "사진을 나란히 배치", name: "side_by_side", widget: "boolean", required: false, default: false, hint: "체크하면 썸네일로 넘기는 대신 사진들이 같은 크기로 나란히 표시됩니다 (사진이 2장 이상일 때)" }
 
   - name: "exhibitions"
     label: "Exhibitions"
