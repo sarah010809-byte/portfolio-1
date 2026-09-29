@@ -420,6 +420,20 @@
           "related_en": "",
           "image": "images/uploads/disposable-identity-2008-bottle-caps.jpg",
           "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2007",
+          "medium_ko": "Mixed media",
+          "medium_en": "Mixed media",
+          "size": "Dimensions variable",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2007-mixed-media.jpg",
+          "images": []
         }
       ]
     },
@@ -746,6 +760,34 @@
           "related_ko": "",
           "related_en": "",
           "image": "images/uploads/perfect-world-2000-2001.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Art Market",
+          "title_en": "Art Market",
+          "year": "2002",
+          "medium_ko": "Mixed media",
+          "medium_en": "Mixed media",
+          "size": "Dimensions variable",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/art-market-2002.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "People",
+          "title_en": "People",
+          "year": "2000–2001",
+          "medium_ko": "Acrylic on clay",
+          "medium_en": "Acrylic on clay",
+          "size": "Dimensions variable",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/people-2000-2001.jpg",
           "images": []
         }
       ]
