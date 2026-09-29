@@ -1,772 +1,774 @@
 {
-    "series":  [
-                   {
-                       "name_ko":  "When We Talk about Love",
-                       "name_en":  "When We Talk about Love",
-                       "works":  [
-                                     {
-                                         "title_ko":  "When We Talk about Love",
-                                         "title_en":  "When We Talk about Love",
-                                         "year":  "2026",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "Installation view",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
-                                         "related_en":  "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
-                                         "image":  "images/uploads/notconformed-install-1.jpg",
-                                         "images":  [
-                                                        { "image": "images/uploads/notconformed-install-2.jpg" }
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "When We Talk about Love-Thank you",
-                                         "title_en":  "When We Talk about Love-Thank you",
-                                         "year":  "2026",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "24.2 x 41 cm each",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
-                                         "related_en":  "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
-                                         "image":  "images/uploads/wwtal-thank-you.jpg",
-                                         "images":  [
-                                                        { "image": "images/uploads/wwtal-thank-you-d1.jpg" }
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "When We Talk about Love-I love you",
-                                         "title_en":  "When We Talk about Love-I love you",
-                                         "year":  "2026",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "50 x 50 cm each (set of 6)",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
-                                         "related_en":  "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
-                                         "image":  "images/uploads/wwtal-i-love-you.jpg",
-                                         "images":  [
-                                                        { "image": "images/uploads/wwtal-i-love-you-d1.jpg" }
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "You",
-                                         "title_en":  "You",
-                                         "year":  "2026",
-                                         "medium_ko":  "Acrylic on stone",
-                                         "medium_en":  "Acrylic on stone",
-                                         "size":  "Ø 140 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
-                                         "related_en":  "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
-                                         "image":  "images/uploads/you-stones.jpg",
-                                         "images":  [
-                                                        { "image": "images/uploads/you-stones-d1.jpg" },
-                                                        { "image": "images/uploads/you-stones-d2.jpg" }
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Me for you",
-                                         "title_en":  "Me for you",
-                                         "year":  "2025",
-                                         "medium_ko":  "Acrylic on paper",
-                                         "medium_en":  "Acrylic on paper",
-                                         "size":  "38 x 240 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/me-for-you-2025.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "I love you",
-                                         "title_en":  "I love you",
-                                         "year":  "2025",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "50 x 50 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/iloveyou-2025.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "I miss you",
-                                         "title_en":  "I miss you",
-                                         "year":  "2025",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "50 x 50 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/i-miss-you-2025.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "I love you",
-                                         "title_en":  "I love you",
-                                         "year":  "2026",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "50 x 100 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/iloveyou-2026.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "When We Talk about Love",
-                                         "title_en":  "When We Talk about Love",
-                                         "year":  "2024",
-                                         "medium_ko":  "Acrylic on paper",
-                                         "medium_en":  "Acrylic on paper",
-                                         "size":  "38 x 240 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/when-we-talk-about-love-2024.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "I am enough",
-                                         "title_en":  "I am enough",
-                                         "year":  "2026",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "60 x 60 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/i-am-enough-2026.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "I am fine",
-                                         "title_en":  "I am fine",
-                                         "year":  "2026",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "61 x 91 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/i-am-fine-2026.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     }
-                                 ]
-                   },
-                   {
-                       "name_ko":  "Disposable Identity",
-                       "name_en":  "Disposable Identity",
-                       "works":  [
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2010",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "100 x 100 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2010.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2010",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "100 x 100 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2010-2.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2010",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "100 x 100 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2010-3.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2012",
-                                         "medium_ko":  "Acrylic and gold leaf on canvas",
-                                         "medium_en":  "Acrylic and gold leaf on canvas",
-                                         "size":  "90 x 90 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2012-gold-1.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2012",
-                                         "medium_ko":  "Acrylic and gold leaf on canvas",
-                                         "medium_en":  "Acrylic and gold leaf on canvas",
-                                         "size":  "90 x 90 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2012-gold-2.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2020",
-                                         "medium_ko":  "Oil on canvas",
-                                         "medium_en":  "Oil on canvas",
-                                         "size":  "70 x 70 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2020-70x70.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2020",
-                                         "medium_ko":  "Oil on canvas",
-                                         "medium_en":  "Oil on canvas",
-                                         "size":  "100 x 100 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2020-100x100.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2021",
-                                         "medium_ko":  "Oil on canvas",
-                                         "medium_en":  "Oil on canvas",
-                                         "size":  "100 x 100 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2021.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2010",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "50 x 50 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2010-50-1.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2010",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "50 x 50 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2010-50-2.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2019",
-                                         "medium_ko":  "Oil on canvas",
-                                         "medium_en":  "Oil on canvas",
-                                         "size":  "60 x 60 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2019.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2012",
-                                         "medium_ko":  "Acrylic and gold leaf on canvas",
-                                         "medium_en":  "Acrylic and gold leaf on canvas",
-                                         "size":  "80 x 80 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2012-gold-80.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2012",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "80 x 80 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2012-80-heart.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2012",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "50 x 50 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2012-50-green.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Disposable Identity",
-                                         "title_en":  "Disposable Identity",
-                                         "year":  "2020",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "80 x 80 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/disposable-identity-2020-80-blue.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     }
-                                 ]
-                   },
-                   {
-                       "name_ko":  "Layers of Time",
-                       "name_en":  "Layers of Time",
-                       "works":  [
-                                     {
-                                         "title_ko":  "Layers of Time",
-                                         "title_en":  "Layers of Time",
-                                         "year":  "2021",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "Ø 44 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/layers-of-time-1.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Layers of Time",
-                                         "title_en":  "Layers of Time",
-                                         "year":  "2021",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "Ø 44 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/layers-of-time-2.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Silent Longing",
-                                         "title_en":  "Silent Longing",
-                                         "year":  "2022",
-                                         "medium_ko":  "Acrylic on sheepskin drum",
-                                         "medium_en":  "Acrylic on sheepskin drum",
-                                         "size":  "Ø 38.5 x H 7 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/silent-longing-2022.jpg",
-                                         "side_by_side":  true,
-                                         "images":  [
-                                                        { "image": "images/uploads/silent-longing-2022-d1.jpg" }
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Shape of You",
-                                         "title_en":  "Shape of You",
-                                         "year":  "2021",
-                                         "medium_ko":  "Carved acrylic layers on canvas",
-                                         "medium_en":  "Carved acrylic layers on canvas",
-                                         "size":  "Ø 60 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/shape-of-you-2021-1.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Shape of You",
-                                         "title_en":  "Shape of You",
-                                         "year":  "2021",
-                                         "medium_ko":  "Carved acrylic layers on canvas",
-                                         "medium_en":  "Carved acrylic layers on canvas",
-                                         "size":  "Ø 60 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/shape-of-you-2021-2.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Layers of Time",
-                                         "title_en":  "Layers of Time",
-                                         "year":  "2020",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "50 x 50 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/layers-of-time-2020.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Layers of Time",
-                                         "title_en":  "Layers of Time",
-                                         "year":  "2021",
-                                         "medium_ko":  "Carved acrylic layers on wood panel",
-                                         "medium_en":  "Carved acrylic layers on wood panel",
-                                         "size":  "15 x 15 cm each (9 pieces)",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/layers-of-time-9pieces.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Silent Longing",
-                                         "title_en":  "Silent Longing",
-                                         "year":  "2022",
-                                         "medium_ko":  "Acrylic on sheepskin drum",
-                                         "medium_en":  "Acrylic on sheepskin drum",
-                                         "size":  "Ø 30 x H 7 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/silent-longing-2022-30.jpg",
-                                         "side_by_side":  true,
-                                         "images":  [
-                                                        { "image": "images/uploads/silent-longing-2022-30-d1.jpg" }
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Silent Longing",
-                                         "title_en":  "Silent Longing",
-                                         "year":  "2022",
-                                         "medium_ko":  "Acrylic on sheepskin drum",
-                                         "medium_en":  "Acrylic on sheepskin drum",
-                                         "size":  "Ø 30 x H 7 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/silent-longing-2022-30-olive.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Silent Longing",
-                                         "title_en":  "Silent Longing",
-                                         "year":  "2022",
-                                         "medium_ko":  "Acrylic on sheepskin drum",
-                                         "medium_en":  "Acrylic on sheepskin drum",
-                                         "size":  "Ø 30 x H 7 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/silent-longing-2022-30-cobalt.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Layers of Time",
-                                         "title_en":  "Layers of Time",
-                                         "year":  "2024",
-                                         "medium_ko":  "Carved acrylic layers on canvas",
-                                         "medium_en":  "Carved acrylic layers on canvas",
-                                         "size":  "Ø 50 cm, Ø 32 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/layers-of-time-2024-pair.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     }
-                                 ]
-                   },
-                   {
-                       "name_ko":  "All of Me",
-                       "name_en":  "All of Me",
-                       "works":  [
-                                     {
-                                         "title_ko":  "All of Me",
-                                         "title_en":  "All of Me",
-                                         "year":  "2022–2025",
-                                         "medium_ko":  "Carved acrylic layers on wood panel",
-                                         "medium_en":  "Carved acrylic layers on wood panel",
-                                         "size":  "15 x 15 cm each (48 pieces)",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/all-of-me.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     }
-                                 ]
-                   },
-                   {
-                       "name_ko":  "The Road Home",
-                       "name_en":  "The Road Home",
-                       "works":  [
-                                     {
-                                         "title_ko":  "The Road Home",
-                                         "title_en":  "The Road Home",
-                                         "year":  "2016",
-                                         "medium_ko":  "Cardboard box",
-                                         "medium_en":  "Cardboard box",
-                                         "size":  "255 x 210 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/the-road-home-2016.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     }
-                                 ]
-                   },
-                   {
-                       "name_ko":  "Collected Memories",
-                       "name_en":  "Collected Memories",
-                       "works":  [
-                                     {
-                                         "title_ko":  "Collected Memories",
-                                         "title_en":  "Collected Memories",
-                                         "year":  "2011",
-                                         "medium_ko":  "Newspaper, pinecone, sticker",
-                                         "medium_en":  "Newspaper, pinecone, sticker",
-                                         "size":  "Installation view",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/collected-memories-install.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     }
-                                 ]
-                   },
-                   {
-                       "name_ko":  "Handle with Care",
-                       "name_en":  "Handle with Care",
-                       "works":  [
-                                     {
-                                         "title_ko":  "취급주의",
-                                         "title_en":  "Handle with Care",
-                                         "year":  "2019",
-                                         "medium_ko":  "전시 영상",
-                                         "medium_en":  "Exhibition video",
-                                         "size":  "",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "《취급주의》, Sueño 339, 서울, 2019",
-                                         "related_en":  "Handle with Care, Sueño 339, Seoul, 2019",
-                                         "image":  "images/uploads/handle-with-care-2019.jpg",
-                                         "video":  "videos/handle-with-care-2019.mp4",
-                                         "images":  [
-
-                                                    ]
-                                     }
-                                 ]
-                   },
-                   {
-                       "name_ko":  "",
-                       "name_en":  "",
-                       "works":  [
-                                     {
-                                         "title_ko":  "After love",
-                                         "title_en":  "After love",
-                                         "year":  "2026",
-                                         "medium_ko":  "Acrylic on canvas",
-                                         "medium_en":  "Acrylic on canvas",
-                                         "size":  "50 x 50 cm",
-                                         "desc_ko":  "",
-                                         "desc_en":  "",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/after-love-2026.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     },
-                                     {
-                                         "title_ko":  "Interwoven Layers",
-                                         "title_en":  "Interwoven Layers",
-                                         "year":  "2024",
-                                         "medium_ko":  "Silkscreen, relief print",
-                                         "medium_en":  "Silkscreen, relief print",
-                                         "size":  "56 x 76 cm",
-                                         "desc_ko":  "Collaboration with Dominique Desbiens",
-                                         "desc_en":  "Collaboration with Dominique Desbiens",
-                                         "related_ko":  "",
-                                         "related_en":  "",
-                                         "image":  "images/uploads/interwoven-layers-2024.jpg",
-                                         "images":  [
-
-                                                    ]
-                                     }
-                                 ]
-                   },
-                   {
-                       "name_ko":  "시리즈 A",
-                       "name_en":  "Series A",
-                       "works":  [
-
-                                 ]
-                   },
-                   {
-                       "name_ko":  "시리즈 B",
-                       "name_en":  "Series B",
-                       "works":  [
-
-                                 ]
-                   },
-                   {
-                       "name_ko":  "시리즈 C",
-                       "name_en":  "Series C",
-                       "works":  [
-
-                                 ]
-                   },
-                   {
-                       "name_ko":  "시리즈 D",
-                       "name_en":  "Series D",
-                       "works":  [
-
-                                 ]
-                   }
-               ]
+  "series": [
+    {
+      "name_ko": "When We Talk about Love",
+      "name_en": "When We Talk about Love",
+      "works": [
+        {
+          "title_ko": "When We Talk about Love",
+          "title_en": "When We Talk about Love",
+          "year": "2026",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "Installation view",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
+          "related_en": "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
+          "image": "images/uploads/notconformed-install-1.jpg",
+          "images": [
+            {
+              "image": "images/uploads/notconformed-install-2.jpg"
+            }
+          ]
+        },
+        {
+          "title_ko": "When We Talk about Love-Thank you",
+          "title_en": "When We Talk about Love-Thank you",
+          "year": "2026",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "24.2 x 41 cm each",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
+          "related_en": "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
+          "image": "images/uploads/wwtal-thank-you.jpg",
+          "images": [
+            {
+              "image": "images/uploads/wwtal-thank-you-d1.jpg"
+            }
+          ]
+        },
+        {
+          "title_ko": "When We Talk about Love-I love you",
+          "title_en": "When We Talk about Love-I love you",
+          "year": "2026",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "50 x 50 cm each (set of 6)",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
+          "related_en": "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
+          "image": "images/uploads/wwtal-i-love-you.jpg",
+          "images": [
+            {
+              "image": "images/uploads/wwtal-i-love-you-d1.jpg"
+            }
+          ]
+        },
+        {
+          "title_ko": "You",
+          "title_en": "You",
+          "year": "2026",
+          "medium_ko": "Acrylic on stone",
+          "medium_en": "Acrylic on stone",
+          "size": "Ø 140 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "《NOT CONFORMED: FOUR WOMEN CARVING TIME》, Sueño 339, Seoul, 2026",
+          "related_en": "NOT CONFORMED: FOUR WOMEN CARVING TIME, Sueño 339, Seoul, 2026",
+          "image": "images/uploads/you-stones.jpg",
+          "images": [
+            {
+              "image": "images/uploads/you-stones-d1.jpg"
+            },
+            {
+              "image": "images/uploads/you-stones-d2.jpg"
+            }
+          ]
+        },
+        {
+          "title_ko": "Me for you",
+          "title_en": "Me for you",
+          "year": "2025",
+          "medium_ko": "Acrylic on paper",
+          "medium_en": "Acrylic on paper",
+          "size": "38 x 240 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/me-for-you-2025.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "I love you",
+          "title_en": "I love you",
+          "year": "2025",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "50 x 50 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/iloveyou-2025.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "I miss you",
+          "title_en": "I miss you",
+          "year": "2025",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "50 x 50 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/i-miss-you-2025.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "I love you",
+          "title_en": "I love you",
+          "year": "2026",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "50 x 100 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/iloveyou-2026.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "When We Talk about Love",
+          "title_en": "When We Talk about Love",
+          "year": "2024",
+          "medium_ko": "Acrylic on paper",
+          "medium_en": "Acrylic on paper",
+          "size": "38 x 240 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/when-we-talk-about-love-2024.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "I am enough",
+          "title_en": "I am enough",
+          "year": "2026",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "60 x 60 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/i-am-enough-2026.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "I am fine",
+          "title_en": "I am fine",
+          "year": "2026",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "61 x 91 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/i-am-fine-2026.jpg",
+          "images": []
+        }
+      ]
+    },
+    {
+      "name_ko": "Disposable Identity",
+      "name_en": "Disposable Identity",
+      "works": [
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2010",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "100 x 100 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2010.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2010",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "100 x 100 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2010-2.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2010",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "100 x 100 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2010-3.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2012",
+          "medium_ko": "Acrylic and gold leaf on canvas",
+          "medium_en": "Acrylic and gold leaf on canvas",
+          "size": "90 x 90 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2012-gold-1.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2012",
+          "medium_ko": "Acrylic and gold leaf on canvas",
+          "medium_en": "Acrylic and gold leaf on canvas",
+          "size": "90 x 90 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2012-gold-2.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2020",
+          "medium_ko": "Oil on canvas",
+          "medium_en": "Oil on canvas",
+          "size": "70 x 70 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2020-70x70.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2020",
+          "medium_ko": "Oil on canvas",
+          "medium_en": "Oil on canvas",
+          "size": "100 x 100 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2020-100x100.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2021",
+          "medium_ko": "Oil on canvas",
+          "medium_en": "Oil on canvas",
+          "size": "100 x 100 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2021.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2010",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "50 x 50 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2010-50-1.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2010",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "50 x 50 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2010-50-2.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2019",
+          "medium_ko": "Oil on canvas",
+          "medium_en": "Oil on canvas",
+          "size": "60 x 60 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2019.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2012",
+          "medium_ko": "Acrylic and gold leaf on canvas",
+          "medium_en": "Acrylic and gold leaf on canvas",
+          "size": "80 x 80 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2012-gold-80.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2012",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "80 x 80 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2012-80-heart.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2012",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "50 x 50 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2012-50-green.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2020",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "80 x 80 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2020-80-blue.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2008",
+          "medium_ko": "Dymo on acrylic",
+          "medium_en": "Dymo on acrylic",
+          "size": "48 x 48 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2008-dymo.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2008",
+          "medium_ko": "Bottle caps",
+          "medium_en": "Bottle caps",
+          "size": "Dimensions variable",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2008-bottle-caps.jpg",
+          "images": []
+        }
+      ]
+    },
+    {
+      "name_ko": "Layers of Time",
+      "name_en": "Layers of Time",
+      "works": [
+        {
+          "title_ko": "Layers of Time",
+          "title_en": "Layers of Time",
+          "year": "2021",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "Ø 44 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/layers-of-time-1.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Layers of Time",
+          "title_en": "Layers of Time",
+          "year": "2021",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "Ø 44 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/layers-of-time-2.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Silent Longing",
+          "title_en": "Silent Longing",
+          "year": "2022",
+          "medium_ko": "Acrylic on sheepskin drum",
+          "medium_en": "Acrylic on sheepskin drum",
+          "size": "Ø 38.5 x H 7 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/silent-longing-2022.jpg",
+          "side_by_side": true,
+          "images": [
+            {
+              "image": "images/uploads/silent-longing-2022-d1.jpg"
+            }
+          ]
+        },
+        {
+          "title_ko": "Shape of You",
+          "title_en": "Shape of You",
+          "year": "2021",
+          "medium_ko": "Carved acrylic layers on canvas",
+          "medium_en": "Carved acrylic layers on canvas",
+          "size": "Ø 60 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/shape-of-you-2021-1.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Shape of You",
+          "title_en": "Shape of You",
+          "year": "2021",
+          "medium_ko": "Carved acrylic layers on canvas",
+          "medium_en": "Carved acrylic layers on canvas",
+          "size": "Ø 60 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/shape-of-you-2021-2.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Layers of Time",
+          "title_en": "Layers of Time",
+          "year": "2020",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "50 x 50 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/layers-of-time-2020.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Layers of Time",
+          "title_en": "Layers of Time",
+          "year": "2021",
+          "medium_ko": "Carved acrylic layers on wood panel",
+          "medium_en": "Carved acrylic layers on wood panel",
+          "size": "15 x 15 cm each (9 pieces)",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/layers-of-time-9pieces.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Silent Longing",
+          "title_en": "Silent Longing",
+          "year": "2022",
+          "medium_ko": "Acrylic on sheepskin drum",
+          "medium_en": "Acrylic on sheepskin drum",
+          "size": "Ø 30 x H 7 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/silent-longing-2022-30.jpg",
+          "side_by_side": true,
+          "images": [
+            {
+              "image": "images/uploads/silent-longing-2022-30-d1.jpg"
+            }
+          ]
+        },
+        {
+          "title_ko": "Silent Longing",
+          "title_en": "Silent Longing",
+          "year": "2022",
+          "medium_ko": "Acrylic on sheepskin drum",
+          "medium_en": "Acrylic on sheepskin drum",
+          "size": "Ø 30 x H 7 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/silent-longing-2022-30-olive.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Silent Longing",
+          "title_en": "Silent Longing",
+          "year": "2022",
+          "medium_ko": "Acrylic on sheepskin drum",
+          "medium_en": "Acrylic on sheepskin drum",
+          "size": "Ø 30 x H 7 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/silent-longing-2022-30-cobalt.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Layers of Time",
+          "title_en": "Layers of Time",
+          "year": "2024",
+          "medium_ko": "Carved acrylic layers on canvas",
+          "medium_en": "Carved acrylic layers on canvas",
+          "size": "Ø 50 cm, Ø 32 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/layers-of-time-2024-pair.jpg",
+          "images": []
+        }
+      ]
+    },
+    {
+      "name_ko": "All of Me",
+      "name_en": "All of Me",
+      "works": [
+        {
+          "title_ko": "All of Me",
+          "title_en": "All of Me",
+          "year": "2022–2025",
+          "medium_ko": "Carved acrylic layers on wood panel",
+          "medium_en": "Carved acrylic layers on wood panel",
+          "size": "15 x 15 cm each (48 pieces)",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/all-of-me.jpg",
+          "images": []
+        }
+      ]
+    },
+    {
+      "name_ko": "The Road Home",
+      "name_en": "The Road Home",
+      "works": [
+        {
+          "title_ko": "The Road Home",
+          "title_en": "The Road Home",
+          "year": "2016",
+          "medium_ko": "Cardboard box",
+          "medium_en": "Cardboard box",
+          "size": "255 x 210 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/the-road-home-2016.jpg",
+          "images": []
+        }
+      ]
+    },
+    {
+      "name_ko": "Collected Memories",
+      "name_en": "Collected Memories",
+      "works": [
+        {
+          "title_ko": "Collected Memories",
+          "title_en": "Collected Memories",
+          "year": "2011",
+          "medium_ko": "Newspaper, pinecone, sticker",
+          "medium_en": "Newspaper, pinecone, sticker",
+          "size": "Installation view",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/collected-memories-install.jpg",
+          "images": []
+        }
+      ]
+    },
+    {
+      "name_ko": "Handle with Care",
+      "name_en": "Handle with Care",
+      "works": [
+        {
+          "title_ko": "취급주의",
+          "title_en": "Handle with Care",
+          "year": "2019",
+          "medium_ko": "전시 영상",
+          "medium_en": "Exhibition video",
+          "size": "",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "《취급주의》, Sueño 339, 서울, 2019",
+          "related_en": "Handle with Care, Sueño 339, Seoul, 2019",
+          "image": "images/uploads/handle-with-care-2019.jpg",
+          "video": "videos/handle-with-care-2019.mp4",
+          "images": []
+        }
+      ]
+    },
+    {
+      "name_ko": "",
+      "name_en": "",
+      "works": [
+        {
+          "title_ko": "After love",
+          "title_en": "After love",
+          "year": "2026",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "50 x 50 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/after-love-2026.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Interwoven Layers",
+          "title_en": "Interwoven Layers",
+          "year": "2024",
+          "medium_ko": "Silkscreen, relief print",
+          "medium_en": "Silkscreen, relief print",
+          "size": "56 x 76 cm",
+          "desc_ko": "Collaboration with Dominique Desbiens",
+          "desc_en": "Collaboration with Dominique Desbiens",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/interwoven-layers-2024.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Delivery",
+          "title_en": "Delivery",
+          "year": "2007",
+          "medium_ko": "Dymo on alumite box",
+          "medium_en": "Dymo on alumite box",
+          "size": "47 x 25 x 40 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/delivery-2007.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Anonymous Identity",
+          "title_en": "Anonymous Identity",
+          "year": "2008",
+          "medium_ko": "Acrylic on casting",
+          "medium_en": "Acrylic on casting",
+          "size": "Dimensions variable",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/anonymous-identity-2008.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Perfect World",
+          "title_en": "Perfect World",
+          "year": "2000–2001",
+          "medium_ko": "Mixed media",
+          "medium_en": "Mixed media",
+          "size": "Dimensions variable",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/perfect-world-2000-2001.jpg",
+          "images": []
+        }
+      ]
+    },
+    {
+      "name_ko": "시리즈 A",
+      "name_en": "Series A",
+      "works": []
+    },
+    {
+      "name_ko": "시리즈 B",
+      "name_en": "Series B",
+      "works": []
+    },
+    {
+      "name_ko": "시리즈 C",
+      "name_en": "Series C",
+      "works": []
+    },
+    {
+      "name_ko": "시리즈 D",
+      "name_en": "Series D",
+      "works": []
+    }
+  ]
 }
