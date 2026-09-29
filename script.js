@@ -377,6 +377,11 @@ function yearGroup(w) {
   const n = parseInt(y, 10);
   return n && n <= PRE_YEAR ? PRE_LABEL : y;
 }
+// 화면에 보이는 이름만 하이픈 양옆을 살짝 띄운다 (가는 공백)
+// — 묶음 키(URL ?g= 값)는 'Pre-2010' 그대로 두어 주소가 지저분해지지 않게
+function yearLabel(key) {
+  return key === PRE_LABEL ? "Pre - 2010" : key;
+}
 
 // ===== 상세 슬라이드쇼 (자동 재생 + 화살표 + 썸네일) =====
 const SLIDE_INTERVAL = 7000; // 이미지당 유지 시간 (7초 — 여유있게)
@@ -629,7 +634,7 @@ async function renderDynamic() {
         // list 가 연도 내림차순이라 Pre-2010 묶음은 자연히 맨 뒤에 온다
         const years = [...new Set(list.map(yearGroup))];
         groups = years.map((y) => ({
-          key: y, label_ko: y, label_en: y,
+          key: y, label_ko: yearLabel(y), label_en: yearLabel(y),
           items: list.filter((w) => yearGroup(w) === y),
         }));
       } else if (data.series) {
