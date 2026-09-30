@@ -616,7 +616,12 @@ a.side-related:hover { opacity: 0.55; }
 .work-images-row { display: grid; gap: 12px; align-items: start; }
 .work-images-row.cols-2 { grid-template-columns: repeat(2, 1fr); }
 .work-images-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
-.work-images-row img { width: 100%; display: block; }
+/* 너비를 100%로 고정하면 세로가 짧은 화면에서 .work-image img의 max-height(75vh)에
+   높이만 잘려 사진이 옆으로 늘어나 보임 → 너비는 auto로 두고 비율 유지 */
+.work-images-row img { width: auto; max-width: 100%; height: auto; display: block; margin: 0; }
+/* 2장일 때는 가운데로 모아 붙임 (높이 제한으로 좁아져도 사이가 벌어지지 않게) */
+.work-images-row.cols-2 img:first-child { justify-self: end; }
+.work-images-row.cols-2 img:last-child { justify-self: start; }
 @media (max-width: 768px) {
   /* 모바일에선 나란히 두면 너무 작아져 세로로 쌓음 (다른 상세페이지와 동일) */
   .work-images-row.cols-2, .work-images-row.cols-3 { grid-template-columns: 1fr; }
