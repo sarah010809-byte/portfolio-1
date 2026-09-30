@@ -251,7 +251,9 @@ function cardHTML(work, label, linkTo) {
 
 async function loadJSON(path) {
   try {
-    const res = await fetch(path);
+    // no-cache: 매번 서버에 최신 여부를 확인(바뀌지 않았으면 캐시 사용). 기본값이면 GitHub Pages가
+    // 데이터 파일을 10분간 캐시해, 방금 고친 작품 정보가 한동안 예전대로 보이는 문제가 있었음
+    const res = await fetch(path, { cache: "no-cache" });
     if (!res.ok) return null;
     return await res.json();
   } catch {
