@@ -369,13 +369,14 @@ function workYear(w) {
   return found ? found[found.length - 1] : String(w.year || "");
 }
 
-// By Years 묶음 기준 — 2010년과 그 이전 작품은 연도별로 흩어놓지 않고 'Pre-2010' 하나로 모은다
+// By Years 묶음 기준 — 2010년 이전(2009년까지) 작품은 연도별로 흩어놓지 않고 'Pre-2010' 하나로 모은다
+// (2010년 작품은 자체 연도로 남김)
 const PRE_YEAR = 2010;
 const PRE_LABEL = "Pre-2010";
 function yearGroup(w) {
   const y = workYear(w);
   const n = parseInt(y, 10);
-  return n && n <= PRE_YEAR ? PRE_LABEL : y;
+  return n && n < PRE_YEAR ? PRE_LABEL : y;
 }
 // 화면에 보이는 이름만 하이픈 양옆을 살짝 띄운다 (가는 공백)
 // — 묶음 키(URL ?g= 값)는 'Pre-2010' 그대로 두어 주소가 지저분해지지 않게
