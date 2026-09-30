@@ -538,6 +538,22 @@ a.side-related:hover { opacity: 0.55; }
 /* 더보기 섹션도 Works 목록과 동일하게: 이미지가 칸 가운데 놓이므로 캡션도 가운데 정렬
    (Writings 더보기는 카드가 아닌 텍스트 목록이라 해당 없음) */
 .other-works .card { text-align: center; }
+/* 전시 상세 '관련 작품': 가로 한 줄 스크롤 (한 화면에 3개, 모바일 2개 조금 넘게 보여 옆으로 넘길 수 있음을 암시) */
+.rel-strip-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.rel-strip-head h2 { margin-bottom: 22px; }
+.rel-strip-nav { display: none; gap: 6px; }
+.rel-strip-wrap.overflowing .rel-strip-nav { display: flex; }
+.rel-strip-nav button {
+  width: 32px; height: 32px; border: 1px solid #ddd; border-radius: 50%; background: #fff;
+  color: #333; font-size: 1.1rem; line-height: 1; cursor: pointer; padding: 0;
+}
+.rel-strip-nav button:hover:not(:disabled) { border-color: #111; color: #111; }
+.rel-strip-nav button:disabled { opacity: 0.3; cursor: default; }
+.rel-strip {
+  display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin; padding-bottom: 10px;
+}
+.rel-strip .card { flex: 0 0 calc((100% - 48px) / 3); scroll-snap-align: start; min-width: 0; }
 /* 원본 비율 유지 그리드의 기본 규칙: 레터박스 배경은 항상 흰 바탕에 묻히도록 투명 처리
    (회색 박스가 도드라져 보이지 않게 — Works 페이지와 동일한 방식을 모든 "그리드 안 원본
    비율 유지" 썸네일에 공통 적용) */
@@ -1770,6 +1786,8 @@ img.profile { object-fit: cover; }
 
   /* 작품 상세 하단 카드: 정사각형 2개씩 */
   .other-works .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .rel-strip { gap: 10px; }
+  .rel-strip .card { flex-basis: 42%; }
   .other-works .card .thumb { aspect-ratio: 1 / 1; margin-bottom: 0; }
   .other-works .card figcaption { font-size: 0.8rem; line-height: 1.4; margin-top: 8px; }
 

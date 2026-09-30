@@ -201,9 +201,38 @@ function wrapExhTitle(text, title) {
   return text.replace(title, `《${title}》`);
 }
 
+// 목록·카드용 작은 썸네일 (images/thumbs/ — .claude/make-thumbs.ps1 로 생성, 최대 800px).
+// 원본(최대 2400px)을 그대로 쓰면 카드가 많은 페이지에서 사진이 늦게 떠 빈칸이 보이므로.
+// 관리자에서 새로 올린 사진처럼 썸네일이 아직 없으면 onerror 로 원본을 대신 표시
+function thumbImg(src, alt, extra = "") {
+  const small = /^images\/uploads\//.test(src) ? src.replace("images/uploads/", "images/thumbs/") : src;
+  const fallback = small !== src ? ` onerror="this.onerror=null;this.src='${esc(src)}'"` : "";
+  return `<img src="${esc(small)}" alt="${esc(alt)}" decoding="async"${extra}${fallback}>`;
+}
+
+// 가로 스크롤 줄(관련 작품): 화살표로 한 화면씩 넘기고, 끝에 닿으면 해당 화살표 비활성
+function setupRelStrip(wrap) {
+  if (!wrap) return;
+  const strip = wrap.querySelector(".rel-strip");
+  const prev = wrap.querySelector(".rel-prev");
+  const next = wrap.querySelector(".rel-next");
+  const update = () => {
+    const max = strip.scrollWidth - strip.clientWidth;
+    wrap.classList.toggle("overflowing", max > 4);
+    prev.disabled = strip.scrollLeft <= 4;
+    next.disabled = strip.scrollLeft >= max - 4;
+  };
+  const page = (dir) => strip.scrollBy({ left: dir * strip.clientWidth * 0.9, behavior: "smooth" });
+  prev.addEventListener("click", () => page(-1));
+  next.addEventListener("click", () => page(1));
+  strip.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+}
+
 function thumbHTML(work, label) {
   if (work.image) {
-    return `<div class="thumb"><img src="${esc(work.image)}" alt="${esc(work.title_ko)}" loading="lazy"></div>`;
+    return `<div class="thumb">${thumbImg(work.image, work.title_ko, ' loading="lazy"')}</div>`;
   }
   return `<div class="thumb placeholder"><span>${esc(label)}</span></div>`;
 }
@@ -923,7 +952,7 @@ async function renderDynamic() {
             <div class="grid">${otherExh.map((o) => `
               <figure class="card"><a href="exhibition.html?i=${o.idx}">
                 ${o.image
-                  ? `<div class="thumb"><img src="${esc(o.image)}" alt="${esc(o.title_ko)}" loading="lazy"></div>`
+                  ? `<div class="thumb">${thumbImg(o.image, o.title_ko, ' loading="lazy"')}</div>`
                   : `<div class="thumb placeholder"><span>${esc(o.title_en)}</span></div>`}
                 <figcaption class="stack-caption">
                   <span class="card-cat">Exhibition</span>
@@ -967,10 +996,18 @@ async function renderDynamic() {
           : [];
         // 관련 작품은 "다른 전시"와 같은 .other-works 스타일을 그대로 써서
         // 상단바와 같은 폭으로 (post-detail의 좁은 폭 제약 밖에 위치)
+        // 관련 작품이 많아도 페이지가 길어지지 않게 가로 한 줄로 늘어놓고 옆으로 넘겨 봄
+        // (좌우 화살표 버튼 · 트랙패드/터치 스와이프). 넘칠 때만 화살표 표시
         const relWorksHTML = relWorks.length ? `
-          <section class="other-works">
-            <h2 data-ko="관련 작품" data-en="Related Works">관련 작품</h2>
-            <div class="grid">${relWorks.map((w) =>
+          <section class="other-works rel-strip-wrap">
+            <div class="rel-strip-head">
+              <h2 data-ko="관련 작품" data-en="Related Works">관련 작품</h2>
+              <div class="rel-strip-nav">
+                <button type="button" class="rel-prev" aria-label="previous">‹</button>
+                <button type="button" class="rel-next" aria-label="next">›</button>
+              </div>
+            </div>
+            <div class="rel-strip">${relWorks.map((w) =>
               cardHTML({ ...w, caption_ko: w.year, caption_en: w.year },
                 w.title_en, `work.html?i=${w.idx}`)).join("")}</div>
           </section>` : "";
@@ -1010,6 +1047,7 @@ async function renderDynamic() {
           <div class="work-nav">${prev}${next}</div>
           ${exOthersHTML}`;
         document.title = `${e.title_ko} — An Se-eun`;
+        setupRelStrip(exhDetail.querySelector(".rel-strip-wrap"));
       }
     }
   }
