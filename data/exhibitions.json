@@ -5,6 +5,127 @@
                       "label":  "Solo",
                       "items":  [
                                     {
+                                        "title_ko":  "On the Road",
+                                        "title_en":  "On the Road",
+                                        "date":  "August 7 – 30, 2017",
+                                        "curator_ko":  "",
+                                        "curator_en":  "",
+                                        "venue_ko":  "스페이스 15번지, 서울",
+                                        "venue_en":  "Space 15th, Seoul",
+                                        "desc_ko":  "",
+                                        "desc_en":  "",
+                                        "image":  "images/uploads/on-the-road-2017-main.jpg",
+                                        "images":  [
+
+                                                   ],
+                                        "works":  [
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "61 x 91 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-01.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "61 x 91 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-02.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "61 x 91 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-03.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "61 x 91 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-04.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "61 x 91 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-05.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "61 x 91 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-06.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "61 x 91 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-07.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "61 x 91 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-08.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "50 x 50 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-09.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "50 x 50 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-10.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "50 x 50 cm",
+                                                          "year":  "2014",
+                                                          "image":  "images/uploads/trifling-moment-2014-11.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "100 x 100 cm",
+                                                          "year":  "2015",
+                                                          "image":  "images/uploads/trifling-moment-2015-12.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Trifling Moment",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "100 x 100 cm",
+                                                          "year":  "2015",
+                                                          "image":  "images/uploads/trifling-moment-2015-13.jpg"
+                                                      }
+                                                  ]
+                                    },
+                                    {
                                         "title_ko":  "취급주의",
                                         "title_en":  "Handle with Care",
                                         "date":  "March 29 – April 28, 2019",
