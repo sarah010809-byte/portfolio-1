@@ -516,10 +516,12 @@ async function renderDynamic() {
         if (feat) setHeroBg(feat.image);
       };
       // fetch HEAD는 일부 정적 호스팅에서 신뢰할 수 없어 실제 이미지 로드로 존재를 확인
+      // ?v= 는 대표 이미지를 교체할 때마다 올려서 방문자 브라우저의 예전 사진 캐시를 무효화
+      const HERO_SRC = "images/uploads/hero-main.jpg?v=2";
       const probe = new Image();
-      probe.onload = () => setHeroBg("images/uploads/hero-main.jpg");
+      probe.onload = () => setHeroBg(HERO_SRC);
       probe.onerror = fallbackHero;
-      probe.src = "images/uploads/hero-main.jpg";
+      probe.src = HERO_SRC;
     }
   }
 
