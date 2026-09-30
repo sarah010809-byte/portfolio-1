@@ -134,7 +134,8 @@ try {
   const navT = performance.getEntriesByType("navigation")[0];
   if (!location.hash && navT && (navT.type === "navigate" || navT.type === "reload")) {
     window.scrollTo(0, 0);
-    window.addEventListener("load", () => window.scrollTo(0, 0));
+    // (단, 상세에서 '← 목록'으로 돌아와 목록 스크롤 위치를 복원하는 경우는 제외 — 아래 RESTORE_Y)
+    window.addEventListener("load", () => { if (RESTORE_Y == null) window.scrollTo(0, 0); });
   }
 } catch (_) {}
 
@@ -716,7 +717,8 @@ async function renderDynamic() {
       });
       window.addEventListener("scroll", spy, { passive: true });
       // 다른 페이지에서 ?g= 로 들어온 경우 해당 그룹 위치로 바로 이동
-      if (selected) {
+      // (상세에서 돌아와 스크롤 위치를 복원하는 경우엔 그 위치가 우선)
+      if (selected && RESTORE_Y == null) {
         const n = groups.findIndex((g) => g.key === selected);
         // main 의 등장 애니메이션(translateY) 도중에 스크롤하면 위치가 어긋나 제목이
         // 헤더 밑에 가려지므로, 애니메이션이 끝난 뒤 이동
@@ -1613,8 +1615,72 @@ document.addEventListener("click", (e) => {
   setTimeout(() => { location.href = href; }, 160);
 });
 
+// ===== 목록 페이지 스크롤 위치 기억 =====
+// 목록 → 상세 → (브라우저 뒤로가기 / '← 목록' 링크)로 돌아오면 보던 위치에서 다시 열림.
+// 목록은 JS로 그려지므로 브라우저 기본 복원이 어긋나 → 직접 저장·복원
+const LIST_OF_DETAIL = {
+  "work.html": "works.html", "exhibition.html": "exhibitions.html",
+  "project.html": "projects.html", "writing.html": "writings.html",
+};
+const pageName = location.pathname.split("/").pop() || "index.html";
+const isListPage = Object.values(LIST_OF_DETAIL).includes(pageName);
+const listKey = (page) => `listpos:${page}`;
+function readListPos(page) {
+  try { return JSON.parse(sessionStorage.getItem(listKey(page)) || "null"); } catch (e) { return null; }
+}
+if (isListPage) {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  // 떠날 때 현재 주소(보기 방식·그룹 포함)와 스크롤 위치 저장
+  window.addEventListener("pagehide", () => {
+    try {
+      sessionStorage.setItem(listKey(pageName),
+        JSON.stringify({ search: location.search, y: Math.round(window.scrollY) }));
+    } catch (e) {}
+  });
+}
+// 복원 대상인지: 같은 목록 주소로, 뒤로가기이거나 해당 상세페이지에서 넘어온 경우만
+const RESTORE_Y = (() => {
+  if (!isListPage) return null;
+  const saved = readListPos(pageName);
+  if (!saved || saved.search !== location.search) return null;
+  const nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+  const isBack = nav && nav.type === "back_forward";
+  let fromDetail = false;
+  try {
+    const ref = new URL(document.referrer);
+    fromDetail = ref.origin === location.origin &&
+      LIST_OF_DETAIL[ref.pathname.split("/").pop()] === pageName;
+  } catch (e) {}
+  return isBack || fromDetail ? saved.y : null;
+})();
+
 renderDynamic().then(() => {
+  // 상세페이지의 '← 목록' 링크는 마지막으로 보던 목록 주소(보기 방식 등)로 연결
+  const listPage = LIST_OF_DETAIL[pageName];
+  const backA = listPage && document.querySelector(".detail-back a");
+  const savedList = listPage && readListPos(listPage);
+  if (backA && savedList) backA.setAttribute("href", listPage + savedList.search);
   setLang(currentLang());
+  if (RESTORE_Y != null) {
+    window.scrollTo(0, RESTORE_Y);
+    // 높이가 정해지지 않은 이미지가 뒤늦게 로드되면 위치가 밀리므로, 사용자가 직접
+    // 스크롤하기 전까지 잠시(3초) 이미지가 뜰 때마다 같은 위치로 다시 맞춤
+    let userMoved = false;
+    const stop = () => { userMoved = true; };
+    ["wheel", "touchstart", "keydown", "mousedown"].forEach((t) =>
+      window.addEventListener(t, stop, { once: true, passive: true }));
+    setTimeout(stop, 3000);
+    const reapply = () => { if (!userMoved) window.scrollTo(0, RESTORE_Y); };
+    document.querySelectorAll("main img").forEach((img) => {
+      if (!img.complete) img.addEventListener("load", reapply, { once: true });
+    });
+    window.addEventListener("load", reapply, { once: true });
+    // 등장 애니메이션(translateY)이 끝난 뒤 사이드바 현재 위치 표시를 다시 계산
+    const m = document.querySelector("main");
+    const resync = () => window.dispatchEvent(new Event("scroll"));
+    if (m && m.getAnimations && m.getAnimations().length) m.addEventListener("animationend", resync, { once: true });
+    else resync();
+  }
   // 홈: 섹션이 스크롤에 따라 살짝 올라오며 나타남
   if (!document.body.classList.contains("subpage") && "IntersectionObserver" in window) {
     // 화면을 벗어나면 초기화 → 다시 스크롤해 들어올 때마다 재등장
