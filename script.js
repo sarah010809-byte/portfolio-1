@@ -940,6 +940,9 @@ async function renderDynamic() {
                   ? `<p class="post-meta" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>` : ""}
               </div>
             </div>
+            ${e.video
+              ? `<div class="exh-detail-image work-video"><video controls preload="metadata" playsinline${
+                  e.video_poster ? ` poster="${esc(e.video_poster)}"` : ""}><source src="${esc(e.video)}" type="video/mp4"></video></div>` : ""}
             ${(e.desc_ko || e.desc_en)
               ? `<p class="post-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
             ${extraHTML}
