@@ -16,38 +16,24 @@
                                         "desc_en":  "",
                                         "image":  "images/uploads/hwc-13-boxes.jpg",
                                         "images":  [
-                                                       { "image": "images/uploads/hwc-10-install.jpg" },
-                                                       { "image": "images/uploads/hwc-07-2019.jpg" },
-                                                       { "image": "images/uploads/hwc-12-install.jpg" }
+
                                                    ],
                                         "works":  [
                                                       {
                                                           "title_en":  "Handle with Care",
-                                                          "medium_ko":  "Video installation",
-                                                          "medium_en":  "Video installation",
-                                                          "size":  "Dimensions variable",
-                                                          "year":  "2019",
-                                                          "image":  "images/uploads/hwc-11-video-install.jpg",
-                                                          "side_by_side":  true,
-                                                          "images":  [
-                                                                         { "image": "images/uploads/hwc-08-video-install.jpg" }
-                                                                     ]
+                                                          "medium_ko":  "Oil on canvas",
+                                                          "medium_en":  "Oil on canvas",
+                                                          "size":  "50 x 50 cm",
+                                                          "year":  "2018",
+                                                          "image":  "images/uploads/hwc-01-2018.jpg"
                                                       },
                                                       {
                                                           "title_en":  "Handle with Care",
                                                           "medium_ko":  "Oil on canvas",
                                                           "medium_en":  "Oil on canvas",
-                                                          "size":  "50 x 50 cm each (9 pieces)",
-                                                          "year":  "2019",
-                                                          "image":  "images/uploads/hwc-06-9pieces.jpg"
-                                                      },
-                                                      {
-                                                          "title_en":  "Handle with Care",
-                                                          "medium_ko":  "Cardboard boxes",
-                                                          "medium_en":  "Cardboard boxes",
-                                                          "size":  "40 x 40 cm each",
-                                                          "year":  "2019",
-                                                          "image":  "images/uploads/hwc-13-boxes.jpg"
+                                                          "size":  "50 x 50 cm",
+                                                          "year":  "2018",
+                                                          "image":  "images/uploads/hwc-02-2018.jpg"
                                                       },
                                                       {
                                                           "title_en":  "Handle with Care",
@@ -77,17 +63,53 @@
                                                           "title_en":  "Handle with Care",
                                                           "medium_ko":  "Oil on canvas",
                                                           "medium_en":  "Oil on canvas",
-                                                          "size":  "50 x 50 cm",
-                                                          "year":  "2018",
-                                                          "image":  "images/uploads/hwc-01-2018.jpg"
+                                                          "size":  "50 x 50 cm each (9 pieces)",
+                                                          "year":  "2019",
+                                                          "image":  "images/uploads/hwc-06-9pieces.jpg"
                                                       },
                                                       {
                                                           "title_en":  "Handle with Care",
                                                           "medium_ko":  "Oil on canvas",
                                                           "medium_en":  "Oil on canvas",
-                                                          "size":  "50 x 50 cm",
-                                                          "year":  "2018",
-                                                          "image":  "images/uploads/hwc-02-2018.jpg"
+                                                          "size":  "",
+                                                          "year":  "2019",
+                                                          "image":  "images/uploads/hwc-07-2019.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Handle with Care",
+                                                          "medium_ko":  "Video installation",
+                                                          "medium_en":  "Video installation",
+                                                          "size":  "Dimensions variable",
+                                                          "year":  "2019",
+                                                          "image":  "images/uploads/hwc-11-video-install.jpg",
+                                                          "side_by_side":  true,
+                                                          "images":  [
+                                                                         { "image": "images/uploads/hwc-08-video-install.jpg" }
+                                                                     ]
+                                                      },
+                                                      {
+                                                          "title_en":  "Handle with Care",
+                                                          "medium_ko":  "Installation view",
+                                                          "medium_en":  "Installation view",
+                                                          "size":  "",
+                                                          "year":  "2019",
+                                                          "image":  "images/uploads/hwc-10-install.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Handle with Care",
+                                                          "medium_ko":  "Installation view",
+                                                          "medium_en":  "Installation view",
+                                                          "size":  "",
+                                                          "year":  "2019",
+                                                          "image":  "images/uploads/hwc-12-install.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Handle with Care",
+                                                          "medium_ko":  "Cardboard boxes",
+                                                          "medium_en":  "Cardboard boxes",
+                                                          "size":  "40 x 40 cm each",
+                                                          "year":  "2019",
+                                                          "image":  "images/uploads/hwc-13-boxes.jpg"
                                                       }
                                                   ]
                                     }
