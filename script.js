@@ -695,8 +695,15 @@ async function renderDynamic() {
       const spy = () => {
         if (lockSpy) return;
         if (window.scrollY < 40) return markCurrent(null);
+        // 그룹 제목이 화면 중간보다 조금 위(위에서 40%)에 오면 그 그룹으로 표시
+        const line = window.innerHeight * 0.4;
         let cur = 0;
-        sections.forEach((s, n) => { if (s.getBoundingClientRect().top <= 140) cur = n; });
+        sections.forEach((s, n) => { if (s.getBoundingClientRect().top <= line) cur = n; });
+        // 맨 아래까지 내렸는데 마지막 그룹 제목이 기준선에 못 미치는 경우 → 마지막 그룹
+        const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+        if (atBottom && sections.length && sections[sections.length - 1].getBoundingClientRect().top < window.innerHeight) {
+          cur = sections.length - 1;
+        }
         markCurrent(cur);
       };
       const goTo = (n, smooth) => {
