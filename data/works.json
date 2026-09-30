@@ -318,6 +318,22 @@
         {
           "title_ko": "Disposable Identity",
           "title_en": "Disposable Identity",
+          "year": "2015",
+          "medium_ko": "Coins on the Wall",
+          "medium_en": "Coins on the Wall",
+          "size": "400 x 400 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/di2015-coins-wall.jpg",
+          "images": [
+            { "image": "images/uploads/di2015-coins-wall-2.jpg" }
+          ]
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
           "year": "2010",
           "medium_ko": "Acrylic on canvas",
           "medium_en": "Acrylic on canvas",
