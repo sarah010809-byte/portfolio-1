@@ -551,8 +551,13 @@ a.side-related:hover { opacity: 0.55; }
 .rel-strip-nav button:disabled { opacity: 0.3; cursor: default; }
 .rel-strip {
   display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; scrollbar-width: thin; padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #e2e2e2 transparent;
+  padding-bottom: 22px; /* 캡션~스크롤바 간격 = 제목~이미지 간격(h2 margin-bottom 22px) */
 }
+.rel-strip::-webkit-scrollbar { height: 6px; }
+.rel-strip::-webkit-scrollbar-track { background: transparent; }
+.rel-strip::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 3px; }
+.rel-strip::-webkit-scrollbar-thumb:hover { background: #cfcfcf; }
 .rel-strip .card { flex: 0 0 calc((100% - 48px) / 3); scroll-snap-align: start; min-width: 0; }
 /* 원본 비율 유지 그리드의 기본 규칙: 레터박스 배경은 항상 흰 바탕에 묻히도록 투명 처리
    (회색 박스가 도드라져 보이지 않게 — Works 페이지와 동일한 방식을 모든 "그리드 안 원본
