@@ -664,26 +664,67 @@ async function renderDynamic() {
         });
       }
 
-      // 사이드바: 그룹 필터
+      // 사이드바: 그룹 목차 — 누르면 해당 그룹만 거르지 않고 전체 목록에서 그 위치로 스크롤
       const selParam = params.get("g");
       const selected = groups.some((g) => g.key === selParam) ? selParam : null;
       const base = `works.html?view=${view}`;
+      const gHref = (g) => `${base}&g=${encodeURIComponent(g.key)}`;
       seriesNav.innerHTML =
-        `<li><a href="${base}"${selected ? "" : ' class="current-year"'}>All</a></li>` +
-        groups.map((g) =>
-          `<li><a href="${base}&g=${encodeURIComponent(g.key)}"${g.key === selected ? ' class="current-year"' : ""}
+        `<li><a href="${base}" data-g="">All</a></li>` +
+        groups.map((g, n) =>
+          `<li><a href="${gHref(g)}" data-g="${n}"
              data-ko="${esc(g.label_ko)}" data-en="${esc(g.label_en)}">${esc(g.label_ko)}</a></li>`
         ).join("");
 
-      const shown = selected ? groups.filter((g) => g.key === selected) : groups;
-      worksContent.innerHTML = shown.map((g) => `
-        <section class="series">
+      worksContent.innerHTML = groups.map((g, n) => `
+        <section class="series" id="grp-${n}">
           <div class="series-head"><h2 data-ko="${esc(g.label_ko)}" data-en="${esc(g.label_en)}">${esc(g.label_ko)}</h2></div>
           <div class="grid">${g.items.map((w) =>
             cardHTML({ ...w, caption_ko: view === "series" ? w.year : "", caption_en: view === "series" ? w.year : "" },
               w.title_en, `work.html?i=${w.idx}&view=${view}`)
           ).join("")}</div>
         </section>`).join("");
+
+      const navLinks = [...seriesNav.querySelectorAll("a")];
+      const sections = [...worksContent.querySelectorAll(".series")];
+      const markCurrent = (n) => navLinks.forEach((a) =>
+        a.classList.toggle("current-year", a.dataset.g === (n === null ? "" : String(n))));
+      // 스크롤 위치에 따라 현재 보고 있는 그룹을 사이드바에 표시 (맨 위에서는 All)
+      let lockSpy = false;
+      const spy = () => {
+        if (lockSpy) return;
+        if (window.scrollY < 40) return markCurrent(null);
+        let cur = 0;
+        sections.forEach((s, n) => { if (s.getBoundingClientRect().top <= 140) cur = n; });
+        markCurrent(cur);
+      };
+      const goTo = (n, smooth) => {
+        markCurrent(n);
+        lockSpy = true; // 부드러운 스크롤 중 지나가는 그룹으로 표시가 튀지 않게
+        clearTimeout(goTo.t);
+        goTo.t = setTimeout(() => { lockSpy = false; }, smooth ? 900 : 100);
+        if (n === null) window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+        else sections[n].scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+      };
+      seriesNav.addEventListener("click", (ev) => {
+        const a = ev.target.closest("a[data-g]");
+        if (!a) return;
+        ev.preventDefault();
+        const n = a.dataset.g === "" ? null : +a.dataset.g;
+        history.replaceState(null, "", a.getAttribute("href"));
+        goTo(n, true);
+      });
+      window.addEventListener("scroll", spy, { passive: true });
+      // 다른 페이지에서 ?g= 로 들어온 경우 해당 그룹 위치로 바로 이동
+      if (selected) {
+        const n = groups.findIndex((g) => g.key === selected);
+        // main 의 등장 애니메이션(translateY) 도중에 스크롤하면 위치가 어긋나 제목이
+        // 헤더 밑에 가려지므로, 애니메이션이 끝난 뒤 이동
+        const mainEl = document.querySelector("main");
+        if (mainEl && mainEl.getAnimations && mainEl.getAnimations().length) {
+          mainEl.addEventListener("animationend", () => goTo(n, false), { once: true });
+        } else requestAnimationFrame(() => goTo(n, false));
+      } else markCurrent(null);
     }
   }
 
