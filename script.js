@@ -873,6 +873,8 @@ async function renderDynamic() {
             ${(w.medium_en || w.medium_ko) ? `<p class="side-medium">${esc(w.medium_en || w.medium_ko)}</p>` : ""}
             ${w.size ? `<p class="side-medium">${esc(w.size)}</p>` : ""}
             <p class="side-caption side-year">${esc(w.year)}</p>
+            ${(w.location_ko || w.location_en)
+              ? `<p class="side-medium side-location" data-ko="${esc(w.location_ko || w.location_en)}" data-en="${esc(w.location_en || w.location_ko)}">${esc(w.location_ko || w.location_en)}</p>` : ""}
             ${seriesLine}
             ${desc}
             ${related}

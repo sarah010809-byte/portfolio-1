@@ -523,6 +523,9 @@ body:not(.subpage) .exh-sticky {
   text-transform: uppercase;
 }
 .side-caption.side-year { margin-bottom: 24px; }
+/* 설치 장소·소장처가 있으면 연도 바로 아래 붙이고, 간격은 그 아래로 */
+.side-caption.side-year:has(+ .side-location) { margin-bottom: 0; }
+.side-location { margin-bottom: 24px; }
 .work-side h3 { font-size: 0.85rem; font-weight: 600; color: #555; margin: 20px 0 6px; }
 .side-related { font-size: 0.9rem; color: #333; }
 a.side-related { display: inline-block; transition: opacity 0.2s; }
