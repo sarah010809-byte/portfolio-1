@@ -399,19 +399,20 @@ function workYear(w) {
   return found ? found[found.length - 1] : String(w.year || "");
 }
 
-// By Years 묶음 기준 — 2010년 이전(2009년까지) 작품은 연도별로 흩어놓지 않고 'Pre-2010' 하나로 모은다
-// (2010년 작품은 자체 연도로 남김)
-const PRE_YEAR = 2010;
-const PRE_LABEL = "Pre-2010";
+// By Years 묶음 기준 — PRE_YEAR 이전 작품은 연도별로 흩어놓지 않고 'Pre-YYYY' 하나로 모은다
+// (PRE_YEAR 해의 작품은 자체 연도로 남김)
+// 2026-09: 2009·2008년을 따로 보이게 기준을 2010 → 2008로 변경
+const PRE_YEAR = 2008;
+const PRE_LABEL = `Pre-${PRE_YEAR}`;
 function yearGroup(w) {
   const y = workYear(w);
   const n = parseInt(y, 10);
   return n && n < PRE_YEAR ? PRE_LABEL : y;
 }
 // 화면에 보이는 이름만 하이픈 양옆을 살짝 띄운다 (가는 공백)
-// — 묶음 키(URL ?g= 값)는 'Pre-2010' 그대로 두어 주소가 지저분해지지 않게
+// — 묶음 키(URL ?g= 값)는 'Pre-YYYY' 그대로 두어 주소가 지저분해지지 않게
 function yearLabel(key) {
-  return key === PRE_LABEL ? "Pre - 2010" : key;
+  return key === PRE_LABEL ? `Pre - ${PRE_YEAR}` : key;
 }
 
 // ===== 상세 슬라이드쇼 (자동 재생 + 화살표 + 썸네일) =====
@@ -664,7 +665,7 @@ async function renderDynamic() {
 
       let groups; // [{ key, label_ko, label_en, items }]
       if (view === "years") {
-        // list 가 연도 내림차순이라 Pre-2010 묶음은 자연히 맨 뒤에 온다
+        // list 가 연도 내림차순이라 Pre-YYYY 묶음은 자연히 맨 뒤에 온다
         const years = [...new Set(list.map(yearGroup))];
         groups = years.map((y) => ({
           key: y, label_ko: yearLabel(y), label_en: yearLabel(y),
@@ -841,8 +842,8 @@ async function renderDynamic() {
       const sKo = w.series_ko || w.series_en || "기타";
       const sEn = w.series_en || w.series_ko || "Other";
       const isPre = yearGroup(w) === PRE_LABEL;
-      const yearHeadKo = isPre ? "2010년 이전의 다른 작품" : `${workYear(w)}년의 다른 작품`;
-      const yearHeadEn = isPre ? "More Works before 2010" : `More Works from ${workYear(w)}`;
+      const yearHeadKo = isPre ? `${PRE_YEAR}년 이전의 다른 작품` : `${workYear(w)}년의 다른 작품`;
+      const yearHeadEn = isPre ? `More Works before ${PRE_YEAR}` : `More Works from ${workYear(w)}`;
       const othersHead = mode === "series"
         ? `<h2 data-ko="${esc(sKo)} 더보기" data-en="More from ${esc(sEn)}">${esc(sKo)} 더보기</h2>`
         : `<h2 data-ko="${esc(yearHeadKo)}" data-en="${esc(yearHeadEn)}">${esc(yearHeadKo)}</h2>`;
