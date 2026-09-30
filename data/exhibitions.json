@@ -7,7 +7,7 @@
                                     {
                                         "title_ko":  "취급주의",
                                         "title_en":  "Handle with Care",
-                                        "date":  "2019",
+                                        "date":  "March 29 – April 28, 2019",
                                         "curator_ko":  "",
                                         "curator_en":  "",
                                         "venue_ko":  "수애뇨339, 서울",
@@ -112,6 +112,87 @@
                                                           "size":  "40 x 40 cm each",
                                                           "year":  "2019",
                                                           "image":  "images/uploads/hwc-13-boxes.jpg"
+                                                      }
+                                                  ]
+                                    },
+                                    {
+                                        "title_ko":  "Disposable Identity",
+                                        "title_en":  "Disposable Identity",
+                                        "date":  "June 10 – 27, 2010",
+                                        "curator_ko":  "",
+                                        "curator_en":  "",
+                                        "venue_ko":  "공근혜 갤러리, 서울",
+                                        "venue_en":  "Gallery Kong, Seoul",
+                                        "desc_ko":  "",
+                                        "desc_en":  "",
+                                        "image":  "images/uploads/di2010-gallerykong-ad.jpg",
+                                        "images":  [
+
+                                                   ],
+                                        "works":  [
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Mirror",
+                                                          "medium_en":  "Mirror",
+                                                          "size":  "Installation view",
+                                                          "year":  "2010",
+                                                          "image":  "images/uploads/di2010-mirror-002.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Mirror",
+                                                          "medium_en":  "Mirror",
+                                                          "size":  "Installation view",
+                                                          "year":  "2010",
+                                                          "image":  "images/uploads/di2010-mirror-005.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Mirror",
+                                                          "medium_en":  "Mirror",
+                                                          "size":  "Installation view",
+                                                          "year":  "2010",
+                                                          "image":  "images/uploads/di2010-mirror-008.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Mirror",
+                                                          "medium_en":  "Mirror",
+                                                          "size":  "Installation view",
+                                                          "year":  "2010",
+                                                          "image":  "images/uploads/di2010-mirror-009.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "100 x 100 cm each",
+                                                          "year":  "2010",
+                                                          "image":  "images/uploads/di2010-install-012.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "100 x 100 cm each",
+                                                          "year":  "2010",
+                                                          "image":  "images/uploads/di2010-install-013.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "50 x 50 cm each",
+                                                          "year":  "2010",
+                                                          "image":  "images/uploads/di2010-install-015.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Love",
+                                                          "medium_ko":  "Coins",
+                                                          "medium_en":  "Coins",
+                                                          "size":  "Dimensions variable",
+                                                          "year":  "2010",
+                                                          "image":  "images/uploads/disposable-love-2010.jpg"
                                                       }
                                                   ]
                                     }

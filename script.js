@@ -955,10 +955,13 @@ async function renderDynamic() {
 
         // 관련 작품 — 이 전시에서 선보인 작품과 같은 제목의 작품(Works에 등록된 경우) +
         // 작품의 '관련 전시'에 이 전시명이 포함된 것들을 모아 카드 그리드로 (클릭 시 작품 상세로)
-        const exhWorkTitles = new Set(exhWorks.map((w) => w.title_en || w.title_ko).filter(Boolean));
+        // 제목만으로 맞추면 같은 제목의 다른 연도 작품(예: 여러 해의 Disposable Identity)까지
+        // 딸려오므로 제목 + 연도가 모두 같을 때만 같은 작품으로 봄
+        const wKey = (title, year) => `${title}|${year || ""}`;
+        const exhWorkKeys = new Set(exhWorks.map((w) => wKey(w.title_en || w.title_ko, w.year)));
         const relWorks = worksData
           ? sortedWorks(worksData).filter((w) =>
-              exhWorkTitles.has(w.title_en) || exhWorkTitles.has(w.title_ko) ||
+              exhWorkKeys.has(wKey(w.title_en, w.year)) || exhWorkKeys.has(wKey(w.title_ko, w.year)) ||
               (w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
               (w.related_en && e.title_en && w.related_en.includes(e.title_en)))
           : [];
