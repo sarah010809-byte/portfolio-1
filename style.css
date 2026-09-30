@@ -1356,6 +1356,8 @@ body.subpage .exh-layout { min-height: 100vh; }
 }
 .exh-work-imgs.cols-2 { grid-template-columns: 1.4fr 1fr; }
 .exh-work-imgs.cols-3 { grid-template-columns: 1.4fr 1fr 1fr; }
+/* side_by_side: 같은 작품의 동등한 컷 — 같은 크기로 나란히 */
+.exh-work-imgs.equal { grid-template-columns: repeat(2, 1fr); }
 .exh-work-imgs img { width: 100%; display: block; }
 .exh-work-cap {
   margin-top: 16px;
@@ -1397,7 +1399,7 @@ body.subpage .exh-layout { min-height: 100vh; }
   .post-head { margin-bottom: 28px; }
   .exh-work { margin-top: 48px; }
   /* 모바일: 디테일 컷도 세로로 나열 */
-  .exh-work-imgs.cols-2, .exh-work-imgs.cols-3 { grid-template-columns: 1fr; }
+  .exh-work-imgs.cols-2, .exh-work-imgs.cols-3, .exh-work-imgs.equal { grid-template-columns: 1fr; }
 }
 
 /* 좌측 끝을 상단 로고(공통 여백선)와 정렬 — 국제갤러리식 */

@@ -131,6 +131,7 @@ collections:
                         collapsed: false
                         fields:
                           - { label: "이미지", name: "image", widget: "image" }
+                      - { label: "사진을 같은 크기로 나란히", name: "side_by_side", widget: "boolean", required: false, default: false, hint: "체크하면 단독 컷과 디테일 컷이 같은 크기로 나란히 표시됩니다 (같은 작품을 다른 각도로 찍은 경우 등)" }
 
   - name: "projects"
     label: "Projects"

@@ -889,7 +889,7 @@ async function renderDynamic() {
           const title = w.title_en || w.title_ko || "";
           return `
           <figure class="exh-work">
-            <div class="exh-work-imgs cols-${Math.min(imgs.length, 3)}">${imgs.map((src) =>
+            <div class="exh-work-imgs cols-${Math.min(imgs.length, 3)}${w.side_by_side ? " equal" : ""}">${imgs.map((src) =>
               `<img src="${esc(src)}" alt="${esc(title)}" loading="lazy">`).join("")}</div>
             <figcaption class="exh-work-cap">
               <span class="cap-title">${esc(title)}</span>
