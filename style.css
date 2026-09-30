@@ -581,6 +581,9 @@ a.side-related:hover { opacity: 0.55; }
 }
 .work-nav a { color: #888; }
 .work-nav a:hover { color: #111; }
+/* 전시 상세: 이전/다음 전시 → 구분선 → 관련 작품 순서. 화살표가 관련 작품 스크롤 버튼처럼
+   보이지 않게 구분선 위로 충분히 띄움 */
+.work-nav + .rel-strip-wrap { margin-top: 48px; }
 .work-count { color: #bbb; font-size: 0.85rem; }
 
 /* ===== 작품 상세 슬라이드쇼 ===== */

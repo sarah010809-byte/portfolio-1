@@ -1046,8 +1046,8 @@ async function renderDynamic() {
             ${extraHTML}
             ${exhWorksHTML}
           </article>
-          ${relWorksHTML}
           <div class="work-nav">${prev}${next}</div>
+          ${relWorksHTML}
           ${exOthersHTML}`;
         document.title = `${e.title_ko} — An Se-eun`;
         setupRelStrip(exhDetail.querySelector(".rel-strip-wrap"));
