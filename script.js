@@ -993,6 +993,9 @@ async function renderDynamic() {
                   ? `<p class="post-meta" data-ko="${esc(e.curator_ko || e.curator_en)}" data-en="${esc(e.curator_en || e.curator_ko)}">${esc(e.curator_ko || e.curator_en)}</p>` : ""}
                 ${(e.venue_ko || e.venue_en)
                   ? `<p class="post-meta" data-ko="${esc(e.venue_ko)}" data-en="${esc(e.venue_en)}">${esc(e.venue_ko)}</p>` : ""}
+                ${e.pdf
+                  ? `<p class="post-meta"><a class="post-pdf-link" href="${esc(e.pdf)}" target="_blank" rel="noopener"
+                      data-ko="도록 보기 (PDF)" data-en="View Catalogue (PDF)">도록 보기 (PDF)</a></p>` : ""}
               </div>
             </div>
             ${e.video

@@ -17,6 +17,7 @@
                                         "image":  "images/uploads/hwc-13-boxes.jpg",
                                         "video":  "videos/handle-with-care-2019.mp4",
                                         "video_poster":  "images/uploads/handle-with-care-2019.jpg",
+                                        "pdf":  "files/handle-with-care-catalogue.pdf",
                                         "images":  [
 
                                                    ],
@@ -125,7 +126,7 @@
                                         "venue_en":  "Gallery Kong, Seoul",
                                         "desc_ko":  "",
                                         "desc_en":  "",
-                                        "image":  "images/uploads/di2010-gallerykong-ad.jpg",
+                                        "image":  "images/uploads/di2010-gallerykong-ad-b.jpg",
                                         "images":  [
 
                                                    ],
@@ -168,14 +169,6 @@
                                                           "medium_en":  "Acrylic on canvas",
                                                           "size":  "100 x 100 cm each",
                                                           "year":  "2010",
-                                                          "image":  "images/uploads/di2010-install-012.jpg"
-                                                      },
-                                                      {
-                                                          "title_en":  "Disposable Identity",
-                                                          "medium_ko":  "Acrylic on canvas",
-                                                          "medium_en":  "Acrylic on canvas",
-                                                          "size":  "100 x 100 cm each",
-                                                          "year":  "2010",
                                                           "image":  "images/uploads/di2010-install-013.jpg"
                                                       },
                                                       {
@@ -192,7 +185,7 @@
                                                           "medium_en":  "Coins",
                                                           "size":  "Dimensions variable",
                                                           "year":  "2010",
-                                                          "image":  "images/uploads/disposable-love-2010.jpg"
+                                                          "image":  "images/uploads/disposable-love-2010-b.jpg"
                                                       }
                                                   ]
                                     }

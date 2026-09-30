@@ -202,6 +202,22 @@
           ]
         },
         {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2010",
+          "medium_ko": "Acrylic on canvas",
+          "medium_en": "Acrylic on canvas",
+          "size": "100 x 100 cm each",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "《Disposable Identity》, 공근혜 갤러리, 서울, 2010",
+          "related_en": "Disposable Identity, Gallery Kong, Seoul, 2010",
+          "image": "images/uploads/di2010-install-013.jpg",
+          "images": [
+            { "image": "images/uploads/di2010-install-012.jpg" }
+          ]
+        },
+        {
           "title_ko": "Disposable Love",
           "title_en": "Disposable Love",
           "year": "2010",
@@ -212,7 +228,7 @@
           "desc_en": "",
           "related_ko": "《Disposable Identity》, 공근혜 갤러리, 서울, 2010",
           "related_en": "Disposable Identity, Gallery Kong, Seoul, 2010",
-          "image": "images/uploads/disposable-love-2010.jpg",
+          "image": "images/uploads/disposable-love-2010-b.jpg",
           "images": []
         },
         {
