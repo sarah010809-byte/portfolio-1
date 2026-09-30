@@ -4,7 +4,23 @@
                       "key":  "solo",
                       "label":  "Solo",
                       "items":  [
-
+                                    {
+                                        "title_ko":  "취급주의",
+                                        "title_en":  "Handle with Care",
+                                        "date":  "2019",
+                                        "curator_ko":  "",
+                                        "curator_en":  "",
+                                        "venue_ko":  "수애뇨339, 서울",
+                                        "venue_en":  "Sueño 339, Seoul",
+                                        "desc_ko":  "",
+                                        "desc_en":  "",
+                                        "image":  "images/uploads/hwc-13-boxes.jpg",
+                                        "images":  [
+                                                       { "image": "images/uploads/hwc-10-install.jpg" },
+                                                       { "image": "images/uploads/hwc-07-2019.jpg" },
+                                                       { "image": "images/uploads/hwc-12-install.jpg" }
+                                                   ]
+                                    }
                                 ]
                   },
                   {
