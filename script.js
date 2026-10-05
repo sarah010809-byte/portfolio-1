@@ -1113,8 +1113,11 @@ async function renderDynamic() {
         //   (포스터·설치 전경 갤러리와 개별 작품 목록은 함께 표시될 수 있음 — Me to You, You to Me 방식)
         //   → 모바일에서도 같은 순서(정보 → 이미지)가 되어 정보가 맨 밑에 묻히지 않음
         const hasSubworks = !!(p.works && p.works.length);
-        const pImages = [p.image, ...(p.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
-        const multiImage = pImages.length > 1;
+        // hide_cover_in_detail: 대표 이미지(포스터 등)는 목록 썸네일로만 쓰고, 상세페이지는
+        // 추가 이미지부터 크게 보여줌 (정보 → 이미지 세로 배치)
+        const coverInDetail = !p.hide_cover_in_detail;
+        const pImages = [coverInDetail ? p.image : null, ...(p.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
+        const multiImage = pImages.length > 1 || (!coverInDetail && pImages.length > 0);
         const pImageArea = pImages.length
           ? `<div class="post-image-stack">${pImages.map((src) =>
               `<img src="${esc(src)}" alt="${esc(p.title_en)}" loading="lazy">`).join("")}</div>`

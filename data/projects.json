@@ -196,6 +196,36 @@
                                                                { "image": "images/uploads/mryb-view-7.jpg" }
                                                            ],
                                              "pdf":  "files/my-red-your-blue-catalogue.pdf"
+                                         },
+                                         {
+                                             "title_ko":  "연대와 환대",
+                                             "title_en":  "Solidarity and Hospitality",
+                                             "year":  "2022",
+                                             "collaborator_ko":  "한국-요르단 수교 60주년 기념 특별전",
+                                             "collaborator_en":  "A Special Exhibition Celebrating the 60th Anniversary of Korea–Jordan Diplomatic Relations",
+                                             "medium_ko":  "",
+                                             "medium_en":  "",
+                                             "size":  "",
+                                             "venue_ko":  "국립아시아문화전당, 광주 · 2022.10.5 – 10.23",
+                                             "venue_en":  "Asia Culture Center, Gwangju · 5 – 23 October 2022",
+                                             "desc_ko":  "",
+                                             "desc_en":  "",
+                                             "image":  "images/uploads/acc-cover.jpg",
+                                             "hide_cover_in_detail":  true,
+                                             "images":  [
+                                                            { "image": "images/uploads/acc-main.jpg" }
+                                                        ],
+                                             "snapshot_ratio":  "3 / 2",
+                                             "snapshots":  [
+                                                               { "image": "images/uploads/acc-view-1.jpg" },
+                                                               { "image": "images/uploads/acc-view-2.jpg" },
+                                                               { "image": "images/uploads/acc-view-3.jpg" },
+                                                               { "image": "images/uploads/acc-view-4.jpg" },
+                                                               { "image": "images/uploads/acc-view-5.jpg" },
+                                                               { "image": "images/uploads/acc-view-6.jpg" },
+                                                               { "image": "images/uploads/acc-view-7.jpg" }
+                                                           ],
+                                             "pdf":  "files/solidarity-and-hospitality-catalogue.pdf"
                                          }
                                      ]
                        }
