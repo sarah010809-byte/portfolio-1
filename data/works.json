@@ -894,9 +894,21 @@
           "related_ko": "",
           "related_en": "",
           "image": "images/uploads/lot-2023-drums.jpg",
-          "images": [
-            { "image": "images/uploads/lot-2023-drums-healing-space.jpg" }
-          ]
+          "images": []
+        },
+        {
+          "title_ko": "Layers of Time",
+          "title_en": "Layers of Time",
+          "year": "2023",
+          "medium_ko": "Acrylic on sheepskin drum",
+          "medium_en": "Acrylic on sheepskin drum",
+          "size": "Installation view",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/lot-2023-drums-healing-space.jpg",
+          "images": []
         }
       ]
     },

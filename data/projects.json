@@ -70,28 +70,6 @@
                                                                "image":  "images/uploads/collab-game-2022.jpg"
                                                            }
                                                        ]
-                                         },
-                                         {
-                                             "title_ko":  "Somewhere Out There",
-                                             "title_en":  "Somewhere Out There",
-                                             "year":  "2024",
-                                             "collaborator_ko":  "국제민간항공기구(ICAO) 창립 80주년 기념 특별전",
-                                             "collaborator_en":  "A Special Exhibition Celebrating the 80th Anniversary of ICAO",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "국제민간항공기구(ICAO) 박물관, 몬트리올, 캐나다 · 2024.10.1 – 10.31",
-                                             "venue_en":  "ICAO Museum, Montréal, Canada · 1 – 31 October 2024",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/sot-poster.jpg",
-                                             "images":  [
-                                                            { "image": "images/uploads/sot-artist-talk.jpg" },
-                                                            { "image": "images/uploads/sot-viewing.jpg" }
-                                                        ],
-                                             "video":  "videos/somewhere-out-there-artist-video.mp4",
-                                             "video_poster":  "images/uploads/sot-video-poster.jpg",
-                                             "pdf":  "files/somewhere-out-there-brochure.pdf"
                                          }
                                      ]
                        },
@@ -142,6 +120,28 @@
                                                             { "image": "images/uploads/mylove-install-4.jpg" }
                                                         ],
                                              "pdf":  "files/mylove-brochure.pdf"
+                                         },
+                                         {
+                                             "title_ko":  "Somewhere Out There",
+                                             "title_en":  "Somewhere Out There",
+                                             "year":  "2024",
+                                             "collaborator_ko":  "국제민간항공기구(ICAO) 창립 80주년 기념 특별전",
+                                             "collaborator_en":  "A Special Exhibition Celebrating the 80th Anniversary of ICAO",
+                                             "medium_ko":  "",
+                                             "medium_en":  "",
+                                             "size":  "",
+                                             "venue_ko":  "국제민간항공기구(ICAO) 박물관, 몬트리올, 캐나다 · 2024.10.1 – 10.31",
+                                             "venue_en":  "ICAO Museum, Montréal, Canada · 1 – 31 October 2024",
+                                             "desc_ko":  "",
+                                             "desc_en":  "",
+                                             "image":  "images/uploads/sot-poster.jpg",
+                                             "images":  [
+                                                            { "image": "images/uploads/sot-artist-talk.jpg" },
+                                                            { "image": "images/uploads/sot-viewing.jpg" }
+                                                        ],
+                                             "video":  "videos/somewhere-out-there-artist-video.mp4",
+                                             "video_poster":  "images/uploads/sot-video-poster.jpg",
+                                             "pdf":  "files/somewhere-out-there-brochure.pdf"
                                          },
                                          {
                                              "title_ko":  "나의 빨강 너의 파랑 – 경계를 넘어",
