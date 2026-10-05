@@ -210,8 +210,8 @@
                                              "venue_en":  "Asia Culture Center, Gwangju · 5 – 23 October 2022",
                                              "desc_ko":  "",
                                              "desc_en":  "",
-                                             "image":  "images/uploads/acc-cover.jpg",
-                                             "hide_cover_in_detail":  true,
+                                             "image":  "images/uploads/acc-poster.jpg",
+                                             "youtube":  "https://youtu.be/KjNIWQ7yi-o",
                                              "images":  [
                                                             { "image": "images/uploads/acc-main.jpg" }
                                                         ],

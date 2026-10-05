@@ -1118,9 +1118,14 @@ async function renderDynamic() {
         const coverInDetail = !p.hide_cover_in_detail;
         const pImages = [coverInDetail ? p.image : null, ...(p.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
         const multiImage = pImages.length > 1 || (!coverInDetail && pImages.length > 0);
+        // youtube: 유튜브 영상(주소 또는 영상 ID)을 대표 이미지 바로 아래에 삽입
+        const ytId = p.youtube ? (String(p.youtube).match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [, String(p.youtube).trim()])[1] : "";
+        const ytHTML = ytId
+          ? `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${esc(ytId)}" title="${esc(p.title_en)}" loading="lazy"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>` : "";
         const pImageArea = pImages.length
-          ? `<div class="post-image-stack">${pImages.map((src) =>
-              `<img src="${esc(src)}" alt="${esc(p.title_en)}" loading="lazy">`).join("")}</div>`
+          ? `<div class="post-image-stack">${pImages.map((src, k) =>
+              `<img src="${esc(src)}" alt="${esc(p.title_en)}" loading="lazy">${k === 0 ? ytHTML : ""}`).join("")}</div>`
           : `<div class="placeholder exh-placeholder"><span>${esc(p.title_en)}</span></div>`;
         const pPrev = i > 0
           ? `<a href="project.html?i=${all[i - 1].idx}" data-ko="← 이전 프로젝트" data-en="← Prev Project">← 이전 프로젝트</a>` : `<span></span>`;

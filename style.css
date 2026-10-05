@@ -1343,6 +1343,8 @@ body.subpage .exh-layout { min-height: 100vh; }
 .post-image img { width: 100%; display: block; }
 .post-image-stack { display: flex; flex-direction: column; gap: 24px; }
 .post-image-stack img { width: 100%; display: block; }
+.video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
 /* 전시·프로젝트 상세: 이미지 좌측 + 정보 우측 (작품 상세와 동일한 레이아웃) */
 .post-top {

@@ -195,6 +195,7 @@ collections:
                     hint: "휴대폰 사진처럼 분위기만 보여줄 사진들 — 이미지 아래에 작은 격자로 표시되고 클릭하면 크게 보입니다"
                     fields:
                       - { label: "이미지", name: "image", widget: "image" }
+                  - { label: "유튜브 영상 주소", name: "youtube", widget: "string", required: false, hint: "예: https://youtu.be/영상ID — 대표 이미지 바로 아래에 표시됩니다" }
                   - { label: "영상 (mp4, 이미지 아래 표시)", name: "video", widget: "file", required: false, hint: "100MB 이하 mp4" }
                   - { label: "영상 썸네일 이미지", name: "video_poster", widget: "image", required: false, hint: "재생 전 보이는 이미지 (비우면 영상 첫 화면)" }
                   - label: "이 프로젝트의 작품"
