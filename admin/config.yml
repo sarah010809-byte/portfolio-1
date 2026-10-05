@@ -186,7 +186,7 @@ collections:
                     fields:
                       - { label: "이미지", name: "image", widget: "image" }
                   - { label: "도록 PDF 파일", name: "pdf", widget: "file", required: false, media_folder: "/files", public_folder: "/files", hint: "업로드하면 프로젝트 상세페이지에 '도록 보기 (PDF)' 링크가 생깁니다" }
-                  - label: "현장 사진 묶음 (작게 4개씩)"
+                  - label: "현장 사진 묶음 (한 줄에 2개씩)"
                     label_singular: "사진"
                     name: "snapshots"
                     widget: "list"
