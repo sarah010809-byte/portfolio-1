@@ -848,6 +848,55 @@
           "related_en": "",
           "image": "images/uploads/layers-of-time-2024-pair.jpg",
           "images": []
+        },
+        {
+          "title_ko": "Layers of Time",
+          "title_en": "Layers of Time",
+          "year": "2024",
+          "medium_ko": "Acrylic on Korean paper",
+          "medium_en": "Acrylic on Korean paper",
+          "size": "93 x 120 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/lot-2024-korean-paper.jpg",
+          "images": [
+            { "image": "images/uploads/lot-2024-korean-paper-d1.jpg" }
+          ]
+        },
+        {
+          "title_ko": "Layers of Time",
+          "title_en": "Layers of Time",
+          "year": "2023",
+          "medium_ko": "Pen on Korean paper",
+          "medium_en": "Pen on Korean paper",
+          "size": "150 x 150 cm",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/lot-2023-pen.jpg",
+          "images": [
+            { "image": "images/uploads/lot-2023-pen-d1.jpg" },
+            { "image": "images/uploads/lot-2023-pen-d2.jpg" }
+          ]
+        },
+        {
+          "title_ko": "Layers of Time",
+          "title_en": "Layers of Time",
+          "year": "2023",
+          "medium_ko": "Acrylic on sheepskin drum",
+          "medium_en": "Acrylic on sheepskin drum",
+          "size": "Installation view",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/lot-2023-drums.jpg",
+          "images": [
+            { "image": "images/uploads/lot-2023-drums-healing-space.jpg" }
+          ]
         }
       ]
     },
