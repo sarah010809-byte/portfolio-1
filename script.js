@@ -1165,7 +1165,7 @@ async function renderDynamic() {
             </div>
             ${multiImage ? `<div class="post-image">${pImageArea}</div>` : ""}
             ${(p.snapshots && p.snapshots.length) ? `
-            <div class="snapshot-grid">${p.snapshots.map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean).map((src) =>
+            <div class="snapshot-grid"${p.snapshot_ratio ? ` style="--snap-ratio:${esc(p.snapshot_ratio)}"` : ""}>${p.snapshots.map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean).map((src) =>
               thumbImg(src, p.title_en, ` loading="lazy" data-full="${esc(new URL(src, location.href).href)}"`)).join("")}</div>` : ""}
             ${p.video
               ? `<div class="exh-detail-image work-video"><video controls preload="metadata" playsinline${

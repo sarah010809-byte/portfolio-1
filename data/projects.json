@@ -79,6 +79,32 @@
                            "items":  [
                                          {
                                              "title_ko":  "너에게 난, 나에게 넌 – 판화로 만나는 우리",
+                                             "title_en":  "À toi, de moi: Notre rencontre à travers les arts imprimés",
+                                             "year":  "2025",
+                                             "collaborator_ko":  "한국·캐나다 협업 전시",
+                                             "collaborator_en":  "Korea–Canada Collaborative Exhibition",
+                                             "medium_ko":  "",
+                                             "medium_en":  "",
+                                             "size":  "",
+                                             "venue_ko":  "아틀리에 서큘레르, 몬트리올, 캐나다 · 2025.3.13 – 4.5",
+                                             "venue_en":  "Atelier Circulaire, Montreal, Canada · 13 March – 5 April 2025",
+                                             "desc_ko":  "",
+                                             "desc_en":  "",
+                                             "image":  "images/uploads/atoi-poster.jpg",
+                                             "images":  [
+
+                                                        ],
+                                             "snapshot_ratio":  "3 / 2",
+                                             "snapshots":  [
+                                                               { "image": "images/uploads/atoi-view-1.jpg" },
+                                                               { "image": "images/uploads/atoi-view-2.jpg" },
+                                                               { "image": "images/uploads/atoi-view-3.jpg" },
+                                                               { "image": "images/uploads/atoi-view-4.jpg" },
+                                                               { "image": "images/uploads/atoi-view-5.jpg" }
+                                                           ]
+                                         },
+                                         {
+                                             "title_ko":  "너에게 난, 나에게 넌 – 판화로 만나는 우리",
                                              "title_en":  "Me to You, You to Me – Our Encounter through Printmaking",
                                              "year":  "2024",
                                              "collaborator_ko":  "한국·캐나다 협업 전시",
