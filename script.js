@@ -1164,6 +1164,9 @@ async function renderDynamic() {
               </div>
             </div>
             ${multiImage ? `<div class="post-image">${pImageArea}</div>` : ""}
+            ${p.video
+              ? `<div class="exh-detail-image work-video"><video controls preload="metadata" playsinline${
+                  p.video_poster ? ` poster="${esc(p.video_poster)}"` : ""}><source src="${esc(p.video)}" type="video/mp4"></video></div>` : ""}
             ${(p.desc_ko || p.desc_en)
               ? `<p class="post-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}
             ${(p.works && p.works.length) ? `
