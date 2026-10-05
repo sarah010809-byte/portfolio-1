@@ -115,6 +115,7 @@
                                              "image":  "images/uploads/metoyou-poster.jpg",
                                              "images":  [
                                                             { "image": "images/uploads/metoyou-install.jpg" },
+                                                            { "image": "images/uploads/metoyou-artist-talk.jpg" },
                                                             { "image": "images/uploads/metoyou-poster-teal.jpg" },
                                                             { "image": "images/uploads/metoyou-poster-black.jpg" }
                                                         ],
