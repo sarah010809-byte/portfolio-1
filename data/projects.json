@@ -142,6 +142,34 @@
                                                             { "image": "images/uploads/mylove-install-4.jpg" }
                                                         ],
                                              "pdf":  "files/mylove-brochure.pdf"
+                                         },
+                                         {
+                                             "title_ko":  "나의 빨강 너의 파랑 – 경계를 넘어",
+                                             "title_en":  "My Red Your Blue – Beyond the Borders",
+                                             "year":  "2023",
+                                             "collaborator_ko":  "한국·요르단 협업 전시",
+                                             "collaborator_en":  "Korea–Jordan Collaborative Exhibition",
+                                             "medium_ko":  "",
+                                             "medium_en":  "",
+                                             "size":  "",
+                                             "venue_ko":  "성곡미술관, 서울 · 2023.10.26 – 11.30",
+                                             "venue_en":  "Sungkok Art Museum, Seoul · 26 October – 30 November 2023",
+                                             "desc_ko":  "",
+                                             "desc_en":  "",
+                                             "image":  "images/uploads/mryb-poster.jpg",
+                                             "images":  [
+                                                            { "image": "images/uploads/mryb-artist-talk.jpg" }
+                                                        ],
+                                             "snapshots":  [
+                                                               { "image": "images/uploads/mryb-view-1.jpg" },
+                                                               { "image": "images/uploads/mryb-view-2.jpg" },
+                                                               { "image": "images/uploads/mryb-view-3.jpg" },
+                                                               { "image": "images/uploads/mryb-view-4.jpg" },
+                                                               { "image": "images/uploads/mryb-view-5.jpg" },
+                                                               { "image": "images/uploads/mryb-view-6.jpg" },
+                                                               { "image": "images/uploads/mryb-view-7.jpg" }
+                                                           ],
+                                             "pdf":  "files/my-red-your-blue-catalogue.pdf"
                                          }
                                      ]
                        }

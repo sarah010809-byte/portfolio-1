@@ -186,6 +186,15 @@ collections:
                     fields:
                       - { label: "이미지", name: "image", widget: "image" }
                   - { label: "도록 PDF 파일", name: "pdf", widget: "file", required: false, media_folder: "/files", public_folder: "/files", hint: "업로드하면 프로젝트 상세페이지에 '도록 보기 (PDF)' 링크가 생깁니다" }
+                  - label: "현장 사진 묶음 (작게 4개씩)"
+                    label_singular: "사진"
+                    name: "snapshots"
+                    widget: "list"
+                    required: false
+                    collapsed: true
+                    hint: "휴대폰 사진처럼 분위기만 보여줄 사진들 — 이미지 아래에 작은 격자로 표시되고 클릭하면 크게 보입니다"
+                    fields:
+                      - { label: "이미지", name: "image", widget: "image" }
                   - { label: "영상 (mp4, 이미지 아래 표시)", name: "video", widget: "file", required: false, hint: "100MB 이하 mp4" }
                   - { label: "영상 썸네일 이미지", name: "video_poster", widget: "image", required: false, hint: "재생 전 보이는 이미지 (비우면 영상 첫 화면)" }
                   - label: "이 프로젝트의 작품"

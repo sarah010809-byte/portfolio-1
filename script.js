@@ -1164,6 +1164,9 @@ async function renderDynamic() {
               </div>
             </div>
             ${multiImage ? `<div class="post-image">${pImageArea}</div>` : ""}
+            ${(p.snapshots && p.snapshots.length) ? `
+            <div class="snapshot-grid">${p.snapshots.map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean).map((src) =>
+              thumbImg(src, p.title_en, ` loading="lazy" data-full="${esc(new URL(src, location.href).href)}"`)).join("")}</div>` : ""}
             ${p.video
               ? `<div class="exh-detail-image work-video"><video controls preload="metadata" playsinline${
                   p.video_poster ? ` poster="${esc(p.video_poster)}"` : ""}><source src="${esc(p.video)}" type="video/mp4"></video></div>` : ""}
@@ -1557,12 +1560,16 @@ function closeLightbox() {
 // 맥은 호버 줌이 불안정한 환경이 있어 클릭 시 확대 뷰어를 연다
 const IS_MAC = /Mac/.test(navigator.platform || navigator.userAgent);
 document.addEventListener("click", (e) => {
-  const img = IS_MAC ? (e.target.closest && e.target.closest(".slider .slide img")) : null;
+  // 작은 현장 사진 묶음(.snapshot-grid)은 모든 기기에서 클릭하면 크게 봄
+  const snap = e.target.closest && e.target.closest(".snapshot-grid img");
+  const img = snap || (IS_MAC ? (e.target.closest && e.target.closest(".slider .slide img")) : null);
   if (img) {
-    const slider = img.closest(".slider");
+    const slider = snap ? null : img.closest(".slider");
     lbState.slider = slider;
-    lbState.imgs = [...slider.querySelectorAll(".slide img")].map((el) => el.src);
-    lbState.i = lbState.imgs.indexOf(img.src);
+    lbState.imgs = snap
+      ? [...img.closest(".snapshot-grid").querySelectorAll("img")].map((el) => el.dataset.full || el.src)
+      : [...slider.querySelectorAll(".slide img")].map((el) => el.src);
+    lbState.i = lbState.imgs.indexOf(snap ? (img.dataset.full || img.src) : img.src);
     if (lbState.i < 0) lbState.i = 0;
     lightboxImg.src = lbState.imgs[lbState.i];
     lightbox.classList.toggle("has-arrows", lbState.imgs.length > 1);
