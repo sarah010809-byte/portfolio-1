@@ -228,6 +228,36 @@
                                              "pdf":  "files/solidarity-and-hospitality-catalogue.pdf"
                                          },
                                          {
+                                             "title_ko":  "멀지만 가까운",
+                                             "title_en":  "Far Yet So Close",
+                                             "year":  "2021",
+                                             "collaborator_ko":  "이대서울병원 스페이스 B-Two 개관전시",
+                                             "collaborator_en":  "Opening Exhibition of Space B-Two",
+                                             "medium_ko":  "",
+                                             "medium_en":  "",
+                                             "size":  "",
+                                             "venue_ko":  "이대서울병원 스페이스 B-Two, 서울 · 2021.8.12 – 11.28",
+                                             "venue_en":  "Space B-Two, Ewha Womans University Seoul Hospital, Seoul · August 12 – November 28, 2021",
+                                             "desc_ko":  "",
+                                             "desc_en":  "",
+                                             "image":  "images/uploads/fysc-poster.jpg",
+                                             "images":  [
+                                                            { "image": "images/uploads/fysc-leaflet-1.jpg" },
+                                                            { "image": "images/uploads/fysc-leaflet-2.jpg" }
+                                                        ],
+                                             "video":  "videos/far-yet-so-close.mp4",
+                                             "video_poster":  "images/uploads/fysc-video-poster.jpg",
+                                             "snapshot_ratio":  "3 / 2",
+                                             "snapshots":  [
+                                                               { "image": "images/uploads/fysc-view-1.jpg" },
+                                                               { "image": "images/uploads/fysc-view-2.jpg" },
+                                                               { "image": "images/uploads/fysc-view-3.jpg" },
+                                                               { "image": "images/uploads/fysc-view-4.jpg" },
+                                                               { "image": "images/uploads/fysc-view-5.jpg" },
+                                                               { "image": "images/uploads/fysc-view-6.jpg" }
+                                                           ]
+                                         },
+                                         {
                                              "title_ko":  "수퍼 캘리 프래질리스틱 익스피 얄리 도셔스",
                                              "title_en":  "Supercalifragilisticexpialidocious",
                                              "year":  "2021",
