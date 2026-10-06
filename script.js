@@ -1117,7 +1117,8 @@ async function renderDynamic() {
         // 추가 이미지부터 크게 보여줌 (정보 → 이미지 세로 배치)
         const coverInDetail = !p.hide_cover_in_detail;
         const pImages = [coverInDetail ? p.image : null, ...(p.images || []).map((o) => (typeof o === "string" ? o : o.image))].filter(Boolean);
-        const multiImage = pImages.length > 1 || (!coverInDetail && pImages.length > 0);
+        // 이미지 없이 유튜브 영상만 있으면 영상을 전체 폭으로 (정보 → 영상 세로 배치)
+        const multiImage = pImages.length > 1 || (!coverInDetail && pImages.length > 0) || (!pImages.length && !!p.youtube);
         // youtube: 유튜브 영상(주소 또는 영상 ID)을 대표 이미지 바로 아래에 삽입
         const ytId = p.youtube ? (String(p.youtube).match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [, String(p.youtube).trim()])[1] : "";
         const ytHTML = ytId
@@ -1130,6 +1131,7 @@ async function renderDynamic() {
         const pImageArea = pImages.length
           ? `<div class="post-image-stack">${pImages.map((src, k) =>
               `<img src="${esc(src)}" alt="${esc(p.title_en)}" loading="lazy">${k === 0 ? ytHTML : ""}`).join("")}</div>`
+          : ytHTML ? `<div class="post-image-stack">${ytHTML}</div>`
           : `<div class="placeholder exh-placeholder"><span>${esc(p.title_en)}</span></div>`;
         const pPrev = i > 0
           ? `<a href="project.html?i=${all[i - 1].idx}" data-ko="← 이전 프로젝트" data-en="← Prev Project">← 이전 프로젝트</a>` : `<span></span>`;

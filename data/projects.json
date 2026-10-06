@@ -286,6 +286,25 @@
                                                                { "image": "images/uploads/scali-view-4.jpg" },
                                                                { "image": "images/uploads/scali-view-5.jpg" }
                                                            ]
+                                         },
+                                         {
+                                             "title_ko":  "2021 ACC 창작공간네트워크 온라인 협력사업",
+                                             "title_en":  "2021 ACC Art Space Network Online Collaborative Project",
+                                             "year":  "2021",
+                                             "collaborator_ko":  "요르단 - 암만 기획",
+                                             "collaborator_en":  "Jordan - Amman director",
+                                             "medium_ko":  "",
+                                             "medium_en":  "",
+                                             "size":  "",
+                                             "venue_ko":  "",
+                                             "venue_en":  "",
+                                             "desc_ko":  "본 영상은 2021 ACC 창작공간네트워크 사업의 일환으로 제작되었습니다.\n\n촬영지: 요르단 암만\n주최: 국립아시아문화전당\n주관: 아시아문화원\n총괄 큐레이터: 임종은, 김정현\n기획: 안세은\n촬영감독: 오마르 나빌 사왈라\n촬영 및 편집: 카람 멜헴",
+                                             "desc_en":  "This video was commissioned and produced as part of 2021 ACC Art Space Network's program.\n\nLocation: Amman, Jordan\nHost: Asia Culture Center\nOrganizer: Asia Culture Institute\nExecutive Curator: Lim Jong Eun, Kim Jung Hyun\nDirector: An Se Eun\nCinematographer: Omar Nabil Sawalha\nEditor: Karam Melhem",
+                                             "image":  "",
+                                             "images":  [
+
+                                                        ],
+                                             "youtube":  "https://youtu.be/LgM0uxcF6_Q"
                                          }
                                      ]
                        }
