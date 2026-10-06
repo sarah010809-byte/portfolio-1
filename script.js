@@ -1761,6 +1761,11 @@ renderDynamic().then(() => {
     const resync = () => window.dispatchEvent(new Event("scroll"));
     if (m && m.getAnimations && m.getAnimations().length) m.addEventListener("animationend", resync, { once: true });
     else resync();
+  } else if (isListPage && !location.hash && !new URLSearchParams(location.search).has("g")) {
+    // 목록의 다른 페이지(?p=2 등)로 넘어가면 항상 맨 위부터 — 일부 모바일 브라우저가
+    // 이전 페이지의 스크롤 위치를 그대로 이어 붙이는 문제 방지 (내용을 그린 뒤 한 번 더)
+    const nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+    if (!nav || nav.type !== "back_forward") window.scrollTo(0, 0);
   }
   // 홈: 섹션이 스크롤에 따라 살짝 올라오며 나타남
   if (!document.body.classList.contains("subpage") && "IntersectionObserver" in window) {
