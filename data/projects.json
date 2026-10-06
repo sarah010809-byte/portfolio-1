@@ -245,6 +245,7 @@
                                              "images":  [
                                                             { "image": "images/uploads/scali-main.jpg" }
                                                         ],
+                                             "video_first":  true,
                                              "video":  "videos/supercalifragilisticexpialidocious.mp4",
                                              "video_poster":  "images/uploads/scali-video-poster.jpg",
                                              "snapshot_ratio":  "3 / 2",

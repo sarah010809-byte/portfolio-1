@@ -1123,6 +1123,10 @@ async function renderDynamic() {
         const ytHTML = ytId
           ? `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${esc(ytId)}" title="${esc(p.title_en)}" loading="lazy"
                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>` : "";
+        // video_first: 영상을 상세페이지 맨 위(이미지보다 먼저)에 배치
+        const pVideoHTML = p.video
+          ? `<div class="exh-detail-image work-video"><video controls preload="metadata" playsinline${
+              p.video_poster ? ` poster="${esc(p.video_poster)}"` : ""}><source src="${esc(p.video)}" type="video/mp4"></video></div>` : "";
         const pImageArea = pImages.length
           ? `<div class="post-image-stack">${pImages.map((src, k) =>
               `<img src="${esc(src)}" alt="${esc(p.title_en)}" loading="lazy">${k === 0 ? ytHTML : ""}`).join("")}</div>`
@@ -1171,10 +1175,9 @@ async function renderDynamic() {
                        data-ko="도록 보기 (PDF)" data-en="View Catalogue (PDF)">도록 보기 (PDF)</a></p>` : ""}
               </div>
             </div>
+            ${p.video_first ? pVideoHTML : ""}
             ${multiImage ? `<div class="post-image">${pImageArea}</div>` : ""}
-            ${p.video
-              ? `<div class="exh-detail-image work-video"><video controls preload="metadata" playsinline${
-                  p.video_poster ? ` poster="${esc(p.video_poster)}"` : ""}><source src="${esc(p.video)}" type="video/mp4"></video></div>` : ""}
+            ${p.video_first ? "" : pVideoHTML}
             ${(p.snapshots && p.snapshots.length) ? `
             <div class="snapshot-grid"${p.snapshot_ratio ? ` style="--snap-ratio:${esc(p.snapshot_ratio)}"` : ""}>${p.snapshots.map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean).map((src) =>
               thumbImg(src, p.title_en, ` loading="lazy" data-full="${esc(new URL(src, location.href).href)}"`)).join("")}</div>` : ""}
