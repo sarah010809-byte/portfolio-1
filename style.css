@@ -1,6 +1,9 @@
 /* ===== 기본 ===== */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* 모바일에서 링크·버튼을 누를 때 생기는 브라우저 기본 회색 하이라이트 제거 */
+html { -webkit-tap-highlight-color: transparent; }
+
 /* 자체 호스팅 Jost (클라이언트 제공 파일, OFL 라이선스) — 가변 폰트 하나로 모든 굵기 지원 */
 @font-face {
   font-family: "Jost";
@@ -1223,6 +1226,19 @@ body.page-leave main {
   transition: opacity 0.2s;
 }
 .writing-row-flat:hover { opacity: 0.6; }
+
+/* 터치 기기: 탭한 뒤 흐려지거나 회색으로 남는 호버 상태 비활성화
+   (마우스가 없는 기기에서는 호버가 손을 떼도 풀리지 않아 눌린 것처럼 보인다) */
+@media (hover: none) {
+  .writing-row-flat:hover,
+  .home-year-label a:hover,
+  .contact-line a:hover,
+  .hero-caption:hover,
+  a.side-related:hover,
+  .post-pdf-link:hover { opacity: 1; }
+  .writing-list a:hover,
+  .sub-nav a:hover { background: transparent; }
+}
 .writing-row-flat:first-child { padding-top: 0; }
 .writing-row-flat-head {
   display: flex;
