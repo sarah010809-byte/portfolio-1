@@ -228,11 +228,36 @@
                                              "pdf":  "files/solidarity-and-hospitality-catalogue.pdf"
                                          },
                                          {
+                                             "title_ko":  "4+4",
+                                             "title_en":  "4+4",
+                                             "year":  "2021",
+                                             "collaborator_ko":  "한국-요르단 협업 전시",
+                                             "collaborator_en":  "Korea–Jordan Collaborative Exhibition",
+                                             "medium_ko":  "",
+                                             "medium_en":  "",
+                                             "size":  "",
+                                             "venue_ko":  "Wadi Finan Art Gallery, 암만, 요르단 · 2021.12.4 – 2022.1.2",
+                                             "venue_en":  "Wadi Finan Art Gallery, Amman, Jordan · 04 Dec, 2021 – 02 Jan, 2022",
+                                             "desc_ko":  "",
+                                             "desc_en":  "",
+                                             "image":  "images/uploads/fourfour-poster.jpg",
+                                             "images":  [
+
+                                                        ],
+                                             "snapshot_ratio":  "3 / 2",
+                                             "snapshots":  [
+                                                               { "image": "images/uploads/fourfour-view-1.jpg" },
+                                                               { "image": "images/uploads/fourfour-view-2.jpg" },
+                                                               { "image": "images/uploads/fourfour-view-3.jpg" },
+                                                               { "image": "images/uploads/fourfour-view-4.jpg" }
+                                                           ]
+                                         },
+                                         {
                                              "title_ko":  "멀지만 가까운",
                                              "title_en":  "Far Yet So Close",
                                              "year":  "2021",
                                              "collaborator_ko":  "이대서울병원 스페이스 B-Two 개관전시",
-                                             "collaborator_en":  "Opening Exhibition of Space B-Two",
+                                             "collaborator_en":  "Inaugural Exhibition of Space B-Two",
                                              "medium_ko":  "",
                                              "medium_en":  "",
                                              "size":  "",
