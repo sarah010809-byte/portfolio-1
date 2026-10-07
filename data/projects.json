@@ -1,336 +1,428 @@
 {
-    "categories":  [
-                       {
-                           "key":  "collaboration",
-                           "label":  "Collaborations",
-                           "items":  [
-                                         {
-                                             "title_ko":  "When We Talk about Love",
-                                             "title_en":  "When We Talk about Love",
-                                             "year":  "2026",
-                                             "collaborator_ko":  "Collaboration with Master Embroiderer Park Insook",
-                                             "collaborator_en":  "Collaboration with Master Embroiderer Park Insook",
-                                             "medium_ko":  "Acrylic and embroidery on fabric",
-                                             "medium_en":  "Acrylic and embroidery on fabric",
-                                             "size":  "110 x 92 cm each (2 layered fabric pieces)",
-                                             "venue_ko":  "",
-                                             "venue_en":  "",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/collab-park-insook-love.jpg",
-                                             "images":  [
-
-                                                        ]
-                                         },
-                                         {
-                                             "title_ko":  "Evolving, Game",
-                                             "title_en":  "Evolving, Game",
-                                             "year":  "2022–2023",
-                                             "collaborator_ko":  "Collaboration with Zaid Shawwa",
-                                             "collaborator_en":  "Collaboration with Zaid Shawwa",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "",
-                                             "venue_en":  "",
-                                             "desc_ko":  "안세은과 제이드 샤와의 공동작업\n\n암만의 작업실에서 안세은 작가와 수많은 대화를 나누는 동안, 우리는 작품의 예술적 해석보다 창작 과정 뒤에 숨은 동기에 집중했다. 예술가는 예술적 표현을 통해 답을 제시하기 보다는 질문을 던져야 한다는 공통된 생각을 가지고 있었고, 이러한 관점의 공유는 공동 작업을 가능하게 하는 토대가 되었다. 하나의 캔버스 위에서 그간 나누었던 우리의 고민과 통찰이 비로소 통합되었다 믿는다.\n\n암만에서 완성한 우리의 공동 작품은 각자가 독립적으로 탐구해 온 주제를 담고 있다. 이번 공동 작업을 통해 서로가 구축해 온 주제들 위에 새로운 서사가 상승작용을 일으키며 발현되기를 희망한다.\n\n제이드 샤와",
-                                             "desc_en":  "The collaboration between An Se-Eun and Zaid Shawwa\n\nDuring numerous conversations held at my Amman studio with Se-Eun, we never delved into the interpretation of our artistic endeavors; instead, we focused on the motivations behind our creative processes. Our mutual understanding was that artists pose questions rather than provide answers through their expressions. This shared perspective laid the groundwork for us to contemplate a collaborative effort. We believed that our inquiries might intersect on the canvas, potentially illuminating a shared insight.\n\nThese pieces were finalized in Amman, utilizing motifs that both of us had been independently exploring. Our intention was to merge these motifs, hoping that their interaction would give rise to a fresh narrative within an already established story.\n\nZaid Shawwa",
-                                             "image":  "images/uploads/collab-zaidshawwa-triptych.jpg",
-                                             "images":  [
-
-                                                        ],
-                                             "works":  [
-                                                           {
-                                                               "title_en":  "Game",
-                                                               "medium_en":  "Acrylic on canvas",
-                                                               "size":  "60 x 80 cm each (set of 3)",
-                                                               "year":  "2022",
-                                                               "image":  "images/uploads/collab-zaidshawwa-triptych.jpg",
-                                                               "full_width":  true
-                                                           },
-                                                           {
-                                                               "title_en":  "Evolving",
-                                                               "medium_en":  "Acrylic on canvas",
-                                                               "size":  "160 x 140 cm",
-                                                               "year":  "2023",
-                                                               "image":  "images/uploads/collab-evolving.jpg"
-                                                           },
-                                                           {
-                                                               "title_en":  "Game",
-                                                               "medium_en":  "Acrylic on canvas",
-                                                               "size":  "160 x 140 cm",
-                                                               "year":  "2023",
-                                                               "image":  "images/uploads/collab-game-2023.jpg"
-                                                           },
-                                                           {
-                                                               "title_en":  "Game",
-                                                               "medium_en":  "Acrylic on canvas",
-                                                               "size":  "160 x 140 cm",
-                                                               "year":  "2022",
-                                                               "image":  "images/uploads/collab-game-2022.jpg"
-                                                           }
-                                                       ]
-                                         }
-                                     ]
-                       },
-                       {
-                           "key":  "curatorial",
-                           "label":  "Curatorial Projects",
-                           "items":  [
-                                         {
-                                             "title_ko":  "너에게 난, 나에게 넌 – 판화로 만나는 우리",
-                                             "title_en":  "À toi, de moi: Notre rencontre à travers les arts imprimés",
-                                             "year":  "2025",
-                                             "collaborator_ko":  "한국·캐나다 협업 전시",
-                                             "collaborator_en":  "Korea–Canada Collaborative Exhibition",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "아틀리에 서큘레르, 몬트리올, 캐나다 · 2025.3.13 – 4.5",
-                                             "venue_en":  "Atelier Circulaire, Montreal, Canada · 13 March – 5 April 2025",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/atoi-poster.jpg",
-                                             "images":  [
-
-                                                        ],
-                                             "snapshot_ratio":  "3 / 2",
-                                             "snapshots":  [
-                                                               { "image": "images/uploads/atoi-view-1.jpg" },
-                                                               { "image": "images/uploads/atoi-view-2.jpg" },
-                                                               { "image": "images/uploads/atoi-view-3.jpg" },
-                                                               { "image": "images/uploads/atoi-view-4.jpg" },
-                                                               { "image": "images/uploads/atoi-view-5.jpg" }
-                                                           ]
-                                         },
-                                         {
-                                             "title_ko":  "너에게 난, 나에게 넌 – 판화로 만나는 우리",
-                                             "title_en":  "Me to You, You to Me – Our Encounter through Printmaking",
-                                             "year":  "2024",
-                                             "collaborator_ko":  "한국·캐나다 협업 전시",
-                                             "collaborator_en":  "Korea–Canada Collaborative Exhibition",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "스페이스 소포라, 서울 · 2024.11.28 – 12.15",
-                                             "venue_en":  "Space Sophora, Seoul · 2024.11.28 – 12.15",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/metoyou-poster.jpg",
-                                             "images":  [
-                                                            { "image": "images/uploads/metoyou-install.jpg" },
-                                                            { "image": "images/uploads/metoyou-artist-talk.jpg" },
-                                                            { "image": "images/uploads/metoyou-poster-teal.jpg" },
-                                                            { "image": "images/uploads/metoyou-poster-black.jpg" }
-                                                        ],
-                                             "pdf":  "files/me-to-you-you-to-me-catalogue.pdf"
-                                         },
-                                         {
-                                             "title_ko":  "my love – Marriage and Love through the Eyes of Female Artists in Korea and Jordan",
-                                             "title_en":  "my love – Marriage and Love through the Eyes of Female Artists in Korea and Jordan",
-                                             "year":  "2024",
-                                             "collaborator_ko":  "한국·요르단 협업 전시",
-                                             "collaborator_en":  "Korea–Jordan Collaborative Exhibition",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "티라즈 센터, 암만 · 2024.5.28 – 6.14",
-                                             "venue_en":  "TIRAZ Centre, Amman · 28 May – 14 June 2024",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/mylove-poster.jpg",
-                                             "images":  [
-                                                            { "image": "images/uploads/mylove-install-1.jpg" },
-                                                            { "image": "images/uploads/mylove-install-2.jpg" },
-                                                            { "image": "images/uploads/mylove-install-3.jpg" },
-                                                            { "image": "images/uploads/mylove-install-4.jpg" }
-                                                        ],
-                                             "pdf":  "files/mylove-brochure.pdf"
-                                         },
-                                         {
-                                             "title_ko":  "Somewhere Out There",
-                                             "title_en":  "Somewhere Out There",
-                                             "year":  "2024",
-                                             "collaborator_ko":  "국제민간항공기구(ICAO) 창립 80주년 기념 특별전",
-                                             "collaborator_en":  "A Special Exhibition Celebrating the 80th Anniversary of ICAO",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "국제민간항공기구(ICAO) 박물관, 몬트리올, 캐나다 · 2024.10.1 – 10.31",
-                                             "venue_en":  "ICAO Museum, Montréal, Canada · 1 – 31 October 2024",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/sot-poster.jpg",
-                                             "images":  [
-                                                            { "image": "images/uploads/sot-artist-talk.jpg" },
-                                                            { "image": "images/uploads/sot-viewing.jpg" }
-                                                        ],
-                                             "video":  "videos/somewhere-out-there-artist-video.mp4",
-                                             "video_poster":  "images/uploads/sot-video-poster.jpg",
-                                             "pdf":  "files/somewhere-out-there-brochure.pdf"
-                                         },
-                                         {
-                                             "title_ko":  "나의 빨강 너의 파랑 – 경계를 넘어",
-                                             "title_en":  "My Red Your Blue – Beyond the Borders",
-                                             "year":  "2023",
-                                             "collaborator_ko":  "한국·요르단 협업 전시",
-                                             "collaborator_en":  "Korea–Jordan Collaborative Exhibition",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "성곡미술관, 서울 · 2023.10.26 – 11.30",
-                                             "venue_en":  "Sungkok Art Museum, Seoul · 26 October – 30 November 2023",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/mryb-poster.jpg",
-                                             "images":  [
-                                                            { "image": "images/uploads/mryb-artist-talk.jpg" }
-                                                        ],
-                                             "snapshots":  [
-                                                               { "image": "images/uploads/mryb-view-1.jpg" },
-                                                               { "image": "images/uploads/mryb-view-2.jpg" },
-                                                               { "image": "images/uploads/mryb-view-3.jpg" },
-                                                               { "image": "images/uploads/mryb-view-4.jpg" },
-                                                               { "image": "images/uploads/mryb-view-5.jpg" },
-                                                               { "image": "images/uploads/mryb-view-6.jpg" },
-                                                               { "image": "images/uploads/mryb-view-7.jpg" }
-                                                           ],
-                                             "pdf":  "files/my-red-your-blue-catalogue.pdf"
-                                         },
-                                         {
-                                             "title_ko":  "연대와 환대",
-                                             "title_en":  "Solidarity and Hospitality",
-                                             "year":  "2022",
-                                             "collaborator_ko":  "한국-요르단 수교 60주년 기념 특별전",
-                                             "collaborator_en":  "A Special Exhibition Celebrating the 60th Anniversary of Korea–Jordan Diplomatic Relations",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "국립아시아문화전당, 광주 · 2022.10.5 – 10.23",
-                                             "venue_en":  "Asia Culture Center, Gwangju · 5 – 23 October 2022",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/acc-poster.jpg",
-                                             "youtube":  "https://youtu.be/KjNIWQ7yi-o",
-                                             "images":  [
-                                                            { "image": "images/uploads/acc-main.jpg" }
-                                                        ],
-                                             "snapshot_ratio":  "3 / 2",
-                                             "snapshots":  [
-                                                               { "image": "images/uploads/acc-view-1.jpg" },
-                                                               { "image": "images/uploads/acc-view-2.jpg" },
-                                                               { "image": "images/uploads/acc-view-3.jpg" },
-                                                               { "image": "images/uploads/acc-view-4.jpg" },
-                                                               { "image": "images/uploads/acc-view-5.jpg" },
-                                                               { "image": "images/uploads/acc-view-6.jpg" },
-                                                               { "image": "images/uploads/acc-view-7.jpg" }
-                                                           ],
-                                             "pdf":  "files/solidarity-and-hospitality-catalogue.pdf"
-                                         },
-                                         {
-                                             "title_ko":  "4+4",
-                                             "title_en":  "4+4",
-                                             "year":  "2021",
-                                             "collaborator_ko":  "한국-요르단 협업 전시",
-                                             "collaborator_en":  "Korea–Jordan Collaborative Exhibition",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "Wadi Finan Art Gallery, 암만, 요르단 · 2021.12.4 – 2022.1.2",
-                                             "venue_en":  "Wadi Finan Art Gallery, Amman, Jordan · 04 Dec, 2021 – 02 Jan, 2022",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/fourfour-poster.jpg",
-                                             "images":  [
-
-                                                        ],
-                                             "snapshot_ratio":  "3 / 2",
-                                             "snapshots":  [
-                                                               { "image": "images/uploads/fourfour-view-1.jpg" },
-                                                               { "image": "images/uploads/fourfour-view-2.jpg" },
-                                                               { "image": "images/uploads/fourfour-view-3.jpg" },
-                                                               { "image": "images/uploads/fourfour-view-4.jpg" }
-                                                           ]
-                                         },
-                                         {
-                                             "title_ko":  "멀지만 가까운",
-                                             "title_en":  "Far Yet So Close",
-                                             "year":  "2021",
-                                             "collaborator_ko":  "이대서울병원 스페이스 B-Two 개관전시",
-                                             "collaborator_en":  "Inaugural Exhibition of Space B-Two",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "이대서울병원 스페이스 B-Two, 서울 · 2021.8.12 – 11.28",
-                                             "venue_en":  "Space B-Two, Ewha Womans University Seoul Hospital, Seoul · August 12 – November 28, 2021",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/fysc-poster.jpg",
-                                             "images":  [
-                                                            { "image": "images/uploads/fysc-leaflet-1.jpg" },
-                                                            { "image": "images/uploads/fysc-leaflet-2.jpg" }
-                                                        ],
-                                             "video":  "videos/far-yet-so-close.mp4",
-                                             "video_poster":  "images/uploads/fysc-video-poster.jpg",
-                                             "snapshot_ratio":  "3 / 2",
-                                             "snapshots":  [
-                                                               { "image": "images/uploads/fysc-view-1.jpg" },
-                                                               { "image": "images/uploads/fysc-view-2.jpg" },
-                                                               { "image": "images/uploads/fysc-view-3.jpg" },
-                                                               { "image": "images/uploads/fysc-view-4.jpg" },
-                                                               { "image": "images/uploads/fysc-view-5.jpg" },
-                                                               { "image": "images/uploads/fysc-view-6.jpg" }
-                                                           ]
-                                         },
-                                         {
-                                             "title_ko":  "수퍼 캘리 프래질리스틱 익스피 얄리 도셔스",
-                                             "title_en":  "Supercalifragilisticexpialidocious",
-                                             "year":  "2021",
-                                             "collaborator_ko":  "한국-요르단 협업 전시",
-                                             "collaborator_en":  "Korea–Jordan Collaborative Exhibition",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "아트 잠실, 서울 · 2021.7.1 – 7.14",
-                                             "venue_en":  "Art Jamsil, Seoul · July 1–14, 2021",
-                                             "desc_ko":  "",
-                                             "desc_en":  "",
-                                             "image":  "images/uploads/scali-main.jpg",
-                                             "hide_cover_in_detail":  true,
-                                             "images":  [
-                                                            { "image": "images/uploads/scali-main.jpg" }
-                                                        ],
-                                             "video_first":  true,
-                                             "video":  "videos/supercalifragilisticexpialidocious.mp4",
-                                             "video_poster":  "images/uploads/scali-video-poster.jpg",
-                                             "snapshot_ratio":  "3 / 2",
-                                             "snapshots":  [
-                                                               { "image": "images/uploads/scali-view-1.jpg" },
-                                                               { "image": "images/uploads/scali-view-2.jpg" },
-                                                               { "image": "images/uploads/scali-view-3.jpg" },
-                                                               { "image": "images/uploads/scali-view-4.jpg" },
-                                                               { "image": "images/uploads/scali-view-5.jpg" }
-                                                           ]
-                                         },
-                                         {
-                                             "title_ko":  "2021 ACC 창작공간네트워크 온라인 협력사업",
-                                             "title_en":  "2021 ACC Art Space Network Online Collaborative Project",
-                                             "year":  "2021",
-                                             "collaborator_ko":  "요르단 - 암만 기획",
-                                             "collaborator_en":  "Jordan - Amman director",
-                                             "medium_ko":  "",
-                                             "medium_en":  "",
-                                             "size":  "",
-                                             "venue_ko":  "",
-                                             "venue_en":  "",
-                                             "desc_ko":  "촬영지: 요르단 암만\n주최: 국립아시아문화전당\n주관: 아시아문화원\n총괄 큐레이터: 임종은, 김정현\n기획: 안세은\n촬영감독: 오마르 나빌 사왈라\n촬영 및 편집: 카람 멜헴\n\n본 영상은 2021 ACC 창작공간네트워크 사업의 일환으로 제작되었습니다.",
-                                             "desc_en":  "Location: Amman, Jordan\nHost: Asia Culture Center\nOrganizer: Asia Culture Institute\nExecutive Curator: Lim Jong Eun, Kim Jung Hyun\nDirector: An Se Eun\nCinematographer: Omar Nabil Sawalha\nEditor: Karam Melhem\n\nThis video was commissioned and produced as part of 2021 ACC Art Space Network's program.",
-                                             "image":  "images/uploads/accnet-2021-thumb.jpg",
-                                             "hide_cover_in_detail":  true,
-                                             "images":  [],
-                                             "youtube":  "https://youtu.be/LgM0uxcF6_Q"
-                                         }
-                                     ]
-                       }
-                   ]
+  "categories": [
+    {
+      "key": "collaboration",
+      "label": "Collaborations",
+      "items": [
+        {
+          "title_ko": "When We Talk about Love",
+          "title_en": "When We Talk about Love",
+          "year": "2026",
+          "collaborator_ko": "Collaboration with Master Embroiderer Park Insook",
+          "collaborator_en": "Collaboration with Master Embroiderer Park Insook",
+          "medium_ko": "Acrylic and embroidery on fabric",
+          "medium_en": "Acrylic and embroidery on fabric",
+          "size": "110 x 92 cm each (2 layered fabric pieces)",
+          "venue_ko": "",
+          "venue_en": "",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/collab-park-insook-love.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Evolving, Game",
+          "title_en": "Evolving, Game",
+          "year": "2022–2023",
+          "collaborator_ko": "Collaboration with Zaid Shawwa",
+          "collaborator_en": "Collaboration with Zaid Shawwa",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "",
+          "venue_en": "",
+          "desc_ko": "안세은과 제이드 샤와의 공동작업\n\n암만의 작업실에서 안세은 작가와 수많은 대화를 나누는 동안, 우리는 작품의 예술적 해석보다 창작 과정 뒤에 숨은 동기에 집중했다. 예술가는 예술적 표현을 통해 답을 제시하기 보다는 질문을 던져야 한다는 공통된 생각을 가지고 있었고, 이러한 관점의 공유는 공동 작업을 가능하게 하는 토대가 되었다. 하나의 캔버스 위에서 그간 나누었던 우리의 고민과 통찰이 비로소 통합되었다 믿는다.\n\n암만에서 완성한 우리의 공동 작품은 각자가 독립적으로 탐구해 온 주제를 담고 있다. 이번 공동 작업을 통해 서로가 구축해 온 주제들 위에 새로운 서사가 상승작용을 일으키며 발현되기를 희망한다.\n\n제이드 샤와",
+          "desc_en": "The collaboration between An Se-Eun and Zaid Shawwa\n\nDuring numerous conversations held at my Amman studio with Se-Eun, we never delved into the interpretation of our artistic endeavors; instead, we focused on the motivations behind our creative processes. Our mutual understanding was that artists pose questions rather than provide answers through their expressions. This shared perspective laid the groundwork for us to contemplate a collaborative effort. We believed that our inquiries might intersect on the canvas, potentially illuminating a shared insight.\n\nThese pieces were finalized in Amman, utilizing motifs that both of us had been independently exploring. Our intention was to merge these motifs, hoping that their interaction would give rise to a fresh narrative within an already established story.\n\nZaid Shawwa",
+          "image": "images/uploads/collab-zaidshawwa-triptych.jpg",
+          "images": [],
+          "works": [
+            {
+              "title_en": "Game",
+              "medium_en": "Acrylic on canvas",
+              "size": "60 x 80 cm each (set of 3)",
+              "year": "2022",
+              "image": "images/uploads/collab-zaidshawwa-triptych.jpg",
+              "full_width": true
+            },
+            {
+              "title_en": "Evolving",
+              "medium_en": "Acrylic on canvas",
+              "size": "160 x 140 cm",
+              "year": "2023",
+              "image": "images/uploads/collab-evolving.jpg"
+            },
+            {
+              "title_en": "Game",
+              "medium_en": "Acrylic on canvas",
+              "size": "160 x 140 cm",
+              "year": "2023",
+              "image": "images/uploads/collab-game-2023.jpg"
+            },
+            {
+              "title_en": "Game",
+              "medium_en": "Acrylic on canvas",
+              "size": "160 x 140 cm",
+              "year": "2022",
+              "image": "images/uploads/collab-game-2022.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "curatorial",
+      "label": "Curatorial Projects",
+      "items": [
+        {
+          "title_ko": "너에게 난, 나에게 넌 – 판화로 만나는 우리",
+          "title_en": "À toi, de moi: Notre rencontre à travers les arts imprimés",
+          "year": "2025",
+          "collaborator_ko": "한국·캐나다 협업 전시",
+          "collaborator_en": "Korea–Canada Collaborative Exhibition",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "아틀리에 서큘레르, 몬트리올, 캐나다 · 2025.3.13 – 4.5",
+          "venue_en": "Atelier Circulaire, Montreal, Canada · 13 March – 5 April 2025",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/atoi-poster.jpg",
+          "images": [],
+          "snapshot_ratio": "3 / 2",
+          "snapshots": [
+            {
+              "image": "images/uploads/atoi-view-1.jpg"
+            },
+            {
+              "image": "images/uploads/atoi-view-2.jpg"
+            },
+            {
+              "image": "images/uploads/atoi-view-3.jpg"
+            },
+            {
+              "image": "images/uploads/atoi-view-4.jpg"
+            },
+            {
+              "image": "images/uploads/atoi-view-5.jpg"
+            }
+          ]
+        },
+        {
+          "title_ko": "너에게 난, 나에게 넌 – 판화로 만나는 우리",
+          "title_en": "Me to You, You to Me – Our Encounter through Printmaking",
+          "year": "2024",
+          "collaborator_ko": "한국·캐나다 협업 전시",
+          "collaborator_en": "Korea–Canada Collaborative Exhibition",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "스페이스 소포라, 서울 · 2024.11.28 – 12.15",
+          "venue_en": "Space Sophora, Seoul · 2024.11.28 – 12.15",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/metoyou-poster.jpg",
+          "images": [
+            {
+              "image": "images/uploads/metoyou-install.jpg"
+            },
+            {
+              "image": "images/uploads/metoyou-artist-talk.jpg"
+            },
+            {
+              "image": "images/uploads/metoyou-poster-teal.jpg"
+            },
+            {
+              "image": "images/uploads/metoyou-poster-black.jpg"
+            }
+          ],
+          "pdf": "files/me-to-you-you-to-me-catalogue.pdf",
+          "youtube": "https://youtu.be/w90ZCdJRPmM"
+        },
+        {
+          "title_ko": "my love – Marriage and Love through the Eyes of Female Artists in Korea and Jordan",
+          "title_en": "my love – Marriage and Love through the Eyes of Female Artists in Korea and Jordan",
+          "year": "2024",
+          "collaborator_ko": "한국·요르단 협업 전시",
+          "collaborator_en": "Korea–Jordan Collaborative Exhibition",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "티라즈 센터, 암만 · 2024.5.28 – 6.14",
+          "venue_en": "TIRAZ Centre, Amman · 28 May – 14 June 2024",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/mylove-poster.jpg",
+          "images": [
+            {
+              "image": "images/uploads/mylove-install-1.jpg"
+            },
+            {
+              "image": "images/uploads/mylove-install-2.jpg"
+            },
+            {
+              "image": "images/uploads/mylove-install-3.jpg"
+            },
+            {
+              "image": "images/uploads/mylove-install-4.jpg"
+            }
+          ],
+          "pdf": "files/mylove-brochure.pdf"
+        },
+        {
+          "title_ko": "Somewhere Out There",
+          "title_en": "Somewhere Out There",
+          "year": "2024",
+          "collaborator_ko": "국제민간항공기구(ICAO) 창립 80주년 기념 특별전",
+          "collaborator_en": "A Special Exhibition Celebrating the 80th Anniversary of ICAO",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "국제민간항공기구(ICAO) 박물관, 몬트리올, 캐나다 · 2024.10.1 – 10.31",
+          "venue_en": "ICAO Museum, Montréal, Canada · 1 – 31 October 2024",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/sot-poster.jpg",
+          "images": [
+            {
+              "image": "images/uploads/sot-artist-talk.jpg"
+            },
+            {
+              "image": "images/uploads/sot-viewing.jpg"
+            }
+          ],
+          "video": "videos/somewhere-out-there-artist-video.mp4",
+          "video_poster": "images/uploads/sot-video-poster.jpg",
+          "pdf": "files/somewhere-out-there-brochure.pdf"
+        },
+        {
+          "title_ko": "나의 빨강 너의 파랑 – 경계를 넘어",
+          "title_en": "My Red Your Blue – Beyond the Borders",
+          "year": "2023",
+          "collaborator_ko": "한국·요르단 협업 전시",
+          "collaborator_en": "Korea–Jordan Collaborative Exhibition",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "성곡미술관, 서울 · 2023.10.26 – 11.30",
+          "venue_en": "Sungkok Art Museum, Seoul · 26 October – 30 November 2023",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/mryb-poster.jpg",
+          "images": [
+            {
+              "image": "images/uploads/mryb-artist-talk.jpg"
+            }
+          ],
+          "snapshots": [
+            {
+              "image": "images/uploads/mryb-view-1.jpg"
+            },
+            {
+              "image": "images/uploads/mryb-view-2.jpg"
+            },
+            {
+              "image": "images/uploads/mryb-view-3.jpg"
+            },
+            {
+              "image": "images/uploads/mryb-view-4.jpg"
+            },
+            {
+              "image": "images/uploads/mryb-view-5.jpg"
+            },
+            {
+              "image": "images/uploads/mryb-view-6.jpg"
+            },
+            {
+              "image": "images/uploads/mryb-view-7.jpg"
+            }
+          ],
+          "pdf": "files/my-red-your-blue-catalogue.pdf",
+          "youtube": "https://youtu.be/qc7LUJYr-6E"
+        },
+        {
+          "title_ko": "연대와 환대",
+          "title_en": "Solidarity and Hospitality",
+          "year": "2022",
+          "collaborator_ko": "한국-요르단 수교 60주년 기념 특별전",
+          "collaborator_en": "A Special Exhibition Celebrating the 60th Anniversary of Korea–Jordan Diplomatic Relations",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "국립아시아문화전당, 광주 · 2022.10.5 – 10.23",
+          "venue_en": "Asia Culture Center, Gwangju · 5 – 23 October 2022",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/acc-poster.jpg",
+          "youtube": "https://youtu.be/KjNIWQ7yi-o",
+          "images": [
+            {
+              "image": "images/uploads/acc-main.jpg"
+            }
+          ],
+          "snapshot_ratio": "3 / 2",
+          "snapshots": [
+            {
+              "image": "images/uploads/acc-view-1.jpg"
+            },
+            {
+              "image": "images/uploads/acc-view-2.jpg"
+            },
+            {
+              "image": "images/uploads/acc-view-3.jpg"
+            },
+            {
+              "image": "images/uploads/acc-view-4.jpg"
+            },
+            {
+              "image": "images/uploads/acc-view-5.jpg"
+            },
+            {
+              "image": "images/uploads/acc-view-6.jpg"
+            },
+            {
+              "image": "images/uploads/acc-view-7.jpg"
+            }
+          ],
+          "pdf": "files/solidarity-and-hospitality-catalogue.pdf"
+        },
+        {
+          "title_ko": "4+4",
+          "title_en": "4+4",
+          "year": "2021",
+          "collaborator_ko": "한국-요르단 협업 전시",
+          "collaborator_en": "Korea–Jordan Collaborative Exhibition",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "Wadi Finan Art Gallery, 암만, 요르단 · 2021.12.4 – 2022.1.2",
+          "venue_en": "Wadi Finan Art Gallery, Amman, Jordan · 04 Dec, 2021 – 02 Jan, 2022",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/fourfour-poster.jpg",
+          "images": [],
+          "snapshot_ratio": "3 / 2",
+          "snapshots": [
+            {
+              "image": "images/uploads/fourfour-view-1.jpg"
+            },
+            {
+              "image": "images/uploads/fourfour-view-2.jpg"
+            },
+            {
+              "image": "images/uploads/fourfour-view-3.jpg"
+            },
+            {
+              "image": "images/uploads/fourfour-view-4.jpg"
+            }
+          ]
+        },
+        {
+          "title_ko": "멀지만 가까운",
+          "title_en": "Far Yet So Close",
+          "year": "2021",
+          "collaborator_ko": "이대서울병원 스페이스 B-Two 개관전시",
+          "collaborator_en": "Inaugural Exhibition of Space B-Two",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "이대서울병원 스페이스 B-Two, 서울 · 2021.8.12 – 11.28",
+          "venue_en": "Space B-Two, Ewha Womans University Seoul Hospital, Seoul · August 12 – November 28, 2021",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/fysc-poster.jpg",
+          "images": [
+            {
+              "image": "images/uploads/fysc-leaflet-1.jpg"
+            },
+            {
+              "image": "images/uploads/fysc-leaflet-2.jpg"
+            }
+          ],
+          "video": "videos/far-yet-so-close.mp4",
+          "video_poster": "images/uploads/fysc-video-poster.jpg",
+          "snapshot_ratio": "3 / 2",
+          "snapshots": [
+            {
+              "image": "images/uploads/fysc-view-1.jpg"
+            },
+            {
+              "image": "images/uploads/fysc-view-2.jpg"
+            },
+            {
+              "image": "images/uploads/fysc-view-3.jpg"
+            },
+            {
+              "image": "images/uploads/fysc-view-4.jpg"
+            },
+            {
+              "image": "images/uploads/fysc-view-5.jpg"
+            },
+            {
+              "image": "images/uploads/fysc-view-6.jpg"
+            }
+          ]
+        },
+        {
+          "title_ko": "수퍼 캘리 프래질리스틱 익스피 얄리 도셔스",
+          "title_en": "Supercalifragilisticexpialidocious",
+          "year": "2021",
+          "collaborator_ko": "한국-요르단 협업 전시",
+          "collaborator_en": "Korea–Jordan Collaborative Exhibition",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "아트 잠실, 서울 · 2021.7.1 – 7.14",
+          "venue_en": "Art Jamsil, Seoul · July 1–14, 2021",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/scali-main.jpg",
+          "hide_cover_in_detail": true,
+          "images": [
+            {
+              "image": "images/uploads/scali-main.jpg"
+            }
+          ],
+          "video_first": true,
+          "video": "videos/supercalifragilisticexpialidocious.mp4",
+          "video_poster": "images/uploads/scali-video-poster.jpg",
+          "snapshot_ratio": "3 / 2",
+          "snapshots": [
+            {
+              "image": "images/uploads/scali-view-1.jpg"
+            },
+            {
+              "image": "images/uploads/scali-view-2.jpg"
+            },
+            {
+              "image": "images/uploads/scali-view-3.jpg"
+            },
+            {
+              "image": "images/uploads/scali-view-4.jpg"
+            },
+            {
+              "image": "images/uploads/scali-view-5.jpg"
+            }
+          ]
+        },
+        {
+          "title_ko": "2021 ACC 창작공간네트워크 온라인 협력사업",
+          "title_en": "2021 ACC Art Space Network Online Collaborative Project",
+          "year": "2021",
+          "collaborator_ko": "요르단 - 암만 기획",
+          "collaborator_en": "Jordan - Amman director",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "",
+          "venue_en": "",
+          "desc_ko": "촬영지: 요르단 암만\n주최: 국립아시아문화전당\n주관: 아시아문화원\n총괄 큐레이터: 임종은, 김정현\n기획: 안세은\n촬영감독: 오마르 나빌 사왈라\n촬영 및 편집: 카람 멜헴\n\n본 영상은 2021 ACC 창작공간네트워크 사업의 일환으로 제작되었습니다.",
+          "desc_en": "Location: Amman, Jordan\nHost: Asia Culture Center\nOrganizer: Asia Culture Institute\nExecutive Curator: Lim Jong Eun, Kim Jung Hyun\nDirector: An Se Eun\nCinematographer: Omar Nabil Sawalha\nEditor: Karam Melhem\n\nThis video was commissioned and produced as part of 2021 ACC Art Space Network's program.",
+          "image": "images/uploads/accnet-2021-thumb.jpg",
+          "hide_cover_in_detail": true,
+          "images": [],
+          "youtube": "https://youtu.be/LgM0uxcF6_Q"
+        }
+      ]
+    }
+  ]
 }
