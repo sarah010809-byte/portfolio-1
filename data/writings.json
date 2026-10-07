@@ -83,7 +83,20 @@
     {
       "key": "articles",
       "label": "Articles",
-      "items": []
+      "items": [
+        {
+          "title_ko": "‘Layers of time’, overlapping cultures",
+          "title_en": "‘Layers of time’, overlapping cultures",
+          "year": "2021",
+          "author_ko": "Ica Wahbeh",
+          "author_en": "Ica Wahbeh",
+          "source_ko": "Jordan News, 4 Dec",
+          "source_en": "Jordan News, 4 Dec",
+          "body_ko": "A review of “Layers of Time, 4+4” at Wadi Finan Art Gallery in Amman, an exchange exhibition in which four Jordanian and four South Korean artists completed one another’s unfinished pieces, running through 2 January.\n\nWriting on the collaborative works on view, Ica Wahbeh describes An Se-eun’s intricate paintings — built by layering paint and then carving the layers away — and how they were set into the sculptural pieces and installations made with her Jordanian counterparts.",
+          "body_en": "A review of “Layers of Time, 4+4” at Wadi Finan Art Gallery in Amman, an exchange exhibition in which four Jordanian and four South Korean artists completed one another’s unfinished pieces, running through 2 January.\n\nWriting on the collaborative works on view, Ica Wahbeh describes An Se-eun’s intricate paintings — built by layering paint and then carving the layers away — and how they were set into the sculptural pieces and installations made with her Jordanian counterparts.",
+          "link": "https://www.jordannews.jo/Section-117/Culture-Arts/Layers-of-time-overlapping-cultures-10542"
+        }
+      ]
     },
     {
       "key": "statements",
