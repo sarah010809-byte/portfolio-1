@@ -103,6 +103,8 @@ collections:
                   - { label: "전시 설명 (영문)", name: "desc_en", widget: "text", required: false }
                   - { label: "대표 이미지 (전시 전경)", name: "image", widget: "image", required: false }
                   - { label: "도록 PDF 파일", name: "pdf", widget: "file", required: false, media_folder: "/files", public_folder: "/files", hint: "업로드하면 전시 상세페이지에 '도록 보기 (PDF)' 링크가 생깁니다" }
+                  - { label: "유튜브 영상 주소", name: "youtube", widget: "string", required: false, hint: "예: https://youtu.be/영상ID — 대표 이미지 아래에 표시됩니다" }
+                  - { label: "유튜브 시작 시간", name: "youtube_start", widget: "string", required: false, hint: "예: 1:28 (비우면 처음부터)" }
                   - { label: "전시 영상 (mp4, 대표 이미지 아래 표시)", name: "video", widget: "file", required: false, hint: "100MB 이하 mp4" }
                   - { label: "영상 썸네일 이미지", name: "video_poster", widget: "image", required: false, hint: "재생 전 보이는 이미지 (비우면 영상 첫 화면)" }
                   - label: "추가 이미지 (전시 전경·설치 컷)"
@@ -196,6 +198,7 @@ collections:
                     fields:
                       - { label: "이미지", name: "image", widget: "image" }
                   - { label: "유튜브 영상 주소", name: "youtube", widget: "string", required: false, hint: "예: https://youtu.be/영상ID — 대표 이미지 바로 아래에 표시됩니다" }
+                  - { label: "유튜브 시작 시간", name: "youtube_start", widget: "string", required: false, hint: "예: 1:28 (비우면 처음부터)" }
                   - { label: "영상 (mp4, 이미지 아래 표시)", name: "video", widget: "file", required: false, hint: "100MB 이하 mp4" }
                   - { label: "영상 썸네일 이미지", name: "video_poster", widget: "image", required: false, hint: "재생 전 보이는 이미지 (비우면 영상 첫 화면)" }
                   - label: "이 프로젝트의 작품"

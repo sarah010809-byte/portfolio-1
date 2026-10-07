@@ -230,6 +230,25 @@ function setupRelStrip(wrap) {
   update();
 }
 
+// 유튜브 영상 삽입(전시·프로젝트 공통): youtube = 주소 또는 영상 ID,
+// youtube_start = 시작 시간("1:28" 또는 초). 주소에 ?t=88 이 붙어 있어도 인식
+function youtubeHTML(item) {
+  if (!item.youtube) return "";
+  const url = String(item.youtube).trim();
+  const id = (url.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [, url])[1];
+  const toSec = (v) => {
+    if (v == null || v === "") return 0;
+    const s = String(v).trim();
+    if (/^\d+$/.test(s)) return +s;
+    if (s.includes(":")) return s.split(":").reduce((a, n) => a * 60 + (+n || 0), 0);
+    const m = s.match(/(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s?)?/);
+    return m ? (+m[1] || 0) * 3600 + (+m[2] || 0) * 60 + (+m[3] || 0) : 0;
+  };
+  const start = toSec(item.youtube_start) || toSec((url.match(/[?&](?:t|start)=([\w:]+)/) || [])[1]);
+  return `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${esc(id)}${start ? `?start=${start}` : ""}" title="${esc(item.title_en)}" loading="lazy"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+}
+
 // 현장 사진 묶음(전시·프로젝트 공통): snapshots = 가로 사진(한 줄에 2장, snapshot_ratio),
 // snapshots_tall = 세로 사진(한 줄에 3장, 4:5) — 클릭하면 두 묶음을 이어서 크게 봄
 function snapshotsHTML(item) {
@@ -1053,6 +1072,7 @@ async function renderDynamic() {
                       data-ko="도록 보기 (PDF)" data-en="View Catalogue (PDF)">도록 보기 (PDF)</a></p>` : ""}
               </div>
             </div>
+            ${e.youtube ? `<div class="exh-detail-image">${youtubeHTML(e)}</div>` : ""}
             ${e.video
               ? `<div class="exh-detail-image work-video"><video controls preload="metadata" playsinline${
                   e.video_poster ? ` poster="${esc(e.video_poster)}"` : ""}><source src="${esc(e.video)}" type="video/mp4"></video></div>` : ""}
@@ -1134,10 +1154,7 @@ async function renderDynamic() {
         // 이미지 없이 유튜브 영상만 있으면 영상을 전체 폭으로 (정보 → 영상 세로 배치)
         const multiImage = pImages.length > 1 || (!coverInDetail && pImages.length > 0) || (!pImages.length && !!p.youtube);
         // youtube: 유튜브 영상(주소 또는 영상 ID)을 대표 이미지 바로 아래에 삽입
-        const ytId = p.youtube ? (String(p.youtube).match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/) || [, String(p.youtube).trim()])[1] : "";
-        const ytHTML = ytId
-          ? `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${esc(ytId)}" title="${esc(p.title_en)}" loading="lazy"
-               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>` : "";
+        const ytHTML = youtubeHTML(p);
         // video_first: 영상을 상세페이지 맨 위(이미지보다 먼저)에 배치
         const pVideoHTML = p.video
           ? `<div class="exh-detail-image work-video"><video controls preload="metadata" playsinline${
