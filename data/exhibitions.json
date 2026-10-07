@@ -5,6 +5,36 @@
                       "label":  "Solo",
                       "items":  [
                                     {
+                                        "title_ko":  "시간의 두께",
+                                        "title_en":  "Layers of Time",
+                                        "date":  "04 Dec, 2021 – 02 Jan, 2022",
+                                        "curator_ko":  "",
+                                        "curator_en":  "",
+                                        "venue_ko":  "Wadi Finan Art Gallery, 암만, 요르단",
+                                        "venue_en":  "Wadi Finan Art Gallery, Amman, Jordan",
+                                        "desc_ko":  "",
+                                        "desc_en":  "",
+                                        "image":  "images/uploads/lot2021-poster.jpg",
+                                        "images":  [
+                                                       { "image": "images/uploads/lot2021-leaflet-1.jpg" },
+                                                       { "image": "images/uploads/lot2021-leaflet-2.jpg" }
+                                                   ],
+                                        "snapshot_ratio":  "3 / 2",
+                                        "snapshots":  [
+                                                               { "image": "images/uploads/lot2021-view-1.jpg" },
+                                                               { "image": "images/uploads/lot2021-view-2.jpg" },
+                                                               { "image": "images/uploads/lot2021-view-3.jpg" },
+                                                               { "image": "images/uploads/lot2021-view-4.jpg" },
+                                                               { "image": "images/uploads/lot2021-view-5.jpg" },
+                                                               { "image": "images/uploads/lot2021-view-6.jpg" }
+                                                      ],
+                                        "snapshots_tall":  [
+                                                               { "image": "images/uploads/lot2021-tall-1.jpg" },
+                                                               { "image": "images/uploads/lot2021-tall-2.jpg" },
+                                                               { "image": "images/uploads/lot2021-tall-3.jpg" }
+                                                           ]
+                                    },
+                                    {
                                         "title_ko":  "On the Road",
                                         "title_en":  "On the Road",
                                         "date":  "August 7 – 30, 2017",

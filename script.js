@@ -230,6 +230,19 @@ function setupRelStrip(wrap) {
   update();
 }
 
+// 현장 사진 묶음(전시·프로젝트 공통): snapshots = 가로 사진(한 줄에 2장, snapshot_ratio),
+// snapshots_tall = 세로 사진(한 줄에 3장, 4:5) — 클릭하면 두 묶음을 이어서 크게 봄
+function snapshotsHTML(item) {
+  const srcs = (list) => (list || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean);
+  const imgs = (list) => srcs(list).map((src) =>
+    thumbImg(src, item.title_en, ` loading="lazy" data-full="${esc(new URL(src, location.href).href)}"`)).join("");
+  const wide = srcs(item.snapshots).length
+    ? `<div class="snapshot-grid"${item.snapshot_ratio ? ` style="--snap-ratio:${esc(item.snapshot_ratio)}"` : ""}>${imgs(item.snapshots)}</div>` : "";
+  const tall = srcs(item.snapshots_tall).length
+    ? `<div class="snapshot-grid tall">${imgs(item.snapshots_tall)}</div>` : "";
+  return wide + tall;
+}
+
 function thumbHTML(work, label) {
   if (work.image) {
     return `<div class="thumb">${thumbImg(work.image, work.title_ko, ' loading="lazy"')}</div>`;
@@ -1046,6 +1059,7 @@ async function renderDynamic() {
             ${(e.desc_ko || e.desc_en)
               ? `<p class="post-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
             ${extraHTML}
+            ${snapshotsHTML(e)}
             ${exhWorksHTML}
           </article>
           <div class="work-nav">${prev}${next}</div>
@@ -1180,9 +1194,7 @@ async function renderDynamic() {
             ${p.video_first ? pVideoHTML : ""}
             ${multiImage ? `<div class="post-image">${pImageArea}</div>` : ""}
             ${p.video_first ? "" : pVideoHTML}
-            ${(p.snapshots && p.snapshots.length) ? `
-            <div class="snapshot-grid"${p.snapshot_ratio ? ` style="--snap-ratio:${esc(p.snapshot_ratio)}"` : ""}>${p.snapshots.map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean).map((src) =>
-              thumbImg(src, p.title_en, ` loading="lazy" data-full="${esc(new URL(src, location.href).href)}"`)).join("")}</div>` : ""}
+            ${snapshotsHTML(p)}
             ${(p.desc_ko || p.desc_en)
               ? `<p class="post-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}
             ${(p.works && p.works.length) ? `
@@ -1580,7 +1592,7 @@ document.addEventListener("click", (e) => {
     const slider = snap ? null : img.closest(".slider");
     lbState.slider = slider;
     lbState.imgs = snap
-      ? [...img.closest(".snapshot-grid").querySelectorAll("img")].map((el) => el.dataset.full || el.src)
+      ? [...(img.closest("article") || document).querySelectorAll(".snapshot-grid img")].map((el) => el.dataset.full || el.src)
       : [...slider.querySelectorAll(".slide img")].map((el) => el.src);
     lbState.i = lbState.imgs.indexOf(snap ? (img.dataset.full || img.src) : img.src);
     if (lbState.i < 0) lbState.i = 0;

@@ -594,7 +594,14 @@ a.side-related:hover { opacity: 0.55; }
 /* 프로젝트 상세: 휴대폰으로 찍은 현장 사진 묶음 — 한 줄에 2개씩, 클릭하면 크게 */
 .snapshot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 24px; }
 .snapshot-grid img { width: 100%; aspect-ratio: var(--snap-ratio, 2 / 1); object-fit: cover; display: block; cursor: zoom-in; }
-@media (max-width: 768px) { .snapshot-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; } }
+.snapshot-grid.tall { grid-template-columns: repeat(3, 1fr); margin-top: 10px; }
+.snapshot-grid.tall img { aspect-ratio: 4 / 5; }
+.snapshot-grid + .snapshot-grid { margin-top: 10px; }
+@media (max-width: 768px) {
+  .snapshot-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .snapshot-grid.tall { grid-template-columns: repeat(3, 1fr); }
+  .snapshot-grid + .snapshot-grid { margin-top: 6px; }
+}
 .work-count { color: #bbb; font-size: 0.85rem; }
 
 /* ===== 작품 상세 슬라이드쇼 ===== */
