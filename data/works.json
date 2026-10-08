@@ -585,6 +585,23 @@
           "title_ko": "Disposable Identity",
           "title_en": "Disposable Identity",
           "year": "2008",
+          "medium_ko": "Installation view",
+          "medium_en": "Installation view",
+          "size": "",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/disposable-identity-2008-install-1.jpg",
+          "images": [
+            { "image": "images/uploads/disposable-identity-2008-install-2.jpg" },
+            { "image": "images/uploads/disposable-identity-2008-install-3.jpg" }
+          ]
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2008",
           "medium_ko": "Dymo on acrylic",
           "medium_en": "Dymo on acrylic",
           "size": "48 x 48 cm",
@@ -1158,6 +1175,23 @@
       "name_ko": "Collected Memories",
       "name_en": "Collected Memories",
       "works": [
+        {
+          "title_ko": "Collected Memories",
+          "title_en": "Collected Memories",
+          "year": "2010",
+          "medium_ko": "Installation view",
+          "medium_en": "Installation view",
+          "size": "",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/collected-memories-2010-1.jpg",
+          "images": [
+            { "image": "images/uploads/collected-memories-2010-2.jpg" },
+            { "image": "images/uploads/collected-memories-2010-3.jpg" }
+          ]
+        },
         {
           "title_ko": "Collected Memories",
           "title_en": "Collected Memories",
