@@ -35,20 +35,21 @@
                                                            ]
                                     },
                                     {
-                                        "title_ko":  "On the Road",
-                                        "title_en":  "On the Road",
-                                        "date":  "August 7 – 30, 2017",
+                                        "title_ko":  "The Road Home",
+                                        "title_en":  "The Road Home",
+                                        "date":  "1–22 July 2017",
                                         "curator_ko":  "",
                                         "curator_en":  "",
-                                        "venue_ko":  "스페이스 15번지, 서울",
-                                        "venue_en":  "Space 15th, Seoul",
+                                        "venue_ko":  "갤러리 조선, 서울",
+                                        "venue_en":  "Gallery Chosun, Seoul, Korea",
                                         "desc_ko":  "",
                                         "desc_en":  "",
-                                        "image":  "images/uploads/on-the-road-2017-main.jpg",
+                                        "image":  "images/uploads/the-road-home-2017-boxes.jpg",
                                         "youtube":  "https://youtu.be/7Z2uwO1aunY",
                                         "youtube_start":  "1:28",
                                         "images":  [
-
+                                                       { "image": "images/uploads/road-home-2017-view-1.jpg" },
+                                                       { "image": "images/uploads/road-home-2017-view-2.jpg" }
                                                    ],
                                         "works":  [
                                                       {

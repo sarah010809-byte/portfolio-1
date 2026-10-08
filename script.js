@@ -1072,13 +1072,13 @@ async function renderDynamic() {
                       data-ko="도록 보기 (PDF)" data-en="View Catalogue (PDF)">도록 보기 (PDF)</a></p>` : ""}
               </div>
             </div>
+            ${extraHTML /* 추가 이미지(전경)를 먼저 보여주고 그 아래 영상 */}
             ${e.youtube ? `<div class="exh-detail-image">${youtubeHTML(e)}</div>` : ""}
             ${e.video
               ? `<div class="exh-detail-image work-video"><video controls preload="metadata" playsinline${
                   e.video_poster ? ` poster="${esc(e.video_poster)}"` : ""}><source src="${esc(e.video)}" type="video/mp4"></video></div>` : ""}
             ${(e.desc_ko || e.desc_en)
               ? `<p class="post-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
-            ${extraHTML}
             ${snapshotsHTML(e)}
             ${exhWorksHTML}
           </article>
