@@ -256,7 +256,7 @@ function snapshotsHTML(item) {
   const imgs = (list) => srcs(list).map((src) =>
     thumbImg(src, item.title_en, ` loading="lazy" data-full="${esc(new URL(src, location.href).href)}"`)).join("");
   const wide = srcs(item.snapshots).length
-    ? `<div class="snapshot-grid"${item.snapshot_ratio ? ` style="--snap-ratio:${esc(item.snapshot_ratio)}"` : ""}>${imgs(item.snapshots)}</div>` : "";
+    ? `<div class="snapshot-grid${item.snapshot_layout === "single" ? " single" : ""}"${item.snapshot_ratio ? ` style="--snap-ratio:${esc(item.snapshot_ratio)}"` : ""}>${imgs(item.snapshots)}</div>` : "";
   const tall = srcs(item.snapshots_tall).length
     ? `<div class="snapshot-grid tall">${imgs(item.snapshots_tall)}</div>` : "";
   return wide + tall;
@@ -1006,7 +1006,7 @@ async function renderDynamic() {
           const imgs = [w.image, ...details];
           const title = w.title_en || w.title_ko || "";
           return `
-          <figure class="exh-work">
+          <figure class="exh-work${w.caption_side ? " cap-side" : ""}">
             <div class="exh-work-imgs cols-${Math.min(imgs.length, 3)}${w.side_by_side ? " equal" : ""}">${imgs.map((src) =>
               `<img src="${esc(src)}" alt="${esc(title)}" loading="lazy">`).join("")}</div>
             <figcaption class="exh-work-cap">
@@ -1083,8 +1083,8 @@ async function renderDynamic() {
                   e.video_poster ? ` poster="${esc(e.video_poster)}"` : ""}><source src="${esc(e.video)}" type="video/mp4"></video></div>` : ""}
             ${(e.desc_ko || e.desc_en)
               ? `<p class="post-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
-            ${snapshotsHTML(e)}
             ${exhWorksHTML}
+            ${snapshotsHTML(e)}
           </article>
           <div class="work-nav">${prev}${next}</div>
           ${relWorksHTML}

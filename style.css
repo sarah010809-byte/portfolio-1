@@ -1435,6 +1435,18 @@ body.subpage .exh-layout { min-height: 100vh; }
 .exh-work-cap span { display: block; }
 .exh-work-cap .cap-title { color: #111; font-weight: 700; font-style: italic; }
 .exh-work-cap .cap-medium { letter-spacing: -0.01em; }
+/* caption_side: 캡션을 사진 오른쪽 아래에 */
+.exh-work.cap-side { display: flex; gap: 28px; align-items: flex-end; }
+.exh-work.cap-side .exh-work-imgs { flex: 0 1 72%; min-width: 0; }
+.exh-work.cap-side .exh-work-cap { flex: 1; margin-top: 0; }
+/* snapshot_layout: "single" — 현장 사진을 한 줄에 하나씩, 원본 비율로 작게 */
+.snapshot-grid.single { grid-template-columns: 1fr; max-width: 560px; gap: 16px; margin-top: 40px; }
+.snapshot-grid.single img { aspect-ratio: auto; height: auto; }
+@media (max-width: 768px) {
+  .exh-work.cap-side { display: block; }
+  .exh-work.cap-side .exh-work-cap { margin-top: 16px; }
+  .snapshot-grid.single { grid-template-columns: 1fr; }
+}
 
 /* 프로젝트 상세: 한 프로젝트에 여러 작품이 담긴 경우 — 작품별 사진 + 캡션 (좌우 배치) */
 .proj-subworks { margin: 48px 0 0; padding: 0; list-style: none; }

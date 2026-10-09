@@ -421,16 +421,18 @@
                                                               "medium_en":  "Mirror",
                                                               "size":  "Installation view",
                                                               "year":  "2009",
-                                                              "image":  "images/uploads/icwab2009-view-1.jpg",
-                                                              "side_by_side":  true,
-                                                              "images":  [
-                                                                             { "image": "images/uploads/icwab2009-view-2.jpg" },
-                                                                             { "image": "images/uploads/icwab2009-view-3.jpg" },
-                                                                             { "image": "images/uploads/icwab2009-view-4.jpg" },
-                                                                             { "image": "images/uploads/icwab2009-view-5.jpg" }
-                                                                         ]
+                                                              "image":  "images/uploads/icwab2009-main.jpg",
+                                                      "caption_side":  true
                                                           }
-                                                      ]
+                                                      ],
+                                        "snapshot_layout":  "single",
+                                        "snapshots":  [
+                                                           { "image": "images/uploads/icwab2009-view-1-b.jpg" },
+                                                           { "image": "images/uploads/icwab2009-view-2-b.jpg" },
+                                                           { "image": "images/uploads/icwab2009-view-3-b.jpg" },
+                                                           { "image": "images/uploads/icwab2009-view-4-b.jpg" },
+                                                           { "image": "images/uploads/icwab2009-view-5-b.jpg" }
+                                                       ]
                                         }
                                 ]
                   }
