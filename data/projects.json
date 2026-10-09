@@ -439,7 +439,7 @@
                                              "images":  [
                                                             { "image": "images/uploads/dearyou-view-036.jpg" },
                                                             { "image": "images/uploads/dearyou-view-100.jpg" },
-                                                            { "image": "images/uploads/dearyou-view-023.jpg" }
+                                                            { "image": "images/uploads/dearyou-view-023-b.jpg" }
                                                         ],
                                              "works":  [
                                                            {
@@ -467,9 +467,7 @@
                                                                "size":  "Installation view",
                                                                "year":  "2009",
                                                                "image":  "images/uploads/di2009-vinyl-1.jpg",
-                                                               "side_by_side":  true,
                                                                "images":  [
-                                                                              { "image": "images/uploads/di2009-vinyl-2.jpg" },
                                                                               { "image": "images/uploads/di2009-vinyl-detail.jpg" }
                                                                           ]
                                                            }
