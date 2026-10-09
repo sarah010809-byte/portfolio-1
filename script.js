@@ -902,7 +902,7 @@ async function renderDynamic() {
           <div class="work-image">${imageArea}</div>
           <aside class="work-side">
             <h1 data-ko="${esc(w.title_ko)}" data-en="${esc(w.title_en)}">${esc(w.title_ko)}</h1>
-            ${(w.medium_en || w.medium_ko) ? `<p class="side-medium">${esc(w.medium_en || w.medium_ko)}</p>` : ""}
+            ${(w.medium_en || w.medium_ko) ? `<p class="side-medium" data-ko="${esc(w.medium_ko || w.medium_en)}" data-en="${esc(w.medium_en || w.medium_ko)}">${esc(w.medium_en || w.medium_ko)}</p>` : ""}
             ${w.size ? `<p class="side-medium">${esc(w.size)}</p>` : ""}
             <p class="side-caption side-year">${esc(w.year)}</p>
             ${(w.location_ko || w.location_en)

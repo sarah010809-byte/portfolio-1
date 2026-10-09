@@ -421,7 +421,43 @@
           "hide_cover_in_detail": true,
           "images": [],
           "youtube": "https://youtu.be/LgM0uxcF6_Q"
-        }
+        },
+                                         {
+                                             "title_ko":  "소중한 너",
+                                             "title_en":  "Dear You",
+                                             "year":  "2009",
+                                             "collaborator_ko":  "",
+                                             "collaborator_en":  "",
+                                             "medium_ko":  "",
+                                             "medium_en":  "",
+                                             "size":  "",
+                                             "venue_ko":  "그림손 갤러리, 서울",
+                                             "venue_en":  "Gallery Grimson, Seoul",
+                                             "desc_ko":  "",
+                                             "desc_en":  "",
+                                             "image":  "images/uploads/dearyou-poster.jpg",
+                                             "hide_cover_in_detail":  false,
+                                             "images":  [
+                                                            { "image": "images/uploads/dearyou-view-036.jpg" },
+                                                            { "image": "images/uploads/dearyou-view-051.jpg" },
+                                                            { "image": "images/uploads/dearyou-view-100.jpg" }
+                                                        ],
+                                             "snapshot_ratio":  "3 / 2",
+                                             "snapshots":  [
+                                                               { "image": "images/uploads/dearyou-view-023.jpg" },
+                                                               { "image": "images/uploads/dearyou-view-048.jpg" },
+                                                               { "image": "images/uploads/dearyou-view-055.jpg" },
+                                                               { "image": "images/uploads/dearyou-view-067.jpg" },
+                                                               { "image": "images/uploads/dearyou-workshop.jpg" },
+                                                               { "image": "images/uploads/di2009-vinyl-detail.jpg" },
+                                                               { "image": "images/uploads/dearyou-concert-1.jpg" },
+                                                               { "image": "images/uploads/dearyou-concert-2.jpg" }
+                                                           ],
+                                             "snapshots_tall":  [
+                                                               { "image": "images/uploads/di2009-vinyl-2.jpg" },
+                                                               { "image": "images/uploads/di2009-vinyl-1.jpg" }
+                                                                ]
+                                         }
       ]
     }
   ]

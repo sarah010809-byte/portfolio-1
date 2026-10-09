@@ -243,6 +243,23 @@
           "title_ko": "Disposable Identity",
           "title_en": "Disposable Identity",
           "year": "2009",
+          "medium_ko": "Pen on vinyl sticker",
+          "medium_en": "Pen on vinyl sticker",
+          "size": "Installation view",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/di2009-vinyl-1.jpg",
+          "images": [
+            { "image": "images/uploads/di2009-vinyl-2.jpg" },
+            { "image": "images/uploads/di2009-vinyl-detail.jpg" }
+          ]
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2009",
           "medium_ko": "Acrylic on canvas",
           "medium_en": "Acrylic on canvas",
           "size": "50 x 50 cm",
@@ -1378,6 +1395,25 @@
       "name_ko": "",
       "name_en": "",
       "works": [
+        {
+          "title_ko": "소중한 너",
+          "title_en": "Dear You",
+          "year": "2009",
+          "medium_ko": "아크릴 판에 펜 드로잉, 가변 설치",
+          "medium_en": "Pen drawings on human-shaped acrylic cutouts, Installation view",
+          "size": "",
+          "desc_ko": "(안세은, 이주은이 600여명의 어린이와 함께 한 공동 작업)",
+          "desc_en": "(A collaborative work by An Se-Eun and Lee Jueun with approximately 600 children)",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/dearyou-view-067.jpg",
+          "images": [
+            { "image": "images/uploads/dearyou-view-051.jpg" },
+            { "image": "images/uploads/dearyou-view-048.jpg" },
+            { "image": "images/uploads/dearyou-view-055.jpg" },
+            { "image": "images/uploads/dearyou-workshop.jpg" }
+          ]
+        },
         {
           "title_ko": "After love",
           "title_en": "After love",
