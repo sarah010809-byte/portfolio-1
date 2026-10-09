@@ -1022,12 +1022,16 @@ async function renderDynamic() {
         // 관련 작품 — 이 전시에서 선보인 작품과 같은 제목의 작품(Works에 등록된 경우) +
         // 작품의 '관련 전시'에 이 전시명이 포함된 것들을 모아 카드 그리드로 (클릭 시 작품 상세로)
         // 제목만으로 맞추면 같은 제목의 다른 연도 작품(예: 여러 해의 Disposable Identity)까지
-        // 딸려오므로 제목 + 연도가 모두 같을 때만 같은 작품으로 봄
-        const wKey = (title, year) => `${title}|${year || ""}`;
-        const exhWorkKeys = new Set(exhWorks.map((w) => wKey(w.title_en || w.title_ko, w.year)));
+        // 딸려오므로 제목 + 연도가 모두 같을 때만 같은 작품으로 봄.
+        // 출품작에 재료가 적혀 있으면 재료까지 같아야 함 (같은 해 같은 제목의 회화·설치 구분)
+        const norm = (s) => (s || "").trim().toLowerCase();
+        const sameWork = (x, w) =>
+          (norm(x.title_en || x.title_ko) === norm(w.title_en) || norm(x.title_en || x.title_ko) === norm(w.title_ko)) &&
+          (x.year || "") === (w.year || "") &&
+          (!(x.medium_en || x.medium_ko) || norm(x.medium_en || x.medium_ko) === norm(w.medium_en || w.medium_ko));
         const relWorks = worksData
           ? sortedWorks(worksData).filter((w) =>
-              exhWorkKeys.has(wKey(w.title_en, w.year)) || exhWorkKeys.has(wKey(w.title_ko, w.year)) ||
+              exhWorks.some((x) => sameWork(x, w)) ||
               (w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
               (w.related_en && e.title_en && w.related_en.includes(e.title_en)))
           : [];

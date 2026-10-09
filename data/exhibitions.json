@@ -399,7 +399,39 @@
                                                                      ]
                                                       }
                                                   ]
-                                    }
+                                    },
+                                        {
+                                            "title_ko":  "인천여성미술비엔날레",
+                                            "title_en":  "International Incheon Women Artists' Biennale",
+                                            "date":  "01–31 Aug, 2009",
+                                            "curator_ko":  "",
+                                            "curator_en":  "",
+                                            "venue_ko":  "인천아트플랫폼, 인천",
+                                            "venue_en":  "Incheon Art Platform",
+                                            "desc_ko":  "",
+                                            "desc_en":  "",
+                                            "image":  "images/uploads/icwab2009-main.jpg",
+                                            "images":  [
+                                                           { "image": "images/uploads/icwab2009-catalogue.jpg" }
+                                                       ],
+                                            "works":  [
+                                                          {
+                                                              "title_en":  "Disposable Identity",
+                                                              "medium_ko":  "Mirror",
+                                                              "medium_en":  "Mirror",
+                                                              "size":  "Installation view",
+                                                              "year":  "2009",
+                                                              "image":  "images/uploads/icwab2009-view-1.jpg",
+                                                              "side_by_side":  true,
+                                                              "images":  [
+                                                                             { "image": "images/uploads/icwab2009-view-2.jpg" },
+                                                                             { "image": "images/uploads/icwab2009-view-3.jpg" },
+                                                                             { "image": "images/uploads/icwab2009-view-4.jpg" },
+                                                                             { "image": "images/uploads/icwab2009-view-5.jpg" }
+                                                                         ]
+                                                          }
+                                                      ]
+                                        }
                                 ]
                   }
               ]

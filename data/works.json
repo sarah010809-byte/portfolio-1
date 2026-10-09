@@ -243,6 +243,36 @@
           "title_ko": "Disposable Identity",
           "title_en": "Disposable Identity",
           "year": "2009",
+          "medium_ko": "Mirror",
+          "medium_en": "Mirror",
+          "size": "Installation view",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "《인천여성미술비엔날레》, 인천아트플랫폼, 2009",
+          "related_en": "International Incheon Women Artists' Biennale, Incheon Art Platform, 2009",
+          "image": "images/uploads/icwab2009-main.jpg",
+          "images": []
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2009",
+          "medium_ko": "Dymo on acrylic",
+          "medium_en": "Dymo on acrylic",
+          "size": "Installation view",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/di2009-dymo-1.jpg",
+          "images": [
+            { "image": "images/uploads/di2009-dymo-2.jpg" }
+          ]
+        },
+        {
+          "title_ko": "Disposable Identity",
+          "title_en": "Disposable Identity",
+          "year": "2009",
           "medium_ko": "Pen on vinyl sticker",
           "medium_en": "Pen on vinyl sticker",
           "size": "Installation view",
