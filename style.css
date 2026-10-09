@@ -1423,6 +1423,8 @@ body.subpage .exh-layout { min-height: 100vh; }
 .exh-work-imgs.cols-3 { grid-template-columns: 1.4fr 1fr 1fr; }
 /* side_by_side: 같은 작품의 동등한 컷 — 같은 크기로 나란히 */
 .exh-work-imgs.equal { grid-template-columns: repeat(2, 1fr); }
+/* 사진이 홀수면 마지막 한 장은 한 줄 전체 폭 */
+.exh-work-imgs.equal img:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .exh-work-imgs img { width: 100%; display: block; }
 .exh-work-cap {
   margin-top: 16px;

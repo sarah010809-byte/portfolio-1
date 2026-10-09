@@ -1211,7 +1211,6 @@ async function renderDynamic() {
             ${p.video_first ? pVideoHTML : ""}
             ${multiImage ? `<div class="post-image">${pImageArea}</div>` : ""}
             ${p.video_first ? "" : pVideoHTML}
-            ${snapshotsHTML(p)}
             ${(p.desc_ko || p.desc_en)
               ? `<p class="post-desc" data-ko="${esc(p.desc_ko)}" data-en="${esc(p.desc_en)}">${esc(p.desc_ko)}</p>` : ""}
             ${(p.works && p.works.length) ? `
@@ -1228,17 +1227,22 @@ async function renderDynamic() {
               // 디테일 컷이 있거나(여러 장 나란히) 가로로 넓은 이미지라 전체 폭이 필요하면(full_width):
               //   이미지를 위에 크게, 캡션은 아래로 (전시 출품작과 동일한 방식)
               // 그 외에는 대표 이미지 옆에 캡션 (기존 좌우 배치)
+              // 제목·재료·비고(note)는 한글/영문 페이지에 맞춰 표시
+              const bi = (ko, en, cls) => (ko || en)
+                ? `<span${cls ? ` class="${cls}"` : ""} data-ko="${esc(ko || en)}" data-en="${esc(en || ko)}">${esc(ko || en)}</span>` : "";
               if (wDetails.length || w.full_width) {
+                // side_by_side: 같은 크기 2열 격자 (홀수 마지막 사진은 한 줄 전체)
                 return `
               <li class="proj-subwork-detailed">
-                <div class="exh-work-imgs cols-${Math.min(wImgs.length, 3)}">${wImgs.map((src) =>
+                <div class="exh-work-imgs cols-${Math.min(wImgs.length, 3)}${w.side_by_side ? " equal" : ""}">${wImgs.map((src) =>
                   `<img src="${esc(src)}" alt="${esc(wTitle)}" loading="lazy">`).join("")}</div>
                 <div class="exh-work-cap">
-                  <span class="cap-title">${esc(wTitle)}</span>
+                  ${bi(w.title_ko, w.title_en, "cap-title")}
                   ${collabLine}
-                  ${(w.medium_en || w.medium_ko) ? `<span class="cap-medium">${esc(w.medium_en || w.medium_ko)}</span>` : ""}
+                  ${bi(w.medium_ko, w.medium_en, "cap-medium")}
                   ${w.size ? `<span>${esc(w.size)}</span>` : ""}
                   ${w.year ? `<span>${esc(w.year)}</span>` : ""}
+                  ${bi(w.note_ko, w.note_en)}
                 </div>
               </li>`;
               }
@@ -1255,6 +1259,7 @@ async function renderDynamic() {
               </li>`;
             }).join("")}
             </ul>` : ""}
+            ${snapshotsHTML(p) /* 작은 현장 사진 묶음은 맨 아래 */}
           </article>
           <div class="work-nav">${pPrev}${pNext}</div>
           ${othersHTML}`;

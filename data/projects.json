@@ -436,27 +436,50 @@
                                              "desc_ko":  "",
                                              "desc_en":  "",
                                              "image":  "images/uploads/dearyou-poster.jpg",
-                                             "hide_cover_in_detail":  false,
                                              "images":  [
                                                             { "image": "images/uploads/dearyou-view-036.jpg" },
-                                                            { "image": "images/uploads/dearyou-view-051.jpg" },
-                                                            { "image": "images/uploads/dearyou-view-100.jpg" }
+                                                            { "image": "images/uploads/dearyou-view-100.jpg" },
+                                                            { "image": "images/uploads/dearyou-view-023.jpg" }
                                                         ],
+                                             "works":  [
+                                                           {
+                                                               "title_ko":  "소중한 너",
+                                                               "title_en":  "Dear You",
+                                                               "medium_ko":  "아크릴 판에 펜 드로잉, 가변 설치",
+                                                               "medium_en":  "Pen drawings on human-shaped acrylic cutouts, Installation view",
+                                                               "size":  "",
+                                                               "year":  "2009",
+                                                               "note_ko":  "(안세은, 이주은이 600여명의 어린이와 함께 한 공동 작업)",
+                                                               "note_en":  "(A collaborative work by An Se-Eun and Lee Jueun with approximately 600 children)",
+                                                               "image":  "images/uploads/dearyou-view-067.jpg",
+                                                               "side_by_side":  true,
+                                                               "images":  [
+                                                                              { "image": "images/uploads/dearyou-view-055.jpg" },
+                                                                              { "image": "images/uploads/dearyou-view-051.jpg" },
+                                                                              { "image": "images/uploads/dearyou-view-048.jpg" }
+                                                                          ]
+                                                           },
+                                                           {
+                                                               "title_ko":  "Disposable Identity",
+                                                               "title_en":  "Disposable Identity",
+                                                               "medium_ko":  "Pen on vinyl sticker",
+                                                               "medium_en":  "Pen on vinyl sticker",
+                                                               "size":  "Installation view",
+                                                               "year":  "2009",
+                                                               "image":  "images/uploads/di2009-vinyl-1.jpg",
+                                                               "side_by_side":  true,
+                                                               "images":  [
+                                                                              { "image": "images/uploads/di2009-vinyl-2.jpg" },
+                                                                              { "image": "images/uploads/di2009-vinyl-detail.jpg" }
+                                                                          ]
+                                                           }
+                                                       ],
                                              "snapshot_ratio":  "3 / 2",
                                              "snapshots":  [
-                                                               { "image": "images/uploads/dearyou-view-023.jpg" },
-                                                               { "image": "images/uploads/dearyou-view-048.jpg" },
-                                                               { "image": "images/uploads/dearyou-view-055.jpg" },
-                                                               { "image": "images/uploads/dearyou-view-067.jpg" },
-                                                               { "image": "images/uploads/dearyou-workshop.jpg" },
-                                                               { "image": "images/uploads/di2009-vinyl-detail.jpg" },
                                                                { "image": "images/uploads/dearyou-concert-1.jpg" },
-                                                               { "image": "images/uploads/dearyou-concert-2.jpg" }
-                                                           ],
-                                             "snapshots_tall":  [
-                                                               { "image": "images/uploads/di2009-vinyl-2.jpg" },
-                                                               { "image": "images/uploads/di2009-vinyl-1.jpg" }
-                                                                ]
+                                                               { "image": "images/uploads/dearyou-concert-2.jpg" },
+                                                               { "image": "images/uploads/dearyou-workshop.jpg" }
+                                                           ]
                                          }
       ]
     }
