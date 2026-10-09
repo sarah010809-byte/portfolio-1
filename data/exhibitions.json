@@ -342,6 +342,81 @@
                                                           "image":  "images/uploads/disposable-love-2010-b.jpg"
                                                       }
                                                   ]
+                                    },
+                                    {
+                                        "title_ko":  "일회용 자아",
+                                        "title_en":  "Disposable Identity",
+                                        "date":  "17–30 Dec, 2008",
+                                        "curator_ko":  "",
+                                        "curator_en":  "",
+                                        "venue_ko":  "그림손 갤러리, 서울",
+                                        "venue_en":  "Gallery Grimson, Seoul",
+                                        "desc_ko":  "",
+                                        "desc_en":  "",
+                                        "image":  "images/uploads/di2008-gallery-grimson-ad.jpg",
+                                        "images":  [
+                                                       { "image": "images/uploads/di2008-view.jpg" },
+                                                       { "image": "images/uploads/di2008-leaflet-1.jpg" },
+                                                       { "image": "images/uploads/di2008-leaflet-2.jpg" }
+                                                   ],
+                                        "works":  [
+                                                          {
+                                                              "title_en":  "Disposable Identity",
+                                                              "medium_ko":  "Acrylic on canvas",
+                                                              "medium_en":  "Acrylic on canvas",
+                                                              "size":  "100 x 100 cm",
+                                                              "year":  "2008",
+                                                              "image":  "images/uploads/di2008-canvas-1.jpg"
+                                                          },
+                                                          {
+                                                              "title_en":  "Disposable Identity",
+                                                              "medium_ko":  "Acrylic on canvas",
+                                                              "medium_en":  "Acrylic on canvas",
+                                                              "size":  "100 x 100 cm",
+                                                              "year":  "2008",
+                                                              "image":  "images/uploads/di2008-canvas-2.jpg"
+                                                          },
+                                                          {
+                                                              "title_en":  "Disposable Identity",
+                                                              "medium_ko":  "Mirror",
+                                                              "medium_en":  "Mirror",
+                                                              "size":  "Installation view",
+                                                              "year":  "2008",
+                                                              "image":  "images/uploads/di2008-mirror-floor.jpg"
+                                                          },
+                                                          {
+                                                              "title_en":  "Disposable Identity",
+                                                              "medium_ko":  "",
+                                                              "medium_en":  "",
+                                                              "size":  "Installation view",
+                                                              "year":  "2008",
+                                                              "image":  "images/uploads/di2008-install-4.jpg"
+                                                          },
+                                                          {
+                                                              "title_en":  "Disposable Identity",
+                                                              "medium_ko":  "Bottle caps",
+                                                              "medium_en":  "Bottle caps",
+                                                              "size":  "Installation view",
+                                                              "year":  "2008",
+                                                              "image":  "images/uploads/di2008-caps-room.jpg"
+                                                          },
+                                                          {
+                                                              "title_en":  "Disposable Identity",
+                                                              "medium_ko":  "Mirror",
+                                                              "medium_en":  "Mirror",
+                                                              "size":  "Installation view",
+                                                              "year":  "2008",
+                                                              "image":  "images/uploads/di2008-mirror-wall.jpg"
+                                                          },
+                                                          {
+                                                              "title_en":  "Disposable Identity",
+                                                              "medium_ko":  "",
+                                                              "medium_en":  "",
+                                                              "size":  "Installation view",
+                                                              "year":  "2008",
+                                                              "image":  "images/uploads/di2008-install-7.jpg"
+                                                          }
+                                                  ]
                                     }
                                 ]
                   },

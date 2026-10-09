@@ -836,9 +836,13 @@ async function renderDynamic() {
       if (w.related_ko || w.related_en) {
         const exhData = await loadJSON("data/exhibitions.json");
         exhMatch = exhData
-          ? exhAll(exhData).find((e) =>
-              (w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
-              (w.related_en && e.title_en && w.related_en.includes(e.title_en)))
+          ? exhAll(exhData).find((e) => {
+              // 같은 제목의 전시가 여러 해에 있으면 전시 연도까지 맞는 쪽으로
+              const y = ((e.date || "").match(/\d{4}/) || [""])[0];
+              return ((w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
+                (w.related_en && e.title_en && w.related_en.includes(e.title_en))) &&
+                (!y || `${w.related_ko || ""} ${w.related_en || ""}`.includes(y));
+            })
           : null;
         if (exhMatch) relatedHref = `exhibition.html?i=${exhMatch.idx}`;
       }
@@ -1029,11 +1033,21 @@ async function renderDynamic() {
           (norm(x.title_en || x.title_ko) === norm(w.title_en) || norm(x.title_en || x.title_ko) === norm(w.title_ko)) &&
           (x.year || "") === (w.year || "") &&
           (!(x.medium_en || x.medium_ko) || norm(x.medium_en || x.medium_ko) === norm(w.medium_en || w.medium_ko));
+        // 작품의 '관련 전시'에 이 전시명이 들어 있고, 전시 연도도 함께 적혀 있을 때만 연결
+        // (같은 제목의 전시가 여러 해에 있을 때 — 예: 2008·2010 Disposable Identity 개인전)
+        const exhYear = ((e.date || "").match(/\d{4}/) || [""])[0];
+        const relatedHere = (w) =>
+          ((w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
+           (w.related_en && e.title_en && w.related_en.includes(e.title_en))) &&
+          (!exhYear || `${w.related_ko || ""} ${w.related_en || ""}`.includes(exhYear));
+        // 출품작 사진이 Works의 대표 사진과 같은 파일이면 그 작품과 정확히 연결 (제목·재료 비교 생략)
+        const allWorkImgs = new Set(worksData ? sortedWorks(worksData).map((w) => w.image) : []);
+        const exhImgs = new Set(exhWorks.map((x) => x.image));
         const relWorks = worksData
           ? sortedWorks(worksData).filter((w) =>
-              exhWorks.some((x) => sameWork(x, w)) ||
-              (w.related_ko && e.title_ko && w.related_ko.includes(e.title_ko)) ||
-              (w.related_en && e.title_en && w.related_en.includes(e.title_en)))
+              exhImgs.has(w.image) ||
+              exhWorks.some((x) => !allWorkImgs.has(x.image) && sameWork(x, w)) ||
+              relatedHere(w))
           : [];
         // 관련 작품은 "다른 전시"와 같은 .other-works 스타일을 그대로 써서
         // 상단바와 같은 폭으로 (post-detail의 좁은 폭 제약 밖에 위치)
