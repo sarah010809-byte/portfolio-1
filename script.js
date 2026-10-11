@@ -960,7 +960,6 @@ async function renderDynamic() {
           <div class="exh-info">
             <h2 data-ko="${esc(e.title_ko)}" data-en="${esc(e.title_en)}">${esc(e.title_ko)}</h2>
             <p class="exh-date">${esc(e.date)}</p>
-            <p class="exh-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>
           </div>
         </a>`).join("") + pagerHTML(href, page, total);
     }

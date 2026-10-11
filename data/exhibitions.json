@@ -398,6 +398,80 @@
                                         "images":  [
 
                                                    ],
+                                        "works":  [
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic and gold leaf on canvas",
+                                                          "medium_en":  "Acrylic and gold leaf on canvas",
+                                                          "size":  "90 x 90 cm",
+                                                          "year":  "2012",
+                                                          "image":  "images/uploads/disposable-identity-2012-gold-1.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic and gold leaf on canvas",
+                                                          "medium_en":  "Acrylic and gold leaf on canvas",
+                                                          "size":  "90 x 90 cm",
+                                                          "year":  "2012",
+                                                          "image":  "images/uploads/disposable-identity-2012-gold-2.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "80 x 80 cm",
+                                                          "year":  "2012",
+                                                          "image":  "images/uploads/disposable-identity-2012-80-heart.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "50 x 50 cm",
+                                                          "year":  "2012",
+                                                          "image":  "images/uploads/disposable-identity-2012-50-green.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "50 x 50 cm",
+                                                          "year":  "2012",
+                                                          "image":  "images/uploads/disposable-identity-2012-50-black.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "50 x 50 cm",
+                                                          "year":  "2012",
+                                                          "image":  "images/uploads/disposable-identity-2012-50-white.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic and gold leaf on canvas",
+                                                          "medium_en":  "Acrylic and gold leaf on canvas",
+                                                          "size":  "80 x 80 cm",
+                                                          "year":  "2011",
+                                                          "image":  "images/uploads/disposable-identity-2011-gold-80.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "80 x 80 cm",
+                                                          "year":  "2011",
+                                                          "image":  "images/uploads/disposable-identity-2011-80-arc.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic and gold leaf on canvas",
+                                                          "medium_en":  "Acrylic and gold leaf on canvas",
+                                                          "size":  "80 x 80 cm",
+                                                          "year":  "2011",
+                                                          "image":  "images/uploads/disposable-identity-2011-gold-80-blue.jpg"
+                                                      }
+                                                  ],
                                         "snapshot_layout":  "single",
                                         "snapshots":  [
                                                        { "image": "images/uploads/fb2012-view-1.jpg" },
