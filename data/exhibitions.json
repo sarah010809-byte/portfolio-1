@@ -53,6 +53,14 @@
                                                    ],
                                         "works":  [
                                                       {
+                                                          "title_en":  "The Road Home",
+                                                          "medium_ko":  "Oil on canvas",
+                                                          "medium_en":  "Oil on canvas",
+                                                          "size":  "89 x 130 cm",
+                                                          "year":  "2017",
+                                                          "image":  "images/uploads/the-road-home-2017-oil.jpg"
+                                                      },
+                                                      {
                                                           "title_en":  "Trifling Moment",
                                                           "medium_ko":  "Acrylic on canvas",
                                                           "medium_en":  "Acrylic on canvas",
@@ -377,6 +385,22 @@
                                                               "image":  "images/uploads/di2008-canvas-2.jpg"
                                                           },
                                                           {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "100 x 100 cm",
+                                                          "year":  "2008",
+                                                          "image":  "images/uploads/di2008-canvas-6.jpg"
+                                                      },
+                                                      {
+                                                          "title_en":  "Disposable Identity",
+                                                          "medium_ko":  "Acrylic on canvas",
+                                                          "medium_en":  "Acrylic on canvas",
+                                                          "size":  "100 x 100 cm",
+                                                          "year":  "2008",
+                                                          "image":  "images/uploads/di2008-canvas-7.jpg"
+                                                      },
+                                                      {
                                                               "title_en":  "Disposable Identity",
                                                               "medium_ko":  "Mirror",
                                                               "medium_en":  "Mirror",
