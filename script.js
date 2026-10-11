@@ -1019,6 +1019,8 @@ async function renderDynamic() {
                 ? `<span class="cap-medium">${esc(w.medium_en || w.medium_ko)}</span>` : ""}
               ${w.size ? `<span>${esc(w.size)}</span>` : ""}
               ${w.year ? `<span>${esc(w.year)}</span>` : ""}
+              ${(w.note_ko || w.note_en)
+                ? `<span data-ko="${esc(w.note_ko || w.note_en)}" data-en="${esc(w.note_en || w.note_ko)}">${esc(w.note_ko || w.note_en)}</span>` : ""}
             </figcaption>
           </figure>`;
         }).join("");

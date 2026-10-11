@@ -167,6 +167,60 @@
                                                   ]
                                     },
                                     {
+                                        "title_ko":  "On the Road",
+                                        "title_en":  "On the Road",
+                                        "date":  "07 – 30 August, 2017",
+                                        "curator_ko":  "",
+                                        "curator_en":  "",
+                                        "venue_ko":  "스페이스 15, 서울",
+                                        "venue_en":  "Space 15th, Seoul",
+                                        "desc_ko":  "",
+                                        "desc_en":  "",
+                                        "image":  "images/uploads/otr2017-cover.jpg",
+                                        "images":  [
+
+                                                   ],
+                                        "works":  [
+                                                      {
+                                                          "title_en":  "On the Road",
+                                                          "medium_ko":  "Cardboard boxes",
+                                                          "medium_en":  "Cardboard boxes",
+                                                          "size":  "204 × 345 cm",
+                                                          "year":  "2017",
+                                                          "note_ko":  "관람객과 협업작업",
+                                                          "note_en":  "Collaborative Work with Visitors",
+                                                          "image":  "images/uploads/otr2017-main.jpg"
+                                                      },
+                                                          {
+                                                              "title_en":  "On the Road detail",
+                                                              "medium_ko":  "",
+                                                              "medium_en":  "",
+                                                              "size":  "",
+                                                              "year":  "",
+                                                              "image":  "images/uploads/otr2017-detail-1.jpg"
+                                                          },
+                                                          {
+                                                              "title_en":  "On the Road detail",
+                                                              "medium_ko":  "",
+                                                              "medium_en":  "",
+                                                              "size":  "",
+                                                              "year":  "",
+                                                              "image":  "images/uploads/otr2017-detail-2.jpg"
+                                                          },
+                                                          {
+                                                              "title_en":  "On the Road detail",
+                                                              "medium_ko":  "",
+                                                              "medium_en":  "",
+                                                              "size":  "",
+                                                              "year":  "",
+                                                              "image":  "images/uploads/otr2017-detail-3.jpg"
+                                                          }
+                                                  ],
+                                        "images_end":  [
+                                                           { "image": "images/uploads/otr2017-leaflet.jpg" }
+                                                       ]
+                                    },
+                                    {
                                         "title_ko":  "사소한 순간",
                                         "title_en":  "Trifling Moment",
                                         "date":  "June 18 – August 16, 2016",
