@@ -1311,7 +1311,10 @@ async function renderDynamic() {
           ).join("");
       }
 
+      // lang: "ko" / "en" — 한 언어로만 있는 글은 그 언어 화면의 목록에만 표시 (언어 전환 시 다시 그림)
+      const renderWritingList = (lang) => {
       const shown = (selCat ? all.filter((t) => t.category === selCat) : all)
+        .filter((t) => !t.lang || t.lang === lang)
         .sort((a, b) => String(b.year).localeCompare(String(a.year)));
       const { view, page, total } = sliceForPage(shown);
       const href = (n) => `writings.html?${selCat ? `cat=${selCat}&` : ""}p=${n}`;
@@ -1334,6 +1337,11 @@ async function renderDynamic() {
             ? `<p class="home-excerpt" data-ko="${esc(t.body_ko)}" data-en="${esc(t.body_en)}">${esc(t.body_ko)}</p>` : ""}
         </a>`;
       }).join("")}</div>` + pagerHTML(href, page, total);
+      };
+      renderWritingList(currentLang());
+      const reRender = (lang) => setTimeout(() => { renderWritingList(lang); setLang(lang); }, 190);
+      btnKo.addEventListener("click", () => reRender("ko"));
+      btnEn.addEventListener("click", () => reRender("en"));
     }
   }
 
