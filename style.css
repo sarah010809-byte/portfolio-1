@@ -1847,6 +1847,11 @@ img.profile { object-fit: cover; }
 
   /* 작품 상세 하단 카드: 정사각형 2개씩 */
   .other-works .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  /* 전시 상세 '다른 전시' 카드: 위아래 줄 사이를 넉넉히 띄워 캡션이 아래 카드 것처럼 보이지 않게,
+     'Exhibition' 라벨은 빼고 전시명은 똑바로 */
+  #exh-detail .other-works .grid { row-gap: 32px; }
+  #exh-detail .other-works .stack-caption .card-cat { display: none; }
+  #exh-detail .other-works .stack-caption strong { font-style: normal; }
   .rel-strip { gap: 10px; }
   .rel-strip .card { flex-basis: 42%; }
   .other-works .card .thumb { aspect-ratio: 1 / 1; margin-bottom: 0; }
