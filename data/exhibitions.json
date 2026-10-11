@@ -323,6 +323,29 @@
                                                   ]
                                     },
                                     {
+                                        "title_ko":  "Floating Between",
+                                        "title_en":  "Floating Between",
+                                        "date":  "2 – 15 July, 2012",
+                                        "curator_ko":  "",
+                                        "curator_en":  "",
+                                        "venue_ko":  "Nest 갤러리, 제네바, 스위스",
+                                        "venue_en":  "Nest Gallery, Geneva, Switzerland",
+                                        "desc_ko":  "",
+                                        "desc_en":  "",
+                                        "image":  "images/uploads/fb2012-postcard.jpg",
+                                        "images":  [
+
+                                                   ],
+                                        "snapshot_layout":  "single",
+                                        "snapshots":  [
+                                                       { "image": "images/uploads/fb2012-view-1.jpg" },
+                                                       { "image": "images/uploads/fb2012-view-2.jpg" },
+                                                       { "image": "images/uploads/fb2012-view-3.jpg" },
+                                                       { "image": "images/uploads/fb2012-view-4.jpg" },
+                                                       { "image": "images/uploads/fb2012-view-5.jpg" }
+                                                      ]
+                                    },
+                                    {
                                         "title_ko":  "Disposable Identity",
                                         "title_en":  "Disposable Identity",
                                         "date":  "June 10 – 27, 2010",

@@ -1404,6 +1404,9 @@ body.subpage .exh-layout { min-height: 100vh; }
   white-space: pre-line;
 }
 .post-detail .exh-detail-image { margin-bottom: 32px; } /* 설치 전경 이미지들 세로 나열 */
+/* 출품작 캡션·현장 사진 묶음 뒤에 오는 이미지(리플렛 등)는 출품작 사이 간격만큼 띄움 */
+.post-detail .exh-work + .exh-detail-image,
+.post-detail .snapshot-grid + .exh-detail-image { margin-top: 64px; }
 .post-detail .exh-detail-section { margin: 56px 0 0; padding-top: 32px; border-top: 1px solid #eee; }
 
 /* 전시 제목은 전시 상세 페이지 안에서만 이탤릭 */
