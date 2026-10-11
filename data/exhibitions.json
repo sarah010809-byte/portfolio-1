@@ -167,6 +167,50 @@
                                                   ]
                                     },
                                     {
+                                        "title_ko":  "사소한 순간",
+                                        "title_en":  "Trifling Moment",
+                                        "date":  "June 18 – August 16, 2016",
+                                        "curator_ko":  "",
+                                        "curator_en":  "",
+                                        "venue_ko":  "KAIST Research & Art, 서울",
+                                        "venue_en":  "KAIST Research & Art Gallery, Seoul",
+                                        "desc_ko":  "",
+                                        "desc_en":  "",
+                                        "image":  "images/uploads/tm2016-cover.jpg",
+                                        "images":  [
+
+                                                   ],
+                                        "works":  [
+                                                          {
+                                                              "title_en":  "Trifling Moment",
+                                                              "medium_ko":  "",
+                                                              "medium_en":  "",
+                                                              "size":  "Installation view",
+                                                              "year":  "2016",
+                                                              "image":  "images/uploads/tm2016-view-1.jpg"
+                                                          },
+                                                          {
+                                                              "title_en":  "Trifling Moment",
+                                                              "medium_ko":  "",
+                                                              "medium_en":  "",
+                                                              "size":  "Installation view",
+                                                              "year":  "2016",
+                                                              "image":  "images/uploads/tm2016-view-2.jpg"
+                                                          },
+                                                          {
+                                                              "title_en":  "Trifling Moment",
+                                                              "medium_ko":  "",
+                                                              "medium_en":  "",
+                                                              "size":  "Installation view",
+                                                              "year":  "2016",
+                                                              "image":  "images/uploads/tm2016-view-3.jpg"
+                                                          }
+                                                  ],
+                                        "images_end":  [
+                                                           { "image": "images/uploads/tm2016-leaflet.jpg" }
+                                                       ]
+                                    },
+                                    {
                                         "title_ko":  "취급주의",
                                         "title_en":  "Handle with Care",
                                         "date":  "March 29 – April 28, 2019",

@@ -1099,6 +1099,8 @@ async function renderDynamic() {
               ? `<p class="post-desc" data-ko="${esc(e.desc_ko)}" data-en="${esc(e.desc_en)}">${esc(e.desc_ko)}</p>` : ""}
             ${exhWorksHTML}
             ${snapshotsHTML(e)}
+            ${(e.images_end || []).map((o) => (typeof o === "string" ? o : o.image)).filter(Boolean).map((src) =>
+              `<div class="exh-detail-image"><img src="${esc(src)}" alt="${esc(e.title_ko)}" loading="lazy"></div>`).join("") /* 리플렛 등 맨 끝에 넣을 이미지 */}
           </article>
           <div class="work-nav">${prev}${next}</div>
           ${relWorksHTML}
