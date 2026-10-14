@@ -1676,6 +1676,23 @@
           ]
         },
         {
+          "title_ko": "The Red",
+          "title_en": "The Red",
+          "year": "2018",
+          "medium_ko": "무대미술, JCC Art Center, 서울",
+          "medium_en": "Stage Design, JCC Art Center, Seoul",
+          "size": "",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/the-red-2018-2454.jpg",
+          "images": [
+            { "image": "images/uploads/the-red-2018-2476.jpg" },
+            { "image": "images/uploads/the-red-2018-2686.jpg" }
+          ]
+        },
+        {
           "title_ko": "After love",
           "title_en": "After love",
           "year": "2026",
