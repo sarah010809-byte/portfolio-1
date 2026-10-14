@@ -319,7 +319,17 @@
     { "year": "2017", "text": "세종 국제 무용제 - 나비의 옥중가, 세종시" },
     { "year": "2017", "text": "춘향, 다시 나비로 날아들다, 정효 국악문화재단 정효 아트홀, 서울" }
   ],
-  "performance_en": [],
+  "performance_en": [
+    { "year": "2018", "text": "Spring, Again - Wedding of Eunhee Lim and Kuldip Chatterjee, Doing Art, Seoul" },
+    { "year": "2018", "text": "Memoryscape, Four Seasons Concert Series, Hanseong Baekje Museum, Seoul" },
+    { "year": "2018", "text": "Maru International Music Festival, Haeun Hall, Haeundae Cultural Center, Busan" },
+    { "year": "2018", "text": "Just a Little Weird, Gallery Far Beyond, Seoul" },
+    { "year": "2018", "text": "The Four Seasons, Pungnyu Theater, National Gugak Center, Seoul" },
+    { "year": "2018", "text": "The Red, JCC Art Center, Seoul" },
+    { "year": "2017", "text": "The Road Home - The Water Spider’s House, Gallery Chosun, Seoul" },
+    { "year": "2017", "text": "A Butterfly’s Song from Prison, Sejong International Dance Festival, Sejong" },
+    { "year": "2017", "text": "Chunhyang Takes Flight Again as a Butterfly, Jeonghyo Art Hall, Seoul" }
+  ],
   "awards_ko": [
     { "year": "2024", "text": "한국국제문화교류진흥원 쌍방향 국제문화협업사업" },
     { "year": "2023", "text": "한국국제문화교류진흥원 쌍방향 국제문화협업사업" },

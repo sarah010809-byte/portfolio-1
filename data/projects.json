@@ -66,6 +66,26 @@
               "image": "images/uploads/collab-game-2022.jpg"
             }
           ]
+        },
+        {
+          "title_ko": "나비의 옥중가",
+          "title_en": "A Butterfly’s Song from Prison",
+          "year": "2017",
+          "collaborator_ko": "무대미술",
+          "collaborator_en": "Stage Design",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "세종 국제 무용제, 세종시",
+          "venue_en": "Sejong International Dance Festival, Sejong",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/butterfly-song-2017-55.jpg",
+          "images": [
+            { "image": "images/uploads/butterfly-song-2017-11.jpg" },
+            { "image": "images/uploads/butterfly-song-2017-22.jpg" },
+            { "image": "images/uploads/butterfly-song-2017-44.jpg" }
+          ]
         }
       ]
     },

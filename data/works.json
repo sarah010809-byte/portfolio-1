@@ -1658,6 +1658,24 @@
           ]
         },
         {
+          "title_ko": "나비의 옥중가",
+          "title_en": "A Butterfly’s Song from Prison",
+          "year": "2017",
+          "medium_ko": "무대미술, 세종 국제 무용제",
+          "medium_en": "Stage Design, Sejong International Dance Festival",
+          "size": "",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/butterfly-song-2017-55.jpg",
+          "images": [
+            { "image": "images/uploads/butterfly-song-2017-11.jpg" },
+            { "image": "images/uploads/butterfly-song-2017-22.jpg" },
+            { "image": "images/uploads/butterfly-song-2017-44.jpg" }
+          ]
+        },
+        {
           "title_ko": "After love",
           "title_en": "After love",
           "year": "2026",
