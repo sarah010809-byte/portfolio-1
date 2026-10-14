@@ -86,6 +86,27 @@
             { "image": "images/uploads/butterfly-song-2017-22.jpg" },
             { "image": "images/uploads/butterfly-song-2017-44.jpg" }
           ]
+        },
+        {
+          "title_ko": "춘향, 다시 나비로 날아들다",
+          "title_en": "Chunhyang Takes Flight Again as a Butterfly",
+          "year": "2017",
+          "collaborator_ko": "무대미술",
+          "collaborator_en": "Stage Design",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "정효 국악문화재단 정효 아트홀, 서울",
+          "venue_en": "Jeonghyo Art Hall, Jeonghyo Korean Traditional Music Foundation, Seoul",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/chunhyang-2017-4194.jpg",
+          "images": [
+            { "image": "images/uploads/chunhyang-2017-4192.jpg" },
+            { "image": "images/uploads/chunhyang-2017-4202.jpg" },
+            { "image": "images/uploads/chunhyang-2017-4960.jpg" },
+            { "image": "images/uploads/chunhyang-2017-5131.jpg" }
+          ]
         }
       ]
     },
