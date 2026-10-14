@@ -893,12 +893,12 @@
           "desc_en": "",
           "related_ko": "",
           "related_en": "",
-          "image": "images/uploads/lot2026-mirror-1-b.jpg",
+          "image": "images/uploads/lot2026-mirror-1-5-b.jpg",
           "images": [
+            { "image": "images/uploads/lot2026-mirror-1-b.jpg" },
             { "image": "images/uploads/lot2026-mirror-1-2-b.jpg" },
             { "image": "images/uploads/lot2026-mirror-1-3-b.jpg" },
             { "image": "images/uploads/lot2026-mirror-1-4-b.jpg" },
-            { "image": "images/uploads/lot2026-mirror-1-5-b.jpg" },
             { "image": "images/uploads/lot2026-mirror-1-6-b.jpg" }
           ]
         },
