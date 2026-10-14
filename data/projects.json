@@ -68,6 +68,26 @@
           ]
         },
         {
+          "title_ko": "마루 국제 음악제",
+          "title_en": "Maru International Music Festival",
+          "year": "2018",
+          "collaborator_ko": "무대미술",
+          "collaborator_en": "Stage Design",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "해운대문화회관 해운홀, 부산",
+          "venue_en": "Haeun Hall, Haeundae Cultural Center, Busan",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/maru-2018-24.jpg",
+          "images": [
+            { "image": "images/uploads/maru-2018-8.jpg" },
+            { "image": "images/uploads/maru-2018-12.jpg" },
+            { "image": "images/uploads/maru-2018-26.jpg" }
+          ]
+        },
+        {
           "title_ko": "나비의 옥중가",
           "title_en": "A Butterfly’s Song from Prison",
           "year": "2017",
