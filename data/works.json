@@ -1693,6 +1693,25 @@
           ]
         },
         {
+          "title_ko": "Memoryscape",
+          "title_en": "Memoryscape",
+          "year": "2018",
+          "medium_ko": "무대미술, 한성백제박물관 사계 콘서트, 서울",
+          "medium_en": "Stage Design, Four Seasons Concert Series, Hanseong Baekje Museum, Seoul",
+          "size": "",
+          "desc_ko": "",
+          "desc_en": "",
+          "related_ko": "",
+          "related_en": "",
+          "image": "images/uploads/memoryscape-2018-08.jpg",
+          "images": [
+            { "image": "images/uploads/memoryscape-2018-04-7.jpg" },
+            { "image": "images/uploads/memoryscape-2018-04-8.jpg" },
+            { "image": "images/uploads/memoryscape-2018-05.jpg" },
+            { "image": "images/uploads/memoryscape-2018-07.jpg" }
+          ]
+        },
+        {
           "title_ko": "After love",
           "title_en": "After love",
           "year": "2026",

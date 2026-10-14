@@ -68,6 +68,27 @@
           ]
         },
         {
+          "title_ko": "Memoryscape",
+          "title_en": "Memoryscape",
+          "year": "2018",
+          "collaborator_ko": "무대미술",
+          "collaborator_en": "Stage Design",
+          "medium_ko": "",
+          "medium_en": "",
+          "size": "",
+          "venue_ko": "한성백제박물관 사계 콘서트, 서울",
+          "venue_en": "Four Seasons Concert Series, Hanseong Baekje Museum, Seoul",
+          "desc_ko": "",
+          "desc_en": "",
+          "image": "images/uploads/memoryscape-2018-08.jpg",
+          "images": [
+            { "image": "images/uploads/memoryscape-2018-04-7.jpg" },
+            { "image": "images/uploads/memoryscape-2018-04-8.jpg" },
+            { "image": "images/uploads/memoryscape-2018-05.jpg" },
+            { "image": "images/uploads/memoryscape-2018-07.jpg" }
+          ]
+        },
+        {
           "title_ko": "마루 국제 음악제",
           "title_en": "Maru International Music Festival",
           "year": "2018",
